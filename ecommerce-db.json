@@ -1,0 +1,191 @@
+{
+  "brands": [
+    {
+      "id": 1,
+      "brandName": "Apple"
+    },
+    {
+      "id": 2,
+      "brandName": "Sony"
+    },
+    {
+      "id": 3,
+      "brandName": "Samsung"
+    },
+    {
+      "id": 4,
+      "brandName": "Carrier"
+    },
+    {
+      "id": 5,
+      "brandName": "Dell"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "categoryName": "Mobile"
+    },
+    {
+      "id": 2,
+      "categoryName": "Electronics"
+    },
+    {
+      "id": 3,
+      "categoryName": "Appliances"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "productName": "Apple iPhone",
+      "price": 8900,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "productName": "Apple iPad Pro",
+      "price": 12400,
+      "brandId": 1,
+      "categoryId": 2,
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "productName": "Sony Camera",
+      "price": 4500,
+      "brandId": 2,
+      "categoryId": 2,
+      "rating": 4
+    },
+    {
+      "id": 4,
+      "productName": "Sony 5.1 Home Theatre",
+      "price": 4500,
+      "brandId": 2,
+      "categoryId": 2,
+      "rating": 4
+    },
+    {
+      "id": 5,
+      "productName": "Carrier 2 Ton Air Conditioner",
+      "price": 7780,
+      "brandId": 4,
+      "categoryId": 3,
+      "rating": 3
+    },
+    {
+      "id": 6,
+      "productName": "Dell Monitor",
+      "price": 880,
+      "brandId": 5,
+      "categoryId": 2,
+      "rating": 4
+    },
+    {
+      "id": 7,
+      "productName": "Sony Mobile Phone",
+      "price": 4848,
+      "brandId": 2,
+      "categoryId": 1,
+      "rating": 2
+    },
+    {
+      "id": 8,
+      "productName": "Samsung Mobile Phone",
+      "price": 2540,
+      "brandId": 3,
+      "categoryId": 1,
+      "rating": 2
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "scott@test.com",
+      "password": "Scott123",
+      "fullName": "Scott",
+      "dateOfBirth": "2000-12-15",
+      "gender": "male",
+      "country": "UK",
+      "receiveNewsLetters": true,
+      "role": "user"
+    },
+    {
+      "email": "hamed@gmail.com",
+      "password": "Hamed123",
+      "fullName": "hamed ahmadi",
+      "dateOfBirth": "2021-09-09",
+      "gender": "male",
+      "country": "7",
+      "receiveNewsLetters": true,
+      "id": 2,
+      "role": "user"
+    },
+    {
+      "email": "sara@gmail.com",
+      "password": "Sara123",
+      "fullName": "sara",
+      "dateOfBirth": "2021-09-21",
+      "gender": "female",
+      "country": "3",
+      "receiveNewsLetters": true,
+      "id": 3,
+      "role": "user"
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "Admin123",
+      "fullName": "Admin",
+      "dateOfBirth": "2001-09-21",
+      "gender": "female",
+      "country": "1",
+      "receiveNewsLetters": true,
+      "id": 4,
+      "role": "admin"
+    },
+    {
+      "email": "yashar@gmail.com",
+      "password": "Yashar123",
+      "fullName": "yashar",
+      "dateOfBirth": "2021-10-05",
+      "gender": "male",
+      "country": "2",
+      "receiveNewsLetters": true,
+      "role": "user",
+      "id": 5
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 1,
+      "productId": 1,
+      "quantity": 2,
+      "isPaymentCompleted": true
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "productId": 3,
+      "quantity": 1,
+      "isPaymentCompleted": true
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "productId": 4,
+      "quantity": 1,
+      "isPaymentCompleted": true
+    },
+    {
+      "userId": 5,
+      "productId": 6,
+      "quantity": 1,
+      "isPaymentCompleted": false,
+      "id": 4
+    }
+  ]
+}
