@@ -3,7 +3,7 @@ import React , {useState} from 'react';
 const Dashboard = () => {
     return(
         <h1 className="text-success">
-            Page Not Found
+           Dashboard
         </h1>
     )
 }
