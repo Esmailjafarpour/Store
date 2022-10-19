@@ -1,11 +1,16 @@
-import React ,{useState} from 'react';
+import React ,{useState,useEffect} from 'react';
 
 const Login = () => {
+
+    useEffect(() => {
+        document.title = 'Login'
+    }, []);
+
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     console.log(email,password)
    
-
     return(
         <div className="row">
             <div className="col-lg-5 col-md-7 mx-auto">

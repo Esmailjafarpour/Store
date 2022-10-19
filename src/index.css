@@ -1,0 +1,14 @@
+.navbarStyle{
+    background-color: rgb(5, 125, 141)!important;
+    --bs-bg-opacity: 1;
+}
+
+i{
+    align-items: center;
+    display: flex !important;
+    margin-right: .5rem;
+}
+
+.nav-link{
+    display: flex !important;
+}

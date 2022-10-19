@@ -1,6 +1,11 @@
-import React , {useState} from 'react';
+import React , {useState,useEffect} from 'react';
 
 const Dashboard = () => {
+
+    useEffect(() => {
+        document.title = 'Dashboard'
+    }, []);
+
     return(
         <h1 className="text-success">
            Dashboard
