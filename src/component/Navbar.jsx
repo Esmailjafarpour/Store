@@ -20,30 +20,30 @@ const Navbar = () => {
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li className="nav-item">
-                        <NavLink className="nav-link" activeClassName="active" aria-current="page" to="/dashboard">
-                            <i class="fa fa-dashboard"></i>
+                        <NavLink className="nav-link" activeclassname="active" aria-current="page" to="/dashboard">
+                            <i className="fa fa-dashboard"></i>
                             Dashboard
                         </NavLink>
                     </li>
 
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="/" activeClassName="active" exact={true}>Login</NavLink>
+                        <NavLink className="nav-link" to="/" activeclassname="active" exact={`${true}`}>Login</NavLink>
                     </li>
 
                     <li className="nav-item">
-                        <NavLink className="nav-link" activeClassName="active" to="/register">Register</NavLink>
+                        <NavLink className="nav-link" activeclassname="active" to="/register">Register</NavLink>
                     </li>
 
                 </ul>
 
                 <div style={{marginRight: 100}}>
                     <ul className="navbar-nav">
-                        <li class="nav-item dropdown">
+                        <li className="nav-item dropdown">
                             <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i className="fa fa-user circle"></i>
                                 User
                             </NavLink>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><NavLink className="dropdown-item" to="#">LogOut</NavLink></li>
                             </ul>
                         </li>

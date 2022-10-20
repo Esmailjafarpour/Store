@@ -1,5 +1,6 @@
 import React ,{useState,useEffect,useContext} from 'react';
-import {userContext} from '../userContext';
+import { useNavigate } from "react-router-dom";
+import {UserContext} from '../UserContext';
 
 const Login = (props) => {
 
@@ -17,8 +18,8 @@ const Login = (props) => {
     });
 
     const [loginMessage, setLoginMessage] = useState("");
-
-    const context = useContext(userContext);
+    const navigate = useNavigate()
+    const userContext = useContext(UserContext);
 
 
     useEffect(() => {
@@ -79,31 +80,33 @@ const Login = (props) => {
             if (response.ok) {
                 let responseBody = await response.json();
                 if (responseBody.length>0) {
-
-                    context.dispatch({
-                        type : "login",
-                        payload : {
-                            currentUserId : responseBody[0].id,
-                            currentUserName : responseBody[0].fullName,
-                            currentUserRole: responseBody[0].role,
-                        }
+                    navigate("/dashboard")
+                    console.log("userContext",userContext.user)
+                    userContext.setUser({
+                        ...userContext.user,
+                        isLoggedIn:true,
                     })
+                    // userContext.dispatch({
+                    //     type : "login",
+                    //     payload : {
+                    //         currentUserId : responseBody[0].id,
+                    //         currentUserName : responseBody[0].fullName,
+                    //         currentUserRole: responseBody[0].role,
+                    //     }
+                    // })
 
                     if (responseBody[0].role === "user") {
-                        props.history.replace("/dashboard")
+                        // props.history.replace("/dashboard")
                     } else {
-                        props.history.replace("/products")
+                        // props.history.replace("/products")
                     }
 
-                }else if(!response.ok){
-
-                    setLoginMessage(<span className="text-danger">Invalid Login,please try again</span>)
-
                 }else{
-
-                    setLoginMessage(<span className="text-danger">Unable to connect to server</span>)
-
+                    setLoginMessage(<span className="text-danger">Invalid Login,please try again</span>)
                 }
+
+            }else{
+                setLoginMessage(<span className="text-danger">Unable to connect to server</span>)
             }
         }
     }

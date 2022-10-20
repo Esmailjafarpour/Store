@@ -4,27 +4,39 @@ import Register from './component/Register';
 import NoMatchPage from './component/NoMatchPage';
 import Dashboard from './component/Dashboard';
 import Navbar from './component/Navbar.jsx';
+import React,{useState} from 'react';
 import {Route,Routes,BrowserRouter} from 'react-router-dom';
+import {UserContext} from './UserContext';
 
 function App() {
 
+  const {user, setUser} = useState({
+    isLoggedIn:false,
+    currentUserId:null,
+    currentUserName:null
+  })
+
   return (
 
-    <BrowserRouter>
+    <UserContext.Provider value={{user,setUser}}>
 
-        <Navbar/>
+      <BrowserRouter>
 
-        <div className="container-fluid">
-          <Routes>
-            <Route path="/" exact element={<Login/>}/>
-            <Route path="/register" element={<Register/>}/>
-            <Route path="/dashboard" element={<Dashboard/>}/>
-            <Route path="*" element={<NoMatchPage/>}/>
-          </Routes>
-        </div>
+          <Navbar/>
 
-      </BrowserRouter>
-   
+          <div className="container-fluid">
+            <Routes>
+              <Route path="/" exact={`${true}`} element={<Login/>}/>
+              <Route path="/register" element={<Register/>}/>
+              <Route path="/dashboard" element={<Dashboard/>}/>
+              <Route path="*" element={<NoMatchPage/>}/>
+            </Routes>
+          </div>
+
+        </BrowserRouter>
+
+    </UserContext.Provider>
+
   );
   
 }

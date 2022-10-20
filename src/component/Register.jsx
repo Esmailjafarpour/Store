@@ -1,5 +1,6 @@
 import React , {useState,useEffect,useContext} from 'react';
-import {userContext} from '../userContext';
+import { useNavigate } from "react-router-dom";
+import {UserContext} from '../UserContext';
 
 const Register = (props) => {
 
@@ -46,7 +47,9 @@ const Register = (props) => {
 
     const [message, setMessage] = useState();
 
-    const context = useContext(userContext);
+    const userContext = useContext(UserContext);
+
+    const navigate = useNavigate()
 
     const validate = () => {
 
@@ -164,26 +167,26 @@ const Register = (props) => {
             });
 
             if (response.ok){
-                const responseBody = await response.json()
-                console.log("responseBody",responseBody)
-                context.dispatch({
-                    type : "login",
-                    payload : {
-                        currentUserId : responseBody.id,
-                        currentUserName : responseBody.fullName,
-                        currentUserRole: responseBody.role,
-                    }
-                })
-
+                // const responseBody = await response.json()
+                // userContext.dispatch({
+                //     type : "login",
+                //     payload : {
+                //         currentUserId : responseBody.id,
+                //         currentUserName : responseBody.fullName,
+                //         currentUserRole: responseBody.role,
+                //     }
+                // })
                 setMessage(<span className="text-success">SuccessFully Registered</span>)
-                props.history.replace("/dashboard")
-            }else if(!response.ok){
-                setMessage(<span className="text-success">Errors in database connection</span>)
-            }else {
-                setMessage(<span className="text-success">Errors</span>)
+                navigate("/dashboard")
+
+            }else{
+
+                setMessage(<span className="text-danger">Errors in database connection</span>)
+
             }
 
-
+        }else {
+            setMessage(<span className="text-danger">Errors</span>)
         }
     }
 
