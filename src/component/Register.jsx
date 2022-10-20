@@ -1,4 +1,5 @@
-import React , {useState,useEffect} from 'react';
+import React , {useState,useEffect,useContext} from 'react';
+import {userContext} from '../userContext';
 
 const Register = (props) => {
 
@@ -44,6 +45,8 @@ const Register = (props) => {
     });
 
     const [message, setMessage] = useState();
+
+    const context = useContext(userContext);
 
     const validate = () => {
 
@@ -123,13 +126,65 @@ const Register = (props) => {
         document.title = 'Register';
     }, []);
 
-    const onRegisterClick = () => {
+    let isValid = () => {
+        let valid = true
+        for (let control in errors) {
+            if (errors[control].length > 0) {
+                valid = false
+            }
+        }
+
+        return valid
+    }
+
+    const onRegisterClick = async () => {
         let dirtyData = dirty;
         Object.keys(dirty).forEach(control => {
             dirtyData[control] = true
         });
         setDirty(dirtyData);
         validate();
+
+        if(isValid()){
+            let response = await fetch("http://localhost:5000/users", {
+                method : "POST",
+                body : JSON.stringify({
+                    email : state.email,
+                    password : state.password,
+                    fullName : state.fullName,
+                    dateOfBrith : state.dateOfBrith,
+                    gender : state.gender,
+                    country : state.country,
+                    recieveNewsLetters : state.recieveNewsLetters,
+                    role : "user",
+                }),
+                headers : {
+                    "Content-type": "application/json",
+                },
+            });
+
+            if (response.ok){
+                const responseBody = await response.json()
+                console.log("responseBody",responseBody)
+                context.dispatch({
+                    type : "login",
+                    payload : {
+                        currentUserId : responseBody.id,
+                        currentUserName : responseBody.fullName,
+                        currentUserRole: responseBody.role,
+                    }
+                })
+
+                setMessage(<span className="text-success">SuccessFully Registered</span>)
+                props.history.replace("/dashboard")
+            }else if(!response.ok){
+                setMessage(<span className="text-success">Errors in database connection</span>)
+            }else {
+                setMessage(<span className="text-success">Errors</span>)
+            }
+
+
+        }
     }
 
     return(

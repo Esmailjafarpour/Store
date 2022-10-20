@@ -156,6 +156,28 @@
       "receiveNewsLetters": true,
       "role": "user",
       "id": 5
+    },
+    {
+      "email": "esmailjafarpour@gmail.com",
+      "password": "AS2300592045gf",
+      "fullName": "Esmail",
+      "dateOfBrith": "2022-10-27",
+      "gender": "male",
+      "country": "1",
+      "recieveNewsLetters": true,
+      "role": "user",
+      "id": 6
+    },
+    {
+      "email": "esmailjafarpour@gmail.com",
+      "password": "AS2300592045gf",
+      "fullName": "Esmail",
+      "dateOfBrith": "2022-10-27",
+      "gender": "male",
+      "country": "1",
+      "recieveNewsLetters": true,
+      "role": "user",
+      "id": 7
     }
   ],
   "orders": [

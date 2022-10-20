@@ -1,4 +1,5 @@
-import React ,{useState,useEffect} from 'react';
+import React ,{useState,useEffect,useContext} from 'react';
+import {userContext} from '../userContext';
 
 const Login = (props) => {
 
@@ -16,6 +17,8 @@ const Login = (props) => {
     });
 
     const [loginMessage, setLoginMessage] = useState("");
+
+    const context = useContext(userContext);
 
 
     useEffect(() => {
@@ -76,10 +79,28 @@ const Login = (props) => {
             if (response.ok) {
                 let responseBody = await response.json();
                 if (responseBody.length>0) {
-                    props.history.replace("/dashboard")
-                }else if(""){
+
+                    context.dispatch({
+                        type : "login",
+                        payload : {
+                            currentUserId : responseBody[0].id,
+                            currentUserName : responseBody[0].fullName,
+                            currentUserRole: responseBody[0].role,
+                        }
+                    })
+
+                    if (responseBody[0].role === "user") {
+                        props.history.replace("/dashboard")
+                    } else {
+                        props.history.replace("/products")
+                    }
+
+                }else if(!response.ok){
+
                     setLoginMessage(<span className="text-danger">Invalid Login,please try again</span>)
+
                 }else{
+
                     setLoginMessage(<span className="text-danger">Unable to connect to server</span>)
 
                 }
