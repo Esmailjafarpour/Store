@@ -1,16 +1,18 @@
 import './App.css';
+import React,{useState} from 'react';
 import Login from './component/Login';
 import Register from './component/Register';
 import NoMatchPage from './component/NoMatchPage';
 import Dashboard from './component/Dashboard';
 import Navbar from './component/Navbar.jsx';
-import React,{useState} from 'react';
-import {Route,Routes,BrowserRouter} from 'react-router-dom';
 import {UserContext} from './UserContext';
+import {Route,Routes,BrowserRouter} from 'react-router-dom';
+// import { Provider } from 'react-redux';
+
 
 function App() {
 
-  const {user, setUser} = useState({
+  const [user, setUser] = useState({
     isLoggedIn:false,
     currentUserId:null,
     currentUserName:null

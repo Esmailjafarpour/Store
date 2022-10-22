@@ -1,14 +1,10 @@
-.navbarStyle{
-    background-color: rgb(5, 125, 141)!important;
-    --bs-bg-opacity: 1;
-}
-
 i{
-    align-items: center;
-    display: flex !important;
-    margin-right: .5rem;
+    margin-right: 0.3rem;
 }
 
-.nav-link{
-    display: flex !important;
+.header{
+    background-color: rgb(179, 175, 175); 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }

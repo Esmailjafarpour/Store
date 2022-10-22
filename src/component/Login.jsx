@@ -4,8 +4,10 @@ import {UserContext} from '../UserContext';
 
 const Login = (props) => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const userContext = useContext(UserContext);
+
+    const [email, setEmail] = useState('scott@test.com');
+    const [password, setPassword] = useState('Scott123');
 
     const [dirty, setDirty] = useState({
         email:false,
@@ -19,7 +21,7 @@ const Login = (props) => {
 
     const [loginMessage, setLoginMessage] = useState("");
     const navigate = useNavigate()
-    const userContext = useContext(UserContext);
+    
 
 
     useEffect(() => {
@@ -80,12 +82,13 @@ const Login = (props) => {
             if (response.ok) {
                 let responseBody = await response.json();
                 if (responseBody.length>0) {
-                    navigate("/dashboard")
-                    console.log("userContext",userContext.user)
                     userContext.setUser({
                         ...userContext.user,
                         isLoggedIn:true,
+                        currentUserId : responseBody[0].id,
+                        currentUserName : responseBody[0].fullName,
                     })
+                    navigate("/dashboard")
                     // userContext.dispatch({
                     //     type : "login",
                     //     payload : {

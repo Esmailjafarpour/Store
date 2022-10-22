@@ -1,7 +1,24 @@
-import React ,{useState} from 'react';
+import React ,{useState,useContext} from 'react';
 import {NavLink} from 'react-router-dom';
+import {UserContext} from '../UserContext';
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+
+    const userContext = useContext(UserContext);
+    const navigate = useNavigate()
+
+    const onLogOutClick = (e) => {
+        e.preventDefault();
+        userContext.setUser({
+            ...userContext.user,
+            isLoggedIn : false,
+            currentUserId : null,
+            currentUserName : null,
+        })
+        // navigate("/")
+        window.location.href = "/"
+    }
 
     return(
 
@@ -19,36 +36,63 @@ const Navbar = () => {
 
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    <li className="nav-item">
-                        <NavLink className="nav-link" activeclassname="active" aria-current="page" to="/dashboard">
-                            <i className="fa fa-dashboard"></i>
-                            Dashboard
-                        </NavLink>
-                    </li>
+                    {userContext.user.isLoggedIn?
+                        <li className="nav-item">
+                            <NavLink className="nav-link" activeclassname="active" aria-current="page" to="/dashboard">
+                                <i className="fa fa-dashboard"></i>
+                                Dashboard
+                            </NavLink>
+                        </li>
+                    :
 
-                    <li className="nav-item">
-                        <NavLink className="nav-link" to="/" activeclassname="active" exact={`${true}`}>Login</NavLink>
-                    </li>
+                        ''
+                    }
 
-                    <li className="nav-item">
-                        <NavLink className="nav-link" activeclassname="active" to="/register">Register</NavLink>
-                    </li>
+                    {!userContext.user.isLoggedIn?
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/" activeclassname="active" exact={`${true}`}>Login</NavLink>
+                        </li>
+                    :
+
+                        ''
+                    }
+
+                    {!userContext.user.isLoggedIn?
+                        <li className="nav-item">
+                            <NavLink className="nav-link" activeclassname="active" to="/register">Register</NavLink>
+                        </li>
+                    :
+
+                        ''
+                    }
+
 
                 </ul>
 
-                <div style={{marginRight: 100}}>
-                    <ul className="navbar-nav">
-                        <li className="nav-item dropdown">
-                            <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i className="fa fa-user circle"></i>
-                                User
-                            </NavLink>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><NavLink className="dropdown-item" to="#">LogOut</NavLink></li>
+                {userContext.user.isLoggedIn?
+                        <div style={{marginRight: 100}}>
+                            <ul className="navbar-nav">
+                                <li className="nav-item dropdown">
+                                    <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i className="fa fa-user circle"></i>
+                                        <span>{`hello ${userContext.user.currentUserName}`}</span>
+                                    </NavLink>
+                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li>
+                                            <NavLink className="dropdown-item" to="#" onClick={onLogOutClick}>
+                                                LogOut
+                                            </NavLink>
+                                        </li>
+                                    </ul>
+                                </li>
                             </ul>
-                        </li>
-                    </ul>
-                </div>
+                        </div>
+                    :
+
+                        ''
+                }
+
+               
 
                 {/* <form className="d-flex">
                     

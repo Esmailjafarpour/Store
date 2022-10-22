@@ -167,7 +167,7 @@ const Register = (props) => {
             });
 
             if (response.ok){
-                // const responseBody = await response.json()
+                const responseBody = await response.json()
                 // userContext.dispatch({
                 //     type : "login",
                 //     payload : {
@@ -176,6 +176,12 @@ const Register = (props) => {
                 //         currentUserRole: responseBody.role,
                 //     }
                 // })
+                userContext.setUser({
+                    ...userContext.user,
+                    isLoggedIn:true,
+                    currentUserId : responseBody.id,
+                    currentUserName : responseBody.fullName,
+                })
                 setMessage(<span className="text-success">SuccessFully Registered</span>)
                 navigate("/dashboard")
 
