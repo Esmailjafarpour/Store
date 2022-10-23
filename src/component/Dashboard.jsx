@@ -6,8 +6,9 @@ import {OrdersService,ProductService} from '../Service';
 const Dashboard = () => {
 
     const [orders,setOrders] = useState([]);
-
     const userContext = useContext(UserContext);
+    const [showOrderDeleteAlert, setShowOrderDeleteAlert] = useState(false);
+    const [showOrderUpdateAlert, setShowOrderUpdateAlert] = useState(false);
 
     // const getPreviousOrders = (orders) => {
     //     return orders.filter((order)=>order.isPaymentCompleted === true)  
@@ -15,9 +16,9 @@ const Dashboard = () => {
     // const getCard = (orders) => {
     //     return orders.filter((order)=>order.isPaymentCompleted === false)
     // }
-
     //fetch data from orders array of database
     //(async () => {})() - anonymous function
+
     const loadDataFromDataBase = useCallback(async()=>{
         let orderResponse = await fetch(`http://localhost:5000/orders?userid=${userContext.user.currentUserId}`,
         {method:"GET"}
@@ -61,13 +62,33 @@ const Dashboard = () => {
                 }
             )
 
-            let orderReponseBody = await orderResponse.json();
             if (orderResponse.ok) {
-                loadDataFromDataBase()
+                let orderReponseBody = await orderResponse.json();
+                loadDataFromDataBase();
+                setShowOrderUpdateAlert(true)
             }
             
         }
     },[loadDataFromDataBase])
+
+    const onDeleteClick = useCallback(async(orderId)=>{
+        if (window.confirm("Are you sure to delete this item from card?")) {
+            let orderResponse = await fetch(`http://localhost:5000/orders/${orderId}`,{method : "DELETE"})
+            if (orderResponse.ok) {
+                let orderReponseBody = await orderResponse.json();
+                loadDataFromDataBase();
+                setShowOrderDeleteAlert(true)
+            }
+        }
+    },[loadDataFromDataBase])
+
+    const onHiddenAlertUpdated = ()=> {
+        setShowOrderUpdateAlert(false)
+    }
+
+    const onHiddenAlertDeleted = ()=> {
+        setShowOrderDeleteAlert(false)
+    }
 
     return(
         <div className="row">
@@ -110,6 +131,7 @@ const Dashboard = () => {
                                     productName={order.product.productName}
                                     price={order.product.price}
                                     onBuyNowClick={onBuyNowClick}
+                                    onDeleteClick={onDeleteClick}
                                 />)
                         })}
                     </div>
@@ -121,6 +143,34 @@ const Dashboard = () => {
                                 {OrdersService.getCart(orders).length}
                             </span>
                         </h4>
+
+                        {showOrderUpdateAlert?(
+                            <div className="col-12">
+                                <div className="alert alert-success alert-dismissible fade show mt-1" role="alert">
+                                    Your Order Has Been Placed.
+                                    <button 
+                                        className="btn-close" 
+                                        type="button" 
+                                        data-dismissible="alert"
+                                        onClick={onHiddenAlertUpdated}
+                                    ></button>
+                                </div>
+                            </div>
+                        ):("")}
+
+                        {showOrderDeleteAlert?(
+                            <div className="col-12">
+                                <div className="alert alert-danger alert-dismissible fade show mt-1" role="alert">
+                                    Your Item Has Been Removed From The Cart.
+                                    <button 
+                                        className="btn-close" 
+                                        type="button" 
+                                        data-dismissible="alert"
+                                        onClick={onHiddenAlertDeleted}
+                                    ></button>
+                                </div>
+                            </div>
+                        ):("")}
                         {OrdersService.getCart(orders).length === 0 ? 
 
                             (<div className="text-danger">No Products In Your Cards</div>)
@@ -143,6 +193,7 @@ const Dashboard = () => {
                                     productName={order.product.productName}
                                     price={order.product.price}
                                     onBuyNowClick={onBuyNowClick}
+                                    onDeleteClick={onDeleteClick}
                                 />
                             )
                         }
