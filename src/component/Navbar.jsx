@@ -77,7 +77,7 @@ const Navbar = () => {
                                         <i className="fa fa-user circle"></i>
                                         <span>{`hello ${userContext.user.currentUserName}`}</span>
                                     </NavLink>
-                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown" style={{zIndex:"1001"}}>
                                         <li>
                                             <NavLink className="dropdown-item" to="#" onClick={onLogOutClick}>
                                                 LogOut
@@ -91,8 +91,6 @@ const Navbar = () => {
 
                         ''
                 }
-
-               
 
                 {/* <form className="d-flex">
                     

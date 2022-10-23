@@ -1,10 +1,39 @@
 import React,{useState,useEffect} from 'react';
 
 const Order = (props) => {
+    console.log("Order Component rendered",props)
     return(
-        <div className="card my-2 shadow"> 
+        <div className="card my-2 shadow p-3"> 
             <h6>
                 <i className="fa fa-arrow-right"></i>{props.productName}
+                <div className="float-end">
+                    {props.isPaymentCompleted === false ? 
+                        <>
+                            <button 
+                                className="btn btn-sm btn-info me-2"
+                                onClick={() => {
+                                    props.onBuyNowClick(
+                                        props.orderId,
+                                        props.userId,
+                                        props.productId,
+                                        props.quantity
+                                    )
+                                }}
+                            >
+                                <i className="fa fa-truck"></i>Buy Now
+                            </button>
+                            <button 
+                                className="btn btn-sm btn-danger"
+                            >
+                                <i className="fa fa-trash-o"></i>Delete
+                            </button>
+                        </>
+                        :
+
+                        ""
+                    }
+                </div>
+            </h6>    
                 <table className="table-sm table border-less mt-1">
                     <tbody>
                         <tr>
@@ -17,10 +46,8 @@ const Order = (props) => {
                         </tr>
                     </tbody>
                 </table>
-                
-            </h6>
         </div>
     )
 }
 
-export default Order;
+export default React.memo(Order);

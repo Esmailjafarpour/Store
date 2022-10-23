@@ -203,11 +203,11 @@
       "isPaymentCompleted": true
     },
     {
+      "id": 4,
       "userId": 5,
       "productId": 6,
       "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 4
+      "isPaymentCompleted": true
     }
   ]
 }
