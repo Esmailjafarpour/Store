@@ -46,9 +46,9 @@ const Store = () => {
     }
 
     const updateCategoriesChecked = (id) => {
-        let categoriesData = categories.map((categoru)=>{
-            if(categoru.id === id) categoru.isChecked = !categoru.isChecked;
-            return categoru
+        let categoriesData = categories.map((category)=>{
+            if(category.id === id) category.isChecked = !category.isChecked;
+            return category
         })
 
         setCategories(categoriesData)
