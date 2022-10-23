@@ -48,9 +48,18 @@ const Navbar = () => {
                         ''
                     }
 
+                    <NavLink className="nav-link" activeclassname="active" aria-current="page" to="/store">
+                        <i className="fa fa-shopping-bag"></i>
+                        Store
+                    </NavLink>
+
                     {!userContext.user.isLoggedIn?
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/" activeclassname="active" exact={`${true}`}>Login</NavLink>
+                            <NavLink className="nav-link" to="/" activeclassname="active" exact={`${true}`}>
+                                <i className="fa fa-login"></i>
+                                Login
+                            </NavLink>
+                           
                         </li>
                     :
 
@@ -59,7 +68,10 @@ const Navbar = () => {
 
                     {!userContext.user.isLoggedIn?
                         <li className="nav-item">
-                            <NavLink className="nav-link" activeclassname="active" to="/register">Register</NavLink>
+                            <NavLink className="nav-link" activeclassname="active" to="/register">
+                                <i className="fa fa-login"></i>
+                                Register
+                            </NavLink>
                         </li>
                     :
 

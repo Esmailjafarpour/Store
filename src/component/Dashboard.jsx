@@ -82,13 +82,6 @@ const Dashboard = () => {
         }
     },[loadDataFromDataBase])
 
-    const onHiddenAlertUpdated = ()=> {
-        setShowOrderUpdateAlert(false)
-    }
-
-    const onHiddenAlertDeleted = ()=> {
-        setShowOrderDeleteAlert(false)
-    }
 
     return(
         <div className="row">
@@ -152,7 +145,7 @@ const Dashboard = () => {
                                         className="btn-close" 
                                         type="button" 
                                         data-dismissible="alert"
-                                        onClick={onHiddenAlertUpdated}
+                                        onClick={()=>setShowOrderUpdateAlert(false)}
                                     ></button>
                                 </div>
                             </div>
@@ -166,7 +159,7 @@ const Dashboard = () => {
                                         className="btn-close" 
                                         type="button" 
                                         data-dismissible="alert"
-                                        onClick={onHiddenAlertDeleted}
+                                        onClick={()=>setShowOrderDeleteAlert(false)}
                                     ></button>
                                 </div>
                             </div>
