@@ -1,40 +1,75 @@
 import React,{useState,useEffect,useContext} from 'react';
 import {UserContext} from '../UserContext.js';
-import {BrandsService,CategoriesService} from '../Service.js';
+import {BrandsService,CategoriesService,ProductService} from '../Service.js';
+import Product from './Product';
 
 const Store = () => {
 
     const userContext = useContext(UserContext);
     const [brands, setBrands] = useState([]);
     const [categories, setCategories] = useState([]);
-    console.log(brands)
-    console.log(categories)
+    const [products, setProducts] = useState([]);
+    const [productToShow, setProductToShow] = useState([]);
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
 
         (async () => {
 
             let brandResponse = await BrandsService.fetchBrands();
-            if(brandResponse.ok){
+            
                 let brandResponseBody = await brandResponse.json();
+
                 brandResponseBody.forEach((brand) => {
+
                     brand.isChecked = true;
+
                 });
+
                 setBrands(brandResponseBody);
-            }
+            
 
             let categoriesResponse = await CategoriesService.fetchCategories();
-            if(categoriesResponse.ok){
+            
                 let categoriesResponseBody = await categoriesResponse.json();
+
                 categoriesResponseBody.forEach((category) => {
+
                     category.isChecked = true;
+
                 });
+
                 setCategories(categoriesResponseBody);
-            }
+            
+
+
+            let productsResponse = await fetch(
+                `http://localhost:5000/products?productName_like=${search}`,{method:"GET"}
+                );
+           
+                let productsResponseBody = await productsResponse.json();
+
+                if(productsResponse.ok){
+
+                    productsResponseBody.forEach((product) => {
+
+                        product.brand = BrandsService.getBrandByBrandId(brandResponseBody,product.brandId)
+
+                        product.category = CategoriesService.getCategoryByCategoryId(categoriesResponseBody,product.categoryId)
+
+                        product.isOrdered = false;
+
+                    });
+                }
+                
+
+                setProducts(productsResponseBody);
+                setProductToShow(productsResponseBody);
+                document.title = "Store"
             
         })();
 
-    },[]);
+    },[search]);
 
     const updateBrandIsChecked = (id) => {
         let brandsData = brands.map((brand)=>{
@@ -42,7 +77,8 @@ const Store = () => {
             return brand
         })
 
-        setBrands(brandsData)
+        setBrands(brandsData);
+        updateProductToShow()
     }
 
     const updateCategoriesChecked = (id) => {
@@ -51,15 +87,78 @@ const Store = () => {
             return category
         })
 
-        setCategories(categoriesData)
+        setCategories(categoriesData);
+        updateProductToShow();
+
     }
 
+    const updateProductToShow = () =>{
+            setProductToShow(
+                products
+                .filter((prod) => {
+                    return categories.filter((cat)=> cat.id === prod.categoryId && cat.isChecked).length > 0
+                })
+                .filter((prod) => {
+                    return brands.filter((brand)=> brand.id === prod.brandId && brand.isChecked).length > 0
+                })
+            )
+    }
+    
+    const onAddToCartClick = (product) => {
+        (async ()=>{
+            let newOrder = {
+                userId : userContext.user.currentUserId,
+                productId : product.id,
+                quantity : 1,
+                isPaymentCompleted : false
+            };
+            let orderResponse = await fetch(`http://localhost:5000/orders`,{
+                method : "POST",
+                body : JSON.stringify(newOrder),
+                headers:{"Content-Type":"application/json"}
+            })
+            if (orderResponse.ok) {
+                
+                let orderResponseBody = await orderResponse.json();
+                let prods = products.map((p) =>{
+                    if (p.id === product.id) p.isOrdered = true;
+                    return p
+                })
+                setProducts(prods);
+                updateProductToShow();
+
+            }else{
+                console.log(orderResponse)
+            }
+        })();
+    }
+
+   
+
     return(
-        <div>
-            <div className="row py-3 header">
+        
+            <div className="row py-3">
+
                 <div className="col-lg-3">
-                    <h4><i className="fa fa-shopping-bag"></i>Store</h4>
+                    <h4>
+                        <i className="fa fa-shopping-bag"></i>Store{" "}
+                        <span className="badge badges-secondary">
+                            {productToShow.length}
+                        </span>
+                    </h4>
                 </div>
+
+                <div className="col-lg-9">
+                    <input  
+                        type="search"
+                        value={search}
+                        placeholder="Search Product"
+                        className="form-control"
+                        autoFocus="autofocus"
+                        onChange={(e)=>{setSearch(e.target.value)}}
+                    />
+                </div>
+
                 <div className="row">
                     <div className="col-lg-3 py-2">
                          <div className="my-2">
@@ -112,9 +211,18 @@ const Store = () => {
                             </ul>
                          </div>
                     </div>
+
+                    <div className="col-lg-9 py-2">
+                      <div className="row">
+                        {productToShow.map((product) => (
+                            <Product key={product.id} product={product} onAddToCartClick={onAddToCartClick}/>
+                        ))}
+                      </div>
+                    </div>
                 </div>
+
             </div>
-        </div>
+        
     )
 }
 

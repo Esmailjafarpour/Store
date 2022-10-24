@@ -86,9 +86,9 @@ const Dashboard = () => {
     return(
         <div className="row">
             <div className="col-12 py-3 header">
-                <h4>
-                    <i className="fa fa-dashboard"></i>Dashboard{" "}
-                    <button className="btn btn-sm btn-info" onClick={loadDataFromDataBase}>
+                <h4 className="d-flex flex-column justify-content-center">
+                    <span className="d-flex justify-content-center"><i className="fa fa-dashboard"></i>Dashboard{" "}</span>
+                    <button className="btn btn-sm btn-info my-2 w-25 mx-auto" onClick={loadDataFromDataBase}>
                         <i className="fa fa-refresh"></i>Refresh
                     </button>
                 </h4>

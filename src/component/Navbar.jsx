@@ -56,7 +56,7 @@ const Navbar = () => {
                     {!userContext.user.isLoggedIn?
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/" activeclassname="active" exact={`${true}`}>
-                                <i className="fa fa-login"></i>
+                            <i class="fa fa-sign-in" aria-hidden="true"></i>
                                 Login
                             </NavLink>
                            
@@ -69,7 +69,7 @@ const Navbar = () => {
                     {!userContext.user.isLoggedIn?
                         <li className="nav-item">
                             <NavLink className="nav-link" activeclassname="active" to="/register">
-                                <i className="fa fa-login"></i>
+                            <i class="fa fa-registered" aria-hidden="true"></i>
                                 Register
                             </NavLink>
                         </li>
@@ -92,6 +92,7 @@ const Navbar = () => {
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown" style={{zIndex:"1001"}}>
                                         <li>
                                             <NavLink className="dropdown-item" to="#" onClick={onLogOutClick}>
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
                                                 LogOut
                                             </NavLink>
                                         </li>
