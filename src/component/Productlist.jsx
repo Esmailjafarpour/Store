@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useContext} from 'react';
+import React,{useState,useEffect,useContext,useMemo} from 'react';
 import {UserContext} from '../UserContext.js';
 import {BrandsService,CategoriesService,ProductService,SortService} from '../Service.js';
 
@@ -9,6 +9,8 @@ const Productlist = () => {
     const [sortBy, setSortBy] = useState('productName');
     const [sortOrder, setSortOrder] = useState('asc');
     const [originalProducts, setOriginalProducts] = useState([]);
+    const [brands, setBrands] = useState([]);
+    const [selectedBrand, setSelectedBrand] = useState("");
 
     useEffect(() => {
 
@@ -16,6 +18,7 @@ const Productlist = () => {
 
             let brandsResponse = await BrandsService.fetchBrands()
             let brandsResponseBody = await brandsResponse.json();
+            setBrands(brandsResponseBody);
 
             let categoriesResponse = await CategoriesService.fetchCategories()
             let categoriesResponseBody = await categoriesResponse.json();
@@ -56,6 +59,17 @@ const Productlist = () => {
         setProducts(SortService.getSortArray(originalProducts,columnName,negatedSortOrder))
     }
 
+    const filteProducts = useMemo(() => {
+        return originalProducts.filter(
+            (prod) => prod.brand.brandName.indexOf(selectedBrand) >= 0
+        )
+    },[originalProducts,selectedBrand])
+
+    useEffect(() => {
+        setProducts(SortService.getSortArray(filteProducts,sortBy,sortOrder))
+    }, [filteProducts,sortBy,sortOrder]);
+
+
     const getColumnHeader = (columnName,displayName) =>{
         return(
             <>
@@ -73,6 +87,8 @@ const Productlist = () => {
         )
     }
 
+
+
     return(
         <div className="row">
             <div className="col-12">
@@ -83,7 +99,7 @@ const Productlist = () => {
                             <span className="badge bg-secondary">{products.length}</span>
                         </h4>
                     </div>
-                    <div className="col-lg-9">
+                    <div className="col-lg-6">
                         <input 
                             type="search" 
                             value={search}
@@ -92,6 +108,20 @@ const Productlist = () => {
                             className="form-control"
                             autoFocus="autofocus"
                         />
+                    </div>
+                    <div className="col-lg-3">
+                        <select 
+                            value={selectedBrand}
+                            onChange={(e)=>{
+                                setSelectedBrand(e.target.value)
+                            }} 
+                            className="form-control"
+                        >
+                            <option value="">All Brands</option>
+                            {brands.map((brand)=>{
+                                return <option value={brand.brandName} key={brand.id}>{brand.brandName}</option>
+                            })}
+                        </select>
                     </div>
                 </div>
             </div>
