@@ -6,8 +6,8 @@ const Login = (props) => {
 
     const userContext = useContext(UserContext);
 
-    const [email, setEmail] = useState('scott@test.com');
-    const [password, setPassword] = useState('Scott123');
+    const [email, setEmail] = useState('admin@gmail.com');
+    const [password, setPassword] = useState('Admin123');
 
     const [dirty, setDirty] = useState({
         email:false,
@@ -87,6 +87,7 @@ const Login = (props) => {
                         isLoggedIn:true,
                         currentUserId : responseBody[0].id,
                         currentUserName : responseBody[0].fullName,
+                        currentUserRole : responseBody[0].role,
                     })
                     navigate("/dashboard")
                     // userContext.dispatch({
@@ -99,9 +100,9 @@ const Login = (props) => {
                     // })
 
                     if (responseBody[0].role === "user") {
-                        // props.history.replace("/dashboard")
+                        navigate("/dashboard")
                     } else {
-                        // props.history.replace("/products")
+                        navigate("/products")
                     }
 
                 }else{

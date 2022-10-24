@@ -181,6 +181,7 @@ const Register = (props) => {
                     isLoggedIn:true,
                     currentUserId : responseBody.id,
                     currentUserName : responseBody.fullName,
+                    currentUserRole : responseBody.role,
                 })
                 setMessage(<span className="text-success">SuccessFully Registered</span>)
                 navigate("/dashboard")

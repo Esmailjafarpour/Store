@@ -6,6 +6,7 @@ import NoMatchPage from './component/NoMatchPage';
 import Dashboard from './component/Dashboard';
 import Navbar from './component/Navbar.jsx';
 import Store from './component/Store.jsx';
+import Productlist from './component/Productlist.jsx';
 import {UserContext} from './UserContext';
 import {Route,Routes,BrowserRouter} from 'react-router-dom';
 // import { Provider } from 'react-redux';
@@ -16,7 +17,8 @@ function App() {
   const [user, setUser] = useState({
     isLoggedIn:false,
     currentUserId:null,
-    currentUserName:null
+    currentUserName:null,
+    currentUserRole:null,
   })
 
   return (
@@ -33,6 +35,7 @@ function App() {
               <Route path="/register" element={<Register/>}/>
               <Route path="/dashboard" element={<Dashboard/>}/>
               <Route path="/store" element={<Store/>}/>
+              <Route path="/products" element={<Productlist/>}/>
               <Route path="*" element={<NoMatchPage/>}/>
             </Routes>
           </div>

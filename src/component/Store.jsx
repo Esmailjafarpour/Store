@@ -103,7 +103,7 @@ const Store = () => {
                 })
             )
     }
-    
+
     const onAddToCartClick = (product) => {
         (async ()=>{
             let newOrder = {
@@ -142,7 +142,7 @@ const Store = () => {
                 <div className="col-lg-3">
                     <h4>
                         <i className="fa fa-shopping-bag"></i>Store{" "}
-                        <span className="badge badges-secondary">
+                        <span className="badge badges-secondary bg-success white">
                             {productToShow.length}
                         </span>
                     </h4>

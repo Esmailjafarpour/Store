@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 export const OrdersService = {
     getPreviousOrders : (orders) => {
         return orders.filter((order)=>order.isPaymentCompleted === true)
@@ -37,3 +39,15 @@ export const CategoriesService = {
         return categories.find((category)=>(category.id === categoryId))
     }
 };
+
+export const SortService = {
+    getSortArray : (elements,sortBy,sortOrder) => {
+        if(!elements) return elements;
+        
+        let array = [...elements];
+
+        const sortedArray = _.orderBy(array,[sortBy],[sortOrder])
+
+        return sortedArray
+    }
+}

@@ -200,7 +200,7 @@
       "userId": 5,
       "productId": 6,
       "quantity": 1,
-      "isPaymentCompleted": false
+      "isPaymentCompleted": true
     },
     {
       "userId": 1,

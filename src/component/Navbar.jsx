@@ -15,6 +15,7 @@ const Navbar = () => {
             isLoggedIn : false,
             currentUserId : null,
             currentUserName : null,
+            currentUserRole : null,
         })
         // navigate("/")
         window.location.href = "/"
@@ -36,7 +37,7 @@ const Navbar = () => {
 
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    {userContext.user.isLoggedIn?
+                    {userContext.user.isLoggedIn && userContext.user.currentUserRole === "user"?
                         <li className="nav-item">
                             <NavLink className="nav-link" activeclassname="active" aria-current="page" to="/dashboard">
                                 <i className="fa fa-dashboard"></i>
@@ -47,11 +48,31 @@ const Navbar = () => {
 
                         ''
                     }
+                    {userContext.user.isLoggedIn && userContext.user.currentUserRole === "user"?
 
-                    <NavLink className="nav-link" activeclassname="active" aria-current="page" to="/store">
-                        <i className="fa fa-shopping-bag"></i>
-                        Store
-                    </NavLink>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" activeclassname="active" aria-current="page" to="/store">
+                                <i className="fa fa-shopping-bag"></i>
+                                Store
+                            </NavLink>
+                        </li>
+                    :
+
+                        ''
+                    }
+
+                    {userContext.user.isLoggedIn && userContext.user.currentUserRole === "admin"?
+                    
+                        <li className="nav-item">
+                            <NavLink className="nav-link" activeclassname="active" aria-current="page" to="/products">
+                                <i className="fa fa-shopping-bag"></i>
+                                Products
+                            </NavLink>
+                        </li>
+                    :
+
+                        ''
+                    }
 
                     {!userContext.user.isLoggedIn?
                         <li className="nav-item">
