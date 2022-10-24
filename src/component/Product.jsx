@@ -21,6 +21,7 @@ const Product = ({product,onAddToCartClick}) => {
                         })}
                     </div>
                     <div className="float-end">
+
                         {product.isOrdered ?( 
                             
                             <span className="text-primary">Added to card!</span>
@@ -35,6 +36,7 @@ const Product = ({product,onAddToCartClick}) => {
                             </button>
 
                           )
+                          
                         }
                     </div>
                 </div>
