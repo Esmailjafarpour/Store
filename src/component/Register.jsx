@@ -171,14 +171,6 @@ const Register = (props) => {
 
             if (response.ok){
                 const responseBody = await response.json()
-                // userContext.dispatch({
-                //     type : "login",
-                //     payload : {
-                //         currentUserId : responseBody.id,
-                //         currentUserName : responseBody.fullName,
-                //         currentUserRole: responseBody.role,
-                //     }
-                // })
                 userContext.dispatch({
                     type : "register",
                     payload:{

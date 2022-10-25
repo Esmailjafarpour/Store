@@ -94,14 +94,6 @@ const Login = (props) => {
                         },
                     })
                     navigate("/dashboard")
-                    // userContext.dispatch({
-                    //     type : "login",
-                    //     payload : {
-                    //         currentUserId : responseBody[0].id,
-                    //         currentUserName : responseBody[0].fullName,
-                    //         currentUserRole: responseBody[0].role,
-                    //     }
-                    // })
 
                     if (responseBody[0].role === "user") {
                         navigate("/dashboard")
