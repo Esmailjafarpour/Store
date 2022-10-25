@@ -111,7 +111,7 @@ const Productlist = () => {
 
     return(
         <div className="row">
-            <div className="col-12 title">
+            <div className="col-12 title header">
                 <div className="row p-3 header">
                     <div className="col-lg-3">
                         <h4>
