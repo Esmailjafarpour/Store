@@ -122,20 +122,20 @@ const Login = (props) => {
     
     return(
         <div className="row">
-            <div className="col-lg-5 col-md-7 mx-auto">
-                <div className="card border-success shadow-lg my-2">
-                    <div className="card-header border-bottom border-success">
-                        <h4 style={{fontSize:'40px'}}className="text-success text-center">
+            <div className="col-lg-5 col-md-7 mx-auto form-login">
+                <div className="card shadow-lg my-2 bg-dark">
+                    <div className="card-header bg-dark">
+                        <h4 style={{fontSize:'40px'}}className="title-login text-center">
                             Login
                         </h4>
                     </div>
-                    <div className="card-body border-success border-bottom">
+                    <div className="card-body mx-2">
                         <div className="form-group">
-                            <label htmlFor="email"className="mb-3">Email</label>
+                            <label htmlFor="email"className="mb-3 text-light">Email</label>
                             <input 
                                 autocomplete="off"
                                 type="text" 
-                                className="form-control" 
+                                className="form-control input-login" 
                                 id="email"
                                 placeholder="Enter Your Email" name="email"
                                 value={email}
@@ -151,11 +151,11 @@ const Login = (props) => {
                             </div>
                         </div>
                         <div className="form-group mt-3" >
-                            <label htmlFor="password"className="mb-3">password</label>
+                            <label htmlFor="password"className="mb-3 text-light">password</label>
                             <input 
                                 autocomplete="off"
                                 type="password" 
-                                className="form-control" 
+                                className="form-control input-login" 
                                 id="password"
                                 placeholder="Enter Your password" name="password"
                                 value={password}
@@ -172,7 +172,7 @@ const Login = (props) => {
                     </div>
                     <div className="card-footer text-center">
                         <div className="m-1">{loginMessage}</div>
-                        <button className="btn btn-success m-2"onClick={onLoginClick}>Login</button>
+                        <button className="btn btn-outline-warning   w-50 m-2"onClick={onLoginClick}>Login</button>
                     </div>
                 </div>
             </div>

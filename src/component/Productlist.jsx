@@ -95,13 +95,14 @@ const Productlist = () => {
                 <a 
                     href="/#"
                     onClick={(e)=>{onSortColumnNameClick(e,columnName)}}
+                    className="link-table"
                 >{displayName}{" "}</a>
                 
                 {sortBy === columnName && sortOrder === "asc" ?
-                (<i className="fa fa-sort-up"></i>):("")}
+                (<i className="fa fa-sort-up link-table"></i>):("")}
 
                 {sortBy === columnName && sortOrder === "desc" ?
-                (<i className="fa fa-sort-down "></i>):("")}
+                (<i className="fa fa-sort-down link-table"></i>):("")}
             </>
         )
     }
@@ -110,12 +111,12 @@ const Productlist = () => {
 
     return(
         <div className="row">
-            <div className="col-12">
+            <div className="col-12 title">
                 <div className="row p-3 header">
                     <div className="col-lg-3">
                         <h4>
                             <i className="fa fa-suitcase"></i>Products{"  "}
-                            <span className="badge bg-secondary">{products.length}</span>
+                            <span className="badge bg-secondary bage-header">{products.length}</span>
                         </h4>
                     </div>
                     <div className="col-lg-5">
@@ -124,7 +125,7 @@ const Productlist = () => {
                             value={search}
                             onChange={(e)=>{setSearch(e.target.value)}}
                             placeholder="Search"
-                            className="form-control"
+                            className="form-control input-search"
                             autoFocus="autofocus"
                         />
                     </div>
@@ -135,7 +136,7 @@ const Productlist = () => {
                             onChange={(e)=>{
                                 setSelectedBrand(e.target.value)
                             }} 
-                            className="form-control"
+                            className="form-control selected"
                         >
                             <option value="">All Brands</option>
                             {brands.map((brand)=>{
@@ -149,7 +150,7 @@ const Productlist = () => {
                             onChange={(e)=>{
                                 setSelectedCategory(e.target.value)
                             }} 
-                            className="form-control"
+                            className="form-control selected"
                         >
                             <option value="">All Categories</option>
                             {categories.map((category)=>{
@@ -161,10 +162,10 @@ const Productlist = () => {
 
                 </div>
             </div>
-            <div className="col-lg-10 mx-auto mb-2">
-                <div className="card my-2 shadow">
+            <div className="col-lg-10 mx-auto m-3 content">
+                <div className="card my-3 shadow">
                     <div className="card-body">
-                        <table className="table table-striped table-hover">
+                        <table className="table table-dark table-striped">
                             <thead>
                                 <tr>
                                     <th>{getColumnHeader("productName","ProductName")}</th>
@@ -174,7 +175,7 @@ const Productlist = () => {
                                     <th>{getColumnHeader("rating","Rating")}</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="tbody-product">
                                 {products.map((product)=>{
                                     return(
                                         <tr key={product.id}>

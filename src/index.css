@@ -1,6 +1,23 @@
+body{
+    background-color: #000000 !important;
+    padding: 0 8px;
+}
+
 nav{
-    background-color: rgb(5, 119, 119);
-    color: beige;
+    background-color: rgb(40 41 48);
+    border: 2px solid #5a4600;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+.title{
+    border: 2px solid #5a4600;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.title-login{
+    color:wheat;
 }
 
 i{
@@ -8,8 +25,48 @@ i{
 }
 
 .header{
-    background-color: rgb(217 227 225);
+    background-color: #282930;
+    color: wheat;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
+
+.bage-header{
+    color: wheat !important;
+}
+
+.input-search,.input-login,.input-register{
+    background-color: #414246 !important;
+    color: #ddbe85 !important;
+    border: 2px solid #605f5f !important;
+}
+
+.input-search:focus{
+    border: 2px solid #ddbe85 !important;
+}
+
+.selected{
+    background-color: #414246 !important;
+    color: #ddbe85 !important;
+    border: 2px solid #605f5f !important;
+}
+
+.content{
+    background-color: #282930 !important;
+    border-radius: 6px;
+    box-shadow: 0px 0px 8px #4f4f54;
+}
+
+.card-body,.form-login{
+    border: 2px solid #5a4600 !important;
+    background-color: black;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.link-table{
+    color: wheat;
+    text-decoration: none;
+}
+
