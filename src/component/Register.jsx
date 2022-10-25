@@ -179,8 +179,8 @@ const Register = (props) => {
                         currentUserRole : responseBody.role,
                     }
                 })
-                setMessage(<span className="text-success">SuccessFully Registered</span>)
-                navigate("/dashboard")
+                setMessage(<span className="text-success">SuccessFully Registered</span>);
+                navigate("/dashboard");
 
             }else{
 
