@@ -11,6 +11,9 @@ const Productlist = () => {
     const [originalProducts, setOriginalProducts] = useState([]);
     const [brands, setBrands] = useState([]);
     const [selectedBrand, setSelectedBrand] = useState("");
+    const [categories, setCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState("");
+
 
     useEffect(() => {
 
@@ -22,6 +25,7 @@ const Productlist = () => {
 
             let categoriesResponse = await CategoriesService.fetchCategories()
             let categoriesResponseBody = await categoriesResponse.json();
+            setCategories(categoriesResponseBody)
 
             let productsResponse = await fetch(
                 `http://localhost:5000/products?productName_like=${search}&_sort=productName&_order=ASC`,{method:"GET"}
@@ -59,15 +63,30 @@ const Productlist = () => {
         setProducts(SortService.getSortArray(originalProducts,columnName,negatedSortOrder))
     }
 
-    const filteProducts = useMemo(() => {
+    const filterProductsByBrand = useMemo(() => {
         return originalProducts.filter(
             (prod) => prod.brand.brandName.indexOf(selectedBrand) >= 0
         )
-    },[originalProducts,selectedBrand])
+    },[originalProducts,selectedBrand,])
+
+
+    const filterProductsByCategory = useMemo(() => {
+    
+        return originalProducts.filter(
+            (prod) => prod.category.categoryName.indexOf(selectedCategory) >= 0
+        )
+    },[originalProducts,selectedCategory])
+    
 
     useEffect(() => {
-        setProducts(SortService.getSortArray(filteProducts,sortBy,sortOrder))
-    }, [filteProducts,sortBy,sortOrder]);
+        setProducts(SortService.getSortArray(filterProductsByBrand,sortBy,sortOrder));
+        // setCategories([]);
+    }, [filterProductsByBrand,sortBy,sortOrder]);
+
+    useEffect(() => {
+        setProducts(SortService.getSortArray(filterProductsByCategory,sortBy,sortOrder));
+        // setBrands([]);
+    }, [filterProductsByCategory,sortBy,sortOrder]);
 
 
     const getColumnHeader = (columnName,displayName) =>{
@@ -99,7 +118,7 @@ const Productlist = () => {
                             <span className="badge bg-secondary">{products.length}</span>
                         </h4>
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-lg-5">
                         <input 
                             type="search" 
                             value={search}
@@ -109,7 +128,8 @@ const Productlist = () => {
                             autoFocus="autofocus"
                         />
                     </div>
-                    <div className="col-lg-3">
+
+                    <div className="col-lg-2">
                         <select 
                             value={selectedBrand}
                             onChange={(e)=>{
@@ -123,6 +143,22 @@ const Productlist = () => {
                             })}
                         </select>
                     </div>
+                    <div className="col-lg-2">
+                        <select 
+                            value={selectedCategory}
+                            onChange={(e)=>{
+                                setSelectedCategory(e.target.value)
+                            }} 
+                            className="form-control"
+                        >
+                            <option value="">All Categories</option>
+                            {categories.map((category)=>{
+                                return <option value={category.categoryName} key={category.id}>{category.categoryName}</option>
+                            })}
+                        </select>
+                    </div>
+
+
                 </div>
             </div>
             <div className="col-lg-10 mx-auto mb-2">
