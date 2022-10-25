@@ -10,12 +10,8 @@ const Navbar = () => {
 
     const onLogOutClick = (e) => {
         e.preventDefault();
-        userContext.setUser({
-            ...userContext.user,
-            isLoggedIn : false,
-            currentUserId : null,
-            currentUserName : null,
-            currentUserRole : null,
+        userContext.dispatch({
+            type:"logout"
         })
         // navigate("/")
         window.location.href = "/"

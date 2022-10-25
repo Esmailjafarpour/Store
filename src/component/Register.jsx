@@ -1,4 +1,4 @@
-import React , {useState,useEffect,useContext} from 'react';
+import React , {useState,useEffect,useContext,useRef} from 'react';
 import { useNavigate } from "react-router-dom";
 import {UserContext} from '../UserContext';
 
@@ -44,6 +44,8 @@ const Register = (props) => {
         country:false,
         recieveNewsLetters:false
     });
+
+    const myEmailRef = useRef();
 
     const [message, setMessage] = useState();
 
@@ -127,6 +129,7 @@ const Register = (props) => {
      
     useEffect(() => {
         document.title = 'Register';
+        myEmailRef.current.focus();
     }, []);
 
     let isValid = () => {
@@ -176,12 +179,13 @@ const Register = (props) => {
                 //         currentUserRole: responseBody.role,
                 //     }
                 // })
-                userContext.setUser({
-                    ...userContext.user,
-                    isLoggedIn:true,
-                    currentUserId : responseBody.id,
-                    currentUserName : responseBody.fullName,
-                    currentUserRole : responseBody.role,
+                userContext.dispatch({
+                    type : "register",
+                    payload:{
+                        currentUserId : responseBody.id,
+                        currentUserName : responseBody.fullName,
+                        currentUserRole : responseBody.role,
+                    }
                 })
                 setMessage(<span className="text-success">SuccessFully Registered</span>)
                 navigate("/dashboard")
@@ -227,6 +231,7 @@ const Register = (props) => {
                                 className="form-control" 
                                 value={state.email}
                                 placeholder="example@gmail.com"
+                                ref={myEmailRef}
                                 onChange={(e) => setState({...state,[e.target.name]: e.target.value})}
                                 onBlur={(e) => {
                                     setDirty({...dirty , [e.target.name] : true});

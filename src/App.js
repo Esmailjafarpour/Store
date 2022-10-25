@@ -1,5 +1,5 @@
 import './App.css';
-import React,{useState} from 'react';
+import React,{useState,useReducer} from 'react';
 import Login from './component/Login';
 import Register from './component/Register';
 import NoMatchPage from './component/NoMatchPage';
@@ -11,19 +11,51 @@ import {UserContext} from './UserContext';
 import {Route,Routes,BrowserRouter} from 'react-router-dom';
 // import { Provider } from 'react-redux';
 
+let initialUser = {
+  isLoggedIn:false,
+  currentUserId:null,
+  currentUserName:null,
+  currentUserRole:null,
+}
+
+let reducer = (state,action)=>{
+ switch (action.type) {
+    case "login":
+      return {
+        isLoggedIn:true,
+        currentUserId:action.payload.currentUserId,
+        currentUserName:action.payload.currentUserName,
+        currentUserRole:action.payload.currentUserRole,
+      }
+
+    case "logout":
+      return {
+        isLoggedIn:false,
+        currentUserId:null,
+        currentUserName:null,
+        currentUserRole:null,
+      }
+
+    case "register":
+      return {
+        isLoggedIn:true,
+        currentUserId:action.payload.currentUserId,
+        currentUserName:action.payload.currentUserName,
+        currentUserRole:action.payload.currentUserRole,
+      }
+  default:
+    return state
+ }
+ 
+}
 
 function App() {
 
-  const [user, setUser] = useState({
-    isLoggedIn:false,
-    currentUserId:null,
-    currentUserName:null,
-    currentUserRole:null,
-  })
+  const [user,dispatch] = useReducer(reducer,initialUser);
 
   return (
 
-    <UserContext.Provider value={{user,setUser}}>
+    <UserContext.Provider value={{user,dispatch}}>
 
       <BrowserRouter>
 

@@ -1,4 +1,4 @@
-import React ,{useState,useEffect,useContext} from 'react';
+import React ,{useState,useEffect,useContext,useRef} from 'react';
 import { useNavigate } from "react-router-dom";
 import {UserContext} from '../UserContext';
 
@@ -8,6 +8,8 @@ const Login = (props) => {
 
     const [email, setEmail] = useState('admin@gmail.com');
     const [password, setPassword] = useState('Admin123');
+
+    const myEmailRef = useRef()
 
     const [dirty, setDirty] = useState({
         email:false,
@@ -25,7 +27,8 @@ const Login = (props) => {
 
 
     useEffect(() => {
-        document.title = 'Login'
+        document.title = 'Login';
+        myEmailRef.current.focus()
     }, []);
 
     const validate = () => {
@@ -82,12 +85,13 @@ const Login = (props) => {
             if (response.ok) {
                 let responseBody = await response.json();
                 if (responseBody.length>0) {
-                    userContext.setUser({
-                        ...userContext.user,
-                        isLoggedIn:true,
-                        currentUserId : responseBody[0].id,
-                        currentUserName : responseBody[0].fullName,
-                        currentUserRole : responseBody[0].role,
+                    userContext.dispatch({
+                        type:"login",
+                        payload:{
+                            currentUserId : responseBody[0].id,
+                            currentUserName : responseBody[0].fullName,
+                            currentUserRole : responseBody[0].role,
+                        },
                     })
                     navigate("/dashboard")
                     // userContext.dispatch({
@@ -143,6 +147,7 @@ const Login = (props) => {
                                 id="email"
                                 placeholder="Enter Your Email" name="email"
                                 value={email}
+                                ref={myEmailRef}
                                 onChange={(e) => setEmail(e.target.value)}
                                 onBlur={() => {
                                     setDirty({...dirty, email:true});

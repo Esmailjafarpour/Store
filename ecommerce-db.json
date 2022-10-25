@@ -178,6 +178,17 @@
       "recieveNewsLetters": true,
       "role": "user",
       "id": 7
+    },
+    {
+      "email": "farzadyazdanpanah@gmail.com",
+      "password": "QAZqaz123456",
+      "fullName": "farzadyazd ",
+      "dateOfBrith": "2022-11-01",
+      "gender": "male",
+      "country": "8",
+      "recieveNewsLetters": true,
+      "role": "user",
+      "id": 8
     }
   ],
   "orders": [
