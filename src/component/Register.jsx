@@ -387,7 +387,7 @@ const Register = (props) => {
                 </div>
 
                 {/* footer */}
-                <div className="card-footer text-center">
+                <div className="card-footer text-center text-warning">
                     <div className="m-1 text-warning">{message}</div>
                     <button 
                         className="btn btn-outline-warning m-2 w-50"

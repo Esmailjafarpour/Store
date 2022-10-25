@@ -85,21 +85,20 @@ const Dashboard = () => {
 
     return(
         <div className="row">
-            <div className="col-12 py-3 header">
+            <div className="col-12 py-2 title-order header title">
                 <h4 className="d-flex flex-column justify-content-center">
                     <span className="d-flex justify-content-center"><i className="fa fa-dashboard"></i>Dashboard{" "}</span>
-                    <button className="btn btn-sm btn-info my-2 w-25 mx-auto" onClick={loadDataFromDataBase}>
+                    <button className="btn btn-outline-warning my-2 w-25 mx-auto" onClick={loadDataFromDataBase}>
                         <i className="fa fa-refresh"></i>Refresh
                     </button>
                 </h4>
             </div>
-            <div className="col-12">
+            <div className="col-12 my-3">
                 <div className="row">
-
                     <div className="col-lg-6">
-                        <h4 className="py-2 my-2 text-info border-bottom border-info">
+                        <h4 className="py-2 my-2 text-success">
                             <i className="fa fa-history"></i>Previous Orders{"  "}
-                            <span className="badge bg-info">
+                            <span className="badge bg-success">
                                 {OrdersService.getPreviousOrders(orders).length}
                             </span>
                         </h4>
@@ -130,9 +129,9 @@ const Dashboard = () => {
                     </div>
 
                     <div className="col-lg-6">
-                        <h4 className="py-2 my-2 text-primary border-bottom border-primary">
-                            <div className="fa fa-shopping-cart"></div>  card{" "}
-                            <span className="badge bg-primary">
+                        <h4 className="py-2 my-2 text-warning">
+                            <div className="fa fa-shopping-cart"></div>card{" "}
+                            <span className="badge bg-warning">
                                 {OrdersService.getCart(orders).length}
                             </span>
                         </h4>
@@ -153,7 +152,7 @@ const Dashboard = () => {
 
                         {showOrderDeleteAlert?(
                             <div className="col-12">
-                                <div className="alert alert-danger alert-dismissible fade show mt-1" role="alert">
+                                <div className="alert alert-warning alert-dismissible fade show mt-1" role="alert">
                                     Your Item Has Been Removed From The Cart.
                                     <button 
                                         className="btn-close" 
@@ -166,7 +165,7 @@ const Dashboard = () => {
                         ):("")}
                         {OrdersService.getCart(orders).length === 0 ? 
 
-                            (<div className="text-danger">No Products In Your Cards</div>)
+                            (<div className="text-warning text-center">No Products In Your Cards</div>)
 
                             :
 

@@ -1,16 +1,16 @@
 import React,{useState,useEffect} from 'react';
 
 const Order = (props) => {
-    console.log("Order Component rendered",props)
+
     return(
-        <div className="card my-2 shadow p-3"> 
+        <div className="card my-2 shadow p-3 order-card"> 
             <h6>
                 <i className="fa fa-arrow-right"></i>{props.productName}
                 <div className="float-end">
                     {props.isPaymentCompleted === false ? 
                         <>
                             <button 
-                                className="btn btn-sm btn-info me-2"
+                                className="btn btn-sm btn-success me-2"
                                 onClick={() => {
                                     props.onBuyNowClick(
                                         props.orderId,
@@ -23,7 +23,7 @@ const Order = (props) => {
                                 <i className="fa fa-truck"></i>Buy Now
                             </button>
                             <button 
-                                className="btn btn-sm btn-danger"
+                                className="btn btn-sm btn-warning"
                                 onClick={()=>{
                                     props.onDeleteClick(props.orderId)
                                 }}
@@ -37,7 +37,7 @@ const Order = (props) => {
                     }
                 </div>
             </h6>    
-                <table className="table-sm table border-less mt-1">
+                <table className="table-sm table border rounded mt-1 text-light">
                     <tbody>
                         <tr>
                             <td style={{width:"100px"}}>Quantity : </td>

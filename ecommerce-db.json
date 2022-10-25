@@ -214,18 +214,11 @@
       "isPaymentCompleted": true
     },
     {
+      "id": 5,
       "userId": 1,
       "productId": 2,
       "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "productId": 3,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 6
+      "isPaymentCompleted": true
     }
   ]
 }

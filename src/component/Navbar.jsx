@@ -19,7 +19,7 @@ const Navbar = () => {
 
     return(
 
-        <nav className="navbar navbarStyle navbar-expand-lg navbar-dark">
+        <nav className=" navbar navbarStyle navbar-expand-lg navbar-dark navbar-header">
 
             <div className="container-fluid">
 
@@ -106,9 +106,9 @@ const Navbar = () => {
                                         <i className="fa fa-user circle"></i>
                                         <span>{`hello ${userContext.user.currentUserName}`}</span>
                                     </NavLink>
-                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown" style={{zIndex:"1001"}}>
-                                        <li>
-                                            <NavLink className="dropdown-item" to="#" onClick={onLogOutClick}>
+                                    <ul className="dropdown-menu selected" aria-labelledby="navbarDropdown" style={{zIndex:"1001"}}>
+                                        <li className="px-2">
+                                            <NavLink className="dropdown-item selected" to="#" onClick={onLogOutClick}>
                                             <i class="fa fa-sign-out" aria-hidden="true"></i>
                                                 LogOut
                                             </NavLink>

@@ -6,7 +6,6 @@ body{
 nav{
     background-color: rgb(40 41 48);
     border: 2px solid #5a4600;
-    margin: 15px 0;
     border-radius: 8px;
 }
 
@@ -16,7 +15,7 @@ nav{
     overflow: hidden;
 }
 
-.title-login,.title-register{
+.title-login,.title-register,.title-order{
     color:wheat;
 }
 
@@ -28,19 +27,27 @@ i{
     margin-right: 0.3rem;
 }
 
+.navbar-header{
+    background-color: #282930;
+    color: wheat;
+    position: sticky !important;
+    top: 5px;
+    z-index: 1000 !important;
+}
+
 .header{
     background-color: #282930;
     color: wheat;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    position: sticky !important;
+    top: 70px;
+    z-index: 1000 !important;
 }
 
 .bage-header{
     color: wheat !important;
 }
 
-.input-search,.input-login,.input-register{
+.input-search,.input-login,.input-register,.order-card{
     background-color: #414246 !important;
     color: #ddbe85 !important;
     border: 2px solid #605f5f !important;
