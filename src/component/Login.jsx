@@ -172,7 +172,7 @@ const Login = (props) => {
                     </div>
                     <div className="card-footer text-center">
                         <div className="m-1">{loginMessage}</div>
-                        <button className="btn btn-outline-warning   w-50 m-2"onClick={onLoginClick}>Login</button>
+                        <button className="btn btn-outline-warning w-50 m-2"onClick={onLoginClick}>Login</button>
                     </div>
                 </div>
             </div>

@@ -195,11 +195,11 @@ const Register = (props) => {
 
     return(
        <div className="row">
-         <div className="col-lg-6 col-md-7 mx-auto">
-            <div className="card border-success shadow my-2">
-                <div className="card-header border-bottom border-success">
-                    <h4 style={{fontSize:'40px'}} className="text-success text-center">Register</h4>
-                    <ul className="text-danger text-center">
+         <div className="col-lg-6 col-md-7 mx-auto form-register">
+            <div className="card shadow my-2 bg-dark">
+                <div className="card-header ">
+                    <h4 style={{fontSize:'40px'}} className="title-register text-center">Register</h4>
+                    <ul className="text-warning text-center">
                         {Object.keys(errors).map((control)=>{
                             if(dirty[control]) {
                                 return errors[control].map((err)=>{
@@ -211,16 +211,16 @@ const Register = (props) => {
                         })}
                     </ul>
                 </div>
-                <div className="card-body border-success">
+                <div className="card-body">
                     {/* Email */}
                     <div className="row mb-3">
-                        <label htmlFor="Email" className="col-lg-2">Email</label>
+                        <label htmlFor="Email" className="col-lg-2 text-light">Email</label>
                         <div className="col-lg-10">
                              <input  
                                 type="text"
                                 id="Email" 
                                 name="email"
-                                className="form-control" 
+                                className="form-control input-register" 
                                 value={state.email}
                                 placeholder="example@gmail.com"
                                 ref={myEmailRef}
@@ -230,7 +230,7 @@ const Register = (props) => {
                                     validate();
                                 }}
                             />
-                            <div className="text-danger">
+                            <div className="text-warning">
                                 {dirty["email"]&&errors['email'][0] ? errors['email'] : ""}
                             </div>
                         </div>
@@ -238,13 +238,13 @@ const Register = (props) => {
                     </div>
                     {/* Password */}
                     <div className="row mb-3">
-                        <label htmlFor="Password" className="col-lg-2 ">Password</label>
+                        <label htmlFor="Password" className="col-lg-2 text-light">Password</label>
                         <div className="col-lg-10">
                             <input  
                                 type="password" 
                                 id="Password"
                                 name="password"
-                                className="form-control mb-2" 
+                                className="form-control mb-2 input-register" 
                                 value={state.password}
                                 placeholder="**********"
                                 onChange={(e) => setState({...state,[e.target.name]: e.target.value})}
@@ -253,20 +253,20 @@ const Register = (props) => {
                                     validate();
                                 }}
                             />
-                            <div className="text-danger">
+                            <div className="text-warning">
                                 {dirty["password"]&&errors['password'][0] ? errors['password'] : ""}
                             </div>
                         </div>    
                     </div>
                     {/* FullName */}
                     <div className="row mb-3">
-                        <label htmlFor="FullName" className="col-lg-2">FullName</label>
+                        <label htmlFor="FullName" className="col-lg-2 text-light">FullName</label>
                         <div className="col-lg-10">
                             <input  
                                 type="text" 
                                 id="FullName"
                                 name="fullName"
-                                className="form-control mb-2" 
+                                className="form-control mb-2 input-register" 
                                 value={state.fullName}
                                 placeholder="Esmail"
                                 onChange={(e) => setState({...state,[e.target.name]: e.target.value})}
@@ -275,20 +275,20 @@ const Register = (props) => {
                                     validate();
                                 }}
                             />
-                            <div className="text-danger">
+                            <div className="text-warning">
                                 {dirty["fullName"]&&errors['fullName'][0] ? errors['fullName'] : ""}
                             </div>
                         </div> 
                     </div>
                     {/* DateOfBrith */}
                     <div className="row mb-3">
-                        <label htmlFor="DateOfBrith" className="col-lg-3">Date Of Brith</label>
+                        <label htmlFor="DateOfBrith" className="col-lg-3 text-light">Date Of Brith</label>
                         <div className="col-lg-9">
                             <input  
                                 type="date" 
                                 id="DateOfBrith"
                                 name="dateOfBrith"
-                                className="form-control mb-2" 
+                                className="form-control mb-2 input-register" 
                                 value={state.dateOfBrith}
                                 placeholder="00-00-00"
                                 onChange={(e) => setState({...state,[e.target.name]: e.target.value})}
@@ -297,14 +297,14 @@ const Register = (props) => {
                                     validate();
                                 }}
                             />
-                            <div className="text-danger">
+                            <div className="text-warning">
                                 {dirty["dateOfBrith"]&&errors['dateOfBrith'][0] ? errors['dateOfBrith'] : ""}
                             </div>
                         </div>    
                     </div>
                     {/* Gender */}
                     <div className="row mb-3">
-                        <label htmlFor="" className="col-lg-2">Gender</label>
+                        <label htmlFor="" className="col-lg-2 text-light">Gender</label>
                         <div className="col-lg-8 d-flex justify-content-around ">
                             <div className="form-check">
                                 <input  
@@ -312,11 +312,11 @@ const Register = (props) => {
                                     id="male"
                                     name="gender"
                                     value="male"
-                                    className="form-check-input mb-2" 
+                                    className="form-check-input mb-2 input-register" 
                                     onChange={(e) => setState({...state,[e.target.name]: e.target.value})}
                                     checked={state.gender === "male" ? true : false}
                                 />
-                                <label htmlFor="male" className="form-check-inline mb-1">Male</label>
+                                <label htmlFor="male" className="form-check-inline mb-1 text-light">Male</label>
                             </div>
                             <div className="form-check">
                                 <input  
@@ -324,27 +324,27 @@ const Register = (props) => {
                                     id="female"
                                     name="gender"
                                     value="female"
-                                    className="form-check-input mb-2" 
+                                    className="form-check-input mb-2 input-register" 
                                     onChange={(e) => setState({...state,[e.target.name]: e.target.value})}
                                     checked={state.gender === "female" ? true : false}
                                 />
-                                <label htmlFor="female" className="form-check-inline mb-1">Female</label>
+                                <label htmlFor="female" className="form-check-inline mb-1 text-light">Female</label>
                             </div>
                         </div>
-                        <div className="text-danger">
+                        <div className="text-warning">
                             {dirty["gender"]&&errors['gender'][0] ? errors['gender'] : ""}
                         </div>
                     </div>
 
                     {/* country */}
                     <div className="row mb-3">
-                        <label htmlFor="Country" className="col-lg-2">Country</label>
+                        <label htmlFor="Country" className="col-lg-2 text-light">Country</label>
                         <div className="col-lg-10">
                             <select 
                                 multiple={false}  
                                 id="Country"
                                 name="country"
-                                className="form-control" 
+                                className="form-control selected" 
                                 value={state.country}
                                 onChange={(e) => setState({...state,[e.target.name]: e.target.value})}
                                 onBlur={(e) => {
@@ -359,7 +359,7 @@ const Register = (props) => {
 
                             </select>
                         </div>
-                        <div className="text-danger">
+                        <div className="text-warning">
                             {dirty["country"]&&errors['country'][0] ? errors['country'] : ""}
                         </div>
                     </div>
@@ -367,7 +367,7 @@ const Register = (props) => {
 
                     {/* Recive News Letters */}
                     <div className="row mb-3">
-                        <label htmlFor="" className="col-lg-4">Recieve News Letters</label>
+                        <label htmlFor="" className="col-lg-4 text-light">Recieve News Letters</label>
                         <div className="col-lg-8">
                             <div className="form-check">
                                 <input  
@@ -379,7 +379,7 @@ const Register = (props) => {
                                     onChange={(e) => setState({...state,[e.target.name]: e.target.checked})}
                                     checked={state.recieveNewsLetters === true ? true : false}
                                 />
-                                <label htmlFor="recieveNewsLetters" className="form-check-inline mb-1">RecieveNewsLetters</label>
+                                <label htmlFor="recieveNewsLetters" className="form-check-inline mb-1 text-light">RecieveNewsLetters</label>
                             </div>
                         </div>
                         
@@ -388,9 +388,9 @@ const Register = (props) => {
 
                 {/* footer */}
                 <div className="card-footer text-center">
-                    <div className="m-1">{message}</div>
+                    <div className="m-1 text-warning">{message}</div>
                     <button 
-                        className="btn btn-primary m-2"
+                        className="btn btn-outline-warning m-2 w-50"
                         onClick={onRegisterClick}
                     >
                         Register
