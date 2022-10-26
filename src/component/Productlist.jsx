@@ -95,7 +95,7 @@ const Productlist = () => {
                 <a 
                     href="/#"
                     onClick={(e)=>{onSortColumnNameClick(e,columnName)}}
-                    className="link-table"
+                    className="link-table link-warning"
                 >{displayName}{" "}</a>
                 
                 {sortBy === columnName && sortOrder === "asc" ?
