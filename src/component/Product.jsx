@@ -3,8 +3,8 @@ import React,{useState} from 'react';
 const Product = ({product,onAddToCartClick}) => {
     return (
         <div className="col-lg-6">
-            <div className="card m-1">
-                <div className="card-body">
+            <div className="card m-1 bg-dark">
+                <div className="card-body bg-gradient card-product">
                     <h5>
                         <i className="fa fa-arrow-right"></i>{product.productName}
                     </h5>
@@ -29,7 +29,7 @@ const Product = ({product,onAddToCartClick}) => {
                             ):( 
                             
                             <button 
-                                className="btn btn-sm btn-primary" 
+                                className="btn btn-sm btn-card" 
                                 onClick={()=>onAddToCartClick(product)}
                             >
                                 <i className="fa fa-cart-plus"></i>Add to card

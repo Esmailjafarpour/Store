@@ -138,11 +138,12 @@ const Store = () => {
     return(
         
             <div className="row py-3">
-
-                <div className="col-lg-3">
-                    <h4>
-                        <i className="fa fa-shopping-bag"></i>Store{" "}
-                        <span className="badge badges-secondary bg-success white">
+                <div className="col-lg-3 title card-product">
+                    <h4 className="py-2 m-0 d-flex justify-content-between align-items-center">
+                        <span>
+                            <i className="fa fa-shopping-bag"></i>Store{" "}
+                        </span>
+                        <span className="badge bg-secondary bage-header">
                             {productToShow.length}
                         </span>
                     </h4>
@@ -153,7 +154,7 @@ const Store = () => {
                         type="search"
                         value={search}
                         placeholder="Search Product"
-                        className="form-control"
+                        className="form-control input-login"
                         autoFocus="autofocus"
                         onChange={(e)=>{setSearch(e.target.value)}}
                     />
@@ -162,14 +163,14 @@ const Store = () => {
                 <div className="row">
                     <div className="col-lg-3 py-2">
                          <div className="my-2">
-                            <h5>Brands</h5>
-                            <ul className="list-group list-group-flush">
+                            <h5 className="title-filter">Brands</h5>
+                            <ul className="list-group list-group-flush ">
                                 {brands.map((brand)=>(
-                                    <li className="list-group-item" key={brand.id}>
+                                    <li className="list-group-item selected" key={brand.id}>
                                         <div className="form-check">
                                             <input 
                                                 type="checkBox" 
-                                                className="form-check-input"
+                                                className="form-check-input bg-secondary"
                                                 value="true"
                                                 checked={brand.isChecked}
                                                 id={`brand${brand.id}`}
@@ -187,14 +188,14 @@ const Store = () => {
                          </div>
 
                          <div className="my-2">
-                            <h5>Categories</h5>
+                            <h5 className="title-filter">Categories</h5>
                             <ul className="list-group list-group-flush">
                                 {categories.map((category)=>(
-                                    <li className="list-group-item" key={category.id}>
+                                    <li className="list-group-item selected" key={category.id}>
                                         <div className="form-check">
                                             <input 
                                                 type="checkBox" 
-                                                className="form-check-input"
+                                                className="form-check-input bg-secondary"
                                                 value="true"
                                                 checked={category.isChecked}
                                                 id={`category${category.id}`}

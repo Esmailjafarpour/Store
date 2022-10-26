@@ -195,9 +195,9 @@ const Register = (props) => {
 
     return(
        <div className="row">
-         <div className="col-lg-6 col-md-7 mx-auto form-register">
-            <div className="card shadow my-2 bg-dark">
-                <div className="card-header ">
+         <div className="col-lg-6 col-md-7 mx-auto form-register mt-4">
+            <div className="card shadow my-2 bg-dark px-2">
+                <div className="card-header">
                     <h4 style={{fontSize:'40px'}} className="title-register text-center">Register</h4>
                     <ul className="text-warning text-center">
                         {Object.keys(errors).map((control)=>{

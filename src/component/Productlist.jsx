@@ -107,8 +107,6 @@ const Productlist = () => {
         )
     }
 
-
-
     return(
         <div className="row">
             <div className="col-12 title header">

@@ -1,3 +1,8 @@
+*{
+    
+    box-sizing: border-box !important;
+}
+
 body{
     background-color: #000000 !important;
     padding: 0 8px;
@@ -61,6 +66,32 @@ i{
     background-color: #414246 !important;
     color: #ddbe85 !important;
     border: 2px solid #605f5f !important;
+}
+
+.btn-card{
+    background-color: #f8f9fa !important;
+    color: #7c3811 !important;
+    border: 2px solid #c5c4c0 !important;
+    font-weight: 600 !important;
+    transition: all .6s ease-in-out;
+}
+
+.btn-card:hover{
+    background-color: #d1a05b !important;
+    color: #ffffff !important;
+    border: 2px solid #c5c4c0 !important;
+   
+}
+
+.card-product{
+    color: #ddbe85 !important;
+    border: 2px solid #605f5f !important;
+}
+
+.title-filter{
+    color: aliceblue;
+    padding: 5px 0;
+    margin: 5px 0;
 }
 
 .content{

@@ -122,7 +122,7 @@ const Login = (props) => {
     
     return(
         <div className="row">
-            <div className="col-lg-5 col-md-7 mx-auto form-login">
+            <div className="col-lg-5 col-md-7 mx-auto form-login mt-5">
                 <div className="card shadow-lg my-2 bg-dark">
                     <div className="card-header bg-dark">
                         <h4 style={{fontSize:'40px'}}className="title-login text-center">
