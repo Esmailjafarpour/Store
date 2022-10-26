@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 
 const Product = ({product,onAddToCartClick}) => {
     return (
-        <div className="col-lg-6">
+        <div className="col-lg-6 ">
             <div className="card m-1 bg-dark">
                 <div className="card-body bg-gradient card-product">
                     <h5>

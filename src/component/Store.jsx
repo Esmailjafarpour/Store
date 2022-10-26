@@ -149,7 +149,7 @@ const Store = () => {
                     </h4>
                 </div>
 
-                <div className="col-lg-9">
+                <div className="col-lg-9 py-2">
                     <input  
                         type="search"
                         value={search}
@@ -160,7 +160,7 @@ const Store = () => {
                     />
                 </div>
 
-                <div className="row">
+                <div className="row mx-auto">
                     <div className="col-lg-3 py-2">
                          <div className="my-2">
                             <h5 className="title-filter">Brands</h5>

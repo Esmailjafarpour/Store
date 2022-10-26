@@ -45,7 +45,7 @@ i{
     color: wheat;
     position: sticky !important;
     top: 70px;
-    z-index: 1000 !important;
+    z-index: 999 !important;
 }
 
 .bage-header{
@@ -110,5 +110,18 @@ i{
 .link-table{
     color: wheat;
     text-decoration: none;
+}
+
+
+.not-found{
+    background-image: url("../public/preview.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 84vh;
+    display: block;
+    border-radius: 8px;
+    
 }
 

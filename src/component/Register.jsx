@@ -199,7 +199,7 @@ const Register = (props) => {
             <div className="card shadow my-2 bg-dark px-2">
                 <div className="card-header">
                     <h4 style={{fontSize:'40px'}} className="title-register text-center">Register</h4>
-                    <ul className="text-warning text-center">
+                    <ul className="text-warning text-center p-0">
                         {Object.keys(errors).map((control)=>{
                             if(dirty[control]) {
                                 return errors[control].map((err)=>{
@@ -214,7 +214,7 @@ const Register = (props) => {
                 <div className="card-body">
                     {/* Email */}
                     <div className="row mb-3">
-                        <label htmlFor="Email" className="col-lg-2 text-light">Email</label>
+                        <label htmlFor="Email" className="col-lg-2 text-light py-1">Email</label>
                         <div className="col-lg-10">
                              <input  
                                 type="text"
@@ -238,7 +238,7 @@ const Register = (props) => {
                     </div>
                     {/* Password */}
                     <div className="row mb-3">
-                        <label htmlFor="Password" className="col-lg-2 text-light">Password</label>
+                        <label htmlFor="Password" className="col-lg-2 text-light py-1">Password</label>
                         <div className="col-lg-10">
                             <input  
                                 type="password" 
@@ -260,7 +260,7 @@ const Register = (props) => {
                     </div>
                     {/* FullName */}
                     <div className="row mb-3">
-                        <label htmlFor="FullName" className="col-lg-2 text-light">FullName</label>
+                        <label htmlFor="FullName" className="col-lg-2 text-light py-1">FullName</label>
                         <div className="col-lg-10">
                             <input  
                                 type="text" 
@@ -282,7 +282,7 @@ const Register = (props) => {
                     </div>
                     {/* DateOfBrith */}
                     <div className="row mb-3">
-                        <label htmlFor="DateOfBrith" className="col-lg-3 text-light">Date Of Brith</label>
+                        <label htmlFor="DateOfBrith" className="col-lg-3 text-light py-1">Date Of Brith</label>
                         <div className="col-lg-9">
                             <input  
                                 type="date" 
@@ -304,7 +304,7 @@ const Register = (props) => {
                     </div>
                     {/* Gender */}
                     <div className="row mb-3">
-                        <label htmlFor="" className="col-lg-2 text-light">Gender</label>
+                        <label htmlFor="" className="col-lg-2 text-light py-1">Gender</label>
                         <div className="col-lg-8 d-flex justify-content-around ">
                             <div className="form-check">
                                 <input  
@@ -338,7 +338,7 @@ const Register = (props) => {
 
                     {/* country */}
                     <div className="row mb-3">
-                        <label htmlFor="Country" className="col-lg-2 text-light">Country</label>
+                        <label htmlFor="Country" className="col-lg-2 text-light py-1">Country</label>
                         <div className="col-lg-10">
                             <select 
                                 multiple={false}  
@@ -366,10 +366,10 @@ const Register = (props) => {
                     {/* End Of Country */}
 
                     {/* Recive News Letters */}
-                    <div className="row mb-3">
-                        <label htmlFor="" className="col-lg-4 text-light">Recieve News Letters</label>
-                        <div className="col-lg-8">
-                            <div className="form-check">
+                    <div className="row mb-3 text-center">
+                        <label htmlFor="" className="col-lg-4 text-light py-1">Recieve News Letters</label>
+                        <div className="col-lg-8 d-flex">
+                            <div className="form-check  mx-auto">
                                 <input  
                                     type="checkbox" 
                                     id="recieveNewsLetters"

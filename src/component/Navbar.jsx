@@ -47,7 +47,7 @@ const Navbar = () => {
                     {userContext.user.isLoggedIn && userContext.user.currentUserRole === "user"?
 
                         <li className="nav-item">
-                            <NavLink className="nav-link" activeclassname="active" aria-current="page" to="/store">
+                            <NavLink className="nav-link" activeclassname="active" aria-current="page" to="/">
                                 <i className="fa fa-shopping-bag"></i>
                                 Store
                             </NavLink>
@@ -72,7 +72,7 @@ const Navbar = () => {
 
                     {!userContext.user.isLoggedIn?
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/" activeclassname="active" exact={`${true}`}>
+                            <NavLink className="nav-link" to="/login" activeclassname="active" exact={`${true}`}>
                             <i class="fa fa-sign-in" aria-hidden="true"></i>
                                 Login
                             </NavLink>

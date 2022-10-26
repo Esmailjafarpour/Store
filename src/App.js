@@ -63,10 +63,10 @@ function App() {
 
           <div className="container-fluid">
             <Routes>
-              <Route path="/" exact={`${true}`} element={<Login/>}/>
+              <Route path="/" element={<Store/>}/>
+              <Route path="/login" exact={`${true}`} element={<Login/>}/>
               <Route path="/register" element={<Register/>}/>
               <Route path="/dashboard" element={<Dashboard/>}/>
-              <Route path="/store" element={<Store/>}/>
               <Route path="/products" element={<Productlist/>}/>
               <Route path="*" element={<NoMatchPage/>}/>
             </Routes>
