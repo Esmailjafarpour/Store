@@ -130,7 +130,7 @@ const Dashboard = () => {
 
                     <div className="col-lg-6">
                         <h4 className="py-2 my-2 text-warning">
-                            <div className="fa fa-shopping-cart"></div>card{" "}
+                            <div className="fa fa-shopping-cart px-1"></div>card{" "}
                             <span className="badge bg-warning">
                                 {OrdersService.getCart(orders).length}
                             </span>

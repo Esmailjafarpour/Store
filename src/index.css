@@ -3,6 +3,41 @@
     box-sizing: border-box !important;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    cursor: pointer;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(148, 147, 147); 
+    border-radius: 8px;
+    cursor: pointer;
+    
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    margin: 2px 0;
+    background: rgb(180, 180, 180); 
+    border-radius: 8px;
+    border: 1px solid rgb(44, 44, 44); 
+    cursor: pointer;
+
+
+    
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    margin: 2px 0;
+    background: rgb(44, 44, 44); 
+    border-radius: 8px;
+    border: 1px solid rgb(121, 119, 119);
+    cursor: pointer;
+  }
+
 body{
     background-color: #000000 !important;
     padding: 0 8px;
