@@ -13,6 +13,7 @@ const Navbar = () => {
         userContext.dispatch({
             type:"logout"
         })
+        
         // navigate("/")
         window.location.href = "/"
     }
