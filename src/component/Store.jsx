@@ -24,7 +24,7 @@ const Store = () => {
 
                     brand.isChecked = true;
 
-                });
+                }); 
 
                 setBrands(brandResponseBody);
             
@@ -44,9 +44,8 @@ const Store = () => {
 
 
             let productsResponse = await fetch(
-                `http://localhost:5000/products?productName_like=${search}`,{method:"GET"}
-                );
-           
+                `http://localhost:5000/products?productName_like=${search}`,{method:"GET"});
+                
                 let productsResponseBody = await productsResponse.json();
 
                 if(productsResponse.ok){
@@ -117,8 +116,7 @@ const Store = () => {
                 body : JSON.stringify(newOrder),
                 headers:{"Content-Type":"application/json"}
             })
-            if (orderResponse.ok) {
-                
+            if(orderResponse.ok){
                 let orderResponseBody = await orderResponse.json();
                 let prods = products.map((p) =>{
                     if (p.id === product.id) p.isOrdered = true;
@@ -134,16 +132,15 @@ const Store = () => {
     }
 
    
-
     return(
         
             <div className="row py-3">
                 <div className="col-lg-3 title card-product">
-                    <h4 className="py-2 m-0 d-flex justify-content-between align-items-center">
+                    <h4 className="px-2 py-0.5 my-1 d-flex justify-between items-center text-orange-300">
                         <span>
-                            <i className="fa fa-shopping-bag"></i>Store{" "}
+                            <i className="fa fa-shopping-bag"></i> Store{" "}
                         </span>
-                        <span className="badge bg-secondary bage-header">
+                        <span className="px-3 py-0.5 my-1 rounded-lg bg-neutral-700 text-emerald-200 bg-gradient">
                             {productToShow.length}
                         </span>
                     </h4>
@@ -154,7 +151,10 @@ const Store = () => {
                         type="search"
                         value={search}
                         placeholder="Search Product"
-                        className="form-control input-login"
+                        className="form-control bg-stone-700  w-full px-3 py-1.5 text-base 
+                            font-normal text-gray-700 rounded transition ease-in-out border
+                             border-solid border-gray-300  m-0 focus:text-gray-700 focus:outline-none"
+                           
                         autoFocus="autofocus"
                         onChange={(e)=>{setSearch(e.target.value)}}
                     />
@@ -163,10 +163,10 @@ const Store = () => {
                 <div className="row mx-auto">
                     <div className="col-lg-3 py-2">
                          <div className="my-2">
-                            <h5 className="title-filter">Brands</h5>
+                            <h5 className="text-amber-100 px-2 py-1">Brands</h5>
                             <ul className="list-group list-group-flush ">
                                 {brands.map((brand)=>(
-                                    <li className="list-group-item selected" key={brand.id}>
+                                    <li className="px-2 py-2 my-1 bg-neutral-700 text-emerald-100 rounded-lg shadow-3xl border-yellow-900" key={brand.id}>
                                         <div className="form-check">
                                             <input 
                                                 type="checkBox" 
@@ -188,10 +188,10 @@ const Store = () => {
                          </div>
 
                          <div className="my-2">
-                            <h5 className="title-filter">Categories</h5>
+                            <h5 className="text-amber-100 px-2 py-1">Categories</h5>
                             <ul className="list-group list-group-flush">
                                 {categories.map((category)=>(
-                                    <li className="list-group-item selected" key={category.id}>
+                                    <li className="px-2 py-2 my-1 bg-neutral-700 text-emerald-100 rounded-lg shadow-3xl border-yellow-900" key={category.id}>
                                         <div className="form-check">
                                             <input 
                                                 type="checkBox" 
