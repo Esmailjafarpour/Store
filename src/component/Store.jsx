@@ -139,7 +139,7 @@ const Store = () => {
                     <h4 className="px-2 py-0.5 my-1 d-flex justify-between items-center text-orange-300">
                         <span>
                             <i className="fa fa-shopping-bag"></i> Store{" "}
-                        </span>
+                        </span >
                         <span className="px-3 py-0.5 my-1 rounded-lg bg-neutral-700 text-emerald-200 bg-gradient">
                             {productToShow.length}
                         </span>
