@@ -45,11 +45,11 @@ const Register = (props) => {
         recieveNewsLetters:false
     });
 
-    const myEmailRef = useRef();
-
     const [message, setMessage] = useState();
-
+    
     const userContext = useContext(UserContext);
+
+    const myEmailRef = useRef();
 
     const navigate = useNavigate()
 
@@ -82,7 +82,7 @@ const Register = (props) => {
         }
  
         // password regex
-        const validPasswordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,15}$/gm;
+        const validPasswordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,10}$/gm;
         if (state.password) {
             if (!validPasswordRegex.test(state.password)) {
                  errorsData.password.push("Password should be 6 to 15 charecters long with at least one uppercase letter,one lowercase letter and on digit")

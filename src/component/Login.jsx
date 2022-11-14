@@ -9,21 +9,20 @@ const Login = (props) => {
     const [email, setEmail] = useState('admin@gmail.com');
     const [password, setPassword] = useState('Admin123');
 
-    const myEmailRef = useRef()
-
     const [dirty, setDirty] = useState({
         email:false,
         password :false,
     });
-
+    
     const [errors, setErrors] = useState({
         email:[],
         password :[],
     });
-
-    const [loginMessage, setLoginMessage] = useState("");
-    const navigate = useNavigate()
     
+    const [loginMessage, setLoginMessage] = useState("");
+    
+    const myEmailRef = useRef()
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -104,7 +103,7 @@ const Login = (props) => {
                 }else{
                     setLoginMessage(<span className="text-danger">Invalid Login,please try again</span>)
                 }
-
+                
             }else{
                 setLoginMessage(<span className="text-danger">Unable to connect to server</span>)
             }
@@ -137,7 +136,8 @@ const Login = (props) => {
                                 type="text" 
                                 className="form-control input-login" 
                                 id="email"
-                                placeholder="Enter Your Email" name="email"
+                                placeholder="Enter Your Email" 
+                                name="email"
                                 value={email}
                                 ref={myEmailRef}
                                 onChange={(e) => setEmail(e.target.value)}

@@ -232,11 +232,11 @@
       "isPaymentCompleted": true
     },
     {
+      "id": 6,
       "userId": 6,
       "productId": 1,
       "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 6
+      "isPaymentCompleted": false
     }
   ]
 }

@@ -4,10 +4,8 @@ export const OrdersService = {
     getPreviousOrders : (orders) => {
         return orders.filter((order)=>order.isPaymentCompleted === true)
     },
-
     getCart : (orders) => {
         return orders.filter((order)=>order.isPaymentCompleted === false)
-
     }
 }
 

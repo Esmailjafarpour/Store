@@ -62,7 +62,7 @@ const Dashboard = () => {
                 }
             )
 
-            if (orderResponse.ok) {
+            if(orderResponse.ok) {
                 let orderReponseBody = await orderResponse.json();
                 loadDataFromDataBase();
                 setShowOrderUpdateAlert(true)
