@@ -103,13 +103,9 @@ const Dashboard = () => {
                             </span>
                         </h4>
                         {OrdersService.getPreviousOrders(orders).length === 0 ?
-
                             (<div className="text-danger"> No Orders</div>)
-
                             :
-
                             ("")
-
                         }
 
                         {OrdersService.getPreviousOrders(orders).map((order)=> {
@@ -163,14 +159,9 @@ const Dashboard = () => {
                                 </div>
                             </div>
                         ):("")}
+
                         {OrdersService.getCart(orders).length === 0 ? 
-
-                            (<div className="text-warning text-center">No Products In Your Cards</div>)
-
-                            :
-
-                            ("")
-
+                            (<div className="text-warning text-center">No Products In Your Cards</div>):("")
                         }
 
                         {OrdersService.getCart(orders).map((order)=>{
@@ -189,7 +180,6 @@ const Dashboard = () => {
                                 />
                             )
                         }
-                            
                         )}
                     </div>
                 </div>

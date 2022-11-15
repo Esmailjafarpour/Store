@@ -2,9 +2,9 @@ import React,{useState} from 'react';
 
 const Product = ({product,onAddToCartClick}) => {
     return (
-        <div className="col-lg-6 mb-1">
-            <div className="card m-1 bg-stone-800 overflow-hidden">
-                <div className="bg-gradient border-stone-700 bg-zinc-900 p-3">
+        // <div className="mb-1">
+            <div className="card m-1 bg-transparent border-0 overflow-hidden">
+                <div className="bg-gradient border-2 shadow-2xl bg-zinc-900 border-stone-600 rounded-lg p-3 ">
                     <h5 className="text-orange-400">
                         <i className="fa fa-arrow-right"></i>{product.productName}
                     </h5>
@@ -23,12 +23,14 @@ const Product = ({product,onAddToCartClick}) => {
                     <div className="float-end">
 
                         {product.isOrdered ?( 
-                            <button className="text-green-600 border border-yellow-800 px-3 py-2 mr-2 mb-1 rounded-xl text-sm bg-lime-200">
+                            <button className="text-green-600 border border-yellow-800 px-3 py-2 mr-2 mb-1 rounded-xl text-sm bg-yellow-100">
                                 Added to card!
                             </button>
                             ):( 
                             <button 
-                                className="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-3 py-2 text-center mr-2 mb-1 dark:border-yellow-300 dark:text-yellow-300 dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900" 
+                                className="text-green-200 border-2 border-neutral-600
+                                focus:outline-none rounded-lg text-sm px-3 py-2 text-center 
+                                mr-2 mb-1 dark:hover:text-green-600 dark:hover:bg-green-100" 
                                 onClick={()=>onAddToCartClick(product)}
                             >
                                 <i className="fa fa-cart-plus"></i>Add to card
@@ -40,7 +42,7 @@ const Product = ({product,onAddToCartClick}) => {
                     </div>
                 </div>
             </div>
-        </div>
+        // </div>
     )
 }
 

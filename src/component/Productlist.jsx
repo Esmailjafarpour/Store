@@ -108,60 +108,55 @@ const Productlist = () => {
     }
 
     return(
-        <div className="row">
-            <div className="col-12 title header">
-                <div className="row p-3 header">
-                    <div className="col-lg-3">
-                        <h4>
-                            <i className="fa fa-suitcase"></i>Products{"  "}
-                            <span className="badge bg-secondary bage-header">{products.length}</span>
-                        </h4>
-                    </div>
-                    <div className="col-lg-5">
-                        <input 
-                            type="search" 
-                            value={search}
-                            onChange={(e)=>{setSearch(e.target.value)}}
-                            placeholder="Search"
-                            className="form-control input-search"
-                            autoFocus="autofocus"
-                        />
-                    </div>
-
-                    <div className="col-lg-2">
-                        <select 
-                            value={selectedBrand}
-                            onChange={(e)=>{
-                                setSelectedBrand(e.target.value)
-                            }} 
-                            className="form-control selected"
-                        >
-                            <option value="">All Brands</option>
-                            {brands.map((brand)=>{
-                                return <option value={brand.brandName} key={brand.id}>{brand.brandName}</option>
-                            })}
-                        </select>
-                    </div>
-                    <div className="col-lg-2">
-                        <select 
-                            value={selectedCategory}
-                            onChange={(e)=>{
-                                setSelectedCategory(e.target.value)
-                            }} 
-                            className="form-control selected"
-                        >
-                            <option value="">All Categories</option>
-                            {categories.map((category)=>{
-                                return <option value={category.categoryName} key={category.id}>{category.categoryName}</option>
-                            })}
-                        </select>
-                    </div>
-
-
+        <div className="grid grid-rows-12">
+            <div className="grid grid-cols-12 p-3 gap-3 border-amber-500 rounded-lg header m-3">
+                <div className="col-span-2">
+                    <h4>
+                        <i className="fa fa-suitcase"></i>Products{"  "}
+                        <span className="badge bg-secondary bage-header">{products.length}</span>
+                    </h4>
+                </div>
+                <div className="col-span-6">
+                    <input 
+                        type="search" 
+                        value={search}
+                        onChange={(e)=>{setSearch(e.target.value)}}
+                        placeholder="Search"
+                        className="form-control input-search"
+                        autoFocus="autofocus"
+                    />
+                </div>
+                <div className="col-span-2">
+                    <select 
+                        value={selectedBrand}
+                        onChange={(e)=>{
+                            setSelectedBrand(e.target.value)
+                        }} 
+                        className="form-control selected"
+                    >
+                        <option value="">All Brands</option>
+                        {brands.map((brand)=>{
+                            return <option value={brand.brandName} key={brand.id}>{brand.brandName}</option>
+                        })}
+                    </select>
+                </div>
+                <div className="col-span-2">
+                    <select 
+                        value={selectedCategory}
+                        onChange={(e)=>{
+                            setSelectedCategory(e.target.value)
+                        }} 
+                        className="form-control selected"
+                    >
+                        <option value="">All Categories</option>
+                        {categories.map((category)=>{
+                            return <option value={category.categoryName} key={category.id}>{category.categoryName}</option>
+                        })}
+                    </select>
                 </div>
             </div>
-            <div className="col-lg-10 mx-auto m-3 content">
-                <div className="card my-3 shadow">
+            <div className="grid-cols-12 m-3 p-2 content">
+                <div className="card my-1 shadow">
                     <div className="card-body">
                         <table className="table table-dark table-striped">
                             <thead>

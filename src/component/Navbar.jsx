@@ -31,9 +31,8 @@ const Navbar = () => {
             </button>
 
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
-
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-
+                    
                     {userContext.user.isLoggedIn && userContext.user.currentUserRole === "user"?
                         <li className="nav-item">
                             <NavLink className="nav-link" activeclassname="active" aria-current="page" to="/dashboard">
@@ -41,10 +40,8 @@ const Navbar = () => {
                                 Dashboard
                             </NavLink>
                         </li>
-                    :
+                    :''}
 
-                        ''
-                    }
                     {userContext.user.isLoggedIn && userContext.user.currentUserRole === "user"?
 
                         <li className="nav-item">
@@ -53,10 +50,7 @@ const Navbar = () => {
                                 Store
                             </NavLink>
                         </li>
-                    :
-
-                        ''
-                    }
+                    :''}
 
                     {userContext.user.isLoggedIn && userContext.user.currentUserRole === "admin"?
                     
@@ -66,10 +60,7 @@ const Navbar = () => {
                                 Products
                             </NavLink>
                         </li>
-                    :
-
-                        ''
-                    }
+                    :''}
 
                     {!userContext.user.isLoggedIn?
                         <li className="nav-item">
@@ -79,10 +70,7 @@ const Navbar = () => {
                             </NavLink>
                            
                         </li>
-                    :
-
-                        ''
-                    }
+                    :''}
 
                     {!userContext.user.isLoggedIn?
                         <li className="nav-item">
@@ -91,11 +79,7 @@ const Navbar = () => {
                                 Register
                             </NavLink>
                         </li>
-                    :
-
-                        ''
-                    }
-
+                    :''}
 
                 </ul>
 
@@ -118,23 +102,13 @@ const Navbar = () => {
                                 </li>
                             </ul>
                         </div>
-                    :
-
-                        ''
-                }
-
+                    :''}
                 {/* <form className="d-flex">
-                    
                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                    
                     <button className="btn btn-outline-success" type="submit">Search</button>
-
                 </form> */}
-
             </div>
-
             </div>
-
         </nav> 
     )
 }
