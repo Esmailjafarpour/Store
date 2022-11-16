@@ -121,14 +121,14 @@ const Login = (props) => {
     
     return(
         <div className="row">
-            <div className="col-lg-5 col-md-7 mx-auto form-login mt-5">
-                <div className="card shadow-lg my-2 bg-dark">
+            <div className="col-md-4 border-2 border-yellow-700 mx-auto rounded-3 mt-5 p-3 bg-zinc-900">
+                <div className="shadow-lg my-2 rounded-3 overflow-hidden p-2 bg-zinc-800 border-2 border-yellow-700">
                     <div className="card-header bg-dark">
                         <h4 style={{fontSize:'40px'}}className="title-login text-center">
                             Login
                         </h4>
                     </div>
-                    <div className="card-body mx-2">
+                    <div className="border-2 border-yellow-700 p-2 rounded mx-2 my-2">
                         <div className="form-group">
                             <label htmlFor="email"className="mb-3 text-light">Email</label>
                             <input 
@@ -172,7 +172,12 @@ const Login = (props) => {
                     </div>
                     <div className="card-footer text-center">
                         <div className="m-1">{loginMessage}</div>
-                        <button className="btn btn-outline-warning w-50 m-2"onClick={onLoginClick}>Login</button>
+                        <button className="w-50 text-yellow-200 border-2 border-yellow-700
+                                focus:outline-none rounded-lg text-sm px-3 py-2 text-center 
+                                mr-2 mb-1 dark:hover:text-green-600 dark:hover:bg-green-100"
+                                onClick={onLoginClick}>
+                            Login
+                        </button>
                     </div>
                 </div>
             </div>

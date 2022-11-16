@@ -195,8 +195,8 @@ const Register = (props) => {
 
     return(
        <div className="row">
-         <div className="col-lg-6 col-md-7 mx-auto form-register mt-4">
-            <div className="card shadow my-2 bg-dark px-2">
+         <div className="col-md-6 border-2 border-yellow-700 mx-auto rounded-3 mt-5 p-3 bg-zinc-900">
+            <div className="shadow-lg my-2 rounded-3 overflow-hidden p-3 bg-zinc-800 border-2 border-yellow-700">
                 <div className="card-header">
                     <h4 style={{fontSize:'40px'}} className="title-register text-center">Register</h4>
                     <ul className="text-warning text-center p-0">
@@ -211,7 +211,7 @@ const Register = (props) => {
                         })}
                     </ul>
                 </div>
-                <div className="card-body">
+                <div className=" p-3 bg-zinc-900 border-2 border-yellow-700 rounded-3">
                     {/* Email */}
                     <div className="row mb-3">
                         <label htmlFor="Email" className="col-lg-2 text-light py-1">Email</label>
@@ -390,14 +390,15 @@ const Register = (props) => {
                 <div className="card-footer text-center text-warning">
                     <div className="m-1 text-warning">{message}</div>
                     <button 
-                        className="btn btn-outline-warning m-2 w-50"
+                        className="w-50 text-yellow-200 border-2 border-yellow-700
+                        focus:outline-none rounded-lg text-sm px-3 py-2 text-center 
+                        mr-2 mb-1 dark:hover:text-green-600 dark:hover:bg-green-100"
                         onClick={onRegisterClick}
                     >
                         Register
                     </button>
                 </div>
                 {/* end of footer */}
-
             </div>
          </div>
        </div>

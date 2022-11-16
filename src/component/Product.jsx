@@ -37,7 +37,6 @@ const Product = ({product,onAddToCartClick}) => {
                             </button>
 
                           )
-                          
                         }
                     </div>
                 </div>
