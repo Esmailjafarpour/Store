@@ -42,7 +42,8 @@
       "price": 8900,
       "brandId": 1,
       "categoryId": 1,
-      "rating": 5
+      "rating": 5,
+      "image": "Apple-iphone12pro.png"
     },
     {
       "id": 2,
@@ -50,7 +51,8 @@
       "price": 12400,
       "brandId": 1,
       "categoryId": 2,
-      "rating": 5
+      "rating": 5,
+      "image": "ipad-pro-11.png"
     },
     {
       "id": 3,
@@ -58,7 +60,8 @@
       "price": 4500,
       "brandId": 2,
       "categoryId": 2,
-      "rating": 4
+      "rating": 4,
+      "image": "camera.png"
     },
     {
       "id": 4,
@@ -66,7 +69,8 @@
       "price": 4500,
       "brandId": 2,
       "categoryId": 2,
-      "rating": 4
+      "rating": 4,
+      "image": "Sony 5.1 Home Theatre.png"
     },
     {
       "id": 5,
@@ -74,7 +78,8 @@
       "price": 7780,
       "brandId": 4,
       "categoryId": 3,
-      "rating": 3
+      "rating": 3,
+      "image": "Carrier-Flair.png"
     },
     {
       "id": 6,
@@ -82,7 +87,8 @@
       "price": 880,
       "brandId": 5,
       "categoryId": 2,
-      "rating": 4
+      "rating": 4,
+      "image": "Dell-Monitor.png"
     },
     {
       "id": 7,
@@ -90,7 +96,8 @@
       "price": 4848,
       "brandId": 2,
       "categoryId": 1,
-      "rating": 2
+      "rating": 2,
+      "image": "Sony-Xperia-Pro-I.png"
     },
     {
       "id": 8,
@@ -98,7 +105,8 @@
       "price": 2540,
       "brandId": 3,
       "categoryId": 1,
-      "rating": 2
+      "rating": 2,
+      "image": "samsung-galaxy-A10.png"
     }
   ],
   "users": [
@@ -204,305 +212,20 @@
   ],
   "orders": [
     {
+      "id": 1,
+      "userId": null,
+      "productId": 1,
+      "quantity": 1,
+      "imageProduct": "Apple-iphone12pro.png",
+      "isPaymentCompleted": true
+    },
+    {
       "id": 2,
-      "userId": 2,
-      "productId": 3,
-      "quantity": 1,
-      "isPaymentCompleted": true
-    },
-    {
-      "id": 3,
-      "userId": 4,
-      "productId": 4,
-      "quantity": 1,
-      "isPaymentCompleted": true
-    },
-    {
-      "id": 4,
-      "userId": 5,
-      "productId": 6,
-      "quantity": 1,
-      "isPaymentCompleted": true
-    },
-    {
-      "id": 5,
-      "userId": 1,
-      "productId": 2,
-      "quantity": 1,
-      "isPaymentCompleted": true
-    },
-    {
-      "id": 6,
-      "userId": 6,
-      "productId": 1,
-      "quantity": 1,
-      "isPaymentCompleted": true
-    },
-    {
-      "userId": null,
-      "productId": 1,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 7
-    },
-    {
-      "userId": null,
-      "productId": 1,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 8
-    },
-    {
-      "userId": null,
-      "productId": 1,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 9
-    },
-    {
-      "userId": null,
-      "productId": 1,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 10
-    },
-    {
-      "userId": null,
-      "productId": 3,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 11
-    },
-    {
-      "userId": null,
-      "productId": 4,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 12
-    },
-    {
       "userId": null,
       "productId": 2,
       "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 13
-    },
-    {
-      "userId": null,
-      "productId": 5,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 14
-    },
-    {
-      "userId": null,
-      "productId": 6,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 15
-    },
-    {
-      "userId": null,
-      "productId": 7,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 16
-    },
-    {
-      "userId": null,
-      "productId": 8,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 17
-    },
-    {
-      "userId": null,
-      "productId": 1,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 18
-    },
-    {
-      "userId": null,
-      "productId": 1,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 19
-    },
-    {
-      "userId": null,
-      "productId": 1,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 20
-    },
-    {
-      "userId": null,
-      "productId": 1,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 21
-    },
-    {
-      "userId": null,
-      "productId": 2,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 22
-    },
-    {
-      "userId": null,
-      "productId": 3,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 23
-    },
-    {
-      "userId": null,
-      "productId": 4,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 24
-    },
-    {
-      "userId": null,
-      "productId": 6,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 25
-    },
-    {
-      "userId": null,
-      "productId": 5,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 26
-    },
-    {
-      "userId": null,
-      "productId": 7,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 27
-    },
-    {
-      "userId": null,
-      "productId": 8,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 28
-    },
-    {
-      "userId": null,
-      "productId": 3,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 29
-    },
-    {
-      "userId": null,
-      "productId": 4,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 30
-    },
-    {
-      "userId": null,
-      "productId": 2,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 31
-    },
-    {
-      "userId": null,
-      "productId": 1,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 32
-    },
-    {
-      "userId": null,
-      "productId": 5,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 33
-    },
-    {
-      "userId": null,
-      "productId": 6,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 34
-    },
-    {
-      "userId": null,
-      "productId": 8,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 35
-    },
-    {
-      "userId": null,
-      "productId": 7,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 36
-    },
-    {
-      "userId": null,
-      "productId": 1,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 37
-    },
-    {
-      "userId": null,
-      "productId": 3,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 38
-    },
-    {
-      "userId": null,
-      "productId": 4,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 39
-    },
-    {
-      "userId": null,
-      "productId": 2,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 40
-    },
-    {
-      "userId": null,
-      "productId": 6,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 41
-    },
-    {
-      "userId": null,
-      "productId": 5,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 42
-    },
-    {
-      "userId": null,
-      "productId": 8,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 43
-    },
-    {
-      "userId": null,
-      "productId": 7,
-      "quantity": 1,
-      "isPaymentCompleted": false,
-      "id": 44
+      "imageProduct": "ipad-pro-11.png",
+      "isPaymentCompleted": true
     }
   ]
 }

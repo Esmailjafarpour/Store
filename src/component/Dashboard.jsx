@@ -43,13 +43,14 @@ const Dashboard = () => {
         loadDataFromDataBase();
     },[userContext.user.currentUserId,loadDataFromDataBase]);
 
-    const onBuyNowClick = useCallback(async (orderId,userId,productId,quantity) => {
+    const onBuyNowClick = useCallback(async (orderId,userId,productId,quantity,imageProduct) => {
         if (window.confirm("Do you want to place order for this product?")) {
             let updateOrder = {
                 id: orderId,
                 userId: userId,
                 productId: productId,
                 quantity: quantity,
+                imageProduct:imageProduct,
                 isPaymentCompleted: true,
 
             }
@@ -82,8 +83,8 @@ const Dashboard = () => {
         }
     },[loadDataFromDataBase])
 
-
     return(
+        
         <div className="row">
             <div className="col-12 py-2 title-order header title">
                 <h4 className="d-flex flex-column justify-content-center">
@@ -115,6 +116,7 @@ const Dashboard = () => {
                                     productId={order.productId}
                                     userId={order.userId}
                                     quantity={order.quantity}
+                                    imageProduct={order.imageProduct}
                                     isPaymentCompleted={order.isPaymentCompleted}
                                     productName={order.product.productName}
                                     price={order.product.price}
@@ -172,11 +174,13 @@ const Dashboard = () => {
                                     productId={order.productId}
                                     userId={order.userId}
                                     quantity={order.quantity}
+                                    imageProduct={order.imageProduct}
                                     isPaymentCompleted={order.isPaymentCompleted}
                                     productName={order.product.productName}
                                     price={order.product.price}
                                     onBuyNowClick={onBuyNowClick}
                                     onDeleteClick={onDeleteClick}
+
                                 />
                             )
                         }

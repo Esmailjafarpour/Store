@@ -162,3 +162,16 @@ i{
     
 }
 
+.product{
+    display: flex;
+    justify-content: center;
+    border-radius: 8px ;
+    overflow: hidden;
+}
+
+.product img{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+

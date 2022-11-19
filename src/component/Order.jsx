@@ -1,9 +1,12 @@
 import React,{useState,useEffect} from 'react';
 
 const Order = (props) => {
-
+console.log(props)
     return(
         <div className="card my-2 shadow p-3 order-card"> 
+            <div class="product bg-indigo-300 rounded-sm h-60 mb-3">
+                <img class="object-cover w-100 h-30 ..." src={require(`../../public/images/${props.imageProduct}`)} alt={props.productName}/>
+            </div>
             <h6>
                 <i className="fa fa-arrow-right"></i>{props.productName}
                 <div className="float-end">
@@ -16,7 +19,8 @@ const Order = (props) => {
                                         props.orderId,
                                         props.userId,
                                         props.productId,
-                                        props.quantity
+                                        props.quantity,
+                                        props.imageProduct
                                     )
                                 }}
                             >

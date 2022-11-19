@@ -81,7 +81,8 @@ const Store = () => {
                 userId : userContext.user.currentUserId,
                 productId : product.id,
                 quantity : 1,
-                isPaymentCompleted : false
+                isPaymentCompleted : false,
+                imageProduct:product.image
             };
             let orderResponse = await fetch(`http://localhost:5000/orders`,{
                 method : "POST",
