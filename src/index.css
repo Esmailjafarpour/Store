@@ -165,13 +165,15 @@ i{
 .product{
     display: flex;
     justify-content: center;
-    border-radius: 8px ;
+    border-radius: 20px ;
     overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+    
 }
 
 .product img{
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
 }
 

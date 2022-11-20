@@ -86,25 +86,25 @@ const Dashboard = () => {
     return(
         
         <div className="row">
-            <div className="col-12 py-2 title-order header title">
-                <h4 className="d-flex flex-column justify-content-center">
-                    <span className="d-flex justify-content-center"><i className="fa fa-dashboard"></i>Dashboard{" "}</span>
-                    <button className="btn btn-outline-warning my-2 w-25 mx-auto" onClick={loadDataFromDataBase}>
+            <div className="grid grid-cols py-1 title-order header title ">
+                <h4 className="flex justify-between py-2 m-0">
+                    <span className="d-flex "><i className="fa fa-dashboard"></i>Dashboard{" "}</span>
+                    <button className="btn btn-outline-warning w-36 " onClick={loadDataFromDataBase}>
                         <i className="fa fa-refresh"></i>Refresh
                     </button>
                 </h4>
             </div>
-            <div className="col-12 my-3">
-                <div className="row">
-                    <div className="col-lg-6">
-                        <h4 className="py-2 my-2 text-success">
+            <div className="grid grid-cols my-3">
+                <div className="grid grid-cols-3 gap-8">
+                    <div className="col-span-2">
+                        <h4 className="py-2 my-2 text-center text-emerald-500">
                             <i className="fa fa-history"></i>Previous Orders{"  "}
                             <span className="badge bg-success">
                                 {OrdersService.getPreviousOrders(orders).length}
                             </span>
                         </h4>
                         {OrdersService.getPreviousOrders(orders).length === 0 ?
-                            (<div className="text-danger"> No Orders</div>)
+                            (<div className="text-yellow-700"> No Orders</div>)
                             :
                             ("")
                         }
@@ -126,8 +126,8 @@ const Dashboard = () => {
                         })}
                     </div>
 
-                    <div className="col-lg-6">
-                        <h4 className="py-2 my-2 text-warning">
+                    <div className="col-span-1">
+                        <h4 className="py-2 my-2 text-center text-yellow-500">
                             <div className="fa fa-shopping-cart px-1"></div>card{" "}
                             <span className="badge bg-warning">
                                 {OrdersService.getCart(orders).length}
@@ -135,7 +135,7 @@ const Dashboard = () => {
                         </h4>
 
                         {showOrderUpdateAlert?(
-                            <div className="col-12">
+                            <div className="col-span-12">
                                 <div className="alert alert-success alert-dismissible fade show mt-1" role="alert">
                                     Your Order Has Been Placed.
                                     <button 
@@ -163,7 +163,7 @@ const Dashboard = () => {
                         ):("")}
 
                         {OrdersService.getCart(orders).length === 0 ? 
-                            (<div className="text-warning text-center">No Products In Your Cards</div>):("")
+                            (<div className="text-yellow-700 text-center">No Products In Your Cards</div>):("")
                         }
 
                         {OrdersService.getCart(orders).map((order)=>{
@@ -180,7 +180,6 @@ const Dashboard = () => {
                                     price={order.product.price}
                                     onBuyNowClick={onBuyNowClick}
                                     onDeleteClick={onDeleteClick}
-
                                 />
                             )
                         }
