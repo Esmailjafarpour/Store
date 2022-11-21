@@ -11,6 +11,9 @@ const Store = () => {
     const [products, setProducts] = useState([]);
     const [productToShow, setProductToShow] = useState([]);
     const [search, setSearch] = useState('');
+    const [productsId,setProductsId] = useState([]);
+    
+
 
     useEffect(() => {
         (async () => {
@@ -77,22 +80,42 @@ const Store = () => {
 
     const onAddToCartClick = (product) => {
         (async ()=>{
-            let newOrder = {
+            console.log("product",product)
+
+            if(product.quantity && product.quantity !== 0){
+                let prods = products.map((p) =>{
+                    if (p.id === product.id){
+                        p.quantity = ++p.quantity
+                    }
+                    return p
+                })
+                setProducts(prods);
+                updateProductToShow();
+                return
+            }
+
+             let newOrder = {
                 userId : userContext.user.currentUserId,
                 productId : product.id,
-                quantity : 1,
+                quantity : 0,
                 isPaymentCompleted : false,
                 imageProduct:product.image
             };
+           
             let orderResponse = await fetch(`http://localhost:5000/orders`,{
                 method : "POST",
                 body : JSON.stringify(newOrder),
                 headers:{"Content-Type":"application/json"}
             })
+
             if(orderResponse.ok){
+                let num = 0;
                 let orderResponseBody = await orderResponse.json();
                 let prods = products.map((p) =>{
-                    if (p.id === product.id) p.isOrdered = true;
+                    if (p.id === product.id){
+                        p.isOrdered = true;
+                        p.quantity = ++num
+                    }
                     return p
                 })
                 setProducts(prods);
@@ -101,6 +124,9 @@ const Store = () => {
             }else{
                 console.log(orderResponse)
             }
+
+        
+
         })();
     }
 

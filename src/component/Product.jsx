@@ -24,9 +24,19 @@ const Product = ({product,onAddToCartClick}) => {
                         })}
                     </div>
                     <div className="flex justify-center">
+                        
+                        
+                            
                         {product.isOrdered ?( 
-                            <button className="text-green-600 border border-yellow-800 px-3 py-2 mr-2 mb-1 rounded-xl text-sm bg-yellow-100">
-                                Added to card!
+                            <button className="text-green-600 border border-yellow-800 px-3 py-2 mr-2 mb-1 rounded-xl text-sm bg-yellow-100"
+                                onClick={()=>onAddToCartClick(product)}
+                            >
+                            Added to card!
+                            {product.quantity>0?
+                                <span class="bg-violet-100 text-fuchsia-900 text-xs font-semibold ml-2 px-2.5 py-0.5 rounded  ">{product.quantity}</span>
+                            :
+                            ""
+                            }  
                             </button>
                             ):( 
                             <button 
@@ -37,9 +47,9 @@ const Product = ({product,onAddToCartClick}) => {
                             >
                                 <i className="fa fa-cart-plus"></i>Add to card
                             </button>
-
                           )
                         }
+                        
                     </div>
                 </div>
             </div>
