@@ -4,7 +4,6 @@ import {BrandsService,CategoriesService,ProductService} from '../Service.js';
 import Product from './Product';
 
 const Store = () => {
-
     const userContext = useContext(UserContext);
     const [brands, setBrands] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -13,8 +12,6 @@ const Store = () => {
     const [search, setSearch] = useState('');
     const [productsId,setProductsId] = useState([]);
     
-
-
     useEffect(() => {
         (async () => {
 
@@ -134,15 +131,16 @@ const Store = () => {
                 if (p.id === product.id){
                     p.quantity = --p.quantity
                     if(p.quantity === 0){
-                        p.isOrdered = false; 
+                        p.isOrdered = false;            
+                        let orderResponse = fetch(`http://localhost:5000/orders/${product.id}`,{method : "DELETE"})
                     }
                 }
                 return p
             })
             setProducts(prods);
             updateProductToShow();
-            
         }
+                  
     }
 
    
