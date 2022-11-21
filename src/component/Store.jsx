@@ -80,8 +80,6 @@ const Store = () => {
 
     const onAddToCartClick = (product) => {
         (async ()=>{
-            console.log("product",product)
-
             if(product.quantity && product.quantity !== 0){
                 let prods = products.map((p) =>{
                     if (p.id === product.id){
@@ -128,6 +126,23 @@ const Store = () => {
         
 
         })();
+    }
+
+    const onDeletedToCartClick = (product) => {
+        if(product.quantity && product.quantity > 0){
+            let prods = products.map((p) =>{
+                if (p.id === product.id){
+                    p.quantity = --p.quantity
+                    if(p.quantity === 0){
+                        p.isOrdered = false; 
+                    }
+                }
+                return p
+            })
+            setProducts(prods);
+            updateProductToShow();
+            
+        }
     }
 
    
@@ -215,7 +230,12 @@ const Store = () => {
                 <div className="col-span-9 py-2">
                     <div className="grid grid-cols-2 gap-2">
                     {productToShow.map((product) => (
-                        <Product key={product.id} product={product} onAddToCartClick={onAddToCartClick}/>
+                        <Product 
+                            key={product.id} 
+                            product={product} 
+                            onAddToCartClick={onAddToCartClick} 
+                            onDeletedToCartClick={onDeletedToCartClick}
+                        />
                     ))}
                     </div>
                 </div>

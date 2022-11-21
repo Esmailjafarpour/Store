@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 
-const Product = ({product,onAddToCartClick}) => {
+const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
     return (
         // <div className="mb-1">
             <div className="card m-1 bg-transparent border-0 overflow-hidden">
@@ -24,31 +24,37 @@ const Product = ({product,onAddToCartClick}) => {
                         })}
                     </div>
                     <div className="flex justify-center">
-                        
-                        
-                            
                         {product.isOrdered ?( 
-                            <button className="text-green-600 border border-yellow-800 px-3 py-2 mr-2 mb-1 rounded-xl text-sm bg-yellow-100"
-                                onClick={()=>onAddToCartClick(product)}
-                            >
-                            Added to card!
-                            {product.quantity>0?
-                                <span class="bg-violet-100 text-fuchsia-900 text-xs font-semibold ml-2 px-2.5 py-0.5 rounded  ">{product.quantity}</span>
-                            :
-                            ""
-                            }  
-                            </button>
+                            <div className="flex justify-between">
+                                <button className="text-green-600 border border-yellow-800 px-3 py-2 mr-2 mb-1 rounded-xl text-sm bg-yellow-100"
+                                    onClick={()=>onAddToCartClick(product)}
+                                >
+                                Added To Card!
+                                {product.quantity>0?
+                                    <span class="bg-violet-200 text-fuchsia-900 text-xs font-semibold ml-2 px-2.5 py-0.5 rounded  ">{product.quantity}</span>
+                                :
+                                ""
+                                }  
+                                </button>
+                                <button className="bg-yellow-200 text-rose-600 border-[1px] border-rose-900 shadow-lg shadow-red-500/50 px-3 py-2 mr-2 mb-1 rounded-xl text-sm"           
+                                    onClick={()=>onDeletedToCartClick(product)}>
+                                        Decrease Order
+                                </button>
+                            </div>
+
                             ):( 
-                            <button 
-                                className="text-green-200 border-2 border-neutral-600
-                                focus:outline-none rounded-lg text-sm px-3 py-2 text-center 
-                                mr-2 mb-1 dark:hover:text-green-600 dark:hover:bg-green-100" 
-                                onClick={()=>onAddToCartClick(product)}
-                            >
-                                <i className="fa fa-cart-plus"></i>Add to card
-                            </button>
+                                <button 
+                                    className="text-green-200 border-2 border-neutral-600
+                                    focus:outline-none rounded-lg text-sm px-3 py-2 text-center 
+                                    mr-2 mb-1 dark:hover:text-green-600 dark:hover:bg-green-100" 
+                                    onClick={()=>onAddToCartClick(product)}
+                                >
+                                    <i className="fa fa-cart-plus"></i>Add to card
+                                </button>
                           )
                         }
+
+                        
                         
                     </div>
                 </div>
