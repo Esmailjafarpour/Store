@@ -6,8 +6,8 @@ const Login = (props) => {
 
     const userContext = useContext(UserContext);
 
-    const [email, setEmail] = useState('admin@gmail.com');
-    const [password, setPassword] = useState('Admin123');
+    const [email, setEmail] = useState('naderjafarpour@gmail.com');
+    const [password, setPassword] = useState('AS2300592045gf');
 
     const [dirty, setDirty] = useState({
         email:false,

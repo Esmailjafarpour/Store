@@ -11,7 +11,11 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
                     <h5 className="text-orange-400 text-center mb-3">
                         <i className="fa fa-arrow-right"></i>{product.productName}
                     </h5>
-                    <div className="text-lime-200">${product.price.toFixed(2)}</div>
+                    {product.quantity && product.quantity>0?
+                        <div className="text-lime-200 flex justify-center items-center">${(product.price.toFixed())*(product.quantity)}</div>
+                        :
+                        <div className="text-lime-200 flex justify-center items-center">${product.price.toFixed()}</div>
+                    }
                     <div className="mt-2 text-orange-300">
                         # {product.brand.brandName} # {product.category.categoryName}
                     </div>
@@ -23,23 +27,21 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
                             return <i className="fa fa-star-o text-yellow-200" key={n}></i>
                         })}
                     </div>
-                    <div className="flex justify-center">
+                    <div className="flex justify-center h-15">
                         {product.isOrdered ?( 
-                            <div className="flex justify-between">
-                                <button className="text-green-600 border border-yellow-800 px-3 py-2 mr-2 mb-1 rounded-xl text-sm bg-yellow-100"
-                                    onClick={()=>onAddToCartClick(product)}
-                                >
-                                Added To Card!
+                            <div className="flex justify-between items-center">
+                                <img src={require("../images/decrease.png")} className="w-8 h-8 cursor-pointer" alt="icons-decrease" onClick={()=>onDeletedToCartClick(product)}/>
+                                {/* <button className="text-green-600 border border-yellow-800 px-3 py-2 mr-2 mb-1 rounded-xl text-sm bg-yellow-100">
+                                </button> */}
                                 {product.quantity>0?
-                                    <span class="bg-violet-200 text-fuchsia-900 text-xs font-semibold ml-2 px-2.5 py-0.5 rounded  ">{product.quantity}</span>
-                                :
-                                ""
+                                    <span class="bg-slate-600 text-slate-100 flex justify-center items-center text-xs font-semibold m-2 px-2.5 py-0.5 rounded text-base">{product.quantity}</span>
+                                    :
+                                    ""
                                 }  
-                                </button>
-                                <button className="bg-yellow-200 text-rose-600 border-[1px] border-rose-900 shadow-lg shadow-red-500/50 px-3 py-2 mr-2 mb-1 rounded-xl text-sm"           
-                                    onClick={()=>onDeletedToCartClick(product)}>
-                                        Decrease Order
-                                </button>
+                                <img src={require("../images/add.png")} className="w-8 h-8 cursor-pointer"  alt="icons-add" onClick={()=>onAddToCartClick(product)}/>
+                                {/* <button className="bg-yellow-200 text-rose-600 border-[1px] border-rose-900 shadow-lg shadow-red-500/50 px-3 py-2 mr-2 mb-1 rounded-xl text-sm">           
+                                    
+                                </button> */}
                             </div>
 
                             ):( 
@@ -53,9 +55,7 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
                                 </button>
                           )
                         }
-
-                        
-                        
+   
                     </div>
                 </div>
             </div>
