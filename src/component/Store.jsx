@@ -78,10 +78,10 @@ const Store = () => {
     }
 
     const onAddToCartClick = (product) => {
-        // if(userContext.user.currentUserId === null){
-        //     setShowLoginMessage(true)
-        //     return
-        // }
+        if(userContext.user.currentUserId === null){
+            setShowLoginMessage(true)
+            return
+        }
 
         if(product.quantity && product.quantity !== 0){
             let prods = products.map((p) =>{
@@ -158,7 +158,11 @@ const Store = () => {
    
     return(
         <>
-           
+            {showLoginMessage?
+                <Show handleClose={setShowLoginMessage(false)}/>
+                :
+                ""
+            }
             <div className="row ">
                 <div className="grid grid-cols-12 gap-3 mt-3">
                     <div className="title col-span-3 card-product">
