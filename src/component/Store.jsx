@@ -64,6 +64,7 @@ const Store = () => {
     }
 
     const updateProductToShow = () =>{
+        let orderNumber = []
         setProductToShow(
             products
             .filter((prod) => {
@@ -72,8 +73,27 @@ const Store = () => {
             .filter((prod) => {
                 return brands.filter((brand)=> brand.id === prod.brandId && brand.isChecked).length > 0
             })
-            
         )
+
+        products.map((product)=>orderNumber.push(product.quantity))
+        let totalOrders = 0
+        orderNumber.forEach(element => {
+            if(element !== undefined){
+                totalOrders += element
+            }
+        });
+        console.log("orderNumber",orderNumber)
+                
+        userContext.dispatch({
+                type:"login",
+                payload:{
+                    currentUserId : userContext.user.currentUserId,
+                    currentUserName : userContext.user.currentUserName,
+                    currentUserRole : userContext.user.currentUserRole,
+                    orderNumber : totalOrders
+                },
+            })        
+                   
     }
 
     const onAddToCartClick = (product) => {

@@ -82,18 +82,31 @@ const Navbar = () => {
 
                     </ul>
 
+                    {userContext.user.orderNumber?
+                         <button type="button" class="text-green-300 border-2 border-neutral-600
+                            focus:outline-none rounded-lg text-sm px-3 py-2 text-center bg-gradient
+                            mr-2 mb-1 dark:hover:text-green-900 dark:hover:bg-green-200">
+                           <NavLink className="nav-link text-green-600" activeclassname="active" aria-current="page" to="/dashboard">
+                                Go To Dashboard
+                            <i className="fa fa-dashboard m-2 "></i>
+                            <span className="m-2 text-base">order {userContext.user.orderNumber}</span>
+                           </NavLink>
+                       </button>
+                    :""}
+
                     {userContext.user.isLoggedIn?
                             <div style={{marginRight: 100}}>
                                 <ul className="navbar-nav">
                                     <li className="nav-item dropdown">
                                         <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i className="fa fa-user circle"></i>
-                                            <span>{`hello ${userContext.user.currentUserName}`}</span>
+                                            <i className="fa fa-user circle text-yellow-400"></i>
+                                            <span className="text-yellow-400 m-1">hello</span>
+                                            {<span className="text-green-200 m-1">{userContext.user.currentUserName}</span>}
                                         </NavLink>
                                         <ul className="dropdown-menu selected" aria-labelledby="navbarDropdown" style={{zIndex:"1001"}}>
                                             <li className="px-2">
                                                 <NavLink className="dropdown-item selected" to="#" onClick={onLogOutClick}>
-                                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                                <i className="fa fa-sign-out" aria-hidden="true"></i>
                                                     LogOut
                                                 </NavLink>
                                             </li>
@@ -102,6 +115,7 @@ const Navbar = () => {
                                 </ul>
                             </div>
                         :''}
+                       
                     {/* <form className="d-flex">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                         <button className="btn btn-outline-success" type="submit">Search</button>

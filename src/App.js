@@ -16,6 +16,7 @@ let initialUser = {
   currentUserId:null,
   currentUserName:null,
   currentUserRole:null,
+  orderNumber:null,
 }
 
 let reducer = (state,action)=>{
@@ -26,6 +27,7 @@ let reducer = (state,action)=>{
         currentUserId:action.payload.currentUserId,
         currentUserName:action.payload.currentUserName,
         currentUserRole:action.payload.currentUserRole,
+        orderNumber : action.payload.orderNumber
       }
 
     case "logout":
@@ -34,6 +36,7 @@ let reducer = (state,action)=>{
         currentUserId:null,
         currentUserName:null,
         currentUserRole:null,
+        orderNumber:null,
       }
 
     case "register":
@@ -42,6 +45,7 @@ let reducer = (state,action)=>{
         currentUserId:action.payload.currentUserId,
         currentUserName:action.payload.currentUserName,
         currentUserRole:action.payload.currentUserRole,
+        orderNumber:0,
       }
   default:
     return state
