@@ -92,10 +92,10 @@ const Login = (props) => {
                             currentUserRole : responseBody[0].role,
                         },
                     })
-                    navigate("/dashboard")
+                    navigate("/")
 
                     if (responseBody[0].role === "user") {
-                        navigate("/dashboard")
+                        navigate("/")
                     } else {
                         navigate("/products")
                     }

@@ -22,7 +22,6 @@ const Store = () => {
                 brand.isChecked = true;
             }); 
             setBrands(brandResponseBody);
-
             let categoriesResponse = await CategoriesService.fetchCategories();
             let categoriesResponseBody = await categoriesResponse.json();
             categoriesResponseBody.forEach((category) => {
@@ -155,14 +154,11 @@ const Store = () => {
                   
     }
 
-   
+        
     return(
         <>
-            {showLoginMessage?
-                <Show handleClose={setShowLoginMessage(false)}/>
-                :
-                ""
-            }
+            <Show showLoginMessage={showLoginMessage} hiddenLoginMessage={()=>(setShowLoginMessage())}/>
+            
             <div className="row ">
                 <div className="grid grid-cols-12 gap-3 mt-3">
                     <div className="title col-span-3 card-product">
