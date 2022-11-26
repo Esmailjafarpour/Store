@@ -50,7 +50,7 @@
       "productName": "Apple iPad Pro",
       "price": 12400,
       "brandId": 1,
-      "categoryId": 2,
+      "categoryId": 1,
       "rating": 5,
       "image": "ipad-pro-11.png"
     },
@@ -107,6 +107,42 @@
       "categoryId": 1,
       "rating": 2,
       "image": "samsung-galaxy-A10.png"
+    },
+    {
+      "id": 9,
+      "productName": "iphone-11-promax-1",
+      "price": 9500,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 4,
+      "image": "iphone.png"
+    },
+    {
+      "id": 10,
+      "productName": "iPhone-13-ProMax",
+      "price": 72450,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 2,
+      "image": "iPhone-13-ProMax.png"
+    },
+    {
+      "id": 11,
+      "productName": "Redmi-Note-11",
+      "price": 87625,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 3,
+      "image": "lg-Redmi-Note-11-Pro-2.png"
+    },
+    {
+      "id": 12,
+      "productName": "Xiaomi",
+      "price": 3600,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 5,
+      "image": "Xiaomi-Mi-11-Ultra.png"
     }
   ],
   "users": [
@@ -156,6 +192,29 @@
     }
   ],
   "orders": [
-    
+    {
+      "id": 1,
+      "userId": 2,
+      "productId": 1,
+      "quantity": 0,
+      "imageProduct": "Apple-iphone12pro.png",
+      "isPaymentCompleted": true
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "productId": 2,
+      "quantity": 0,
+      "imageProduct": "ipad-pro-11.png",
+      "isPaymentCompleted": true
+    },
+    {
+      "userId": 2,
+      "productId": 1,
+      "quantity": 0,
+      "isPaymentCompleted": false,
+      "imageProduct": "Apple-iphone12pro.png",
+      "id": 3
+    }
   ]
 }

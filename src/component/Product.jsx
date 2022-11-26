@@ -1,16 +1,17 @@
 import React,{useState} from 'react';
 
 const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
+    console.log("product",product)
     return (
         // <div className="mb-1">
             <div className="card m-1 bg-transparent border-0 overflow-hidden">
-                <div className="bg-gradient border-2 shadow-2xl bg-zinc-900 border-stone-600 rounded-lg p-3 ">
-                    <div class="product bg-indigo-300 rounded-sm h-60 mb-3">
+                <div className="bg-gradient border-2 shadow-2xl bg-zinc-900 border-stone-600 rounded-sm p-2 ">
+                    <div class="product bg-indigo-300 rounded-lg h-60 mb-3">
                         <img class="object-cover w-100 h-30 ..." src={require(`../../public/images/${product.image}`)} alt={product.image}/>
                     </div>
-                    <h5 className="text-orange-400 text-center mb-3">
+                    <h6 className="text-orange-400 text-center mb-3">
                         <i className="fa fa-arrow-right"></i>{product.productName}
-                    </h5>
+                    </h6>
                     {product.quantity && product.quantity>0?
                         <div className="text-lime-200 flex justify-center items-center">${(product.price.toFixed())*(product.quantity)}</div>
                         :
@@ -27,7 +28,7 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
                             return <i className="fa fa-star-o text-yellow-200" key={n}></i>
                         })}
                     </div>
-                    <div className="flex justify-center h-15">
+                    <div className="flex justify-center h-15 mt-2">
                         {product.isOrdered ?( 
                             <div className="flex justify-between items-center">
                                 <img src={require("../images/decrease.png")} className="w-8 h-8 cursor-pointer" alt="icons-decrease" onClick={()=>onDeletedToCartClick(product)}/>

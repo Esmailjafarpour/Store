@@ -173,8 +173,7 @@ const Store = () => {
         }
                   
     }
-
-        
+  
     return(
         <>
             <Show showLoginMessage={showLoginMessage} hiddenLoginMessage={()=>(setShowLoginMessage())}/>
@@ -259,7 +258,7 @@ const Store = () => {
                     </div>
 
                     <div className="col-span-9 py-2">
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="grid grid-cols-3 gap-2">
                         {productToShow.map((product) => (
                             <Product 
                                 key={product.id} 
