@@ -177,38 +177,37 @@ const Store = () => {
     return(
         <>
             <Show showLoginMessage={showLoginMessage} hiddenLoginMessage={()=>(setShowLoginMessage())}/>
-            
-            <div className="row ">
-                <div className="grid grid-cols-12 gap-3 mt-3">
-                    <div className="title col-span-3 card-product">
-                        <h4 className="px-2 py-0.5 my-1 d-flex justify-between items-center text-orange-300">
+            <div className="mt-1">
+                <div className="grid grid-cols-12 gap-2 z-[1000] px-1 py-2 bg-stone-900 rounded-lg border-[1px] border-stone-700 sticky top-[68px]">
+                    <div className="title col-span-2 ">
+                        <h5 className="px-2 py-0.5 my-1 d-flex justify-between items-center text-orange-300">
                             <span>
-                                <i className="fa fa-shopping-bag"></i> Store{" "}
+                                Store{" "}<i className="fa fa-shopping-bag"></i> 
                             </span>
-                            <span className="px-3 py-0.5 my-1 rounded-lg bg-neutral-700 text-orange-300 bg-gradient">
+                            <span className="px-3 py-1 my-1 rounded-lg bg-neutral-700 text-orange-100 bg-gradient">
                                 {productToShow.length}
                             </span>
-                        </h4>
+                        </h5>
                     </div>
-                    <div className="col-span-9 py-2">
+                    <div className="col-span-10 w-6/12 py-2 mx-auto">
                         <input  
                             type="search"
                             value={search}
                             placeholder="Search Product"
                             className="bg-stone-700 w-full px-3 py-1.5 text-orange-100 rounded border-2 
                                 border-solid border-slate-700 focus:text-orange-100 focus:outline-none
-                                font-normal transition ease-in-out m-0"
+                                font-normal transition ease-in-out mx-auto"
                             autoFocus="autofocus"
                             onChange={(e)=>{setSearch(e.target.value)}}
                         />
                     </div>
                 </div>
-                
-                <div className="grid grid-cols-12 gap-3 mx-auto">
-                    <div className="col-span-3 py-2">
-                        <div className="my-2">
-                            <h5 className="text-amber-100 px-2 py-1">Brands</h5>
-                            <ul className="list-group list-group-flush ">
+        
+                <div className="grid grid-cols-12 gap-3 mx-auto sticky  rounded-lg border-[1px] border-stone-700 mt-2 px-2">
+                    <div className="col-span-2 py-2">
+                        <div className="my-1">
+                            <h5 className="text-amber-100 px-2">Brands</h5>
+                            <ul className="list-group list-group-flush">
                                 {brands.map((brand)=>(
                                     <li className="px-2 py-2 my-1 bg-neutral-700 text-emerald-100 rounded-lg shadow-3xl border-yellow-900" key={brand.id}>
                                         <div className="form-check">
@@ -232,7 +231,7 @@ const Store = () => {
                         </div>
 
                         <div className="my-2">
-                            <h5 className="text-amber-100 px-2 py-1">Categories</h5>
+                            <h5 className="text-amber-100 px-2">Categories</h5>
                             <ul className="list-group list-group-flush">
                                 {categories.map((category)=>(
                                     <li className="px-2 py-2 my-1 bg-neutral-700 text-emerald-100 rounded-lg shadow-3xl border-yellow-900" key={category.id}>
@@ -257,16 +256,56 @@ const Store = () => {
                         </div>
                     </div>
 
-                    <div className="col-span-9 py-2">
-                        <div className="grid grid-cols-3 gap-2">
-                        {productToShow.map((product) => (
-                            <Product 
-                                key={product.id} 
-                                product={product} 
-                                onAddToCartClick={onAddToCartClick} 
-                                onDeletedToCartClick={onDeletedToCartClick}
-                            />
-                        ))}
+                    <div className="col-span-10 py-2">
+                        <div id="indicators-carousel" className="relative" data-carousel="static">
+                            <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+                            
+                                <div className="hidden duration-700 ease-in-out" data-carousel-item="active">
+                                    <img src="../../public/images/Apple-iphone12pro.png" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+                                </div>
+                                <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <img src="../../public/images/Apple-iphone12pro.png" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+                                </div>
+                                <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <img src="../../public/images/Apple-iphone12pro.png" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+                                </div>
+                                <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <img src="../../public/images/Apple-iphone12pro.png" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+                                </div>
+                                <div className="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <img src="../../public/images/Apple-iphone12pro.png" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+                                </div>
+                            </div>
+                            <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                                <button type="button" className="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                                <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                                <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                                <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+                                <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+                            </div>
+                            <button type="button" className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                    <svg aria-hidden="true" className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                    <span className="sr-only">Previous</span>
+                                </span>
+                            </button>
+                            <button type="button" className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                    <svg aria-hidden="true" className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                    <span className="sr-only">Next</span>
+                                </span>
+                            </button>
+                        </div>
+
+                        <div className="grid grid-cols-3 gap-3">
+                            {productToShow.map((product) => (
+                                <Product 
+                                    key={product.id} 
+                                    product={product} 
+                                    onAddToCartClick={onAddToCartClick} 
+                                    onDeletedToCartClick={onDeletedToCartClick}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>

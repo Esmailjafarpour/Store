@@ -21,7 +21,7 @@ const Navbar = () => {
     return(
 
         <nav className="navbar navbarStyle navbar-expand-lg navbar-dark navbar-header
-            border-2 border-stone-600 rounded-lg">
+            border-[1px] border-stone-600 rounded-lg bg-stone-900">
             <div className="container-fluid grid grid-cols-12">
                 <NavLink className="navbar-brand col-span-2" to="/">jafarpour Store</NavLink>
 

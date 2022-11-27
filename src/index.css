@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-    
+*{ 
     box-sizing: border-box !important;
 }
 
@@ -45,11 +44,9 @@ body{
     padding: 0 8px;
 }
 
-/* nav{
-    background-color: rgb(40 41 48);
-    border: 2px solid #5a4600;
-    border-radius: 8px;
-} */
+nav{
+    position: fixed;
+}
 
 .title{
     border: 2px solid #5a4600;
@@ -70,7 +67,6 @@ i{
 }
 
 .navbar-header{
-    background-color: #282930;
     color: wheat;
     position: sticky !important;
     top: 5px;

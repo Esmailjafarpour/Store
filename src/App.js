@@ -60,12 +60,9 @@ function App() {
   return (
 
     <UserContext.Provider value={{user,dispatch}}>
-
       <BrowserRouter>
-
-          <Navbar/>
-
-          <div className="container-fluid">
+          <div className="container-fluid p-1">
+            <Navbar/>
             <Routes>
               <Route path="/" element={<Store/>}/>
               <Route path="/login" exact={`${true}`} element={<Login/>}/>
@@ -75,11 +72,8 @@ function App() {
               <Route path="*" element={<NoMatchPage/>}/>
             </Routes>
           </div>
-
         </BrowserRouter>
-
     </UserContext.Provider>
-
   );
   
 }

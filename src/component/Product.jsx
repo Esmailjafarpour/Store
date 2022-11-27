@@ -1,16 +1,15 @@
 import React,{useState} from 'react';
 
 const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
-    console.log("product",product)
     return (
         // <div className="mb-1">
             <div className="card m-1 bg-transparent border-0 overflow-hidden">
                 <div className="bg-gradient border-2 shadow-2xl bg-zinc-900 border-stone-600 rounded-sm p-2 ">
-                    <div class="product bg-indigo-300 rounded-lg h-60 mb-3">
+                    <div class="product bg-indigo-300 rounded-lg h-60 mb-1 shadow-2xl">
                         <img class="object-cover w-100 h-30 ..." src={require(`../../public/images/${product.image}`)} alt={product.image}/>
                     </div>
-                    <h6 className="text-orange-400 text-center mb-3">
-                        <i className="fa fa-arrow-right"></i>{product.productName}
+                    <h6 className="text-orange-400 text-center mb-1">
+                        {product.productName}<i className="fa fa-arrow-right ml-1"></i>
                     </h6>
                     {product.quantity && product.quantity>0?
                         <div className="text-lime-200 flex justify-center items-center">${(product.price.toFixed())*(product.quantity)}</div>
@@ -18,7 +17,7 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
                         <div className="text-lime-200 flex justify-center items-center">${product.price.toFixed()}</div>
                     }
                     <div className="mt-2 text-orange-300">
-                        # {product.brand.brandName} # {product.category.categoryName}
+                        #{product.brand.brandName} #{product.category.categoryName}
                     </div>
                     <div>
                         {[...Array(product.rating).keys()].map((n)=>{
