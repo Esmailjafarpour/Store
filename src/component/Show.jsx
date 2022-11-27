@@ -18,7 +18,7 @@ const style = {
   borderRadius: '16px',
   color :"#ffffff",
   boxShadow: 24,
-  p: 4,
+  p: 2,
 };
 
 const Show = ({showLoginMessage,hiddenLoginMessage}) => {
@@ -35,7 +35,6 @@ const Show = ({showLoginMessage,hiddenLoginMessage}) => {
 
   return (
     <div>
-      {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <Modal
         open={open}
         onClose={handleClose}

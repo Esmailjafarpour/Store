@@ -84,7 +84,7 @@ const Navbar = () => {
 
                     {userContext.user.orderNumber?
                          <button type="button" class="text-green-300 border-2 border-neutral-600
-                            focus:outline-none rounded-lg text-sm px-3 py-2 text-center bg-gradient
+                            focus:outline-none rounded-lg text-sm px-3 text-center bg-gradient
                             mr-2 mb-1 dark:hover:text-green-900 dark:hover:bg-green-200">
                            <NavLink className="nav-link text-green-600" activeclassname="active" aria-current="page" to="/dashboard">
                                 Go To Dashboard
