@@ -2,23 +2,33 @@
   "brands": [
     {
       "id": 1,
-      "brandName": "Apple"
+      "brandName": "Apple",
+      "brandImage": "Apple.png"
     },
     {
       "id": 2,
-      "brandName": "Sony"
+      "brandName": "Sony",
+      "brandImage": "Sony.png"
     },
     {
       "id": 3,
-      "brandName": "Samsung"
+      "brandName": "Samsung",
+      "brandImage": "Samsung-logo.png"
     },
     {
       "id": 4,
-      "brandName": "Carrier"
+      "brandName": "Carrier",
+      "brandImage": "Carrier.png"
     },
     {
       "id": 5,
-      "brandName": "Dell"
+      "brandName": "Dell",
+      "brandImage": "Dell.png"
+    },
+    {
+      "id": 6,
+      "brandName": "Xiaomi",
+      "brandImage": "xiaomi.png"
     }
   ],
   "categories": [
@@ -155,18 +165,20 @@
       "country": "Iran",
       "recieveNewsLetters": true,
       "role": "admin",
-      "id": 1
+      "id": 1,
+      "image": "user1.png"
     },
     {
       "email": "naderjafarpour@gmail.com",
       "password": "AS2300592045gf",
-      "fullName": "nader jafarpour",
+      "fullName": "nader",
       "dateOfBrith": "2022-10-05",
       "gender": "male",
       "country": "En",
       "recieveNewsLetters": true,
       "role": "user",
-      "id": 2
+      "id": 2,
+      "image": "user2.png"
     },
     {
       "email": "farzadyazdanpanah@gmail.com",
@@ -177,7 +189,8 @@
       "country": "8",
       "recieveNewsLetters": true,
       "role": "user",
-      "id": 3
+      "id": 3,
+      "image": "user3.png"
     },
     {
       "email": "mahdiarmardani@gmail.com",
@@ -188,7 +201,8 @@
       "country": "8",
       "recieveNewsLetters": true,
       "role": "user",
-      "id": 4
+      "id": 4,
+      "image": "user4.png"
     }
   ],
   "orders": [
@@ -271,6 +285,46 @@
       "isPaymentCompleted": false,
       "imageProduct": "Apple-iphone12pro.png",
       "id": 10
+    },
+    {
+      "userId": 2,
+      "productId": 2,
+      "quantity": 0,
+      "isPaymentCompleted": false,
+      "imageProduct": "ipad-pro-11.png",
+      "id": 11
+    },
+    {
+      "userId": 3,
+      "productId": 1,
+      "quantity": 0,
+      "isPaymentCompleted": false,
+      "imageProduct": "Apple-iphone12pro.png",
+      "id": 12
+    },
+    {
+      "userId": 2,
+      "productId": 1,
+      "quantity": 0,
+      "isPaymentCompleted": false,
+      "imageProduct": "Apple-iphone12pro.png",
+      "id": 13
+    },
+    {
+      "userId": 2,
+      "productId": 5,
+      "quantity": 0,
+      "isPaymentCompleted": false,
+      "imageProduct": "Carrier-Flair.png",
+      "id": 14
+    },
+    {
+      "userId": 2,
+      "productId": 6,
+      "quantity": 0,
+      "isPaymentCompleted": false,
+      "imageProduct": "Dell-Monitor.png",
+      "id": 15
     }
   ]
 }

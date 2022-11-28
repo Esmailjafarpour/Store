@@ -90,7 +90,8 @@ const Login = (props) => {
                             currentUserId : responseBody[0].id,
                             currentUserName : responseBody[0].fullName,
                             currentUserRole : responseBody[0].role,
-                            orderNumber:0
+                            imageUser: responseBody[0].image,
+                            orderNumber:0,
                         },
                     })
                     navigate("/")

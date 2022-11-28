@@ -29,7 +29,7 @@ const Navbar = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
-                <div className="collapse navbar-collapse col-span-" id="navbarSupportedContent">
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="grid grid-cols-4 gap-4 me-auto mb-2 mb-lg-0">
                         
                         {userContext.user.isLoggedIn && userContext.user.currentUserRole === "user"?
@@ -95,24 +95,19 @@ const Navbar = () => {
                     :""}
 
                     {userContext.user.isLoggedIn?
-                            <div style={{marginRight: 100}}>
-                                <ul className="navbar-nav">
-                                    <li className="nav-item dropdown">
-                                        <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i className="fa fa-user circle text-yellow-400"></i>
-                                            <span className="text-yellow-400 m-1">hello</span>
-                                            {<span className="text-green-200 m-1">{userContext.user.currentUserName}</span>}
-                                        </NavLink>
-                                        <ul className="dropdown-menu selected" aria-labelledby="navbarDropdown" style={{zIndex:"1001"}}>
-                                            <li className="px-2">
-                                                <NavLink className="dropdown-item selected" to="#" onClick={onLogOutClick}>
-                                                <i className="fa fa-sign-out" aria-hidden="true"></i>
-                                                    LogOut
-                                                </NavLink>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                            <div className="flex justify-center items-center" style={{marginRight: 10}}>
+                                <NavLink className="flex justify-center no-underline mr-2" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {/* <i className="fa fa-user circle text-yellow-400"></i> */}
+                                    <div className=" flex justify-center items-center mr-2">
+                                        <span className="text-yellow-500 m-1">Hello</span>
+                                        {<span className="text-green-300">{userContext.user.currentUserName}</span>}
+                                    </div>
+                                    <img class="object-cover w-8 h-8 rounded-full border-[2px] border-stone-500 p-1" src={require(`../images/${userContext.user.imageUser}`)}/>
+                                </NavLink>
+                                <NavLink className=" selected w-24 h-10 p-2 rounded-lg no-underline" to="#" onClick={onLogOutClick}>
+                                        <i className="fa fa-sign-out" aria-hidden="true"></i>
+                                            LogOut
+                                </NavLink>
                             </div>
                         :''}
                        

@@ -5,6 +5,7 @@ import Register from './component/Register';
 import NoMatchPage from './component/NoMatchPage';
 import Dashboard from './component/Dashboard';
 import Navbar from './component/Navbar.jsx';
+import Footer from './component/Footer.jsx';
 import Store from './component/Store.jsx';
 import Productlist from './component/Productlist.jsx';
 import {UserContext} from './UserContext';
@@ -27,7 +28,8 @@ let reducer = (state,action)=>{
         currentUserId:action.payload.currentUserId,
         currentUserName:action.payload.currentUserName,
         currentUserRole:action.payload.currentUserRole,
-        orderNumber : action.payload.orderNumber
+        orderNumber : action.payload.orderNumber,
+        imageUser : action.payload.imageUser,
       }
 
     case "logout":
@@ -37,6 +39,7 @@ let reducer = (state,action)=>{
         currentUserName:null,
         currentUserRole:null,
         orderNumber:null,
+        imageUser : null,
       }
 
     case "register":
@@ -45,6 +48,7 @@ let reducer = (state,action)=>{
         currentUserId:action.payload.currentUserId,
         currentUserName:action.payload.currentUserName,
         currentUserRole:action.payload.currentUserRole,
+        imageUser : action.payload.imageUser,
         orderNumber:0,
       }
   default:
@@ -53,13 +57,30 @@ let reducer = (state,action)=>{
  
 }
 
+let initialBrand = {
+  brands : null
+}
+
+let reducerBrands = (state,action) => {
+  switch (action.type) {
+    case "brands":
+      return{
+        brands : action.payload.brands
+      }
+  
+    default:
+      return state
+  }
+}
+
 function App() {
 
   const [user,dispatch] = useReducer(reducer,initialUser);
+  const [brands,dispatchBrands] = useReducer(reducerBrands,initialBrand);
 
   return (
 
-    <UserContext.Provider value={{user,dispatch}}>
+    <UserContext.Provider value={{user,dispatch,brands,dispatchBrands}}>
       <BrowserRouter>
           <div className="container-fluid p-1">
             <Navbar/>
@@ -71,6 +92,7 @@ function App() {
               <Route path="/products" element={<Productlist/>}/>
               <Route path="*" element={<NoMatchPage/>}/>
             </Routes>
+            <Footer/>
           </div>
         </BrowserRouter>
     </UserContext.Provider>
