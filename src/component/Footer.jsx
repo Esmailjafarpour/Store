@@ -11,10 +11,10 @@ const Footer = () => {
         <div className="container p-6">
             <div className="grid lg:grid-cols-6 md:grid-cols-3 gap-4">
                 {userContext.brands.brands && userContext.brands.brands.map((brand)=>(
-                    <div key={brand.id} className="lg:mb-0 mb-8">
+                    <div key={brand.id} className="lg:mb-0 mb-8 cursor-pointer">
                         <img
                         src={require(`../images/${brand.brandImage}`)}
-                        className="w-full rounded-md shadow-lg w-36 h-32"
+                        className="w-full rounded-md shadow-lg w-36 h-32 transition ease-in-out hover:-translate-y-1 hover:scale-10 hover:bg-indigo-500 duration-700"
                         />
                     </div>
                 ))}

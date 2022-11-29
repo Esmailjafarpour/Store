@@ -48,8 +48,8 @@ let reducer = (state,action)=>{
         currentUserId:action.payload.currentUserId,
         currentUserName:action.payload.currentUserName,
         currentUserRole:action.payload.currentUserRole,
-        imageUser : action.payload.imageUser,
         orderNumber:0,
+        imageUser : action.payload.imageUser,
       }
   default:
     return state

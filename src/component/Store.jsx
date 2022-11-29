@@ -43,8 +43,10 @@ const Store = () => {
             setProductToShow(productsResponseBody);
             document.title = "Store"  
 
-        })();
+           
 
+        })();
+ 
         
     },[search]);
 
@@ -55,6 +57,7 @@ const Store = () => {
               brands : brands  
             },
         })
+
     ), [brands]);
 
     const updateBrandIsChecked = (id) => {
@@ -94,8 +97,7 @@ const Store = () => {
                 totalOrders += element
             }
         });
-        console.log("orderNumber",orderNumber)
-                
+
         userContext.dispatch({
                 type:"login",
                 payload:{
@@ -105,10 +107,10 @@ const Store = () => {
                     orderNumber : totalOrders,
                     imageUser :userContext.user.imageUser
                 },
-            })
+            })  
             
-             
-                   
+        
+                 
     }
 
     const onAddToCartClick = (product) => {
@@ -131,7 +133,6 @@ const Store = () => {
             })()
                 return p
         })
-            
             setProducts(prods);
             updateProductToShow();
             return
@@ -140,7 +141,6 @@ const Store = () => {
     }
 
     const createNewOrder = (product) => {
-        
         (async ()=>{
             let newOrder = {
                 userId : userContext.user.currentUserId,
@@ -149,6 +149,16 @@ const Store = () => {
                 isPaymentCompleted : false,
                 imageProduct:product.image
             };
+
+            let num = 0;
+            let prods = products.map((p) =>{
+                if (p.id === product.id){
+                    p.isOrdered = true;
+                    p.quantity = ++num
+                    newOrder.quantity = ++num
+                }
+                return p
+            })
         
             let orderResponse = await fetch(`http://localhost:5000/orders`,{
                 method : "POST",
@@ -157,15 +167,7 @@ const Store = () => {
             })
 
             if(orderResponse.ok){
-                let num = 0;
                 let orderResponseBody = await orderResponse.json();
-                let prods = products.map((p) =>{
-                    if (p.id === product.id){
-                        p.isOrdered = true;
-                        p.quantity = ++num
-                    }
-                    return p
-                })
                 setProducts(prods);
                 updateProductToShow();
             }

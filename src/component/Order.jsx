@@ -25,7 +25,6 @@ const Order = (props) => {
                     </ul>
                 </div>  
                 <div className="flex justify-around">
-                        
                     <>
                         <button 
                             className="rounded-lg me-2 w-36 bg-gradient-to-r from-emerald-600 to-emerald-500 text-teal-50 h-9"
@@ -75,7 +74,7 @@ const Order = (props) => {
                     </div> 
                 </div>
 
-                 <div class="product bg-indigo-300 rounded-sm h-60 mb-3">
+                 <div class="product bg-indigo-300 rounded-full h-60 mb-3">
                     <img class="object-cover w-100 h-30 ..." src={require(`../images/${props.imageProduct}`)} alt={props.productName}/>
                 </div> 
             </div>                
