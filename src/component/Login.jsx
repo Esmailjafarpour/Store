@@ -134,7 +134,7 @@ const Login = (props) => {
                         <div className="form-group">
                             <label htmlFor="email"className="mb-3 text-light">Email</label>
                             <input 
-                                autocomplete="off"
+                                 autoComplete="new-password"
                                 type="text" 
                                 className="form-control input-login" 
                                 id="email"
@@ -155,7 +155,7 @@ const Login = (props) => {
                         <div className="form-group mt-3" >
                             <label htmlFor="password"className="mb-3 text-light">password</label>
                             <input 
-                                autocomplete="off"
+                                 autoComplete="new-password"
                                 type="password" 
                                 className="form-control input-login" 
                                 id="password"

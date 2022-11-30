@@ -64,7 +64,7 @@ const Navbar = () => {
                         {!userContext.user.isLoggedIn?
                             <li className="col-span-2">
                                 <NavLink className="nav-link" to="/login" activeclassname="active" exact={`${true}`}>
-                                <i class="fa fa-sign-in" aria-hidden="true"></i>
+                                <i className="fa fa-sign-in" aria-hidden="true"></i>
                                     Login
                                 </NavLink>
                             
@@ -74,7 +74,7 @@ const Navbar = () => {
                         {!userContext.user.isLoggedIn?
                             <li className="col-span-2">
                                 <NavLink className="nav-link" activeclassname="active" to="/register">
-                                <i class="fa fa-registered" aria-hidden="true"></i>
+                                <i className="fa fa-registered" aria-hidden="true"></i>
                                     Register
                                 </NavLink>
                             </li>
@@ -83,7 +83,7 @@ const Navbar = () => {
                     </ul>
 
                     {userContext.user.orderNumber?
-                         <button type="button" class="text-green-300 border-2 border-neutral-600
+                         <button type="button" className="text-green-300 border-2 border-neutral-600
                             focus:outline-none rounded-lg text-sm px-3 text-center bg-gradient
                             mr-2 mb-1 dark:hover:text-green-900 dark:hover:bg-green-200">
                            <NavLink className="nav-link text-green-600" activeclassname="active" aria-current="page" to="/dashboard">

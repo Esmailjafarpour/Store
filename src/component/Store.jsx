@@ -43,11 +43,8 @@ const Store = () => {
             setProductToShow(productsResponseBody);
             document.title = "Store"  
 
-           
-
         })();
  
-        
     },[search]);
 
     useEffect(() => (
@@ -109,11 +106,10 @@ const Store = () => {
                 },
             })  
             
-        
-                 
     }
 
     const onAddToCartClick = (product) => {
+       
         if(userContext.user.currentUserId === null){
             setShowLoginMessage(true)
             return
@@ -123,13 +119,22 @@ const Store = () => {
             let prods = products.map((p) =>{
             (async () => {
                 if (p.id === product.id){
-                        p.quantity = ++p.quantity;
-                        let orderResponse = await fetch(`http://localhost:5000/orders?${product.id}`,{
-                        method : "PUT",
-                        body : JSON.stringify(product),
-                        headers:{"Content-Type":"application/json"}
-                    })
-                }
+                        product.quantity = ++product.quantity;
+                        product.quantityInStock = -- product.quantityInStock 
+                        let updateProduct = {
+                                userId: userContext.user.currentUserId,
+                                productId: product.id,
+                                quantity: product.quantity,
+                                isPaymentCompleted: false,
+                                imageProduct: product.image,   
+                        }
+                        let orderResponse = await fetch(`http://localhost:5000/orders?userId=${userContext.user.currentUserId}&productId=${product.id}`,{
+                            method:"PUT",
+                            body : JSON.stringify(updateProduct),
+                            headers:{"Content-Type":"application/json"}
+                        })
+                        let orderResponseBody = await orderResponse.json()
+                }       
             })()
                 return p
         })
@@ -155,6 +160,7 @@ const Store = () => {
                 if (p.id === product.id){
                     p.isOrdered = true;
                     p.quantity = ++num
+                    p.quantityInStock = -- p.quantityInStock
                     newOrder.quantity = ++num
                 }
                 return p
@@ -179,6 +185,7 @@ const Store = () => {
             let prods = products.map((p) =>{
                 if (p.id === product.id){
                     p.quantity = --p.quantity
+                    p.quantityInStock = ++ p.quantityInStock
                     if(p.quantity === 0){        
                         product.isOrdered = false;
                     }
