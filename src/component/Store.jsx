@@ -233,9 +233,9 @@ const Store = () => {
                         <Slider productToShow={productToShow}/>
                     </div>
 
-                    <div className="grid grid-cols-12 gap-4 gap-2 py-2">
+                    <div className="grid grid-cols-12 gap-4 py-2 content">
 
-                        <div className="col-span-2 px-2 py-2 mt-3 h-fit bg-stone-800 rounded-lg ">
+                        <div className="content_filter col-span-2 px-2 py-2 mt-3 h-fit bg-stone-800 rounded-lg ">
                             <div className="my-1">
                                 <h5 className="text-amber-100 px-2">Brands</h5>
                                 <ul className="list-group list-group-flush">
@@ -287,7 +287,7 @@ const Store = () => {
                             </div>
                         </div>
                         
-                        <div className="col-span-10 border-[1px] border-stone-900 rounded-lg p-2 m-2">
+                        <div className="content_products col-span-10 border-[1px] border-stone-900 rounded-lg p-2 m-2">
                             <div className="grid grid-cols-12 gap-1">
                                 {productToShow.map((product) => (
                                     <Product

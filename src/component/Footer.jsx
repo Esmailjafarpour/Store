@@ -9,7 +9,7 @@ const Footer = () => {
 
     <footer className="text-center text-white bg-stone-900 rounded-lg border-[1px] border-stone-700 my-2">
         <div className="container p-6">
-            <div className="grid lg:grid-cols-6 md:grid-cols-3 gap-4">
+            <div className="footer_brands grid lg:grid-cols-6 md:grid-cols-3 gap-4">
                 {userContext.brands.brands && userContext.brands.brands.map((brand)=>(
                     <div key={brand.id} className="lg:mb-0 mb-8 cursor-pointer">
                         <img

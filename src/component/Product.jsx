@@ -3,7 +3,7 @@ import React,{useState} from 'react';
 const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
     return (
         // <div className="mb-1">
-            <div className="card m-1 bg-transparent border-0 overflow-hidden col-span-4">
+            <div className="product card m-1 bg-transparent border-0 overflow-hidden col-span-4">
                 <div className="bg-gradient border-2 shadow-2xl bg-zinc-900 border-stone-600 rounded-sm p-2 ">
                     <div className="product bg-indigo-300 rounded-lg h-60 mb-1 shadow-2xl cursor-pointer">
                         <img className="object-cover w-100 h-30 transition ease-in-out delay-170 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-700" src={require(`../images/${product.image}`)} alt={product.image}/>
@@ -16,10 +16,10 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
                         :
                         <div className="text-lime-200 flex justify-center items-center">${product.price.toFixed()}</div>
                     }
-                    <div className="mt-2 text-orange-300">
+                    <div className="brand mt-2 text-orange-300">
                         #{product.brand.brandName} #{product.category.categoryName}
                     </div>
-                    <div className="flex justify-between items-center">
+                    <div className="rating_number flex justify-between items-center">
                         <div>
                             {[...Array(product.rating).keys()].map((n)=>{
                                 return <i className="fa fa-star text-yellow-500" key={n}></i>
