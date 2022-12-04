@@ -175,61 +175,8 @@ i{
 }
 
 
-/* @media (min-width: 320px) {
-    .navbar-collapse{
-        margin: 20px 0;
-    }
+@media (max-width: 320px) {
 
-    .header{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .title{
-       width: 99% !important;
-       margin: 0 auto;
-    }
-
-    .header-search{
-        width: 99%;
-        margin: 0 auto;
-    }
-
-    .content{
-        display: grid;
-        grid-template-columns: auto;
-        grid-gap: 10px;
-       
-    }
-
-    .content_filter{
-        display: grid;
-        grid-template-columns: auto auto;
-        gap: 40px;
-    }
-
-    .content_products{
-        grid-template-columns: 1fr;
-        
-    }
-
-    .content_products div{
-        grid-template-columns: 1fr;
-    }
-
-    .product{
-       
-        grid-template-columns: 1fr;
-        
-    }
-
-    .footer_brands{
-        grid-template-rows: 1fr;
-        gap: 0 5px; 
-    }
-} */
-
-@media (max-width: 480px) {
     .navbar-collapse{
         margin: 20px 0;
     }
@@ -244,6 +191,68 @@ i{
 
     .title{
         width: 37%;
+    }
+
+    .main{
+        z-index: 0 !important;
+        position: relative;
+    }
+
+    .content{
+        display: grid;
+        grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+        grid-column: span 1 / span 1;
+    }
+
+    .content_filter{
+        grid-column: span 8 / span 8 !important;
+    }
+
+    .content_products {
+        grid-column: span 8 / span 8;
+    }
+
+    .content_products div{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+   .product{
+        grid-column: span 1 / span 1;
+   }
+
+   .brand{
+    display: flex;
+    justify-content: center;
+   }
+
+   .rating_number{
+    display: flex;
+    flex-direction: column;
+   }
+
+    .footer_brands{
+        grid-template-columns: 3fr 3fr;
+        gap: 0 5px; 
+    }
+} 
+
+@media (max-width: 480px) {
+    .navbar-collapse{
+        margin: 20px 0;
+    }
+
+    .header{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header-search{
+        width: 100%;
+        margin-right: 15px !important;
+    }
+
+    .title{
+        width: 100%;
     }
 
     .main{
