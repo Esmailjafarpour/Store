@@ -29,7 +29,7 @@ const Navbar = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <div className="collapse navbar-collapse flex" id="navbarSupportedContent">
                     <ul className="grid grid-cols-4 gap-4 me-auto mb-2 mb-lg-0">
                         
                         {userContext.user.isLoggedIn && userContext.user.currentUserRole === "user"?
@@ -84,12 +84,13 @@ const Navbar = () => {
 
                     {userContext.user.orderNumber?
                          <button type="button" className="text-green-300 border-2 border-neutral-600
-                            focus:outline-none rounded-lg text-sm px-3 text-center bg-gradient
-                            mr-2 mb-1 dark:hover:text-green-900 dark:hover:bg-green-200">
+                            focus:outline-none rounded-lg text-sm px-1 text-center bg-gradient
+                            mr-2 mb-1 dark:hover:text-green-900 dark:hover:bg-green-200 rounded-full px-2 py-2">
                            <NavLink className="nav-link text-green-600" activeclassname="active" aria-current="page" to="/dashboard">
-                                Go To Dashboard
-                            <i className="fa fa-dashboard m-2 "></i>
-                            <span className="m-2 text-base">order {userContext.user.orderNumber}</span>
+                            <i className="fa fa-shopping-cart relative fa-lg">
+                                <span className="text-base absolute -top-5 -right-5 bg-purple-800 text-gray-50 px-1 px-2 py-1 text-xs rounded-full">{userContext.user.orderNumber}</span>
+                            </i>
+                            
                            </NavLink>
                        </button>
                     :""}
@@ -110,12 +111,14 @@ const Navbar = () => {
                                 </NavLink>
                             </div>
                         :''}
+
                        
                     {/* <form className="d-flex">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                         <button className="btn btn-outline-success" type="submit">Search</button>
                     </form> */}
                 </div>
+                
             </div>
         </nav> 
     )

@@ -201,8 +201,8 @@ const Store = () => {
     return(
         <>
             <Show showLoginMessage={showLoginMessage} hiddenLoginMessage={()=>(setShowLoginMessage())}/>
-            <div className="mt-1">
-                <div className="grid grid-cols-12 gap-2 z-[1000] px-1 py-2 bg-stone-900 rounded-lg border-[1px] border-stone-700 sticky top-[68px]">
+            <div className="main">
+                <div className="header grid grid-cols-12 gap-2 z-[1000] px-1 py-2 bg-stone-900 rounded-lg border-[1px] border-stone-700 sticky top-[63px]">
                     <div className="title col-span-2 ">
                         <h5 className="px-2 py-0.5 my-1 d-flex justify-between items-center text-orange-300">
                             <span>
@@ -213,7 +213,7 @@ const Store = () => {
                             </span>
                         </h5>
                     </div>
-                    <div className="col-span-10 w-6/12 py-2 mx-auto">
+                    <div className="header-search col-span-10 w-6/12 py-2 mx-auto">
                         <input  
                             type="search"
                             value={search}
@@ -227,74 +227,80 @@ const Store = () => {
                     </div>
                 </div>
         
-                <div className="grid grid-cols-12 gap-3 mx-auto sticky rounded-lg border-[2px] border-stone-800 mt-3 px-2">
-                    <div className="col-span-2 px-2 py-2 mt-3 h-fit bg-stone-800 rounded-lg ">
-                        <div className="my-1">
-                            <h5 className="text-amber-100 px-2">Brands</h5>
-                            <ul className="list-group list-group-flush">
-                                {brands.map((brand)=>(
-                                    <li className="px-2 py-2 my-1 bg-neutral-700 text-emerald-100 rounded-lg shadow-3xl border-yellow-900" key={brand.id}>
-                                        <div className="form-check">
-                                            <input 
-                                                type="checkBox" 
-                                                className="form-check-input bg-secondary"
-                                                value="true"
-                                                checked={brand.isChecked}
-                                                id={`brand${brand.id}`}
-                                                onChange={()=>{
-                                                    updateBrandIsChecked(brand.id)
-                                                }}
-                                            />
-                                            <label htmlFor={`brand${brand.id}`} className="form-check-label">
-                                                {brand.brandName}
-                                            </label>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        <div className="my-2">
-                            <h5 className="text-amber-100 px-2">Categories</h5>
-                            <ul className="list-group list-group-flush">
-                                {categories.map((category)=>(
-                                    <li className="px-2 py-2 my-1 bg-neutral-700 text-emerald-100 rounded-lg shadow-3xl border-yellow-900" key={category.id}>
-                                        <div className="form-check">
-                                            <input 
-                                                type="checkBox" 
-                                                className="form-check-input bg-secondary"
-                                                value="true"
-                                                checked={category.isChecked}
-                                                id={`category${category.id}`}
-                                                onChange={()=>{
-                                                    updateCategoriesChecked(category.id)
-                                                }}
-                                            />
-                                            <label htmlFor={`category${category.id}`} className="form-check-label">
-                                                {category.categoryName}
-                                            </label>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                <div className="mx-auto sticky rounded-lg border-[2px] border-stone-800 mt-3 px-2">
+                    
+                    <div className="grid col-span-12 rounded-lg border-[2px] border-stone-800 mt-3 p-2">
+                        <Slider productToShow={productToShow}/>
                     </div>
 
-                    <div className="col-span-10 py-2">
-                        <div className="rounded-lg border-[2px] border-stone-800 mt-3 p-2">
-                            <Slider productToShow={productToShow}/>
+                    <div className="grid grid-cols-12 gap-4 gap-2 py-2">
+
+                        <div className="col-span-2 px-2 py-2 mt-3 h-fit bg-stone-800 rounded-lg ">
+                            <div className="my-1">
+                                <h5 className="text-amber-100 px-2">Brands</h5>
+                                <ul className="list-group list-group-flush">
+                                    {brands.map((brand)=>(
+                                        <li className="px-2 py-2 my-1 bg-neutral-700 text-emerald-100 rounded-lg shadow-3xl border-yellow-900" key={brand.id}>
+                                            <div className="form-check">
+                                                <input 
+                                                    type="checkBox" 
+                                                    className="form-check-input bg-secondary"
+                                                    value="true"
+                                                    checked={brand.isChecked}
+                                                    id={`brand${brand.id}`}
+                                                    onChange={()=>{
+                                                        updateBrandIsChecked(brand.id)
+                                                    }}
+                                                />
+                                                <label htmlFor={`brand${brand.id}`} className="form-check-label">
+                                                    {brand.brandName}
+                                                </label>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <div className="my-2">
+                                <h5 className="text-amber-100 px-2">Categories</h5>
+                                <ul className="list-group list-group-flush">
+                                    {categories.map((category)=>(
+                                        <li className="px-2 py-2 my-1 bg-neutral-700 text-emerald-100 rounded-lg shadow-3xl border-yellow-900" key={category.id}>
+                                            <div className="form-check">
+                                                <input 
+                                                    type="checkBox" 
+                                                    className="form-check-input bg-secondary"
+                                                    value="true"
+                                                    checked={category.isChecked}
+                                                    id={`category${category.id}`}
+                                                    onChange={()=>{
+                                                        updateCategoriesChecked(category.id)
+                                                    }}
+                                                />
+                                                <label htmlFor={`category${category.id}`} className="form-check-label">
+                                                    {category.categoryName}
+                                                </label>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
                         
-                        <div className="grid grid-cols-3 gap-2 border-[1px] border-stone-900 rounded-lg p-2 m-2">
-                            {productToShow.map((product) => (
-                                <Product 
-                                    key={product.id} 
-                                    product={product} 
-                                    onAddToCartClick={onAddToCartClick} 
-                                    onDeletedToCartClick={onDeletedToCartClick}
-                                />
-                            ))}
+                        <div className="col-span-10 border-[1px] border-stone-900 rounded-lg p-2 m-2">
+                            <div className="grid grid-cols-12 gap-1">
+                                {productToShow.map((product) => (
+                                    <Product
+                                        key={product.id} 
+                                        product={product} 
+                                        onAddToCartClick={onAddToCartClick} 
+                                        onDeletedToCartClick={onDeletedToCartClick}
+                                    />
+                                ))}
+                            </div>
+                            
                         </div>
+
                     </div>
                 </div>
             </div>  
