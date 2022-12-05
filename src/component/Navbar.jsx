@@ -83,7 +83,7 @@ const Navbar = () => {
                     </ul>
 
                     {userContext.user.orderNumber?
-                         <button type="button" className="text-green-300 border-2 border-neutral-600
+                         <button type="button" className="numberShoppingCart text-green-300 border-2 border-neutral-600
                             focus:outline-none rounded-lg text-sm px-1 text-center bg-gradient
                             mr-2 mb-1 dark:hover:text-green-900 dark:hover:bg-green-200 rounded-full px-2 py-2">
                            <NavLink className="nav-link text-green-600" activeclassname="active" aria-current="page" to="/dashboard">

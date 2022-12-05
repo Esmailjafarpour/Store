@@ -179,6 +179,23 @@ i{
 
     .navbar-collapse{
         margin: 20px 0;
+        display: flex;
+        flex-direction: column-reverse;
+        align-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .navbar-collapse ul{
+        margin-top: 15px;
+    }
+
+    .numberShoppingCart{
+        margin: 16px 0;
+    }
+
+    .MuiModal-root .MuiBox-root{
+        width: 90%;
     }
 
     .header{
@@ -209,8 +226,8 @@ i{
 
     .content_filter{
         grid-column: span 8 / span 8 !important;
-        position: sticky;
-        top: 70px;
+        position: relative;
+        top: 0px;
     }
 
     .content_filter div ul {
@@ -244,6 +261,7 @@ i{
 
    .productName{
         font-size: 13px;
+        margin-top: 12px;
    }
 
    .product_price{
@@ -302,6 +320,10 @@ i{
         text-align: center;
     }
 
+    .MuiModal-root .MuiBox-root{
+        width: 90%;
+    }
+
     .header{
         display: grid;
         grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -330,8 +352,10 @@ i{
 
     .content_filter{
         grid-column: span 8 / span 8 !important;
-        position: sticky;
-        top: 70px;
+        /* position: sticky;
+        top: 70px; */
+        position: relative;
+        top: 0px;
     }
 
     .content_filter div ul {
