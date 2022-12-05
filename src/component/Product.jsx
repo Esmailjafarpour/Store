@@ -8,13 +8,13 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
                     <div className="product bg-indigo-300 rounded-lg h-60 mb-1 shadow-2xl cursor-pointer">
                         <img className="object-cover w-100 h-30 transition ease-in-out delay-170 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-700" src={require(`../images/${product.image}`)} alt={product.image}/>
                     </div>
-                    <h6 className="text-orange-400 text-center mb-1">
+                    <h6 className="productName text-orange-400 text-center mb-1">
                         {product.productName}<i className="fa fa-arrow-right ml-1"></i>
                     </h6>
                     {product.quantity && product.quantity>0?
-                        <div className="text-lime-200 flex justify-center items-center">${(product.price.toFixed())*(product.quantity)}</div>
+                        <div className="product_price text-lime-200 flex justify-center items-center">${(product.price.toFixed())*(product.quantity)}</div>
                         :
-                        <div className="text-lime-200 flex justify-center items-center">${product.price.toFixed()}</div>
+                        <div className="product_price text-lime-200 flex justify-center items-center">${product.price.toFixed()}</div>
                     }
                     <div className="brand mt-2 text-orange-300">
                         #{product.brand.brandName} #{product.category.categoryName}
@@ -30,9 +30,9 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
                         </div>
                         <div>
                             {product.quantityInStock > 0 ?
-                                <span className="text-violet-300">Quantity in stock {product.quantityInStock}</span>
+                                <span className="product_quantity text-violet-300">Quantity in stock {product.quantityInStock}</span>
                                 :
-                                <span className="text-red-900">warehouse stock {product.quantityInStock}</span>
+                                <span className="product_quantity text-red-900">warehouse stock {product.quantityInStock}</span>
                             }
                         </div>
                         
@@ -65,7 +65,7 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
 
                             ):( 
                                 <button 
-                                    className="text-green-200 border-2 border-neutral-600
+                                    className="btn_Buy text-green-200 border-2 border-neutral-600
                                     focus:outline-none rounded-lg text-sm px-3 py-2 text-center 
                                     mr-2 mb-1 dark:hover:text-green-600 dark:hover:bg-green-100" 
                                     onClick={()=>onAddToCartClick(product)}

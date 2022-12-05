@@ -182,15 +182,18 @@ i{
     }
 
     .header{
-        display: flex;
-    }
-
-    .header-search{
-        margin-right: 15px !important;
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        position: relative !important;
+        top: 5px;
     }
 
     .title{
-        width: 37%;
+        grid-column: span 12 / span 12;
+    }
+    .header-search{
+        width: 100%;
+        grid-column: span 12 / span 12;
     }
 
     .main{
@@ -206,7 +209,26 @@ i{
 
     .content_filter{
         grid-column: span 8 / span 8 !important;
+        position: sticky;
+        top: 70px;
     }
+
+    .content_filter div ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+   .content_filter div h5 {
+        font-size: 13px;
+        text-align: center;
+    }
+
+   .content_filter div ul li{
+        width: 32%;
+        padding: 3px 5px!important;
+   }
 
     .content_products {
         grid-column: span 8 / span 8;
@@ -220,14 +242,37 @@ i{
         grid-column: span 1 / span 1;
    }
 
-   .brand{
-    display: flex;
-    justify-content: center;
+   .productName{
+        font-size: 13px;
    }
 
-   .rating_number{
-    display: flex;
-    flex-direction: column;
+   .product_price{
+        font-size: 13px;
+   }
+
+    .brand{
+        display: flex;
+        justify-content: center;
+        font-size: 13px;
+    }
+
+    .rating_number{
+        display: flex;
+        flex-direction: column;
+        font-size: 13px;
+    }
+
+    .product_quantity{
+        font-size: 13px;
+    }
+
+    .btn_Buy{
+        font-size: 11px;
+        padding: 2px 5px;
+    }
+
+   label{
+    font-size: 10px;
    }
 
     .footer_brands{
@@ -236,23 +281,40 @@ i{
     }
 } 
 
-@media (max-width: 480px) {
+@media (min-width: 321px) and (max-width: 480px) {
     .navbar-collapse{
         margin: 20px 0;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .navbar-collapse div{
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .navbar-collapse ul{
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    .navbar-collapse ul li {
+        text-align: center;
     }
 
     .header{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .header-search{
-        width: 100%;
-        margin-right: 15px !important;
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        position: relative !important;
+        top: 5px;
     }
 
     .title{
+        grid-column: span 12 / span 12;
+    }
+    .header-search{
         width: 100%;
+        grid-column: span 12 / span 12;
     }
 
     .main{
@@ -261,11 +323,32 @@ i{
     }
 
     .content{
-        grid-template-columns: repeat(12, minmax(0, 1fr));
+        display: grid;
+        grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+        grid-column: span 1 / span 1;
     }
 
     .content_filter{
-        grid-column: span 4 / span 4;
+        grid-column: span 8 / span 8 !important;
+        position: sticky;
+        top: 70px;
+    }
+
+    .content_filter div ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        }
+    
+    .content_filter div h5 {
+        font-size: 13px;
+        text-align: center;
+    }
+
+    .content_filter div ul li{
+        width: 32%;
+        padding: 3px 5px!important;
     }
 
     .content_products {
@@ -279,6 +362,40 @@ i{
    .product{
         grid-column: span 1 / span 1;
    }
+
+   .productName{
+        font-size: 14px;
+        margin-top: 8px;
+    }
+
+    .product_price{
+        font-size: 14px;
+    }
+
+    .brand{
+        display: flex;
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    .rating_number{
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+    }
+
+    .product_quantity{
+        font-size: 13px;
+    }
+
+    .btn_Buy{
+        font-size: 11px;
+        padding: 2px 5px;
+    }
+
+    label{
+    font-size: 10px;
+    }
 
    .brand{
     display: flex;
