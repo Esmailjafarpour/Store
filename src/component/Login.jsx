@@ -172,7 +172,7 @@ const Login = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="card-footer text-center">
+                    <div className="card-footer text-center mt-3">
                         <div className="m-1">{loginMessage}</div>
                         <button className="w-50 text-teal-600 border-2 border-stone-500
                                 focus:outline-none rounded-lg text-sm px-3 py-2 text-center 
