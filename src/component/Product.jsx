@@ -21,6 +21,7 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
                     </div>
                     <div className="rating_number flex justify-between items-center">
                         <div>
+                            {}
                             {[...Array(product.rating).keys()].map((n)=>{
                                 return <i className="fa fa-star text-yellow-500" key={n}></i>
                             })}
@@ -65,9 +66,9 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
 
                             ):( 
                                 <button 
-                                    className="btn_Buy text-green-200 border-2 border-neutral-600
+                                    className="text-green-200 border-2 border-neutral-600
                                     focus:outline-none rounded-lg text-sm px-3 py-2 text-center 
-                                    mr-2 mb-1 dark:hover:text-green-600 dark:hover:bg-green-100" 
+                                    mr-2 mb-1 dark:hover:text-green-600 dark:hover:bg-green-100 btn_Buy" 
                                     onClick={()=>onAddToCartClick(product)}
                                 >
                                     <i className="fa fa-cart-plus"></i>Add to card

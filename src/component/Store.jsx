@@ -14,6 +14,7 @@ const Store = () => {
     const [search, setSearch] = useState('');
     const [productsId,setProductsId] = useState([]);
     const [showLoginMessage ,setShowLoginMessage ] = useState(false);
+    const [y, setY] = useState(window.scrollY);
     
     useEffect(() => {
         (async () => {
@@ -42,10 +43,11 @@ const Store = () => {
             setProducts(productsResponseBody);
             setProductToShow(productsResponseBody);
             document.title = "Store"  
+            
 
         })();
- 
-    },[search]);
+        console.log("y",y)
+    },[search,y]);
 
     useEffect(() => (
         userContext.dispatchBrands({
@@ -109,7 +111,6 @@ const Store = () => {
     }
 
     const onAddToCartClick = (product) => {
-       
         if(userContext.user.currentUserId === null){
             setShowLoginMessage(true)
             return
