@@ -44,10 +44,6 @@ body{
     padding: 0 8px;
 }
 
-.main{
-    position: relative;
-}
-
 nav{
     position: fixed;
 }
@@ -75,6 +71,14 @@ i{
     position: sticky !important;
     top: 0px;
     z-index: 1000 !important;
+}
+
+.main{
+    position: relative;
+}
+
+.main_product{
+    
 }
 
 .header{
@@ -160,7 +164,6 @@ i{
     
 }
 
-
 .content_filter{
     position: sticky;
     top:70px;
@@ -229,6 +232,11 @@ i{
     .main{
         z-index: 0 !important;
         position: relative;
+    }
+
+    .main_product{
+        position: relative;
+        top: 0px;
     }
 
     .content{
@@ -369,6 +377,11 @@ i{
     .main{
         z-index: 0 !important;
         position: relative;
+    }
+
+    .main_product{
+        position: relative;
+        top: 0px;
     }
 
     .content{
@@ -515,6 +528,11 @@ i{
         position: relative;
     }
 
+    .main_product{
+        /* position: relative; */
+        /* top: 80px; */
+    }
+
     .content{
         grid-template-columns: 1fr 4fr;
         gap: 0 5px;
@@ -588,6 +606,11 @@ i{
         grid-template-columns: 1fr 4fr;
         gap: 0 5px;
     }
+
+    /* .main_product{
+        position: relative;
+        top: 0px;
+    } */
 
     .content_filter{
         background-color: #282930 !important;

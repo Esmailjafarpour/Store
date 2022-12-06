@@ -82,7 +82,7 @@ function App() {
 
     <UserContext.Provider value={{user,dispatch,brands,dispatchBrands}}>
       <BrowserRouter>
-          <div className="container-fluid p-1">
+          <div className="container-fluid p-1 relative">
             <Navbar/>
             <Routes>
               <Route path="/" element={<Store/>}/>

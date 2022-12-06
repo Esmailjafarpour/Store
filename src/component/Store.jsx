@@ -228,7 +228,7 @@ const Store = () => {
                     </div>
                 </div>
         
-                <div className="mx-auto sticky rounded-lg border-[2px] border-stone-800 mt-3 px-2">
+                <div className="main_product mx-auto sticky rounded-lg border-[2px] border-stone-800 mt-3 px-2">
                     
                     <div className="grid col-span-12 rounded-lg border-[2px] border-stone-800 mt-3 p-2">
                         <Slider productToShow={productToShow}/>
