@@ -204,7 +204,7 @@ const Store = () => {
             <Show showLoginMessage={showLoginMessage} hiddenLoginMessage={()=>(setShowLoginMessage())}/>
             <div className="main">
                 <div className="header grid grid-cols-12 gap-2 z-[1000] px-1 py-2 bg-stone-900 rounded-lg border-[1px] border-stone-700 sticky top-[63px]">
-                    <div className="title col-span-2 ">
+                    <div className="title_store border-[2px] border-stone-700 rounded-lg col-span-2 ">
                         <h5 className="px-2 py-0.5 my-1 d-flex justify-between items-center text-orange-300">
                             <span>
                                 Store{" "}<i className="fa fa-shopping-bag"></i> 

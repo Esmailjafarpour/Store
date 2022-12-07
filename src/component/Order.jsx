@@ -12,7 +12,7 @@ const Order = (props) => {
                 <h6>
                     <i className="fa fa-arrow-right"></i>{props.productName}
                 </h6>  
-                <div className="mt-1 w-64 mx-auto">
+                <div className="quantity_price mt-1 w-64 mx-auto">
                     <ul className=" text-teal-100 ">
                         <li className="flex justify-around items-center bg-gradient-to-r from-zinc-700 to-zinc-600 rounded-lg h-10 border-stone-700 border-[1px] p-2 my-1 shadow-inner">
                             <span className="p-2">Quantity </span>{"    "}
@@ -24,7 +24,7 @@ const Order = (props) => {
                         </li>
                     </ul>
                 </div>  
-                <div className="flex justify-around">
+                <div className="buttons flex justify-around">
                     <>
                         <button 
                             className="rounded-lg me-2 w-36 bg-gradient-to-r from-emerald-600 to-emerald-500 text-teal-50 h-9"
@@ -60,7 +60,7 @@ const Order = (props) => {
                         <i className="fa fa-arrow-right"></i>{props.productName}
                     </h6>
                     
-                    <div className="mt-1 w-64 mx-auto">
+                    <div className="quantity_price mt-1 w-64 mx-auto ">
                         <ul className=" text-teal-100 ">
                             <li className="flex justify-around items-center bg-gradient-to-l from-zinc-700 to-zinc-600 rounded-lg h-10 border-stone-700 border-[1px] p-2 my-1 shadow-inner">
                                 <span className="p-2">Quantity </span>{"    "}

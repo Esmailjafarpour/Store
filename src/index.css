@@ -92,6 +92,20 @@ i{
     
 }
 
+.title_store{
+    grid-column: span 2 / span 2;
+}
+
+.header-search{
+    grid-column: span 10 / span 10;
+}
+
+.header-dashboard{
+    background-color: #282930;
+    color: wheat;
+    padding: 0 15px;
+}
+
 .bage-header{
     color: wheat !important;
 }
@@ -138,7 +152,6 @@ i{
     margin: 5px 0;
 }
 
-
 .card-body,.form-login,.form-register{
     border: 2px solid #5a4600 !important;
     background-color: black;
@@ -150,7 +163,6 @@ i{
     color: wheat;
     text-decoration: none;
 }
-
 
 .not-found{
     background-image: url("../public/preview.jpg");
@@ -220,7 +232,7 @@ i{
         top: 5px;
     }
 
-    .title{
+    .title_store{
         grid-column: span 12 / span 12;
     }
     
@@ -327,6 +339,50 @@ i{
         height: 56px; 
     }
 
+    .previous_order .card div{
+        display: flex;
+        flex-direction: column-reverse !important;
+    }
+
+    .Unconfirmed_Orders {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .Unconfirmed_Orders .order-card{
+        grid-column: span 1 / span 1;
+        
+    }
+
+    .Unconfirmed_Orders .quantity_price{
+        width: 70% !important;
+    }
+
+    .Unconfirmed_Orders .quantity_price ul{
+        padding: 0;
+    }
+
+    .quantity_price span{
+        font-size: 13px;
+    }
+
+    .buttons{
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 6px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .buttons button{
+        font-size: 13px;
+    }
+
+    .grid-cols-3 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
 } 
 
 @media (min-width: 321px) and (max-width: 480px) {
@@ -366,9 +422,10 @@ i{
         top: 5px;
     }
 
-    .title{
+    .title_store{
         grid-column: span 12 / span 12;
     }
+    
     .header-search{
         width: 100%;
         grid-column: span 12 / span 12;
@@ -479,6 +536,49 @@ i{
         height: 56px; 
     }
 
+    .Unconfirmed_Orders {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .Unconfirmed_Orders .order-card{
+        grid-column: span 1 / span 1;
+        
+    }
+
+    .Unconfirmed_Orders .quantity_price{
+        width: 70% !important;
+    }
+
+    .Unconfirmed_Orders .quantity_price ul{
+        padding: 0;
+    }
+
+    .quantity_price span{
+        font-size: 13px;
+    }
+
+    .buttons{
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 6px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .buttons button{
+        font-size: 13px;
+    }
+
+    .grid-cols-3 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .previous_order .card div {
+        display: flex;
+        flex-direction: column-reverse !important;
+    }
 
 }
 
@@ -515,12 +615,19 @@ i{
         display: flex;
     }
 
-    .header-search{
-        margin-right: 15px ;
+    .title_store{
+        grid-column: span 4 / span 4 !important;
+        width: 30%;
     }
 
-    .title{
-        width: 37% !important;
+    .title_store h5 span{
+        font-size: 16px;
+        padding: 2px ;
+    }
+
+    
+    .header-search{
+        grid-column: span 8 / span 8 !important;
     }
 
     .main{
@@ -582,6 +689,45 @@ i{
         height: 90px; 
     }
 
+    .Unconfirmed_Orders {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .Unconfirmed_Orders .order-card{
+        grid-column: span 1 / span 1;
+        
+    }
+
+    .Unconfirmed_Orders .quantity_price{
+        width: 70% !important;
+    }
+
+    .Unconfirmed_Orders .quantity_price ul{
+        padding: 0;
+    }
+
+    .quantity_price span{
+        font-size: 13px;
+    }
+
+    .buttons{
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 6px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .buttons button{
+        font-size: 13px;
+    }
+
+    .grid-cols-3 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
 }
 
 @media (min-width: 768px) and (max-width: 900px){
@@ -594,12 +740,18 @@ i{
         margin: 20px 0;
     }
 
-    .header{
-        display: flex;
+    .header-dashboard{
+        background-color: #282930;
+        color: wheat;
+        padding: 0 15px;
     }
 
-    .title{
-        width: 30%;
+    .title_store{
+        grid-column: span 3 / span 3;
+    }
+    
+    .header-search{
+        grid-column: span 9 / span 9;
     }
 
     .content{
@@ -638,6 +790,21 @@ i{
         gap: 0 5px; 
     }
 
+    .quantity_price{
+        width: 100% !important;
+    }
+
+    .quantity_price span{
+        font-size: 13px;
+    }
+
+    .buttons button{
+        padding: 0 5px;
+        font-size: 13px;
+    }
+
+
+
 }
 
 @media (min-width: 901px) and (max-width: 1200px){
@@ -650,8 +817,14 @@ i{
         margin: 20px 0;
     }
 
-    .header-search{
-        margin: auto 0 !important;
+    .title_store{
+        grid-column: span 3 / span 3;
     }
+    
+    .header-search{
+        grid-column: span 9 / span 9;
+    }
+
+    
 } 
 

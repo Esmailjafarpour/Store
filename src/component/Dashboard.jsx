@@ -91,8 +91,8 @@ const Dashboard = () => {
 
     return(
         
-        <div className="row">
-            <div className="grid grid-cols py-1 title-order header title ">
+        <div className="">
+            <div className="grid grid-cols py-1 border-stone-700 title-order header-dashboard title ">
                 <h4 className="flex justify-between py-2 m-0">
                     <span className="d-flex "><i className="fa fa-dashboard"></i>Dashboard{" "}</span>
                     <button className="btn btn-outline-warning w-36 " onClick={loadDataFromDataBase}>
@@ -105,7 +105,7 @@ const Dashboard = () => {
             <div className="grid grid-cols my-3">
                 <div className="grid grid-cols-3 gap-8">
                     {/* Column of confirmed products that have been paid */}
-                    <div className="col-span-2">
+                    <div className="previous_order col-span-2">
                         <h4 className="py-2 my-2 text-center text-emerald-500">
                             <i className="fa fa-history"></i>Previous Orders{"  "}
 
@@ -142,7 +142,7 @@ const Dashboard = () => {
                     </div>
 
                     {/* Column of unconfirmed products that have not been paid for */}
-                    <div className="col-span-1">
+                    <div className="card_order col-span-1">
                         {/* The number of unconfirmed and unpaid orders */}
                         <h4 className="py-2 my-2 text-center text-yellow-500">
                             <div className="fa fa-shopping-cart px-1"></div>card{" "}
@@ -187,24 +187,26 @@ const Dashboard = () => {
                         }
 
                         {/* Displaying unconfirmed and unpaid orders */}
-                        {OrdersService.getCart(orders).map((order)=>{
-                            return (
-                                <Order 
-                                    key={order.id} 
-                                    orderId={order.id}
-                                    productId={order.productId}
-                                    userId={order.userId}
-                                    quantity={order.quantity}
-                                    imageProduct={order.imageProduct}
-                                    isPaymentCompleted={order.isPaymentCompleted}
-                                    productName={order.product.productName}
-                                    price={order.product.price}
-                                    onBuyNowClick={onBuyNowClick}
-                                    onDeleteClick={onDeleteClick}
-                                />
-                            )
-                        }
-                        )}
+                        <div className="Unconfirmed_Orders">
+                                {OrdersService.getCart(orders).map((order)=>{
+                                return (
+                                    <Order 
+                                        key={order.id} 
+                                        orderId={order.id}
+                                        productId={order.productId}
+                                        userId={order.userId}
+                                        quantity={order.quantity}
+                                        imageProduct={order.imageProduct}
+                                        isPaymentCompleted={order.isPaymentCompleted}
+                                        productName={order.product.productName}
+                                        price={order.product.price}
+                                        onBuyNowClick={onBuyNowClick}
+                                        onDeleteClick={onDeleteClick}
+                                    />
+                                )
+                            }
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
