@@ -383,6 +383,17 @@ i{
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
+    .header-dashboard h4{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100px;
+    }
+
+    .card_order{
+        grid-column: span 2 / span 2;
+    }
+
 } 
 
 @media (min-width: 321px) and (max-width: 480px) {
@@ -536,6 +547,13 @@ i{
         height: 56px; 
     }
 
+    .header-dashboard h4{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100px;
+    }
+
     .Unconfirmed_Orders {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -578,6 +596,10 @@ i{
     .previous_order .card div {
         display: flex;
         flex-direction: column-reverse !important;
+    }
+
+    .card_order{
+        grid-column: span 2 / span 2;
     }
 
 }
@@ -726,6 +748,10 @@ i{
 
     .grid-cols-3 {
         grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .card_order{
+        grid-column: span 2 / span 2;
     }
 
 }
