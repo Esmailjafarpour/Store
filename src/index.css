@@ -84,12 +84,11 @@ i{
 .header{
     background-color: #282930;
     color: wheat;
-    position: absolute !important;
-    top: -10px;
+    position: relative;
+    top: 1px;
     z-index: 999 !important;
     width: 100%;
     margin: 0 auto;
-    
 }
 
 .title_store{
@@ -658,8 +657,8 @@ i{
     }
 
     .main_product{
-        /* position: relative; */
-        /* top: 80px; */
+        /* position: relative;
+        top: 80px; */
     }
 
     .content{
@@ -785,10 +784,10 @@ i{
         gap: 0 5px;
     }
 
-    /* .main_product{
-        position: relative;
-        top: 0px;
-    } */
+    .main_product{
+        /* position: relative;
+        top: 80px; */
+    }
 
     .content_filter{
         background-color: #282930 !important;
@@ -851,6 +850,16 @@ i{
         grid-column: span 9 / span 9;
     }
 
+    .main_product{
+        /* position: relative;
+        top: 80px; */
+    }
     
 } 
 
+@media (min-width: 1200px){
+    .main_product{
+        /* position: relative;
+        top: 80px; */
+    }
+}
