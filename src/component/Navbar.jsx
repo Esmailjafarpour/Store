@@ -21,7 +21,7 @@ const Navbar = () => {
     return(
 
         <nav className="navbar navbarStyle navbar-expand-lg navbar-dark navbar-header
-            border-2 border-stone-600 rounded-lg">
+            border-[1px] border-stone-600 rounded-lg bg-stone-900">
             <div className="container-fluid grid grid-cols-12">
                 <NavLink className="navbar-brand col-span-2" to="/">jafarpour Store</NavLink>
 
@@ -29,7 +29,7 @@ const Navbar = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
-                <div className="collapse navbar-collapse col-span-" id="navbarSupportedContent">
+                <div className="collapse navbar-collapse flex" id="navbarSupportedContent">
                     <ul className="grid grid-cols-4 gap-4 me-auto mb-2 mb-lg-0">
                         
                         {userContext.user.isLoggedIn && userContext.user.currentUserRole === "user"?
@@ -64,7 +64,7 @@ const Navbar = () => {
                         {!userContext.user.isLoggedIn?
                             <li className="col-span-2">
                                 <NavLink className="nav-link" to="/login" activeclassname="active" exact={`${true}`}>
-                                <i class="fa fa-sign-in" aria-hidden="true"></i>
+                                <i className="fa fa-sign-in" aria-hidden="true"></i>
                                     Login
                                 </NavLink>
                             
@@ -74,7 +74,7 @@ const Navbar = () => {
                         {!userContext.user.isLoggedIn?
                             <li className="col-span-2">
                                 <NavLink className="nav-link" activeclassname="active" to="/register">
-                                <i class="fa fa-registered" aria-hidden="true"></i>
+                                <i className="fa fa-registered" aria-hidden="true"></i>
                                     Register
                                 </NavLink>
                             </li>
@@ -83,44 +83,42 @@ const Navbar = () => {
                     </ul>
 
                     {userContext.user.orderNumber?
-                         <button type="button" class="text-green-300 border-2 border-neutral-600
-                            focus:outline-none rounded-lg text-sm px-3 py-2 text-center bg-gradient
-                            mr-2 mb-1 dark:hover:text-green-900 dark:hover:bg-green-200">
+                         <button type="button" className="numberShoppingCart text-green-300 border-2 border-neutral-600
+                            focus:outline-none rounded-lg text-sm px-1 text-center bg-gradient
+                            mr-2 mb-1 dark:hover:text-green-900 dark:hover:bg-green-200 rounded-full px-2 py-2">
                            <NavLink className="nav-link text-green-600" activeclassname="active" aria-current="page" to="/dashboard">
-                                Go To Dashboard
-                            <i className="fa fa-dashboard m-2 "></i>
-                            <span className="m-2 text-base">order {userContext.user.orderNumber}</span>
+                            <i className="fa fa-shopping-cart relative fa-lg">
+                                <span className="text-base absolute -top-5 -right-5 bg-purple-800 text-gray-50 px-1 px-2 py-1 text-xs rounded-full">{userContext.user.orderNumber}</span>
+                            </i>
+                            
                            </NavLink>
                        </button>
                     :""}
 
                     {userContext.user.isLoggedIn?
-                            <div style={{marginRight: 100}}>
-                                <ul className="navbar-nav">
-                                    <li className="nav-item dropdown">
-                                        <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i className="fa fa-user circle text-yellow-400"></i>
-                                            <span className="text-yellow-400 m-1">hello</span>
-                                            {<span className="text-green-200 m-1">{userContext.user.currentUserName}</span>}
-                                        </NavLink>
-                                        <ul className="dropdown-menu selected" aria-labelledby="navbarDropdown" style={{zIndex:"1001"}}>
-                                            <li className="px-2">
-                                                <NavLink className="dropdown-item selected" to="#" onClick={onLogOutClick}>
-                                                <i className="fa fa-sign-out" aria-hidden="true"></i>
-                                                    LogOut
-                                                </NavLink>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                            <div className="flex justify-center items-center" style={{marginRight: 10}}>
+                                <NavLink className="flex justify-center no-underline mr-2" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {/* <i className="fa fa-user circle text-yellow-400"></i> */}
+                                    <div className=" flex justify-center items-center mr-2">
+                                        <span className="text-yellow-500 m-1">Hello</span>
+                                        {<span className="text-green-300">{userContext.user.currentUserName}</span>}
+                                    </div>
+                                    <img class="object-cover w-8 h-8 rounded-full border-[2px] border-stone-500 p-1" src={require(`../images/${userContext.user.imageUser}`)}/>
+                                </NavLink>
+                                <NavLink className=" selected w-24 h-10 p-2 rounded-lg no-underline" to="#" onClick={onLogOutClick}>
+                                        <i className="fa fa-sign-out" aria-hidden="true"></i>
+                                            LogOut
+                                </NavLink>
                             </div>
                         :''}
+
                        
                     {/* <form className="d-flex">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                         <button className="btn btn-outline-success" type="submit">Search</button>
                     </form> */}
                 </div>
+                
             </div>
         </nav> 
     )

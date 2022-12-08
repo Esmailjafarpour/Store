@@ -2,23 +2,33 @@
   "brands": [
     {
       "id": 1,
-      "brandName": "Apple"
+      "brandName": "Apple",
+      "brandImage": "Apple.png"
     },
     {
       "id": 2,
-      "brandName": "Sony"
+      "brandName": "Sony",
+      "brandImage": "Sony.png"
     },
     {
       "id": 3,
-      "brandName": "Samsung"
+      "brandName": "Samsung",
+      "brandImage": "Samsung-logo.png"
     },
     {
       "id": 4,
-      "brandName": "Carrier"
+      "brandName": "Carrier",
+      "brandImage": "Carrier.png"
     },
     {
       "id": 5,
-      "brandName": "Dell"
+      "brandName": "Dell",
+      "brandImage": "Dell.png"
+    },
+    {
+      "id": 6,
+      "brandName": "Xiaomi",
+      "brandImage": "xiaomi.png"
     }
   ],
   "categories": [
@@ -43,16 +53,18 @@
       "brandId": 1,
       "categoryId": 1,
       "rating": 5,
-      "image": "Apple-iphone12pro.png"
+      "image": "Apple-iphone12pro.png",
+      "quantityInStock": 8
     },
     {
       "id": 2,
       "productName": "Apple iPad Pro",
       "price": 12400,
       "brandId": 1,
-      "categoryId": 2,
+      "categoryId": 1,
       "rating": 5,
-      "image": "ipad-pro-11.png"
+      "image": "ipad-pro-11.png",
+      "quantityInStock": 15
     },
     {
       "id": 3,
@@ -61,7 +73,8 @@
       "brandId": 2,
       "categoryId": 2,
       "rating": 4,
-      "image": "camera.png"
+      "image": "camera.png",
+      "quantityInStock": 12
     },
     {
       "id": 4,
@@ -70,7 +83,8 @@
       "brandId": 2,
       "categoryId": 2,
       "rating": 4,
-      "image": "Sony 5.1 Home Theatre.png"
+      "image": "Sony 5.1 Home Theatre.png",
+      "quantityInStock": 10
     },
     {
       "id": 5,
@@ -79,7 +93,8 @@
       "brandId": 4,
       "categoryId": 3,
       "rating": 3,
-      "image": "Carrier-Flair.png"
+      "image": "Carrier-Flair.png",
+      "quantityInStock": 5
     },
     {
       "id": 6,
@@ -88,7 +103,8 @@
       "brandId": 5,
       "categoryId": 2,
       "rating": 4,
-      "image": "Dell-Monitor.png"
+      "image": "Dell-Monitor.png",
+      "quantityInStock": 2
     },
     {
       "id": 7,
@@ -97,7 +113,8 @@
       "brandId": 2,
       "categoryId": 1,
       "rating": 2,
-      "image": "Sony-Xperia-Pro-I.png"
+      "image": "Sony-Xperia-Pro-I.png",
+      "quantityInStock": 7
     },
     {
       "id": 8,
@@ -106,7 +123,48 @@
       "brandId": 3,
       "categoryId": 1,
       "rating": 2,
-      "image": "samsung-galaxy-A10.png"
+      "image": "samsung-galaxy-A10.png",
+      "quantityInStock": 9
+    },
+    {
+      "id": 9,
+      "productName": "iphone-11-promax-1",
+      "price": 9500,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 4,
+      "image": "iphone.png",
+      "quantityInStock": 3
+    },
+    {
+      "id": 10,
+      "productName": "iPhone-13-ProMax",
+      "price": 72450,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 2,
+      "image": "iPhone-13-ProMax.png",
+      "quantityInStock": 10
+    },
+    {
+      "id": 11,
+      "productName": "Redmi-Note-11",
+      "price": 87625,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 3,
+      "image": "lg-Redmi-Note-11-Pro-2.png",
+      "quantityInStock": 12
+    },
+    {
+      "id": 12,
+      "productName": "Xiaomi",
+      "price": 3600,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 5,
+      "image": "Xiaomi-Mi-11-Ultra.png",
+      "quantityInStock": 14
     }
   ],
   "users": [
@@ -119,18 +177,20 @@
       "country": "Iran",
       "recieveNewsLetters": true,
       "role": "admin",
-      "id": 1
+      "id": 1,
+      "image": "user1.png"
     },
     {
       "email": "naderjafarpour@gmail.com",
       "password": "AS2300592045gf",
-      "fullName": "nader jafarpour",
+      "fullName": "nader",
       "dateOfBrith": "2022-10-05",
       "gender": "male",
       "country": "En",
       "recieveNewsLetters": true,
       "role": "user",
-      "id": 2
+      "id": 2,
+      "image": "user2.png"
     },
     {
       "email": "farzadyazdanpanah@gmail.com",
@@ -141,7 +201,8 @@
       "country": "8",
       "recieveNewsLetters": true,
       "role": "user",
-      "id": 3
+      "id": 3,
+      "image": "user3.png"
     },
     {
       "email": "mahdiarmardani@gmail.com",
@@ -152,7 +213,8 @@
       "country": "8",
       "recieveNewsLetters": true,
       "role": "user",
-      "id": 4
+      "id": 4,
+      "image": "user4.png"
     }
   ],
   "orders": [

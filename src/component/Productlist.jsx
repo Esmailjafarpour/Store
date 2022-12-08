@@ -3,7 +3,6 @@ import {UserContext} from '../UserContext.js';
 import {BrandsService,CategoriesService,ProductService,SortService} from '../Service.js';
 
 const Productlist = () => {
-
     const [products, setProducts] = useState([]);
     const [search, setSearch] = useState('');
     const [sortBy, setSortBy] = useState('productName');
@@ -14,11 +13,8 @@ const Productlist = () => {
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("");
 
-
     useEffect(() => {
-
         (async () => {
-
             let brandsResponse = await BrandsService.fetchBrands()
             let brandsResponseBody = await brandsResponse.json();
             setBrands(brandsResponseBody);

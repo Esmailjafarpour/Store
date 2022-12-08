@@ -90,7 +90,8 @@ const Login = (props) => {
                             currentUserId : responseBody[0].id,
                             currentUserName : responseBody[0].fullName,
                             currentUserRole : responseBody[0].role,
-                            orderNumber:0
+                            imageUser: responseBody[0].image,
+                            orderNumber:0,
                         },
                     })
                     navigate("/")
@@ -122,29 +123,29 @@ const Login = (props) => {
     
     return(
         <div className="row">
-            <div className="col-md-4 border-2 border-yellow-700 mx-auto rounded-3 mt-5 p-3 bg-zinc-900">
-                <div className="shadow-lg my-2 rounded-3 overflow-hidden p-2 bg-zinc-800 border-2 border-yellow-700">
+            <div className="col-md-4 border-2 border-stone-800 mx-auto rounded-3 mt-5 p-3 bg-zinc-900">
+                <div className="shadow-lg my-2 rounded-3 overflow-hidden p-2 bg-zinc-800 border-2 border-stone-900">
                     <div className="card-header bg-dark">
                         <h4 style={{fontSize:'40px'}}className="title-login text-center">
                             Login
                         </h4>
                     </div>
-                    <div className="border-2 border-yellow-700 p-2 rounded mx-2 my-2">
+                    <div className="border-2 border-stone-700 p-2 rounded mx-2 my-2">
                         <div className="form-group">
                             <label htmlFor="email"className="mb-3 text-light">Email</label>
                             <input 
-                                autocomplete="off"
-                                type="text" 
-                                className="form-control input-login" 
-                                id="email"
-                                placeholder="Enter Your Email" 
-                                name="email"
-                                value={email}
-                                ref={myEmailRef}
-                                onChange={(e) => setEmail(e.target.value)}
-                                onBlur={() => {
-                                    setDirty({...dirty, email:true});
-                                    validate();
+                                 autoComplete="new-password"
+                                    type="text" 
+                                    className="form-control input-login" 
+                                    id="email"
+                                    placeholder="Enter Your Email" 
+                                    name="email"
+                                    value={email}
+                                    ref={myEmailRef}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    onBlur={() => {
+                                        setDirty({...dirty, email:true});
+                                        validate();
                                 }}
                             />
                             <div className="text-danger">
@@ -154,16 +155,16 @@ const Login = (props) => {
                         <div className="form-group mt-3" >
                             <label htmlFor="password"className="mb-3 text-light">password</label>
                             <input 
-                                autocomplete="off"
-                                type="password" 
-                                className="form-control input-login" 
-                                id="password"
-                                placeholder="Enter Your password" name="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                onBlur={() => {
-                                    setDirty({...dirty, password:true});
-                                    validate();
+                                    autoComplete="new-password"
+                                    type="password" 
+                                    className="form-control input-login" 
+                                    id="password"
+                                    placeholder="Enter Your password" name="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    onBlur={() => {
+                                        setDirty({...dirty, password:true});
+                                        validate();
                                 }}
                             />
                              <div className="text-danger">
@@ -171,9 +172,9 @@ const Login = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="card-footer text-center">
+                    <div className="card-footer text-center mt-3">
                         <div className="m-1">{loginMessage}</div>
-                        <button className="w-50 text-yellow-200 border-2 border-yellow-700
+                        <button className="w-50 text-teal-600 border-2 border-stone-500
                                 focus:outline-none rounded-lg text-sm px-3 py-2 text-center 
                                 mr-2 mb-1 dark:hover:text-green-600 dark:hover:bg-green-100"
                                 onClick={onLoginClick}>

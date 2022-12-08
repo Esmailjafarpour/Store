@@ -19,16 +19,22 @@ const Dashboard = () => {
     //fetch data from orders array of database
     //(async () => {})() - anonymous function
 
+
+    // Get information about all orders
     const loadDataFromDataBase = useCallback(async()=>{
+        // get all data from orders
         let orderResponse = await fetch(`http://localhost:5000/orders?userid=${userContext.user.currentUserId}`,
         {method:"GET"}
       );
       if(orderResponse.ok){
             let orderResponseBody = await orderResponse.json();
+
             // get all data from product
             let productsResponse = await ProductService.fetchProducts()
             if (productsResponse.ok) {
                 let productsResponseBody = await productsResponse.json();
+
+                // Find the ordered product from all available products
                 orderResponseBody.forEach((order) => {
                     order.product = ProductService.getProductByProductId(productsResponseBody,order.productId)
                 });
@@ -43,7 +49,10 @@ const Dashboard = () => {
         loadDataFromDataBase();
     },[userContext.user.currentUserId,loadDataFromDataBase]);
 
-    const onBuyNowClick = useCallback(async (orderId,userId,productId,quantity,imageProduct) => {
+    // Add the order to the orders for which the fees have been paid
+    const onBuyNowClick = useCallback(async(orderId,userId,productId,quantity,imageProduct) => {
+
+        // Updating an already ordered product or adding a new order to orders that have been confirmed and paid for
         if (window.confirm("Do you want to place order for this product?")) {
             let updateOrder = {
                 id: orderId,
@@ -52,9 +61,7 @@ const Dashboard = () => {
                 quantity: quantity,
                 imageProduct:imageProduct,
                 isPaymentCompleted: true,
-
             }
-
             let orderResponse = await fetch(
                 `http://localhost:5000/orders/${orderId}`,{
                     method:"PUT",
@@ -62,16 +69,15 @@ const Dashboard = () => {
                     headers:{"Content-type":"application/json"}
                 }
             )
-
             if(orderResponse.ok) {
                 let orderReponseBody = await orderResponse.json();
                 loadDataFromDataBase();
                 setShowOrderUpdateAlert(true)
             }
-            
         }
     },[loadDataFromDataBase])
 
+    // Delete order
     const onDeleteClick = useCallback(async(orderId)=>{
         if (window.confirm("Are you sure to delete this item from card?")) {
             let orderResponse = await fetch(`http://localhost:5000/orders/${orderId}`,{method : "DELETE"})
@@ -85,8 +91,8 @@ const Dashboard = () => {
 
     return(
         
-        <div className="row">
-            <div className="grid grid-cols py-1 title-order header title ">
+        <div className="">
+            <div className="grid grid-cols py-1 border-stone-700 title-order header-dashboard title ">
                 <h4 className="flex justify-between py-2 m-0">
                     <span className="d-flex "><i className="fa fa-dashboard"></i>Dashboard{" "}</span>
                     <button className="btn btn-outline-warning w-36 " onClick={loadDataFromDataBase}>
@@ -94,21 +100,30 @@ const Dashboard = () => {
                     </button>
                 </h4>
             </div>
+
+            {/* View previous orders and new orders */}
             <div className="grid grid-cols my-3">
                 <div className="grid grid-cols-3 gap-8">
-                    <div className="col-span-2">
+                    {/* Column of confirmed products that have been paid */}
+                    <div className="previous_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-2">
                         <h4 className="py-2 my-2 text-center text-emerald-500">
                             <i className="fa fa-history"></i>Previous Orders{"  "}
+
+                            {/* Number of confirmed and paid orders */}
                             <span className="badge bg-success">
                                 {OrdersService.getPreviousOrders(orders).length}
                             </span>
+
                         </h4>
+
+                        {/* There are no confirmed and paid orders */}
                         {OrdersService.getPreviousOrders(orders).length === 0 ?
                             (<div className="text-yellow-700"> No Orders</div>)
                             :
                             ("")
                         }
 
+                        {/* Show confirmed and paid orders */}
                         {OrdersService.getPreviousOrders(orders).map((order)=> {
                             return (<Order 
                                     key={order.id} 
@@ -126,7 +141,9 @@ const Dashboard = () => {
                         })}
                     </div>
 
-                    <div className="col-span-1">
+                    {/* Column of unconfirmed products that have not been paid for */}
+                    <div className="card_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-1">
+                        {/* The number of unconfirmed and unpaid orders */}
                         <h4 className="py-2 my-2 text-center text-yellow-500">
                             <div className="fa fa-shopping-cart px-1"></div>card{" "}
                             <span className="badge bg-warning">
@@ -134,6 +151,7 @@ const Dashboard = () => {
                             </span>
                         </h4>
 
+                        {/* Display message Your order has been registered */}
                         {showOrderUpdateAlert?(
                             <div className="col-span-12">
                                 <div className="alert alert-success alert-dismissible fade show mt-1" role="alert">
@@ -148,6 +166,7 @@ const Dashboard = () => {
                             </div>
                         ):("")}
 
+                        {/* Show message Your item has been removed from the shopping cart */}
                         {showOrderDeleteAlert?(
                             <div className="col-12">
                                 <div className="alert alert-warning alert-dismissible fade show mt-1" role="alert">
@@ -162,28 +181,32 @@ const Dashboard = () => {
                             </div>
                         ):("")}
 
+                        {/* There are no products displayed in your card */}
                         {OrdersService.getCart(orders).length === 0 ? 
                             (<div className="text-yellow-700 text-center">No Products In Your Cards</div>):("")
                         }
 
-                        {OrdersService.getCart(orders).map((order)=>{
-                            return (
-                                <Order 
-                                    key={order.id} 
-                                    orderId={order.id}
-                                    productId={order.productId}
-                                    userId={order.userId}
-                                    quantity={order.quantity}
-                                    imageProduct={order.imageProduct}
-                                    isPaymentCompleted={order.isPaymentCompleted}
-                                    productName={order.product.productName}
-                                    price={order.product.price}
-                                    onBuyNowClick={onBuyNowClick}
-                                    onDeleteClick={onDeleteClick}
-                                />
-                            )
-                        }
-                        )}
+                        {/* Displaying unconfirmed and unpaid orders */}
+                        <div className="Unconfirmed_Orders">
+                                {OrdersService.getCart(orders).map((order)=>{
+                                return (
+                                    <Order 
+                                        key={order.id} 
+                                        orderId={order.id}
+                                        productId={order.productId}
+                                        userId={order.userId}
+                                        quantity={order.quantity}
+                                        imageProduct={order.imageProduct}
+                                        isPaymentCompleted={order.isPaymentCompleted}
+                                        productName={order.product.productName}
+                                        price={order.product.price}
+                                        onBuyNowClick={onBuyNowClick}
+                                        onDeleteClick={onDeleteClick}
+                                    />
+                                )
+                            }
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

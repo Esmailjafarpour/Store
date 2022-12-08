@@ -3,6 +3,7 @@ import {UserContext} from '../UserContext.js';
 import {BrandsService,CategoriesService,ProductService} from '../Service.js';
 import Product from './Product';
 import Show from './Show';
+import Slider from './Slider';
 
 const Store = () => {
     const userContext = useContext(UserContext);
@@ -13,6 +14,7 @@ const Store = () => {
     const [search, setSearch] = useState('');
     const [productsId,setProductsId] = useState([]);
     const [showLoginMessage ,setShowLoginMessage ] = useState(false);
+    const [y, setY] = useState(window.scrollY);
     
     useEffect(() => {
         (async () => {
@@ -40,10 +42,22 @@ const Store = () => {
             }
             setProducts(productsResponseBody);
             setProductToShow(productsResponseBody);
-            document.title = "Store"
+            document.title = "Store"  
+            
 
         })();
-    },[search]);
+        console.log("y",y)
+    },[search,y]);
+
+    useEffect(() => (
+        userContext.dispatchBrands({
+            type:"brands",
+            payload:{
+              brands : brands  
+            },
+        })
+
+    ), [brands]);
 
     const updateBrandIsChecked = (id) => {
         let brandsData = brands.map((brand)=>{
@@ -82,18 +96,18 @@ const Store = () => {
                 totalOrders += element
             }
         });
-        console.log("orderNumber",orderNumber)
-                
+
         userContext.dispatch({
                 type:"login",
                 payload:{
                     currentUserId : userContext.user.currentUserId,
                     currentUserName : userContext.user.currentUserName,
                     currentUserRole : userContext.user.currentUserRole,
-                    orderNumber : totalOrders
+                    orderNumber : totalOrders,
+                    imageUser :userContext.user.imageUser
                 },
-            })        
-                   
+            })  
+            
     }
 
     const onAddToCartClick = (product) => {
@@ -106,17 +120,25 @@ const Store = () => {
             let prods = products.map((p) =>{
             (async () => {
                 if (p.id === product.id){
-                        p.quantity = ++p.quantity;
-                        let orderResponse = await fetch(`http://localhost:5000/orders?${product.id}`,{
-                        method : "PUT",
-                        body : JSON.stringify(product),
-                        headers:{"Content-Type":"application/json"}
-                    })
-                }
+                        product.quantity = ++product.quantity;
+                        product.quantityInStock = -- product.quantityInStock 
+                        let updateProduct = {
+                                userId: userContext.user.currentUserId,
+                                productId: product.id,
+                                quantity: product.quantity,
+                                isPaymentCompleted: false,
+                                imageProduct: product.image,   
+                        }
+                        let orderResponse = await fetch(`http://localhost:5000/orders?userId=${userContext.user.currentUserId}&productId=${product.id}`,{
+                            method:"PUT",
+                            body : JSON.stringify(updateProduct),
+                            headers:{"Content-Type":"application/json"}
+                        })
+                        let orderResponseBody = await orderResponse.json()
+                }       
             })()
                 return p
         })
-            
             setProducts(prods);
             updateProductToShow();
             return
@@ -125,7 +147,6 @@ const Store = () => {
     }
 
     const createNewOrder = (product) => {
-        
         (async ()=>{
             let newOrder = {
                 userId : userContext.user.currentUserId,
@@ -134,6 +155,17 @@ const Store = () => {
                 isPaymentCompleted : false,
                 imageProduct:product.image
             };
+
+            let num = 0;
+            let prods = products.map((p) =>{
+                if (p.id === product.id){
+                    p.isOrdered = true;
+                    p.quantity = ++num
+                    p.quantityInStock = -- p.quantityInStock
+                    newOrder.quantity = ++num
+                }
+                return p
+            })
         
             let orderResponse = await fetch(`http://localhost:5000/orders`,{
                 method : "POST",
@@ -142,15 +174,7 @@ const Store = () => {
             })
 
             if(orderResponse.ok){
-                let num = 0;
                 let orderResponseBody = await orderResponse.json();
-                let prods = products.map((p) =>{
-                    if (p.id === product.id){
-                        p.isOrdered = true;
-                        p.quantity = ++num
-                    }
-                    return p
-                })
                 setProducts(prods);
                 updateProductToShow();
             }
@@ -162,6 +186,7 @@ const Store = () => {
             let prods = products.map((p) =>{
                 if (p.id === product.id){
                     p.quantity = --p.quantity
+                    p.quantityInStock = ++ p.quantityInStock
                     if(p.quantity === 0){        
                         product.isOrdered = false;
                     }
@@ -173,102 +198,110 @@ const Store = () => {
         }
                   
     }
-
-        
+  
     return(
         <>
             <Show showLoginMessage={showLoginMessage} hiddenLoginMessage={()=>(setShowLoginMessage())}/>
-            
-            <div className="row ">
-                <div className="grid grid-cols-12 gap-3 mt-3">
-                    <div className="title col-span-3 card-product">
-                        <h4 className="px-2 py-0.5 my-1 d-flex justify-between items-center text-orange-300">
+            <div className="main">
+                <div className="header grid grid-cols-12 gap-2 z-[1000] px-1 py-2 bg-stone-900 rounded-lg border-[1px] border-stone-700 sticky top-[63px]">
+                    <div className="title_store border-[2px] border-stone-700 rounded-lg col-span-2 ">
+                        <h5 className="px-2 py-0.5 my-1 d-flex justify-between items-center text-orange-300">
                             <span>
-                                <i className="fa fa-shopping-bag"></i> Store{" "}
+                                Store{" "}<i className="fa fa-shopping-bag"></i> 
                             </span>
-                            <span className="px-3 py-0.5 my-1 rounded-lg bg-neutral-700 text-orange-300 bg-gradient">
+                            <span className="px-3 py-1 my-1 rounded-lg bg-neutral-700 text-orange-100 bg-gradient">
                                 {productToShow.length}
                             </span>
-                        </h4>
+                        </h5>
                     </div>
-                    <div className="col-span-9 py-2">
+                    <div className="header-search col-span-10 w-6/12 py-2 mx-auto">
                         <input  
                             type="search"
                             value={search}
                             placeholder="Search Product"
                             className="bg-stone-700 w-full px-3 py-1.5 text-orange-100 rounded border-2 
                                 border-solid border-slate-700 focus:text-orange-100 focus:outline-none
-                                font-normal transition ease-in-out m-0"
+                                font-normal transition ease-in-out mx-auto"
                             autoFocus="autofocus"
                             onChange={(e)=>{setSearch(e.target.value)}}
                         />
                     </div>
                 </div>
-                
-                <div className="grid grid-cols-12 gap-3 mx-auto">
-                    <div className="col-span-3 py-2">
-                        <div className="my-2">
-                            <h5 className="text-amber-100 px-2 py-1">Brands</h5>
-                            <ul className="list-group list-group-flush ">
-                                {brands.map((brand)=>(
-                                    <li className="px-2 py-2 my-1 bg-neutral-700 text-emerald-100 rounded-lg shadow-3xl border-yellow-900" key={brand.id}>
-                                        <div className="form-check">
-                                            <input 
-                                                type="checkBox" 
-                                                className="form-check-input bg-secondary"
-                                                value="true"
-                                                checked={brand.isChecked}
-                                                id={`brand${brand.id}`}
-                                                onChange={()=>{
-                                                    updateBrandIsChecked(brand.id)
-                                                }}
-                                            />
-                                            <label htmlFor={`brand${brand.id}`} className="form-check-label">
-                                                {brand.brandName}
-                                            </label>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        <div className="my-2">
-                            <h5 className="text-amber-100 px-2 py-1">Categories</h5>
-                            <ul className="list-group list-group-flush">
-                                {categories.map((category)=>(
-                                    <li className="px-2 py-2 my-1 bg-neutral-700 text-emerald-100 rounded-lg shadow-3xl border-yellow-900" key={category.id}>
-                                        <div className="form-check">
-                                            <input 
-                                                type="checkBox" 
-                                                className="form-check-input bg-secondary"
-                                                value="true"
-                                                checked={category.isChecked}
-                                                id={`category${category.id}`}
-                                                onChange={()=>{
-                                                    updateCategoriesChecked(category.id)
-                                                }}
-                                            />
-                                            <label htmlFor={`category${category.id}`} className="form-check-label">
-                                                {category.categoryName}
-                                            </label>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+        
+                <div className="main_product mx-auto sticky rounded-lg border-[2px] border-stone-800 mt-3 px-2">
+                    
+                    <div className="grid col-span-12 rounded-lg border-[2px] border-stone-800 mt-3 p-2">
+                        <Slider productToShow={productToShow}/>
                     </div>
 
-                    <div className="col-span-9 py-2">
-                        <div className="grid grid-cols-2 gap-2">
-                        {productToShow.map((product) => (
-                            <Product 
-                                key={product.id} 
-                                product={product} 
-                                onAddToCartClick={onAddToCartClick} 
-                                onDeletedToCartClick={onDeletedToCartClick}
-                            />
-                        ))}
+                    <div className="grid grid-cols-12 gap-4 py-2 content">
+
+                        <div className="content_filter col-span-2 px-2 py-2 mt-3 h-fit bg-stone-800 rounded-lg ">
+                            <div className="my-1">
+                                <h5 className="text-amber-100 px-2">Brands</h5>
+                                <ul className="list-group list-group-flush">
+                                    {brands.map((brand)=>(
+                                        <li className="px-2 py-2 my-1 bg-neutral-700 text-emerald-100 rounded-lg shadow-3xl border-yellow-900" key={brand.id}>
+                                            <div className="form-check">
+                                                <input 
+                                                    type="checkBox" 
+                                                    className="form-check-input bg-secondary"
+                                                    value="true"
+                                                    checked={brand.isChecked}
+                                                    id={`brand${brand.id}`}
+                                                    onChange={()=>{
+                                                        updateBrandIsChecked(brand.id)
+                                                    }}
+                                                />
+                                                <label htmlFor={`brand${brand.id}`} className="form-check-label">
+                                                    {brand.brandName}
+                                                </label>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <div className="my-2">
+                                <h5 className="text-amber-100 px-2">Categories</h5>
+                                <ul className="list-group list-group-flush">
+                                    {categories.map((category)=>(
+                                        <li className="px-2 py-2 my-1 bg-neutral-700 text-emerald-100 rounded-lg shadow-3xl border-yellow-900" key={category.id}>
+                                            <div className="form-check">
+                                                <input 
+                                                    type="checkBox" 
+                                                    className="form-check-input bg-secondary"
+                                                    value="true"
+                                                    checked={category.isChecked}
+                                                    id={`category${category.id}`}
+                                                    onChange={()=>{
+                                                        updateCategoriesChecked(category.id)
+                                                    }}
+                                                />
+                                                <label htmlFor={`category${category.id}`} className="form-check-label">
+                                                    {category.categoryName}
+                                                </label>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
+                        
+                        <div className="content_products col-span-10 border-[1px] border-stone-900 rounded-lg p-2 m-2">
+                            <div className="grid grid-cols-12 gap-1">
+                                {productToShow.map((product) => (
+                                    <Product
+                                        key={product.id} 
+                                        product={product} 
+                                        onAddToCartClick={onAddToCartClick} 
+                                        onDeletedToCartClick={onDeletedToCartClick}
+                                    />
+                                ))}
+                            </div>
+                            
+                        </div>
+
                     </div>
                 </div>
             </div>  
