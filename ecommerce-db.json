@@ -156,6 +156,13 @@
     }
   ],
   "orders": [
-    
+    {
+      "userId": 2,
+      "productId": 1,
+      "quantity": 0,
+      "isPaymentCompleted": false,
+      "imageProduct": "Apple-iphone12pro.png",
+      "id": 1
+    }
   ]
 }
