@@ -21,7 +21,6 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
                     </div>
                     <div className="rating_number flex justify-between items-center">
                         <div>
-                            {}
                             {[...Array(product.rating).keys()].map((n)=>{
                                 return <i className="fa fa-star text-yellow-500" key={n}></i>
                             })}
@@ -44,7 +43,6 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
                                 
                                  <img src={require("../images/decrease.png")} className="w-8 h-8 cursor-pointer" alt="icons-decrease" onClick={()=>onDeletedToCartClick(product)}/>
                                 
-
                                 {/* <button className="text-green-600 border border-yellow-800 px-3 py-2 mr-2 mb-1 rounded-xl text-sm bg-yellow-100">
                                 </button> */}
                                 {product.quantity>0?

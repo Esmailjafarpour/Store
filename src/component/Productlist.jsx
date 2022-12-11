@@ -1,6 +1,8 @@
 import React,{useState,useEffect,useContext,useMemo} from 'react';
 import {UserContext} from '../UserContext.js';
 import {BrandsService,CategoriesService,ProductService,SortService} from '../Service.js';
+import {NavLink,useNavigate} from 'react-router-dom';
+import NewProduct from './NewProduct';
 
 const Productlist = () => {
     const [products, setProducts] = useState([]);
@@ -12,6 +14,7 @@ const Productlist = () => {
     const [selectedBrand, setSelectedBrand] = useState("");
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("");
+    const [showNewProduct, setShowNewProduct] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -48,7 +51,7 @@ const Productlist = () => {
             setOriginalProducts(productsResponseBody);
 
         })();
-
+        document.title = "Productlist"
     },[search]);
 
     const onSortColumnNameClick = (e,columnName) =>{
@@ -108,7 +111,7 @@ const Productlist = () => {
             <div className="grid grid-cols-12 p-3 gap-3 border-amber-500 rounded-lg mt-2">
                 <div className="numberProduct_search col-span-8">
                     <div className="grid grid-cols-12">
-                            <h4 className="col-span-4 text-orange-300 mb-3">
+                            <h4 className="col-span-3 text-orange-300 mb-3">
                                 <i className="fa fa-suitcase"></i>Products{"  "}
                                 <span className="badge bg-secondary bage-header">{products.length}</span>
                             </h4>
@@ -117,10 +120,19 @@ const Productlist = () => {
                                 value={search}
                                 onChange={(e)=>{setSearch(e.target.value)}}
                                 placeholder="Search"
-                                className="form-control input-search col-span-8"
+                                className="form-control input-search col-span-6"
                                 autoFocus="autofocus"
                             />
-                        </div>
+                            <button type="button" className="focus:outline-none text-white bg-green-900 hover:bg-green-800 
+                                focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-2 mx-2 mb-1 
+                                dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 col-span-3"
+                                onClick={()=> setShowNewProduct(true)}
+                                >
+                                <NavLink className="nav-link" activeclassname="active" aria-current="page" to="#!">
+                                    Create New Product
+                                </NavLink>
+                            </button>
+                    </div>
                 </div>
                 <div className="SortByCategory col-span-4">
                     <div className="grid grid-cols-12 gap-2">
@@ -157,6 +169,7 @@ const Productlist = () => {
                 
             </div>
             <div className="grid-cols-12 m-3 p-2">
+                <NewProduct showNewProduct={showNewProduct} hiddenNewProduct={()=> setShowNewProduct(false)}/>
                 <div className="border-[2px] border-yellow-700 rounded-xl bg-gradient-to-r from-neutral-900 to-neutral-700  my-1 shadow">
                     <div className="p-2 rounded-xl">
                         <table className="table table-dark table-striped">
