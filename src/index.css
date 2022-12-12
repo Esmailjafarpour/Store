@@ -193,6 +193,10 @@ i{
     background-repeat: no-repeat;
 }
 
+.MuiInputBase-input{
+   /* color : rgb(255, 251, 251) ; */
+   
+}
 
 @media (max-width: 320px) {
 
@@ -663,6 +667,7 @@ i{
         width: 25%;
         font-size: 10px;
     }
+
 
 }
 

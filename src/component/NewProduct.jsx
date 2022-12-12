@@ -46,18 +46,9 @@ const NewProduct  = ({showNewProduct,hiddenNewProduct}) => {
           <Typography id="modal-modal-title" className="text-center" variant="h6" component="h2">
             Create your new product
           </Typography>
-          <div className="">
-            <TextField/>
-            <div className="mt-5 flex justify-center">
-              <button type="button" className="focus:outline-none text-white bg-green-900 hover:bg-green-800 
-                    focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 mr-2 mb-2 
-                    dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                  <NavLink className="nav-link" activeclassname="active" aria-current="page" to="/products">
-                        Create New Product
-                  </NavLink>
-              </button>
-            </div>
-          </div>
+
+          <TextField/>
+          
         </Box>
       </Modal> 
   );
