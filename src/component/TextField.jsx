@@ -64,32 +64,32 @@ function BasicTextFields() {
       })();
   },[state])
 
-  const addNewProduct = async () => {
-
+  const addNewProduct =  () => {
+    
     state.map((item) => {
-      if(!item && item.length === 0){
+      // if(!item && item.length === 0){
         console.log(item)
-          return
-      }
-  })
+          // return
+      // }
+    })
 
-    let response = await fetch("http://localhost:5000/products", {
-                method : "POST",
-                body : JSON.stringify({
-                  productName : state.productName,
-                  Price : state.Price,
-                  brand : state.brand,
-                  category : state.category,
-                  Rating : state.Rating,
-                  quantityInStock : state.quantityInStock,
-                  image : state.image,
-                    
-                }),
-                headers : {
-                    "Content-type": "application/json",
-                },
-            });
-          }
+    // let response = await fetch("http://localhost:5000/products", {
+      //     method : "POST",
+      //     body : JSON.stringify({
+      //       productName : state.productName,
+      //       Price : state.Price,
+      //       brand : state.brand,
+      //       category : state.category,
+      //       Rating : state.Rating,
+      //       quantityInStock : state.quantityInStock,
+      //       image : state.image,
+              
+      //     }),
+      //     headers : {
+      //         "Content-type": "application/json",
+      //     },
+      // });
+    }
   
   
     return (
