@@ -43,11 +43,8 @@ const Store = () => {
             setProducts(productsResponseBody);
             setProductToShow(productsResponseBody);
             document.title = "Store"  
-            
-
         })();
-        console.log("y",y)
-    },[search,y]);
+    },[search]);
 
     useEffect(() => (
         userContext.dispatchBrands({

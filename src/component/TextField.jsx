@@ -31,19 +31,39 @@ const styleTextField = {
     div: { color: 'white',fontSize :14 }
 }
 
-function BasicTextFields() {
+function BasicTextFields({hiddenNewProduct}) {
 
   const [brands, setBrands] = React.useState([]);
   const [categories, setCategories] = React.useState([]);
   const [Currency, setCurrency] = React.useState([]);
-  const [state, setState] = React.useState({
+  const [newProduct, setNewProduct] = React.useState({
     productName:"",
-    Price:"",
-    brand:"",
-    category:"",
-    Rating:"",
-    quantityInStock:"",
+    price:0,
+    brandId:0,
+    categoryId:0,
+    rating:0,
+    quantityInStock:0,
     image:""
+});
+
+const [errors, setErrors] = React.useState({
+    productName:[],
+    price:[],
+    brandId:[],
+    categoryId:[],
+    rating:[],
+    quantityInStock:[],
+    image:[]
+});
+
+const [dirty, setDirty] = React.useState({
+  email:false,
+  password:false,
+  fullName:false,
+  dateOfBrith:false,
+  gender:false,
+  country:false,
+  recieveNewsLetters:false
 });
 
   React.useEffect(() => {
@@ -62,33 +82,59 @@ function BasicTextFields() {
         setCategories(categoriesResponseBody);
 
       })();
-  },[state])
+  },[newProduct])
 
-  const addNewProduct =  () => {
-    
-    state.map((item) => {
-      // if(!item && item.length === 0){
-        console.log(item)
-          // return
-      // }
-    })
+  const isValid = () => {
+    let valid = true
+    let newData = newProduct;
+    Object.keys(newProduct).forEach((item) =>{
+        if(newData[item].length === 0) {
+          switch (item) {
+            case "productName":
+              setErrors({...errors, item : "There is no product name"})
+            case "Price":
+              setErrors({...errors, item : "The price for the product has not been specified"})
+            case "brand":
+              setErrors({...errors, item : "A brand has not been specified for the product"})
+            case "category":
+              setErrors({...errors, item : "Category is not specified for the product"})
+            case "Rating":
+              setErrors({...errors, item : "Product rating is not specified"})
+            case "quantityInStock":
+              setErrors({...errors, item : "The product number is not specified"})
+            case "image":
+              setErrors({...errors, item : "There is no photo"})
+            default:
+              break;
+          }
+          valid = false
+        }
+      }
+    ) 
+    return valid
+  }
 
-    // let response = await fetch("http://localhost:5000/products", {
-      //     method : "POST",
-      //     body : JSON.stringify({
-      //       productName : state.productName,
-      //       Price : state.Price,
-      //       brand : state.brand,
-      //       category : state.category,
-      //       Rating : state.Rating,
-      //       quantityInStock : state.quantityInStock,
-      //       image : state.image,
+  const addNewProduct = async () => {
+    console.log("errors",errors)
+    if(isValid()){
+        let response = await fetch("http://localhost:5000/products", {
+          method : "POST",
+          body : JSON.stringify({
+            productName : newProduct.productName,
+            price : newProduct.price,
+            brandId : newProduct.brandId,
+            categoryId : newProduct.categoryId,
+            rating : newProduct.rating,
+            quantityInStock : newProduct.quantityInStock,
+            image : newProduct.image,
               
-      //     }),
-      //     headers : {
-      //         "Content-type": "application/json",
-      //     },
-      // });
+          }),
+          headers : {
+              "Content-type": "application/json",
+          },
+        });
+        hiddenNewProduct()
+      }
     }
   
   
@@ -105,23 +151,23 @@ function BasicTextFields() {
                 type="text"
                 label="productName" 
                 variant="outlined"
-                value={state.productName} 
-                onChange={(e)=> setState({...state,[e.target.name]:e.target.value})}
+                value={newProduct.productName} 
+                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:e.target.value})}
                 sx={styleTextField} 
               />
 
               <TextField
                 id="outlined-number"
                 // select
-                name="Price"
-                label="Price"
+                name="price"
+                label="price"
                 type="number"
-                value={state.Price}
+                value={newProduct.Price}
                 InputLabelProps={{
                   shrink: true,
                 }}
-                value={state.Price}
-                onChange={(e)=> setState({...state,[e.target.name]:e.target.value})}
+                value={newProduct.Price}
+                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)})}
                 sx={styleTextField}
               />
             
@@ -130,12 +176,12 @@ function BasicTextFields() {
                 select
                 name="brand"
                 label="brand"
-                value={state.brand}
-                onChange={(e)=> setState({...state,[e.target.name]:e.target.value})}
+                value={newProduct.brand}
+                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:e.target.value})}
                 sx={styleTextField}
               >
                 {brands.map((brand) => (
-                  <MenuItem key={brand.brandName} value={brand.brandName}>
+                  <MenuItem key={brand.id} value={brand.id}>
                     {brand.brandName}
                   </MenuItem>
                 ))}
@@ -150,11 +196,11 @@ function BasicTextFields() {
                 // onChange={handleChange}
                 // helperText="Please select your currency"
                 sx={styleTextField}
-                value={state.category}
-                onChange={(e)=> setState({...state,[e.target.name]:e.target.value})}
+                value={newProduct.category}
+                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:e.target.value})}
               >
                 {categories.map((category) => (
-                  <MenuItem key={category.categoryName} value={category.categoryName}>
+                  <MenuItem key={category.id} value={category.id}>
                     {category.categoryName}
                   </MenuItem>
                 ))}
@@ -162,14 +208,14 @@ function BasicTextFields() {
               
               <TextField
                 id="outlined-number"
-                name="Rating"
-                label="Rating"
-                type="number"
+                name="rating"
+                label="rating"
+                type = "number"
                 InputLabelProps={{
                   shrink: true,
                 }}
-                value={state.Rating}
-                onChange={(e)=> setState({...state,[e.target.name]:e.target.value})}
+                value={newProduct.Rating}
+                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)})}
                 sx={styleTextField}
               />
           
@@ -181,8 +227,8 @@ function BasicTextFields() {
                 InputLabelProps={{
                   shrink: true,
                 }}
-                value={state.quantityInStock}
-                onChange={(e)=> setState({...state,[e.target.name]:e.target.value})}
+                value={newProduct.quantityInStock}
+                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)})}
                 sx={styleTextField}
               />
          
@@ -195,7 +241,7 @@ function BasicTextFields() {
                   <input
                     type="file"
                     name="image"
-                    onChange={(e)=> setState({...state,[e.target.name]:e.target.value})}
+                    onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:e.target.value})}
                     hidden
                 />
               </Button>

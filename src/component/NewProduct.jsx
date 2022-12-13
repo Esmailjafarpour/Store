@@ -47,7 +47,7 @@ const NewProduct  = ({showNewProduct,hiddenNewProduct}) => {
             Create your new product
           </Typography>
 
-          <TextField/>
+          <TextField hiddenNewProduct={hiddenNewProduct}/>
           
         </Box>
       </Modal> 
