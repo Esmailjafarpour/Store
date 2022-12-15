@@ -1,6 +1,8 @@
 import React,{useState,useEffect,useContext,useMemo} from 'react';
 import {UserContext} from '../UserContext.js';
 import {BrandsService,CategoriesService,ProductService,SortService} from '../Service.js';
+import {NavLink,useNavigate} from 'react-router-dom';
+import NewProduct from './NewProduct';
 
 const Productlist = () => {
     const [products, setProducts] = useState([]);
@@ -12,6 +14,7 @@ const Productlist = () => {
     const [selectedBrand, setSelectedBrand] = useState("");
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("");
+    const [showNewProduct, setShowNewProduct] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -48,7 +51,7 @@ const Productlist = () => {
             setOriginalProducts(productsResponseBody);
 
         })();
-
+        document.title = "Productlist"
     },[search]);
 
     const onSortColumnNameClick = (e,columnName) =>{
@@ -105,55 +108,70 @@ const Productlist = () => {
 
     return(
         <div className="grid grid-rows-12">
-            <div className="grid grid-cols-12 p-3 gap-3 border-amber-500 rounded-lg header m-3">
-                <div className="col-span-2">
-                    <h4>
-                        <i className="fa fa-suitcase"></i>Products{"  "}
-                        <span className="badge bg-secondary bage-header">{products.length}</span>
-                    </h4>
+            <div className="grid grid-cols-12 p-3 gap-3 border-amber-500 rounded-lg mt-2">
+                <div className="numberProduct_search col-span-8">
+                    <div className="grid grid-cols-12">
+                            <h4 className="col-span-3 text-orange-300 mb-3">
+                                <i className="fa fa-suitcase"></i>Products{"  "}
+                                <span className="badge bg-secondary bage-header">{products.length}</span>
+                            </h4>
+                            <input 
+                                type="search" 
+                                value={search}
+                                onChange={(e)=>{setSearch(e.target.value)}}
+                                placeholder="Search"
+                                className="form-control input-search col-span-6"
+                                autoFocus="autofocus"
+                            />
+                            <button type="button" className="focus:outline-none text-white bg-green-900 hover:bg-green-800 
+                                focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-2 mx-2 mb-1 
+                                dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 col-span-3"
+                                onClick={()=> setShowNewProduct(true)}
+                                >
+                                <NavLink className="nav-link" activeclassname="active" aria-current="page" to="#!">
+                                    Create New Product
+                                </NavLink>
+                            </button>
+                    </div>
                 </div>
-                <div className="col-span-6">
-                    <input 
-                        type="search" 
-                        value={search}
-                        onChange={(e)=>{setSearch(e.target.value)}}
-                        placeholder="Search"
-                        className="form-control input-search"
-                        autoFocus="autofocus"
-                    />
+                <div className="SortByCategory col-span-4">
+                    <div className="grid grid-cols-12 gap-2">
+                        <div className="col-span-6">
+                            <select 
+                                value={selectedBrand}
+                                onChange={(e)=>{
+                                    setSelectedBrand(e.target.value)
+                                }} 
+                                className="form-control selected"
+                            >
+                                <option value="">All Brands</option>
+                                {brands.map((brand)=>{
+                                    return <option value={brand.brandName} key={brand.id}>{brand.brandName}</option>
+                                })}
+                            </select>
+                        </div>
+                        <div className="col-span-6">
+                            <select 
+                                value={selectedCategory}
+                                onChange={(e)=>{
+                                    setSelectedCategory(e.target.value)
+                                }} 
+                                className="form-control selected"
+                            >
+                                <option value="">All Categories</option>
+                                {categories.map((category)=>{
+                                    return <option value={category.categoryName} key={category.id}>{category.categoryName}</option>
+                                })}
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                <div className="col-span-2">
-                    <select 
-                        value={selectedBrand}
-                        onChange={(e)=>{
-                            setSelectedBrand(e.target.value)
-                        }} 
-                        className="form-control selected"
-                    >
-                        <option value="">All Brands</option>
-                        {brands.map((brand)=>{
-                            return <option value={brand.brandName} key={brand.id}>{brand.brandName}</option>
-                        })}
-                    </select>
-                </div>
-                <div className="col-span-2">
-                    <select 
-                        value={selectedCategory}
-                        onChange={(e)=>{
-                            setSelectedCategory(e.target.value)
-                        }} 
-                        className="form-control selected"
-                    >
-                        <option value="">All Categories</option>
-                        {categories.map((category)=>{
-                            return <option value={category.categoryName} key={category.id}>{category.categoryName}</option>
-                        })}
-                    </select>
-                </div>
+                
             </div>
-            <div className="grid-cols-12 m-3 p-2 content">
-                <div className="card my-1 shadow">
-                    <div className="card-body">
+            <div className="grid-cols-12 m-3 p-2">
+                <NewProduct showNewProduct={showNewProduct} hiddenNewProduct={()=> setShowNewProduct(false)}/>
+                <div className="border-[2px] border-yellow-700 rounded-xl bg-gradient-to-r from-neutral-900 to-neutral-700  my-1 shadow">
+                    <div className="p-2 rounded-xl">
                         <table className="table table-dark table-striped">
                             <thead>
                                 <tr>
@@ -168,11 +186,11 @@ const Productlist = () => {
                                 {products.map((product)=>{
                                     return(
                                         <tr key={product.id}>
-                                            <td>{product.productName}</td>
+                                            <td className="productName">{product.productName}</td>
                                             <td>{product.price}</td>
                                             <td>{product.brand.brandName}</td>
                                             <td>{product.category.categoryName}</td>
-                                            <td>
+                                            <td className="rating_star">
                                                 {[...Array(product.rating).keys()].map((n)=>{
                                                     return <i className="fa fa-star text-warning" key={n}></i>
                                                 })}

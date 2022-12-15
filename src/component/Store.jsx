@@ -2,7 +2,7 @@ import React,{useState,useEffect,useContext} from 'react';
 import {UserContext} from '../UserContext.js';
 import {BrandsService,CategoriesService,ProductService} from '../Service.js';
 import Product from './Product';
-import Show from './Show';
+import ModalComponents from './ModalComponents';
 import Slider from './Slider';
 
 const Store = () => {
@@ -43,11 +43,8 @@ const Store = () => {
             setProducts(productsResponseBody);
             setProductToShow(productsResponseBody);
             document.title = "Store"  
-            
-
         })();
-        console.log("y",y)
-    },[search,y]);
+    },[search]);
 
     useEffect(() => (
         userContext.dispatchBrands({
@@ -201,7 +198,7 @@ const Store = () => {
   
     return(
         <>
-            <Show showLoginMessage={showLoginMessage} hiddenLoginMessage={()=>(setShowLoginMessage())}/>
+            <ModalComponents showLoginMessage={showLoginMessage} hiddenLoginMessage={()=>(setShowLoginMessage())}>login</ModalComponents>
             <div className="main">
                 <div className="header grid grid-cols-12 gap-2 z-[1000] px-1 py-2 bg-stone-900 rounded-lg border-[1px] border-stone-700 sticky top-[63px]">
                     <div className="title_store border-[2px] border-stone-700 rounded-lg col-span-2 ">

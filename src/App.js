@@ -8,6 +8,7 @@ import Navbar from './component/Navbar.jsx';
 import Footer from './component/Footer.jsx';
 import Store from './component/Store.jsx';
 import Productlist from './component/Productlist.jsx';
+import NewProduct from './component/NewProduct.jsx';
 import {UserContext} from './UserContext';
 import {Route,Routes,BrowserRouter} from 'react-router-dom';
 
@@ -90,6 +91,7 @@ function App() {
               <Route path="/register" element={<Register/>}/>
               <Route path="/dashboard" element={<Dashboard/>}/>
               <Route path="/products" element={<Productlist/>}/>
+              <Route path="/newProduct" element={<NewProduct/>}/>
               <Route path="*" element={<NoMatchPage/>}/>
             </Routes>
             <Footer/>
