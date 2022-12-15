@@ -46,7 +46,15 @@ function BasicTextFields({hiddenNewProduct}) {
     image:""
 });
 
-const [errors, setErrors] = React.useState({});
+const [errors, setErrors] = React.useState({
+    productName:[],
+    price:[],
+    brandId:[],
+    categoryId:[],
+    rating:[],
+    quantityInStock:[],
+    image:[]
+});
 
 const [dirty, setDirty] = React.useState({
   email:false,
@@ -79,42 +87,37 @@ const [dirty, setDirty] = React.useState({
   const isValid = () => {
     let valid = true
     let newData = newProduct;
+    let errorsProduct = {}
     Object.keys(newProduct).forEach((item) =>{
-        console.log("..........")
-        console.log(item)
-        console.log(newData[item].length === 0)
-        console.log(newData[item] === 0)
-
         if(newData[item].length === 0 || newData[item] === 0){
-            console.log(">>>>>>>>>>>>")
             switch (item) {
               case "productName":
-                console.log("There is no product name")
-                setErrors({...errors,productName : "There is no product name"})
+                errorsProduct[item] = []
+                errorsProduct[item].push("There is no product name") 
                 break;
               case "price":
-                console.log("The price for the product has not been specified")
-                setErrors({...errors,price : "The price for the product has not been specified"})
+                errorsProduct[item] = []
+                errorsProduct[item].push("The price for the product has not been specified")
                 break;
               case "brandId":
-                console.log("A brand has not been specified for the product")
-                setErrors({...errors,brandId : "A brand has not been specified for the product"})
+                errorsProduct[item] = []
+                errorsProduct[item].push("A brand has not been specified for the product")
                 break;
               case "categoryId":
-                console.log("Category is not specified for the product")
-                setErrors({...errors,categoryId : "Category is not specified for the product"})
+                errorsProduct[item] = []
+                errorsProduct[item].push("Category is not specified for the product")
                 break;
               case "rating":
-                console.log("Product rating is not specified")
-                setErrors({...errors,rating : "Product rating is not specified"})
+                errorsProduct[item] = []
+                errorsProduct[item].push("Product rating is not specified")
                 break;
               case "quantityInStock":
-                console.log("The product number is not specified")
-                setErrors({...errors,quantityInStock : "The product number is not specified"})
+                errorsProduct[item] = []
+                errorsProduct[item].push("The product number is not specified")
                 break;
               case "image":
-                console.log("There is no photoooooooooo")
-                setErrors({...errors,image : "There is no photoooooooooo"})
+                errorsProduct[item] = []
+                errorsProduct[item].push("There is no photoooooooooo")
                 break;  
 
                 // default : setErrors({...errors})
@@ -122,8 +125,9 @@ const [dirty, setDirty] = React.useState({
             valid = false
           }
         }
-      ) 
-      console.log(errors)
+        ) 
+        setErrors(errorsProduct)
+        console.log("errorsProduct",errorsProduct)
       
     return valid
   }
