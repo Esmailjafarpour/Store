@@ -46,15 +46,7 @@ function BasicTextFields({hiddenNewProduct}) {
     image:""
 });
 
-const [errors, setErrors] = React.useState({
-    productName:[],
-    price:[],
-    brandId:[],
-    categoryId:[],
-    rating:[],
-    quantityInStock:[],
-    image:[]
-});
+const [errors, setErrors] = React.useState({});
 
 const [dirty, setDirty] = React.useState({
   email:false,
@@ -88,34 +80,55 @@ const [dirty, setDirty] = React.useState({
     let valid = true
     let newData = newProduct;
     Object.keys(newProduct).forEach((item) =>{
-        if(newData[item].length === 0) {
-          switch (item) {
-            case "productName":
-              setErrors({...errors, item : "There is no product name"})
-            case "Price":
-              setErrors({...errors, item : "The price for the product has not been specified"})
-            case "brand":
-              setErrors({...errors, item : "A brand has not been specified for the product"})
-            case "category":
-              setErrors({...errors, item : "Category is not specified for the product"})
-            case "Rating":
-              setErrors({...errors, item : "Product rating is not specified"})
-            case "quantityInStock":
-              setErrors({...errors, item : "The product number is not specified"})
-            case "image":
-              setErrors({...errors, item : "There is no photo"})
-            default:
-              break;
+        console.log("..........")
+        console.log(item)
+        console.log(newData[item].length === 0)
+        console.log(newData[item] === 0)
+
+        if(newData[item].length === 0 || newData[item] === 0){
+            console.log(">>>>>>>>>>>>")
+            switch (item) {
+              case "productName":
+                console.log("There is no product name")
+                setErrors({...errors,productName : "There is no product name"})
+                break;
+              case "price":
+                console.log("The price for the product has not been specified")
+                setErrors({...errors,price : "The price for the product has not been specified"})
+                break;
+              case "brandId":
+                console.log("A brand has not been specified for the product")
+                setErrors({...errors,brandId : "A brand has not been specified for the product"})
+                break;
+              case "categoryId":
+                console.log("Category is not specified for the product")
+                setErrors({...errors,categoryId : "Category is not specified for the product"})
+                break;
+              case "rating":
+                console.log("Product rating is not specified")
+                setErrors({...errors,rating : "Product rating is not specified"})
+                break;
+              case "quantityInStock":
+                console.log("The product number is not specified")
+                setErrors({...errors,quantityInStock : "The product number is not specified"})
+                break;
+              case "image":
+                console.log("There is no photoooooooooo")
+                setErrors({...errors,image : "There is no photoooooooooo"})
+                break;  
+
+                // default : setErrors({...errors})
+            }
+            valid = false
           }
-          valid = false
         }
-      }
-    ) 
+      ) 
+      console.log(errors)
+      
     return valid
   }
 
   const addNewProduct = async () => {
-    console.log("errors",errors)
     if(isValid()){
         let response = await fetch("http://localhost:5000/products", {
           method : "POST",
@@ -151,10 +164,12 @@ const [dirty, setDirty] = React.useState({
                 type="text"
                 label="productName" 
                 variant="outlined"
-                value={newProduct.productName} 
+                // helperText={errors.productName?errors.productName:""}
                 onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:e.target.value})}
+                value={newProduct.productName} 
                 sx={styleTextField} 
               />
+              {errors.productName && errors.productName.length>=0?<p style={{color : "red"}}>{errors.productName}</p>:""}
 
               <TextField
                 id="outlined-number"
@@ -162,22 +177,24 @@ const [dirty, setDirty] = React.useState({
                 name="price"
                 label="price"
                 type="number"
-                value={newProduct.Price}
                 InputLabelProps={{
                   shrink: true,
                 }}
-                value={newProduct.Price}
+                // helperText={errors.price?errors.price:""}
                 onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)})}
+                value={newProduct.price}
                 sx={styleTextField}
               />
+              {errors.price && errors.price.length>0?<p style={{color : "red"}}>{errors.price}</p>:""}
             
               <TextField
                 id="outlined-select-currency"
                 select
-                name="brand"
-                label="brand"
-                value={newProduct.brand}
+                name="brandId"
+                label="brandId"
+                // helperText={errors.brandId?errors.brandId:""}
                 onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:e.target.value})}
+                value={newProduct.brandId}
                 sx={styleTextField}
               >
                 {brands.map((brand) => (
@@ -186,18 +203,17 @@ const [dirty, setDirty] = React.useState({
                   </MenuItem>
                 ))}
               </TextField>
+              {errors.brandId && errors.brandId.length>0?<p style={{color : "red"}}>{errors.brandId}</p>:""}
             
               <TextField
                 id="outlined-select-currency"
                 select
-                label="category"
-                name="category"
-                // value={currency}
-                // onChange={handleChange}
-                // helperText="Please select your currency"
-                sx={styleTextField}
-                value={newProduct.category}
+                label="categoryId"
+                name="categoryId"
+                // helperText={errors.categoryId?errors.categoryId:""}
                 onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:e.target.value})}
+                value={newProduct.categoryId}
+                sx={styleTextField}
               >
                 {categories.map((category) => (
                   <MenuItem key={category.id} value={category.id}>
@@ -205,6 +221,7 @@ const [dirty, setDirty] = React.useState({
                   </MenuItem>
                 ))}
               </TextField>
+              {errors.categoryId && errors.categoryId.length>0 ? <p style={{color : "red"}}>{errors.categoryId}</p>:""}
               
               <TextField
                 id="outlined-number"
@@ -214,11 +231,12 @@ const [dirty, setDirty] = React.useState({
                 InputLabelProps={{
                   shrink: true,
                 }}
-                value={newProduct.Rating}
+                // helperText={errors.rating?errors.rating:""}
                 onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)})}
+                value={newProduct.rating}
                 sx={styleTextField}
               />
-          
+              {errors.rating && errors.rating.length>0 ? <p style={{color : "red"}}>{errors.rating}</p>:""}
               <TextField
                 id="outlined-number"
                 name="quantityInStock"
@@ -227,10 +245,12 @@ const [dirty, setDirty] = React.useState({
                 InputLabelProps={{
                   shrink: true,
                 }}
-                value={newProduct.quantityInStock}
+                // helperText={errors.quantityInStock?errors.quantityInStock:""}
                 onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)})}
+                value={newProduct.quantityInStock}
                 sx={styleTextField}
               />
+              {errors.quantityInStock && errors.quantityInStock.length>=0 ? <p style={{color : "red"}}>{errors.quantityInStock}</p>:""}
          
               <Button
                   variant="contained"
@@ -245,6 +265,7 @@ const [dirty, setDirty] = React.useState({
                     hidden
                 />
               </Button>
+              {errors.image && errors.image.length>=0 ? <p style={{color : "green"}}>{errors.image}</p>:""}
 
               <div className="mt-5 flex justify-center">
                 <button type="button" className="focus:outline-none text-white bg-green-900 hover:bg-green-800 
