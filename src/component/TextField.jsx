@@ -89,34 +89,35 @@ const [dirty, setDirty] = React.useState({
     let newData = newProduct;
     let errorsProduct = {}
     Object.keys(newProduct).forEach((item) =>{
+        errorsProduct[item] = []
         if(newData[item].length === 0 || newData[item] === 0){
             switch (item) {
               case "productName":
-                errorsProduct[item] = []
+                // errorsProduct[item] = []
                 errorsProduct[item].push("There is no product name") 
                 break;
               case "price":
-                errorsProduct[item] = []
+                // errorsProduct[item] = []
                 errorsProduct[item].push("The price for the product has not been specified")
                 break;
               case "brandId":
-                errorsProduct[item] = []
+                // errorsProduct[item] = []
                 errorsProduct[item].push("A brand has not been specified for the product")
                 break;
               case "categoryId":
-                errorsProduct[item] = []
+                // errorsProduct[item] = []
                 errorsProduct[item].push("Category is not specified for the product")
                 break;
               case "rating":
-                errorsProduct[item] = []
+                // errorsProduct[item] = []
                 errorsProduct[item].push("Product rating is not specified")
                 break;
               case "quantityInStock":
-                errorsProduct[item] = []
+                // errorsProduct[item] = []
                 errorsProduct[item].push("The product number is not specified")
                 break;
               case "image":
-                errorsProduct[item] = []
+                // errorsProduct[item] = []
                 errorsProduct[item].push("There is no photoooooooooo")
                 break;  
 
@@ -169,11 +170,12 @@ const [dirty, setDirty] = React.useState({
                 label="productName" 
                 variant="outlined"
                 // helperText={errors.productName?errors.productName:""}
-                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:e.target.value})}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                onBlur={()=>isValid()}
                 value={newProduct.productName} 
                 sx={styleTextField} 
               />
-              {errors.productName && errors.productName.length>=0?<p style={{color : "red"}}>{errors.productName}</p>:""}
+              {errors.productName && errors.productName.length>=0?<p className="text-orange-400">{errors.productName}</p>:""}
 
               <TextField
                 id="outlined-number"
@@ -185,11 +187,12 @@ const [dirty, setDirty] = React.useState({
                   shrink: true,
                 }}
                 // helperText={errors.price?errors.price:""}
-                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)})}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                onBlur={()=>isValid()}
                 value={newProduct.price}
                 sx={styleTextField}
               />
-              {errors.price && errors.price.length>0?<p style={{color : "red"}}>{errors.price}</p>:""}
+              {errors.price && errors.price.length>0?<p className="text-orange-400">{errors.price}</p>:""}
             
               <TextField
                 id="outlined-select-currency"
@@ -197,7 +200,8 @@ const [dirty, setDirty] = React.useState({
                 name="brandId"
                 label="brandId"
                 // helperText={errors.brandId?errors.brandId:""}
-                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:e.target.value})}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                onBlur={()=>isValid()}
                 value={newProduct.brandId}
                 sx={styleTextField}
               >
@@ -207,7 +211,7 @@ const [dirty, setDirty] = React.useState({
                   </MenuItem>
                 ))}
               </TextField>
-              {errors.brandId && errors.brandId.length>0?<p style={{color : "red"}}>{errors.brandId}</p>:""}
+              {errors.brandId && errors.brandId.length>0?<p className="text-orange-400">{errors.brandId}</p>:""}
             
               <TextField
                 id="outlined-select-currency"
@@ -215,7 +219,8 @@ const [dirty, setDirty] = React.useState({
                 label="categoryId"
                 name="categoryId"
                 // helperText={errors.categoryId?errors.categoryId:""}
-                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:e.target.value})}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                onBlur={()=>isValid()}
                 value={newProduct.categoryId}
                 sx={styleTextField}
               >
@@ -225,7 +230,7 @@ const [dirty, setDirty] = React.useState({
                   </MenuItem>
                 ))}
               </TextField>
-              {errors.categoryId && errors.categoryId.length>0 ? <p style={{color : "red"}}>{errors.categoryId}</p>:""}
+              {errors.categoryId && errors.categoryId.length>0 ? <p className="text-orange-400">{errors.categoryId}</p>:""}
               
               <TextField
                 id="outlined-number"
@@ -236,11 +241,12 @@ const [dirty, setDirty] = React.useState({
                   shrink: true,
                 }}
                 // helperText={errors.rating?errors.rating:""}
-                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)})}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                onBlur={()=>isValid()}
                 value={newProduct.rating}
                 sx={styleTextField}
               />
-              {errors.rating && errors.rating.length>0 ? <p style={{color : "red"}}>{errors.rating}</p>:""}
+              {errors.rating && errors.rating.length>0 ? <p className="text-orange-400">{errors.rating}</p>:""}
               <TextField
                 id="outlined-number"
                 name="quantityInStock"
@@ -250,11 +256,12 @@ const [dirty, setDirty] = React.useState({
                   shrink: true,
                 }}
                 // helperText={errors.quantityInStock?errors.quantityInStock:""}
-                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)})}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                onBlur={()=>isValid()}
                 value={newProduct.quantityInStock}
                 sx={styleTextField}
               />
-              {errors.quantityInStock && errors.quantityInStock.length>=0 ? <p style={{color : "red"}}>{errors.quantityInStock}</p>:""}
+              {errors.quantityInStock && errors.quantityInStock.length>=0 ? <p className="text-orange-400">{errors.quantityInStock}</p>:""}
          
               <Button
                   variant="contained"
@@ -265,11 +272,11 @@ const [dirty, setDirty] = React.useState({
                   <input
                     type="file"
                     name="image"
-                    onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:e.target.value})}
+                    onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
                     hidden
                 />
               </Button>
-              {errors.image && errors.image.length>=0 ? <p style={{color : "green"}}>{errors.image}</p>:""}
+              {errors.image && errors.image.length>=0 ? <p className="text-orange-400">{errors.image}</p>:""}
 
               <div className="mt-5 flex justify-center">
                 <button type="button" className="focus:outline-none text-white bg-green-900 hover:bg-green-800 
