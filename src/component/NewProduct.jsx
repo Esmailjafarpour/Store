@@ -42,14 +42,16 @@ const NewProduct  = ({showNewProduct,hiddenNewProduct}) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" className="text-center" variant="h6" component="h2">
-            Create your new product
-          </Typography>
+          <Box sx={style} className="content-box">
+            <div className="content-newProduct">
+              <Typography id="modal-modal-title" className="text-center" variant="h6" component="h2">
+                Create your new product
+              </Typography>
 
-          <TextField hiddenNewProduct={hiddenNewProduct}/>
-          
-        </Box>
+              <TextField hiddenNewProduct={hiddenNewProduct}/>
+              
+            </div>
+          </Box>
       </Modal> 
   );
 };

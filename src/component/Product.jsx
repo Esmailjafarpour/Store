@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+// import Grid3x3Icon from '@mui/icons-material/Grid3x3';
 
 const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
     return (
@@ -17,7 +18,8 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
                         <div className="product_price text-lime-200 flex justify-center items-center">${product.price.toFixed()}</div>
                     }
                     <div className="brand mt-2 text-orange-300">
-                        #{product.brand.brandName} #{product.category.categoryName}
+                        {/* <Grid3x3Icon/> */}
+                        {product.brand.brandName} #{product.category.categoryName}
                     </div>
                     <div className="rating_number flex justify-between items-center">
                         <div>

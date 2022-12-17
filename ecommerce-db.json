@@ -167,14 +167,34 @@
       "quantityInStock": 14
     },
     {
-      "productName": "jghj",
-      "price": "3",
-      "brandId": 2,
+      "productName": "nn",
+      "price": 5997,
+      "brandId": 1,
       "categoryId": 1,
-      "rating": "2",
-      "quantityInStock": "2",
-      "image": "C:\\fakepath\\Apple-iphone12pro.png",
+      "rating": 5,
+      "quantityInStock": 7,
+      "image": "Apple-iphone12pro.png",
       "id": 13
+    },
+    {
+      "productName": "mm",
+      "price": 1001,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 5,
+      "quantityInStock": 1000000,
+      "image": "Carrier.png",
+      "id": 14
+    },
+    {
+      "productName": "vv",
+      "price": 1002,
+      "brandId": 2,
+      "categoryId": 2,
+      "rating": 2,
+      "quantityInStock": 5,
+      "image": "Apple-iphone12pro.png",
+      "id": 15
     }
   ],
   "users": [

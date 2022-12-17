@@ -5,6 +5,9 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import {BrandsService,CategoriesService}from '../Service.js';
 import {NavLink,useNavigate} from 'react-router-dom';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 const styleBox = {
   '& .MuiTextField-root': { m: 1, width: '25ch' },
@@ -26,6 +29,21 @@ const styleTextField = {
     borderRadius: '8px',
     boxShadow: 24,
     marginTop:'10px',
+    label : {color: 'white',fontSize :14,marginButton:2},
+    input: { color: 'white',fontSize :14},
+    div: { color: 'white',fontSize :14 }
+}
+
+const styleSelect = {
+    '& .MuiTextField-root': { m: 1, width: '25ch',borderColor : 'red' },
+    width:220,
+    height: "auto",
+    bgcolor: '#201f1f',
+    border: '2px solid #404040',
+    borderRadius: '8px',
+    boxShadow: 24,
+    margin:'10px 0px',
+    color : "white",
     label : {color: 'white',fontSize :14,marginButton:2},
     input: { color: 'white',fontSize :14},
     div: { color: 'white',fontSize :14 }
@@ -89,46 +107,97 @@ const [dirty, setDirty] = React.useState({
     let newData = newProduct;
     let errorsProduct = {}
     Object.keys(newProduct).forEach((item) =>{
-        errorsProduct[item] = []
-        if(newData[item].length === 0 || newData[item] === 0){
-            switch (item) {
-              case "productName":
-                console.log("There is no product name")
-                errorsProduct[item].push("There is no product name") 
-                break;
-              case "price":
-                console.log("The price for the product has not been specified")
-                errorsProduct[item].push("The price for the product has not been specified")
-                break;
-              case "brandId":
-                console.log("A brand has not been specified for the product")
-                errorsProduct[item].push("A brand has not been specified for the product")
-                break;
-              case "categoryId":
-                console.log("Category is not specified for the product")
-                errorsProduct[item].push("Category is not specified for the product")
-                break;
-              case "rating":
-                console.log("Product rating is not specified")
-                errorsProduct[item].push("Product rating is not specified")
-                break;
-              case "quantityInStock":
-                console.log("The product number is not specified")
-                errorsProduct[item].push("The product number is not specified")
-                break;
-              case "image":
-                console.log("There is no photoooooooooo")
-                errorsProduct[item].push("There is no photo")
-                break;  
+            errorsProduct[item] = []
+            if(newData[item].length >= 0 || newData[item] >= 0){
+              switch (item) {
+                case "productName":
+                  if(newData[item].length === 0){
+                    errorsProduct[item].push("There is no product name") 
+                    valid = false
+                  }
+                  
+                  if(newData[item].length > 0 && newData[item].length < 2){
+                    errorsProduct[item].push("Product name must be more than two characters")
+                    valid = false  
+                  }
 
-                // default : setErrors({...errors})
+                  if(newData[item].length > 30){
+                    errorsProduct[item].push("Product name should not be more than 30 characters")
+                    valid = false  
+                  }
+                  
+                  break;
+
+                case "price":
+
+                  if(newData[item] < 0){
+                    errorsProduct[item].push("The price of the product must be more than 1000 dollars") 
+                    valid = false 
+                  }
+                  if(newData[item] === 0){
+                    errorsProduct[item].push("The price for the product has not been specified") 
+                    valid = false 
+                  }
+
+                  if(newData[item] < 1000 ){
+                    errorsProduct[item].push("The minimum price of the product is 1000 dollars") 
+                    valid = false
+                  }
+                  
+                  if(newData[item] > 20000000 ){
+                    errorsProduct[item].push("Currently, we do not register products with a price higher than 20000000") 
+                    valid = false
+                  }
+                  
+                  break;
+                case "brandId":
+                  if(newData[item] === 0){
+                    errorsProduct[item].push("A brand has not been specified for the product")
+                    valid = false
+                  }
+                  break;
+                case "categoryId":
+                  if(newData[item] === 0){
+                    errorsProduct[item].push("Category is not specified for the product")
+                    valid = false
+                  }
+                  break;
+                case "rating":
+                  if(newData[item] === 0){
+                    errorsProduct[item].push("The score must be greater than zero") 
+                    valid = false
+                  }
+                  if(newData[item] > 5){
+                    errorsProduct[item].push("The score of the products should not be more than 5") 
+                    valid = false
+                  }
+                  break;
+                case "quantityInStock":
+                  if(newData[item] === 0){
+                    errorsProduct[item].push("The product number is not specified") 
+                    valid = false
+                  }
+                  if(newData[item] < 5){
+                    errorsProduct[item].push("The number of products should not be less than 5") 
+                    valid = false
+                  }
+                  if(newData[item] > 1000000){
+                    errorsProduct[item].push("The number of products should not exceed 999,999") 
+                    valid = false
+                  }
+                  break;
+                case "image":
+                  if(newData[item] === ''){
+                    errorsProduct[item].push("There is no photo")
+                    valid = false
+                  }
+                
+                  default : setErrors(errorsProduct)  
+              }
             }
-            valid = false
           }
-        }
         ) 
         setErrors(errorsProduct)
-      
     return valid
   }
 
@@ -144,7 +213,6 @@ const [dirty, setDirty] = React.useState({
             rating : newProduct.rating,
             quantityInStock : newProduct.quantityInStock,
             image : newProduct.image,
-              
           }),
           headers : {
               "Content-type": "application/json",
@@ -168,13 +236,14 @@ const [dirty, setDirty] = React.useState({
                 type="text"
                 label="productName" 
                 variant="outlined"
+                InputProps={{ inputProps: { min: 2, max: 30 } }}
                 // helperText={errors.productName?errors.productName:""}
                 onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
                 onBlur={()=>isValid()}
                 value={newProduct.productName} 
                 sx={styleTextField} 
               />
-              {errors.productName && errors.productName.length>=0?<p className="text-orange-400">{errors.productName}</p>:""}
+              {errors.productName && errors.productName.length>=0?<p className="text-amber-300 text-[12px] mt-1">{errors.productName}</p>:""}
 
               <TextField
                 id="outlined-number"
@@ -182,102 +251,110 @@ const [dirty, setDirty] = React.useState({
                 name="price"
                 label="price"
                 type="number"
+                InputProps={{ inputProps: { min: 1000, max: 20000000 } }}
                 InputLabelProps={{
                   shrink: true,
                 }}
                 // helperText={errors.price?errors.price:""}
-                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)}),isValid())}
                 onBlur={()=>isValid()}
                 value={newProduct.price}
                 sx={styleTextField}
               />
-              {errors.price && errors.price.length>0?<p className="text-orange-400">{errors.price}</p>:""}
-            
-              <TextField
-                id="outlined-select-currency"
-                select
-                name="brandId"
-                label="brandId"
-                // helperText={errors.brandId?errors.brandId:""}
-                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
-                onBlur={()=>isValid()}
-                value={newProduct.brandId}
-                sx={styleTextField}
-              >
-                {brands.map((brand) => (
-                  <MenuItem key={brand.id} value={brand.id}>
-                    {brand.brandName}
-                  </MenuItem>
-                ))}
-              </TextField>
-              {errors.brandId && errors.brandId.length>0?<p className="text-orange-400">{errors.brandId}</p>:""}
-            
-              <TextField
-                id="outlined-select-currency"
-                select
-                label="categoryId"
-                name="categoryId"
-                // helperText={errors.categoryId?errors.categoryId:""}
-                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
-                onBlur={()=>isValid()}
-                value={newProduct.categoryId}
-                sx={styleTextField}
-              >
-                {categories.map((category) => (
-                  <MenuItem key={category.id} value={category.id}>
+              {errors.price && errors.price.length>0?<p className="text-amber-300 text-[12px] mt-1">{errors.price}</p>:""}
+              
+              <FormControl >
+                <InputLabel id="demo-simple-select-label">Brand</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="outlined-select-currency"
+                  name="brandId"
+                  label="brandId"
+                  onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                  // sx={styleTextField}
+                  sx={styleSelect}
+                >
+                  {brands.map((brand) => (
+                    <MenuItem key={brand.id} value={brand.id}>
+                      {brand.brandName}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              
+              {errors.brandId && errors.brandId.length>0?<p className="text-amber-300 text-[12px] mt-1">{errors.brandId}</p>:""}
+
+              <FormControl >
+                <InputLabel id="demo-simple-select-label">Category</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="outlined-select-currency"
+                  label="categoryId"
+                  name="categoryId"
+                  onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                  // sx={styleTextField}
+                  sx={styleSelect}
+                >
+                  {categories.map((category) => (
+                    <MenuItem key={category.id} value={category.id}>
                     {category.categoryName}
                   </MenuItem>
-                ))}
-              </TextField>
-              {errors.categoryId && errors.categoryId.length>0 ? <p className="text-orange-400">{errors.categoryId}</p>:""}
+                  ))}
+                </Select>
+              </FormControl>
+              {errors.categoryId && errors.categoryId.length>0 ? <p className="text-amber-300 text-[12px] mt-1">{errors.categoryId}</p>:""}
               
               <TextField
                 id="outlined-number"
                 name="rating"
                 label="rating"
                 type = "number"
+                InputProps={{ inputProps: { min: 0, max: 5 } }}
                 InputLabelProps={{
                   shrink: true,
                 }}
                 // helperText={errors.rating?errors.rating:""}
-                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)}),isValid())}
                 onBlur={()=>isValid()}
                 value={newProduct.rating}
                 sx={styleTextField}
               />
-              {errors.rating && errors.rating.length>0 ? <p className="text-orange-400">{errors.rating}</p>:""}
+              {errors.rating && errors.rating.length>=0 ? <p className="text-amber-300 text-[12px] mt-1">{errors.rating}</p>:""}
               <TextField
                 id="outlined-number"
                 name="quantityInStock"
                 label="quantityInStock"
                 type="number"
+                InputProps={{ inputProps: { min: 0, max: 1000000 } }}
                 InputLabelProps={{
                   shrink: true,
                 }}
                 // helperText={errors.quantityInStock?errors.quantityInStock:""}
-                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)}),isValid())}
                 onBlur={()=>isValid()}
                 value={newProduct.quantityInStock}
                 sx={styleTextField}
               />
-              {errors.quantityInStock && errors.quantityInStock.length>=0 ? <p className="text-orange-400">{errors.quantityInStock}</p>:""}
+              {errors.quantityInStock && errors.quantityInStock.length>=0 ? <p className="text-amber-300 text-[12px] mt-1">{errors.quantityInStock}</p>:""}
          
               <Button
                   variant="contained"
                   component="label"
                   sx={{backgroundColor: "green"}}
+                  // onClick={()=>errors.image && errors.image.length ===0 ? isValid():""}
                 >
                   Upload File
                   <input
                     type="file"
                     name="image"
-                    onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                    onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value.slice(12, e.target.value.length)})
+                    )}
                     hidden
                 />
               </Button>
-              {errors.image && errors.image.length>=0 ? <p className="text-orange-400">{errors.image}</p>:""}
-
-              <div className="mt-5 flex justify-center">
+              {errors.image && errors.image.length >=0 ? <p className="text-amber-300 text-[12px] mt-1">{errors.image}</p>:""}
+              
+              <div className="mt-2 flex justify-center">
                 <button type="button" className="focus:outline-none text-white bg-green-900 hover:bg-green-800 
                       focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2.5 mr-2 mb-2 
                       dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"

@@ -77,8 +77,6 @@ i{
     position: relative;
 }
 
-
-
 .header{
     background-color: #282930;
     color: wheat;
@@ -196,6 +194,19 @@ i{
 .MuiInputBase-input{
    /* color : rgb(255, 251, 251) ; */
    
+}
+
+.content-box{
+
+}
+.content-newProduct{
+    height: 580px;
+    overflow-y: auto;
+}
+
+#demo-simple-select-label{
+    color: #f8f9fa !important;
+    font-size: small;
 }
 
 @media (max-width: 320px) {
