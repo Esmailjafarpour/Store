@@ -46,7 +46,15 @@ function BasicTextFields({hiddenNewProduct}) {
     image:""
 });
 
-const [errors, setErrors] = React.useState({});
+const [errors, setErrors] = React.useState({
+    productName:[],
+    price:[],
+    brandId:[],
+    categoryId:[],
+    rating:[],
+    quantityInStock:[],
+    image:[]
+});
 
 const [dirty, setDirty] = React.useState({
   email:false,
@@ -79,14 +87,10 @@ const [dirty, setDirty] = React.useState({
   const isValid = () => {
     let valid = true
     let newData = newProduct;
+    let errorsProduct = {}
     Object.keys(newProduct).forEach((item) =>{
-        console.log("..........")
-        console.log(item)
-        console.log(newData[item].length === 0)
-        console.log(newData[item] === 0)
-
+        errorsProduct[item] = []
         if(newData[item].length === 0 || newData[item] === 0){
-            console.log(">>>>>>>>>>>>")
             switch (item) {
               case "productName":
                 console.log("There is no product name")
@@ -122,8 +126,9 @@ const [dirty, setDirty] = React.useState({
             valid = false
           }
         }
-      ) 
-      console.log(errors)
+        ) 
+        setErrors(errorsProduct)
+        console.log("errorsProduct",errorsProduct)
       
     return valid
   }
@@ -165,11 +170,12 @@ const [dirty, setDirty] = React.useState({
                 label="productName" 
                 variant="outlined"
                 // helperText={errors.productName?errors.productName:""}
-                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:e.target.value})}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                onBlur={()=>isValid()}
                 value={newProduct.productName} 
                 sx={styleTextField} 
               />
-              {errors.productName && errors.productName.length>=0?<p style={{color : "red"}}>{errors.productName}</p>:""}
+              {errors.productName && errors.productName.length>=0?<p className="text-orange-400">{errors.productName}</p>:""}
 
               <TextField
                 id="outlined-number"
@@ -181,11 +187,12 @@ const [dirty, setDirty] = React.useState({
                   shrink: true,
                 }}
                 // helperText={errors.price?errors.price:""}
-                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)})}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                onBlur={()=>isValid()}
                 value={newProduct.price}
                 sx={styleTextField}
               />
-              {errors.price && errors.price.length>0?<p style={{color : "red"}}>{errors.price}</p>:""}
+              {errors.price && errors.price.length>0?<p className="text-orange-400">{errors.price}</p>:""}
             
               <TextField
                 id="outlined-select-currency"
@@ -193,7 +200,8 @@ const [dirty, setDirty] = React.useState({
                 name="brandId"
                 label="brandId"
                 // helperText={errors.brandId?errors.brandId:""}
-                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:e.target.value})}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                onBlur={()=>isValid()}
                 value={newProduct.brandId}
                 sx={styleTextField}
               >
@@ -203,7 +211,7 @@ const [dirty, setDirty] = React.useState({
                   </MenuItem>
                 ))}
               </TextField>
-              {errors.brandId && errors.brandId.length>0?<p style={{color : "red"}}>{errors.brandId}</p>:""}
+              {errors.brandId && errors.brandId.length>0?<p className="text-orange-400">{errors.brandId}</p>:""}
             
               <TextField
                 id="outlined-select-currency"
@@ -211,7 +219,8 @@ const [dirty, setDirty] = React.useState({
                 label="categoryId"
                 name="categoryId"
                 // helperText={errors.categoryId?errors.categoryId:""}
-                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:e.target.value})}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                onBlur={()=>isValid()}
                 value={newProduct.categoryId}
                 sx={styleTextField}
               >
@@ -221,7 +230,7 @@ const [dirty, setDirty] = React.useState({
                   </MenuItem>
                 ))}
               </TextField>
-              {errors.categoryId && errors.categoryId.length>0 ? <p style={{color : "red"}}>{errors.categoryId}</p>:""}
+              {errors.categoryId && errors.categoryId.length>0 ? <p className="text-orange-400">{errors.categoryId}</p>:""}
               
               <TextField
                 id="outlined-number"
@@ -232,11 +241,12 @@ const [dirty, setDirty] = React.useState({
                   shrink: true,
                 }}
                 // helperText={errors.rating?errors.rating:""}
-                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)})}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                onBlur={()=>isValid()}
                 value={newProduct.rating}
                 sx={styleTextField}
               />
-              {errors.rating && errors.rating.length>0 ? <p style={{color : "red"}}>{errors.rating}</p>:""}
+              {errors.rating && errors.rating.length>0 ? <p className="text-orange-400">{errors.rating}</p>:""}
               <TextField
                 id="outlined-number"
                 name="quantityInStock"
@@ -246,11 +256,12 @@ const [dirty, setDirty] = React.useState({
                   shrink: true,
                 }}
                 // helperText={errors.quantityInStock?errors.quantityInStock:""}
-                onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)})}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
+                onBlur={()=>isValid()}
                 value={newProduct.quantityInStock}
                 sx={styleTextField}
               />
-              {errors.quantityInStock && errors.quantityInStock.length>=0 ? <p style={{color : "red"}}>{errors.quantityInStock}</p>:""}
+              {errors.quantityInStock && errors.quantityInStock.length>=0 ? <p className="text-orange-400">{errors.quantityInStock}</p>:""}
          
               <Button
                   variant="contained"
@@ -261,11 +272,11 @@ const [dirty, setDirty] = React.useState({
                   <input
                     type="file"
                     name="image"
-                    onChange={(e)=> setNewProduct({...newProduct,[e.target.name]:e.target.value})}
+                    onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:e.target.value}),isValid())}
                     hidden
                 />
               </Button>
-              {errors.image && errors.image.length>=0 ? <p style={{color : "green"}}>{errors.image}</p>:""}
+              {errors.image && errors.image.length>=0 ? <p className="text-orange-400">{errors.image}</p>:""}
 
               <div className="mt-5 flex justify-center">
                 <button type="button" className="focus:outline-none text-white bg-green-900 hover:bg-green-800 

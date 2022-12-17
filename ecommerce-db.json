@@ -220,44 +220,12 @@
   ],
   "orders": [
     {
-      "id": 1,
       "userId": 2,
       "productId": 1,
-      "quantity": 2,
-      "imageProduct": "Apple-iphone12pro.png",
-      "isPaymentCompleted": true
-    },
-    {
-      "userId": 2,
-      "productId": 1,
-      "quantity": 2,
+      "quantity": 0,
       "isPaymentCompleted": false,
       "imageProduct": "Apple-iphone12pro.png",
-      "id": 2
-    },
-    {
-      "id": 3,
-      "userId": 2,
-      "productId": 1,
-      "quantity": 2,
-      "imageProduct": "Apple-iphone12pro.png",
-      "isPaymentCompleted": true
-    },
-    {
-      "id": 4,
-      "userId": 2,
-      "productId": 1,
-      "quantity": 2,
-      "imageProduct": "Apple-iphone12pro.png",
-      "isPaymentCompleted": true
-    },
-    {
-      "id": 5,
-      "userId": 2,
-      "productId": 2,
-      "quantity": 2,
-      "imageProduct": "ipad-pro-11.png",
-      "isPaymentCompleted": true
+      "id": 1
     }
   ]
 }

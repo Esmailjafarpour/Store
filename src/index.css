@@ -741,6 +741,10 @@ i{
         grid-column: 1;
     }
 
+    .form-check label{
+        font-size: 14px;
+    }
+
     .content_products{
         display: grid;
         grid-column: 2;
