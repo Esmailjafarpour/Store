@@ -90,31 +90,31 @@ const [dirty, setDirty] = React.useState({
             switch (item) {
               case "productName":
                 console.log("There is no product name")
-                setErrors({...errors,productName : "There is no product name"})
+                setErrors({...errors,[item] : "There is no product name"})
                 break;
               case "price":
                 console.log("The price for the product has not been specified")
-                setErrors({...errors,price : "The price for the product has not been specified"})
+                setErrors({...errors,[item] : "The price for the product has not been specified"})
                 break;
               case "brandId":
                 console.log("A brand has not been specified for the product")
-                setErrors({...errors,brandId : "A brand has not been specified for the product"})
+                setErrors({...errors,[item] : "A brand has not been specified for the product"})
                 break;
               case "categoryId":
                 console.log("Category is not specified for the product")
-                setErrors({...errors,categoryId : "Category is not specified for the product"})
+                setErrors({...errors,[item] : "Category is not specified for the product"})
                 break;
               case "rating":
                 console.log("Product rating is not specified")
-                setErrors({...errors,rating : "Product rating is not specified"})
+                setErrors({...errors,[item] : "Product rating is not specified"})
                 break;
               case "quantityInStock":
                 console.log("The product number is not specified")
-                setErrors({...errors,quantityInStock : "The product number is not specified"})
+                setErrors({...errors,[item] : "The product number is not specified"})
                 break;
               case "image":
                 console.log("There is no photoooooooooo")
-                setErrors({...errors,image : "There is no photoooooooooo"})
+                setErrors({...errors,[item] : "There is no photo"})
                 break;  
 
                 // default : setErrors({...errors})
