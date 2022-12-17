@@ -165,8 +165,17 @@
       "rating": 5,
       "image": "Xiaomi-Mi-11-Ultra.png",
       "quantityInStock": 14
+    },
+    {
+      "productName": "jghj",
+      "price": "3",
+      "brandId": 2,
+      "categoryId": 1,
+      "rating": "2",
+      "quantityInStock": "2",
+      "image": "C:\\fakepath\\Apple-iphone12pro.png",
+      "id": 13
     }
-    
   ],
   "users": [
     {

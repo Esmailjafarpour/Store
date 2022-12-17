@@ -94,31 +94,31 @@ const [dirty, setDirty] = React.useState({
             switch (item) {
               case "productName":
                 console.log("There is no product name")
-                setErrors({...errors,[item] : "There is no product name"})
+                errorsProduct[item].push("There is no product name") 
                 break;
               case "price":
                 console.log("The price for the product has not been specified")
-                setErrors({...errors,[item] : "The price for the product has not been specified"})
+                errorsProduct[item].push("The price for the product has not been specified")
                 break;
               case "brandId":
                 console.log("A brand has not been specified for the product")
-                setErrors({...errors,[item] : "A brand has not been specified for the product"})
+                errorsProduct[item].push("A brand has not been specified for the product")
                 break;
               case "categoryId":
                 console.log("Category is not specified for the product")
-                setErrors({...errors,[item] : "Category is not specified for the product"})
+                errorsProduct[item].push("Category is not specified for the product")
                 break;
               case "rating":
                 console.log("Product rating is not specified")
-                setErrors({...errors,[item] : "Product rating is not specified"})
+                errorsProduct[item].push("Product rating is not specified")
                 break;
               case "quantityInStock":
                 console.log("The product number is not specified")
-                setErrors({...errors,[item] : "The product number is not specified"})
+                errorsProduct[item].push("The product number is not specified")
                 break;
               case "image":
                 console.log("There is no photoooooooooo")
-                setErrors({...errors,[item] : "There is no photo"})
+                errorsProduct[item].push("There is no photo")
                 break;  
 
                 // default : setErrors({...errors})
@@ -128,7 +128,6 @@ const [dirty, setDirty] = React.useState({
         }
         ) 
         setErrors(errorsProduct)
-        console.log("errorsProduct",errorsProduct)
       
     return valid
   }
