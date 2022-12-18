@@ -191,23 +191,37 @@ i{
     background-repeat: no-repeat;
 }
 
-.MuiInputBase-input{
-   /* color : rgb(255, 251, 251) ; */
-   
+
+/* .content-box{
+    transition: all ease-in-out 1000ms;
+    
 }
 
-.content-box{
+.hiddenContentBox{
+    transform: rotateY(90deg) !important;
+    top: 2% !important;
+    left: 25% !important;
+    
+} */
 
-}
 .content-newProduct{
     height: 580px;
-    overflow-y: auto;
+    overflow-y: auto;   
+}
+
+.content-newProduct-Message{
+    height: 100px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #demo-simple-select-label{
     color: #f8f9fa !important;
     font-size: small;
 }
+
+
 
 @media (max-width: 320px) {
 

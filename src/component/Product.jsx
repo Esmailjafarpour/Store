@@ -19,7 +19,9 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
                     }
                     <div className="brand mt-2 text-orange-300">
                         {/* <Grid3x3Icon/> */}
-                        {product.brand.brandName} #{product.category.categoryName}
+                        <i class="fa fa-hashtag" aria-hidden="true">{" "}</i>{product.brand.brandName} 
+                        {"   "}
+                        <i class="fa fa-hashtag" aria-hidden="true">{" "}</i>{product.category.categoryName}
                     </div>
                     <div className="rating_number flex justify-between items-center">
                         <div>

@@ -24,16 +24,47 @@ const style = {
 
 const NewProduct  = ({showNewProduct,hiddenNewProduct}) => {
   const [open, setOpen] = React.useState(false);
+  const [newProductModalChanges, setNewProductModalChanges] = React.useState({
+    classHidden : '',
+    hiddenModal: true ,
+    hiddenNewProduct : true,
+    showMessageCreateProduct : false
+  });
   const handleOpen = () => setOpen();
   const handleClose = () => (
-    setOpen(false),
-    hiddenNewProduct()
+    hiddenNewProduct(),
+    setOpen(false)
   );
+
+  const closeContentBox = () => {
+
+    // setNewProductModalChanges({classHidden : "hiddenContentBox"})
+
+        setTimeout(() => {
+
+          setNewProductModalChanges({hiddenModal : false})
+          
+          setTimeout(() => {
+            
+            setNewProductModalChanges({showMessageCreateProduct : true})
+                    setTimeout(() => {
+                    // setNewProductModalChanges({classHidden : null})
+                    setNewProductModalChanges({hiddenModal : true})
+                    setNewProductModalChanges({showMessageCreateProduct : false})
+                    setOpen(false)
+                    hiddenNewProduct()
+
+                  }, 1000)
+
+            }, 200);
+
+        }, 100)
+
+  }
 
   React.useEffect(() => {
     setOpen(showNewProduct)
   },[showNewProduct]);
-
 
   return (
       <Modal
@@ -42,16 +73,29 @@ const NewProduct  = ({showNewProduct,hiddenNewProduct}) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-          <Box sx={style} className="content-box">
-            <div className="content-newProduct">
-              <Typography id="modal-modal-title" className="text-center" variant="h6" component="h2">
-                Create your new product
-              </Typography>
+          <>
+            {newProductModalChanges.hiddenModal ?
+              <Box sx={style} className={`content-box ${newProductModalChanges.classHidden}`}>
+                <div className="content-newProduct">
+                  <Typography id="modal-modal-title" className="text-center" variant="h6" component="h2">
+                    Create your new product
+                  </Typography>
 
-              <TextField hiddenNewProduct={hiddenNewProduct}/>
-              
-            </div>
-          </Box>
+                  <TextField hiddenNewProduct={closeContentBox}/>
+                </div>
+              </Box>
+            :''} 
+
+          {newProductModalChanges.showMessageCreateProduct ? 
+            <Box sx={style} className="content-box2">
+              <div className="content-newProduct-Message">
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                    Your product has been added
+                </Typography>
+              </div>
+            </Box>
+          : ''}
+          </>
       </Modal> 
   );
 };
