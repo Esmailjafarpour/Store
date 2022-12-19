@@ -123,7 +123,7 @@ const Productlist = () => {
                                 className="form-control input-search col-span-6"
                                 autoFocus="autofocus"
                             />
-                            <button type="button" className="focus:outline-none text-white bg-green-900 hover:bg-green-800 
+                            <button type="button" className="createNewProduct focus:outline-none text-white bg-green-900 hover:bg-green-800 
                                 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-2 mx-2 mb-1 
                                 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 col-span-3"
                                 onClick={()=> setShowNewProduct(true)}

@@ -205,6 +205,46 @@
       "quantityInStock": 8,
       "image": "Apple-iphone12pro.png",
       "id": 16
+    },
+    {
+      "productName": "nader",
+      "price": 1002,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 5,
+      "quantityInStock": 8,
+      "image": "add.png",
+      "id": 17
+    },
+    {
+      "productName": "bbb",
+      "price": 1002,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 3,
+      "quantityInStock": 5,
+      "image": "Apple.png",
+      "id": 18
+    },
+    {
+      "productName": "bb",
+      "price": 1002,
+      "brandId": 2,
+      "categoryId": 2,
+      "rating": 3,
+      "quantityInStock": 6,
+      "image": "Carrier1.png",
+      "id": 19
+    },
+    {
+      "productName": "vvv",
+      "price": 1002,
+      "brandId": 2,
+      "categoryId": 3,
+      "rating": 3,
+      "quantityInStock": 5,
+      "image": "Carrier-Flair.png",
+      "id": 20
     }
   ],
   "orders": [

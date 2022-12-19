@@ -434,6 +434,12 @@ i{
         grid-column: span 12 / span 12;
     }
 
+    .createNewProduct{
+        grid-column: span 12 / span 12;
+        padding: 8px 0;
+        margin-top: 10px;
+    }
+
     .SortByCategory{
         grid-column: span 12 / span 12;
     }
@@ -675,6 +681,12 @@ i{
         grid-column: span 12 / span 12;
     }
 
+    .createNewProduct{
+        grid-column: span 12 / span 12;
+        padding: 8px 0;
+        margin-top: 10px;
+    }
+
     .SortByCategory{
         grid-column: span 12 / span 12;
     }
@@ -861,6 +873,12 @@ i{
 
     .numberProduct_search input{
         grid-column: span 12 / span 12;
+    }
+
+    .createNewProduct{
+        grid-column: span 12 / span 12;
+        padding: 8px 0;
+        margin-top: 10px;
     }
 
     .SortByCategory{

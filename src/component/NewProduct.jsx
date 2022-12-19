@@ -49,33 +49,41 @@ const NewProduct  = ({showNewProduct,hiddenNewProduct}) => {
   },[showNewProduct]);
 
 
-  React.useEffect(() => {
-     const timer = setInterval(() => { 
-      setProgress((prevProgress) => (prevProgress >= 100 ?
-        (
-          setNewProductModalChanges({showLoader : false}), 
-          setNewProductModalChanges({showMessageCreateProduct : true}),
-          setTimeout(() => {
-            handleClose()
-          }, 1000)
-        )
-      : prevProgress + 10));
-    
-    }, 1000);
+  // React.useEffect(() => {
+  //   const timer = 
 
-    return () => {
-      clearInterval(timer);
-      // setProgress(0)
-    };
-  }, []);
+  //   return () => {
+      
+  // },[newProductModalChanges.hiddenModal]);
 
   const closeContentBox = () => {
     // setProgress(0)
     setTimeout(() => {
+
       setNewProductModalChanges({hiddenModal : false})
+
       setTimeout(() => {
-          setNewProductModalChanges({showLoader : true})
-        }, 100);
+
+        setNewProductModalChanges({showLoader : true})
+        let timer = setInterval(() => { 
+          setProgress((prevProgress) => (prevProgress >= 100 ?
+            (
+              setNewProductModalChanges({showLoader : false}), 
+              setNewProductModalChanges({showMessageCreateProduct : true})
+            )
+          : 
+          prevProgress + 10));
+        
+        }, 200)
+
+        setTimeout(() => {
+          clearInterval(timer)
+          setNewProductModalChanges({showMessageCreateProduct : true})
+          handleClose()
+        }, 4000)
+
+      }, 100);
+
     }, 50)
   }
 
