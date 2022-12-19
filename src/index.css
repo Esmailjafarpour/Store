@@ -198,7 +198,7 @@ i{
 }
 
 .hiddenContentBox{
-    transform: rotateY(90deg) !important;
+    transform: translatex(90px) !important;
     top: 2% !important;
     left: 25% !important;
     

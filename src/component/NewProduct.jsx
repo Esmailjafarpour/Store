@@ -7,6 +7,8 @@ import Modal from '@mui/material/Modal';
 import {NavLink,useNavigate} from 'react-router-dom';
 import { BoxProps } from '@mui/material/Box';
 import TextField from './TextField';
+import Stack from '@mui/material/Stack';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const style = {
   position: 'absolute',
@@ -24,47 +26,58 @@ const style = {
 
 const NewProduct  = ({showNewProduct,hiddenNewProduct}) => {
   const [open, setOpen] = React.useState(false);
-  const [newProductModalChanges, setNewProductModalChanges] = React.useState({
-    classHidden : '',
-    hiddenModal: true ,
-    hiddenNewProduct : true,
-    showMessageCreateProduct : false
-  });
-  const handleOpen = () => setOpen();
+  const [progress, setProgress] = React.useState(0);
+  const handleOpen = () => setOpen(true);
   const handleClose = () => (
-    hiddenNewProduct(),
-    setOpen(false)
+    setOpen(false),
+    setNewProductModalChanges({hiddenModal : true}),
+    setNewProductModalChanges({showMessageCreateProduct : false}),
+    setProgress(0),
+    hiddenNewProduct()
   );
 
-  const closeContentBox = () => {
-
-    // setNewProductModalChanges({classHidden : "hiddenContentBox"})
-
-        setTimeout(() => {
-
-          setNewProductModalChanges({hiddenModal : false})
-          
-          setTimeout(() => {
-            
-            setNewProductModalChanges({showMessageCreateProduct : true})
-                    setTimeout(() => {
-                    // setNewProductModalChanges({classHidden : null})
-                    setNewProductModalChanges({hiddenModal : true})
-                    setNewProductModalChanges({showMessageCreateProduct : false})
-                    setOpen(false)
-                    hiddenNewProduct()
-
-                  }, 1000)
-
-            }, 200);
-
-        }, 100)
-
-  }
+  const [newProductModalChanges, setNewProductModalChanges] = React.useState({
+    hiddenModal: true ,
+    showMessageCreateProduct : false,
+    showLoader : false,
+  });
 
   React.useEffect(() => {
     setOpen(showNewProduct)
+    setNewProductModalChanges({hiddenModal : true})
+    setProgress(0)
   },[showNewProduct]);
+
+
+  React.useEffect(() => {
+     const timer = setInterval(() => { 
+      setProgress((prevProgress) => (prevProgress >= 100 ?
+        (
+          setNewProductModalChanges({showLoader : false}), 
+          setNewProductModalChanges({showMessageCreateProduct : true}),
+          setTimeout(() => {
+            handleClose()
+          }, 1000)
+        )
+      : prevProgress + 10));
+    
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+      // setProgress(0)
+    };
+  }, []);
+
+  const closeContentBox = () => {
+    // setProgress(0)
+    setTimeout(() => {
+      setNewProductModalChanges({hiddenModal : false})
+      setTimeout(() => {
+          setNewProductModalChanges({showLoader : true})
+        }, 100);
+    }, 50)
+  }
 
   return (
       <Modal
@@ -75,7 +88,7 @@ const NewProduct  = ({showNewProduct,hiddenNewProduct}) => {
       >
           <>
             {newProductModalChanges.hiddenModal ?
-              <Box sx={style} className={`content-box ${newProductModalChanges.classHidden}`}>
+              <Box sx={style} className="content-box">
                 <div className="content-newProduct">
                   <Typography id="modal-modal-title" className="text-center" variant="h6" component="h2">
                     Create your new product
@@ -84,7 +97,15 @@ const NewProduct  = ({showNewProduct,hiddenNewProduct}) => {
                   <TextField hiddenNewProduct={closeContentBox}/>
                 </div>
               </Box>
-            :''} 
+            :''}  
+
+          {newProductModalChanges.showLoader? 
+            <Box sx={style} className="content-box2">
+              <Stack spacing={2} direction="row">
+                <CircularProgress variant="determinate" value={progress} />
+              </Stack> 
+            </Box>
+          : ""}
 
           {newProductModalChanges.showMessageCreateProduct ? 
             <Box sx={style} className="content-box2">

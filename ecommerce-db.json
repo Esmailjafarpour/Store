@@ -167,104 +167,44 @@
       "quantityInStock": 14
     },
     {
-      "productName": "fsdf",
+      "productName": "fghf",
       "price": 1004,
       "brandId": 1,
       "categoryId": 1,
-      "rating": 4,
+      "rating": 5,
       "quantityInStock": 6,
-      "image": "Apple.png",
+      "image": "Apple-iphone12pro.png",
       "id": 13
     },
     {
-      "productName": "nnn",
-      "price": 1003,
-      "brandId": 2,
-      "categoryId": 2,
-      "rating": 1,
-      "quantityInStock": 7,
+      "productName": "hhhh",
+      "price": 1006,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 5,
+      "quantityInStock": 8,
       "image": "Apple-iphone12pro.png",
       "id": 14
     },
     {
-      "productName": "jjjj",
-      "price": 1005,
-      "brandId": 1,
+      "productName": "bnnn",
+      "price": 1003,
+      "brandId": 2,
       "categoryId": 1,
       "rating": 1,
-      "quantityInStock": 6,
-      "image": "camera.png",
+      "quantityInStock": 7,
+      "image": "Apple-iphone12pro.png",
       "id": 15
     },
     {
-      "productName": "hhhh",
-      "price": 1003,
-      "brandId": 3,
-      "categoryId": 1,
-      "rating": 1,
-      "quantityInStock": 7,
-      "image": "ipad-pro-11.png",
-      "id": 16
-    },
-    {
-      "productName": "bbbb",
+      "productName": "jghjg",
       "price": 1002,
       "brandId": 2,
-      "categoryId": 2,
-      "rating": 1,
-      "quantityInStock": 6,
-      "image": "Apple-iphone12pro.png",
-      "id": 17
-    },
-    {
-      "productName": "gdgd",
-      "price": 1004,
-      "brandId": 1,
       "categoryId": 1,
-      "rating": 1,
-      "quantityInStock": 9,
-      "image": "Carrier.png",
-      "id": 18
-    },
-    {
-      "productName": "jjjjj",
-      "price": 1004,
-      "brandId": 2,
-      "categoryId": 1,
-      "rating": 1,
-      "quantityInStock": 7,
-      "image": "camera.png",
-      "id": 19
-    },
-    {
-      "productName": "hgfhfg",
-      "price": 1003,
-      "brandId": 1,
-      "categoryId": 2,
-      "rating": 1,
+      "rating": 4,
       "quantityInStock": 8,
       "image": "Apple-iphone12pro.png",
-      "id": 20
-    },
-    {
-      "productName": "gfdg",
-      "price": 1003,
-      "brandId": 2,
-      "categoryId": 1,
-      "rating": 1,
-      "quantityInStock": 7,
-      "image": "camera.png",
-      "id": 21
-    },
-    {
-      "productName": "fdsfsdf",
-      "price": 1005,
-      "brandId": 2,
-      "categoryId": 1,
-      "rating": 1,
-      "quantityInStock": 6,
-      "image": "camera.png",
-      "id": 22
+      "id": 16
     }
   ],
   "orders": [
