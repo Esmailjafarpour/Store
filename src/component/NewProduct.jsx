@@ -81,9 +81,7 @@ const NewProduct  = ({showNewProduct,hiddenNewProduct}) => {
           setNewProductModalChanges({showMessageCreateProduct : true})
           handleClose()
         }, 4000)
-
       }, 100);
-
     }, 50)
   }
 

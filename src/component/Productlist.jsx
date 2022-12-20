@@ -170,8 +170,8 @@ const Productlist = () => {
             </div>
             <div className="grid-cols-12 m-3 p-2">
                 <NewProduct showNewProduct={showNewProduct} hiddenNewProduct={()=> setShowNewProduct(false)}/>
-                <div className="border-[2px] border-yellow-700 rounded-xl bg-gradient-to-r from-neutral-900 to-neutral-700  my-1 shadow">
-                    <div className="p-2 rounded-xl">
+                <div className="content-table border-[2px] border-yellow-700 rounded-xl bg-gradient-to-r from-neutral-900 to-neutral-700  my-1 shadow">
+                    <div className="table-product p-2 rounded-xl">
                         <table className="table table-dark table-striped">
                             <thead>
                                 <tr>
