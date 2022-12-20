@@ -122,7 +122,7 @@ const Login = (props) => {
        
     
     return(
-        <div className="row">
+        <div className="row row-login">
             <div className="col-md-4 border-2 border-stone-800 mx-auto rounded-3 mt-5 p-3 bg-zinc-900">
                 <div className="shadow-lg my-2 rounded-3 overflow-hidden p-2 bg-zinc-800 border-2 border-stone-900">
                     <div className="card-header bg-dark">

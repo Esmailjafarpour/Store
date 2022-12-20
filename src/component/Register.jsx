@@ -194,8 +194,8 @@ const Register = (props) => {
     }
 
     return(
-       <div className="row">
-         <div className="col-md-6 border-2 border-stone-800 mx-auto rounded-3 mt-5 p-3 bg-zinc-900">
+       <div className="row row-register mx-auto">
+         <div className="col-md-6 border-2 border-stone-800  rounded-3 mt-5 p-3 bg-zinc-900">
             <div className="shadow-lg my-2 rounded-3 overflow-hidden p-3 bg-zinc-800 border-2 border-stone-900">
                 <div className="card-header">
                     <h4 style={{fontSize:'40px'}} className="title-register text-center">Register</h4>

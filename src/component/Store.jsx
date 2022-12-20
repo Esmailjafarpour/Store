@@ -115,31 +115,33 @@ const Store = () => {
 
         if(product.quantity && product.quantity !== 0){
             let prods = products.map((p) =>{
-            (async () => {
-                if (p.id === product.id){
-                        product.quantity = ++product.quantity;
-                        product.quantityInStock = -- product.quantityInStock 
-                        let updateProduct = {
-                                userId: userContext.user.currentUserId,
-                                productId: product.id,
-                                quantity: product.quantity,
-                                isPaymentCompleted: false,
-                                imageProduct: product.image,   
-                        }
-                        let orderResponse = await fetch(`http://localhost:5000/orders?userId=${userContext.user.currentUserId}&productId=${product.id}`,{
-                            method:"PUT",
-                            body : JSON.stringify(updateProduct),
-                            headers:{"Content-Type":"application/json"}
-                        })
-                        let orderResponseBody = await orderResponse.json()
-                }       
-            })()
+                (async () => {
+                    if (p.id === product.id){
+                            product.quantity = ++product.quantity;
+                            product.quantityInStock = -- product.quantityInStock 
+                            let updateProduct = {
+                                    userId: userContext.user.currentUserId,
+                                    productId: product.id,
+                                    quantity: product.quantity,
+                                    isPaymentCompleted: false,
+                                    imageProduct: product.image,   
+                            }
+                            let orderResponse = await fetch(`http://localhost:5000/orders?userId=${userContext.user.currentUserId}&productId=${product.id}`,{
+                                method:"PUT",
+                                body : JSON.stringify(updateProduct),
+                                headers:{"Content-Type":"application/json"}
+                            })
+                            let orderResponseBody = await orderResponse.json()
+                    }       
+                })()
                 return p
-        })
+            })
+
             setProducts(prods);
             updateProductToShow();
             return
         }
+        
         createNewOrder(product);
     }
 

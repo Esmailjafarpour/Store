@@ -61,6 +61,7 @@ nav{
 
 .title-login,.title-register,.title-order{
     color:wheat;
+    
 }
 
 li{
@@ -261,6 +262,10 @@ i{
         grid-template-columns: repeat(12, minmax(0, 1fr));
         position: relative !important;
         top: 5px;
+    }
+
+    .title-login{
+        font-size: 22px !important;
     }
 
     .title_store{
@@ -472,6 +477,19 @@ i{
         font-size: 10px;
     }
 
+    .row-login {
+        width: 95% !important;
+        margin: 0 auto !important;
+    }
+
+    .row-register{
+        width: 100%;
+    }
+
+    .title-register{
+        font-size: 20px !important;
+    }
+
 
 } 
 
@@ -514,6 +532,10 @@ i{
 
     .title_store{
         grid-column: span 12 / span 12;
+    }
+
+    .title-login{
+        font-size: 25px !important;
     }
     
     .header-search{
@@ -729,6 +751,16 @@ i{
     }
 
 
+    .row-login {
+        width: 95% !important;
+        margin: 0 auto !important;
+    }
+
+    .title-register{
+        font-size: 20px !important;
+    }
+
+
 }
 
 @media (min-width: 481px) and (max-width: 767px){
@@ -929,6 +961,27 @@ i{
         width: 30%;
     }
 
+    .title-login{
+        font-size: 28px !important;
+    }
+
+    .row-login {
+        width: 80% !important;
+        margin: 0 auto !important;
+    }
+
+    .row-register{
+        /* width: 80%; */
+    }
+
+    .row-register div{
+        /* margin: 0 auto; */
+    }
+
+    .title-register{
+        font-size: 20px !important;
+    }
+
 }
 
 @media (min-width: 768px) and (max-width: 900px){
@@ -986,6 +1039,11 @@ i{
         grid-column: 2;
     }
 
+    .title-login{
+        font-size: 28px !important;
+    }
+
+
     .footer_brands{
         grid-template-columns: 3fr 3fr;
         gap: 0 5px; 
@@ -1010,6 +1068,27 @@ i{
 
     .SortByCategory{
         grid-column: span 12 / span 12;
+    }
+
+    .title-login{
+        font-size: 28px !important;
+    }
+
+    .row-login {
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    .row-register{
+        width: 80% !important;
+    }
+
+    .row-register div{
+       width: 100% !important;
+    }
+
+    .title-register{
+        font-size: 20px !important;
     }
 
 
@@ -1037,6 +1116,23 @@ i{
         /* position: relative;
         top: 80px; */
     }
+
+    .row-login {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .row-register{
+        width: 60% !important;
+    }
+
+    .row-register div{
+       width: 100% !important;
+    }
+
+    .title-register{
+        font-size: 20px !important;
+    }
     
 } 
 
@@ -1044,5 +1140,22 @@ i{
     .main_product{
         /* position: relative;
         top: 80px; */
+    }
+
+    .row-login {
+        width: 100% !important;
+        margin: 0 auto;
+    }
+
+    .row-register{
+        width: 60% !important;
+    }
+
+    .row-register div{
+       width: 100% !important;
+    }
+
+    .title-register{
+        font-size: 20px !important;
     }
 }
