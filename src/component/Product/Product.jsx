@@ -1,13 +1,16 @@
 import React,{useState} from 'react';
 // import Grid3x3Icon from '@mui/icons-material/Grid3x3';
 
-const Product = ({product,onAddToCartClick,onDeletedToCartClick}) => {
+const Product = ({product,onAddToCartClick,onDeletedToCartClick,onShowDetailsProduct}) => {
     return (
         // <div className="mb-1">
             <div className="product card m-1 bg-transparent border-0 overflow-hidden col-span-4">
                 <div className="bg-gradient border-2 shadow-2xl bg-zinc-900 border-stone-600 rounded-sm p-2 ">
                     <div className="product bg-indigo-300 rounded-lg h-60 mb-1 shadow-2xl cursor-pointer">
-                        <img className="object-cover w-100 h-30 transition ease-in-out delay-170 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-700" src={require(`../../images/${product.image}`)} alt={product.image}/>
+                        <img className="object-cover w-100 h-30 transition ease-in-out delay-170 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-700" 
+                        src={require(`../../images/${product.image}`)} alt={product.image}
+                        onClick={()=>{onShowDetailsProduct(product.id)}}
+                        />
                     </div>
                     <h6 className="productName text-orange-400 text-center mb-1">
                         {product.productName}<i className="fa fa-arrow-right ml-1"></i>

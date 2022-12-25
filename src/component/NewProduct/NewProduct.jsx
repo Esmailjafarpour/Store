@@ -108,7 +108,7 @@ const NewProduct  = ({showNewProduct,hiddenNewProduct}) => {
           {newProductModalChanges.showLoader? 
             <Box sx={style} className="content-box2">
               <Stack spacing={2} direction="row mx-auto">
-                <CircularProgress variant="determinate" value={progress} />
+                <CircularProgress color="inherit" variant="determinate" value={progress} />
               </Stack> 
             </Box>
           : ""}

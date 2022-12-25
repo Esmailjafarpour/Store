@@ -42,7 +42,7 @@ const Productlist = () => {
       );
 
     useEffect(() => {
-        if (userContext.user.role !== "admin") {
+        if(userContext.user.role === "user") {
             setOpen(true)
         }
     }, []);

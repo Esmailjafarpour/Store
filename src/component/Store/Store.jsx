@@ -4,6 +4,28 @@ import {BrandsService,CategoriesService,ProductService} from '../../Service.js';
 import Product from '../Product/Product';
 import ModalComponents from '../ModalComponents/ModalComponents';
 import Slider from '../Slider/Slider';
+import {NavLink,useNavigate} from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 900,
+    bgcolor: '#201f1f',
+    border: '2px solid #808080',
+    borderRadius: '16px',
+    color :"#ffffff",
+    boxShadow: 24,
+    p: 2,
+  };
 
 const Store = () => {
     const userContext = useContext(UserContext);
@@ -15,7 +37,22 @@ const Store = () => {
     const [productsId,setProductsId] = useState([]);
     const [showLoginMessage ,setShowLoginMessage ] = useState(false);
     const [y, setY] = useState(window.scrollY);
-    
+    const [open, setOpen] = React.useState(false);
+    const [showDetail, setShowDetail] = React.useState({
+        id: "",
+        productName: "",
+        price: "",
+        brandId: "",
+        categoryId: "",
+        rating: "",
+        image: "",
+        quantityInStock: "" 
+    });
+       
+    const handleClose = () => (
+        setOpen(false)
+    );
+
     useEffect(() => {
         (async () => {
             let brandResponse = await BrandsService.fetchBrands();
@@ -200,9 +237,79 @@ const Store = () => {
         }
                   
     }
+
+    const showDetailsProduct = async (id) => {
+         let productResponse = await fetch(`http://localhost:5000/products/${id}`,{method:"GET"});
+         let productResponseBody = await productResponse.json();
+        if(productResponse.ok){
+            let productsDetail={
+                id: productResponseBody.id,
+                productName: productResponseBody.productName,
+                price: productResponseBody.price,
+                brandId: productResponseBody.brandId,
+                categoryId: productResponseBody.categoryId,
+                rating: productResponseBody.rating,
+                image: productResponseBody.image,
+                quantityInStock: productResponseBody.quantityInStock  
+            }
+            setShowDetail(productsDetail)
+         }
+        
+         setOpen(true)
+    }
   
     return(
         <>
+             <Modal
+                open={open}
+                onClose={handleClose}
+                style={{backdropFilter: "blur(3px)"}}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                    <Box sx={style} className="content-box2">
+                        <div className="w-100 flex flex-col justify-center">
+                            <div className="flex justify-center">
+                                
+                                <div className="w-50 flex justify-center">
+                                    <Typography id="modal-modal-title" variant="h6" component="h6">
+                                        productName : {showDetail.productName}
+                                    </Typography>
+                                    <Typography id="modal-modal-title" variant="h6" component="h6">
+                                        brand:{showDetail.brandId}
+                                    </Typography>
+                                    <Typography id="modal-modal-title" variant="h6" component="h6">
+                                      category:{showDetail.categoryId}
+                                    </Typography>
+                                    <Typography id="modal-modal-title" variant="h6" component="h6">
+                                      Rating:{showDetail.rating}
+                                    </Typography>
+                                    <Typography id="modal-modal-title" variant="h6" component="h6">
+                                        price:{showDetail.price}
+                                    </Typography>
+                                </div>
+                                <div className="w-50">
+                                    <Card sx={{ maxWidth: 900 }}>
+                                        <CardMedia
+                                            sx={{ height: 250 }}
+                                            image={`../../images/${showDetail.image}`}
+                                            title={showDetail.productName}
+                                        />
+                                    </Card>
+                                </div>
+                            </div>
+                            <button type="button" className="numberShoppingCart text-green-300 border-2 border-neutral-600
+                                        focus:outline-none rounded-lg text-sm px-1 text-center bg-gradient
+                                        mr-2 my-2 mx-auto w-50 dark:hover:text-green-900 dark:hover:bg-green-200 rounded-full px-2 py-2"
+                                        onClick={()=> handleClose()}
+                                        >
+                                <NavLink className="nav-link text-green-600 p-2" activeclassname="active" aria-current="page" to="/">
+                                     Back
+                                </NavLink>
+                            </button>
+                        </div>
+                    </Box>
+            </Modal> 
             <ModalComponents showLoginMessage={showLoginMessage} hiddenLoginMessage={()=>(setShowLoginMessage())}>login</ModalComponents>
             <div className="main">
                 <div className="header grid grid-cols-12 gap-2 z-[1000] px-1 py-2 bg-stone-900 rounded-lg border-[1px] border-stone-700 sticky top-[63px]">
@@ -237,7 +344,6 @@ const Store = () => {
                     </div>
 
                     <div className="grid grid-cols-12 gap-4 py-2 content">
-
                         <div className="content_filter col-span-2 px-2 py-2 mt-3 h-fit bg-stone-800 rounded-lg ">
                             <div className="my-1">
                                 <h5 className="text-amber-100 px-2">Brands</h5>
@@ -298,6 +404,7 @@ const Store = () => {
                                         product={product} 
                                         onAddToCartClick={onAddToCartClick} 
                                         onDeletedToCartClick={onDeletedToCartClick}
+                                        onShowDetailsProduct={showDetailsProduct}
                                     />
                                 ))}
                             </div>
