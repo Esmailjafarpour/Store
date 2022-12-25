@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import {NavLink,useNavigate} from 'react-router-dom';
 import { BoxProps } from '@mui/material/Box';
-import TextField from '../TextField/TextField';
+import TextField from './TextField/TextField';
 import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -107,7 +107,7 @@ const NewProduct  = ({showNewProduct,hiddenNewProduct}) => {
 
           {newProductModalChanges.showLoader? 
             <Box sx={style} className="content-box2">
-              <Stack spacing={2} direction="row">
+              <Stack spacing={2} direction="row mx-auto">
                 <CircularProgress variant="determinate" value={progress} />
               </Stack> 
             </Box>

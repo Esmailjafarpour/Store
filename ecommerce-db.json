@@ -8,7 +8,7 @@
       "gender": "male",
       "country": "3",
       "recieveNewsLetters": true,
-      "role": "user",
+      "role": "admin",
       "imageUser": "user4.png",
       "id": 1
     },
@@ -295,6 +295,46 @@
       "quantityInStock": 5,
       "image": "Carrier-Flair.png",
       "id": 20
+    },
+    {
+      "productName": "P10-lite",
+      "price": 1002,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 4,
+      "quantityInStock": 8,
+      "image": "Apple.png",
+      "id": 21
+    },
+    {
+      "productName": "qq",
+      "price": 1003,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 1,
+      "quantityInStock": 5,
+      "image": "add.png",
+      "id": 22
+    },
+    {
+      "productName": "54564",
+      "price": 1001,
+      "brandId": 3,
+      "categoryId": 2,
+      "rating": 5,
+      "quantityInStock": 7,
+      "image": "Apple-iphone12pro.png",
+      "id": 23
+    },
+    {
+      "productName": "dasdas",
+      "price": 1001,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 5,
+      "quantityInStock": 11,
+      "image": "Carrier.png",
+      "id": 24
     }
   ],
   "orders": [

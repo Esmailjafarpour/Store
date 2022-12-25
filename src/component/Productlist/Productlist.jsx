@@ -3,8 +3,28 @@ import {UserContext} from '../../UserContext.js';
 import {BrandsService,CategoriesService,ProductService,SortService} from '../../Service.js';
 import {NavLink,useNavigate} from 'react-router-dom';
 import NewProduct from '../NewProduct/NewProduct';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: '#201f1f',
+    border: '2px solid #808080',
+    borderRadius: '16px',
+    color :"#ffffff",
+    boxShadow: 24,
+    p: 2,
+  };
+
 
 const Productlist = () => {
+    const userContext = useContext(UserContext);
     const [products, setProducts] = useState([]);
     const [search, setSearch] = useState('');
     const [sortBy, setSortBy] = useState('productName');
@@ -15,6 +35,17 @@ const Productlist = () => {
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("");
     const [showNewProduct, setShowNewProduct] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [open, setOpen] = React.useState(false);
+    const handleClose = () => (
+        setOpen(false)
+      );
+
+    useEffect(() => {
+        if (userContext.user.role !== "admin") {
+            setOpen(true)
+        }
+    }, []);
 
     useEffect(() => {
         (async () => {
@@ -108,6 +139,28 @@ const Productlist = () => {
 
     return(
         <div className="grid grid-rows-12">
+            <Modal
+                open={open}
+                style={{backdropFilter: "blur(30px)"}}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                    <Box sx={style} className="content-box2">
+                        <div className="w-100 flex flex-col justify-center">
+                            <Typography id="modal-modal-title" variant="h6" component="h2">
+                                This page is related to the admin. If you are an admin, please login
+                            </Typography>
+
+                            <button type="button" className="numberShoppingCart text-green-300 border-2 border-neutral-600
+                                        focus:outline-none rounded-lg text-sm px-1 text-center bg-gradient
+                                        mr-2 my-2 mx-auto w-50 dark:hover:text-green-900 dark:hover:bg-green-200 rounded-full px-2 py-2">
+                                <NavLink className="nav-link text-green-600 p-2" activeclassname="active" aria-current="page" to="/login">
+                                     Login
+                                </NavLink>
+                            </button>
+                        </div>
+                    </Box>
+            </Modal> 
             <div className="grid grid-cols-12 p-3 gap-3 border-amber-500 rounded-lg mt-2">
                 <div className="numberProduct_search col-span-8">
                     <div className="grid grid-cols-12">
