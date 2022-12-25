@@ -1,8 +1,8 @@
 import React,{useState,useEffect,useContext,useMemo} from 'react';
-import {UserContext} from '../UserContext.js';
-import {BrandsService,CategoriesService,ProductService,SortService} from '../Service.js';
+import {UserContext} from '../../UserContext.js';
+import {BrandsService,CategoriesService,ProductService,SortService} from '../../Service.js';
 import {NavLink,useNavigate} from 'react-router-dom';
-import NewProduct from './NewProduct';
+import NewProduct from '../NewProduct/NewProduct';
 
 const Productlist = () => {
     const [products, setProducts] = useState([]);

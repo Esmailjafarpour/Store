@@ -7,7 +7,7 @@ const Order = (props) => {
         {props.isPaymentCompleted === false ?
             <>
                 <div class="product bg-indigo-300 rounded-sm h-60 mb-3">
-                    <img class="object-cover w-100 h-30 ..." src={require(`../images/${props.imageProduct}`)} alt={props.productName}/>
+                    <img class="object-cover w-100 h-30 ..." src={require(`../../images/${props.imageProduct}`)} alt={props.productName}/>
                 </div>
                 <h6>
                     <i className="fa fa-arrow-right"></i>{props.productName}
@@ -75,7 +75,7 @@ const Order = (props) => {
                 </div>
 
                  <div class="product bg-indigo-300 rounded-full h-60 mb-3">
-                    <img class="object-cover w-100 h-30 ..." src={require(`../images/${props.imageProduct}`)} alt={props.productName}/>
+                    <img class="object-cover w-100 h-30 ..." src={require(`../../images/${props.imageProduct}`)} alt={props.productName}/>
                 </div> 
             </div>                
            

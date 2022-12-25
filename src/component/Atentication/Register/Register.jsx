@@ -1,6 +1,8 @@
 import React , {useState,useEffect,useContext,useRef} from 'react';
 import { useNavigate } from "react-router-dom";
-import {UserContext} from '../UserContext';
+import {UserContext} from '../../../UserContext';
+import Button from '@mui/material/Button';
+// import CloseIcon from '@mui/icons-material/Close';
 
 const Register = (props) => {
 
@@ -11,7 +13,8 @@ const Register = (props) => {
         dateOfBrith:"",
         gender:"",
         country:"",
-        recieveNewsLetters:""
+        recieveNewsLetters:"",
+        imageUser:""
     });
 
     const [countries, setCountries] = useState([
@@ -32,7 +35,8 @@ const Register = (props) => {
         dateOfBrith:[],
         gender:[],
         country:[],
-        recieveNewsLetters:[]
+        recieveNewsLetters:[],
+        imageUser:[]
     });
 
     const [dirty, setDirty] = useState({
@@ -42,7 +46,8 @@ const Register = (props) => {
         dateOfBrith:false,
         gender:false,
         country:false,
-        recieveNewsLetters:false
+        recieveNewsLetters:false,
+        imageUser:false
     });
 
     const [message, setMessage] = useState();
@@ -121,6 +126,14 @@ const Register = (props) => {
              errorsData.country.push("Please select a Country")
         }
 
+
+        // image
+        errorsData.imageUser = [];
+
+        if(!state.imageUser){
+            errorsData.imageUser.push("There is no photo")
+        }
+
         setErrors(errorsData)
 
     }
@@ -163,6 +176,7 @@ const Register = (props) => {
                     country : state.country,
                     recieveNewsLetters : state.recieveNewsLetters,
                     role : "user",
+                    imageUser : state.imageUser
                 }),
                 headers : {
                     "Content-type": "application/json",
@@ -171,12 +185,14 @@ const Register = (props) => {
 
             if (response.ok){
                 const responseBody = await response.json()
+                console.log("responseBody",responseBody)
                 userContext.dispatch({
                     type : "register",
                     payload:{
                         currentUserId : responseBody.id,
                         currentUserName : responseBody.fullName,
                         currentUserRole : responseBody.role,
+                        imageUser : responseBody.imageUser
                     }
                 })
                 setMessage(<span className="text-success">SuccessFully Registered</span>);
@@ -195,6 +211,7 @@ const Register = (props) => {
 
     return(
        <div className="row row-register mx-auto">
+
          <div className="col-md-6 border-2 border-stone-800  rounded-3 mt-5 p-3 bg-zinc-900">
             <div className="shadow-lg my-2 rounded-3 overflow-hidden p-3 bg-zinc-800 border-2 border-stone-900">
                 <div className="card-header">
@@ -384,6 +401,30 @@ const Register = (props) => {
                         </div>
                         
                     </div>
+
+                    <div className="row mb-3">
+                        <Button
+                            variant="contained"
+                            component="label"
+                            sx={{backgroundColor: "green"}}
+                            // onClick={()=>errors.image && errors.image.length ===0 ? isValid():""}
+                            >
+                            Upload File
+                            <input
+                                type="file"
+                                name="imageUser"
+                                onChange={(e)=> (setState({...state,[e.target.name]:e.target.value.slice(12, e.target.value.length)})
+                                )}
+                                hidden
+                            />
+                        </Button>
+
+                         <div className="text-warning">
+                            {dirty["imageUser"]&&errors['imageUser'][0] ? errors['imageUser'] : ""}
+                        </div>
+
+                     </div> 
+
                 </div>
 
                 {/* footer */}

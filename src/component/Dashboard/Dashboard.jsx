@@ -1,7 +1,7 @@
 import React , {useState,useEffect,useContext,useCallback} from 'react';
-import {UserContext} from '../UserContext';
-import Order from './Order';
-import {OrdersService,ProductService} from '../Service';
+import {UserContext} from '../../UserContext.js';
+import Order from '../../component/Order/Order';
+import {OrdersService,ProductService} from '../../Service.js';
 
 const Dashboard = () => {
 
@@ -45,6 +45,7 @@ const Dashboard = () => {
     
 
     useEffect(() => {
+        console.log('Dashboard')
         document.title = 'Dashboard';
         loadDataFromDataBase();
     },[userContext.user.currentUserId,loadDataFromDataBase]);
@@ -61,6 +62,7 @@ const Dashboard = () => {
                 quantity: quantity,
                 imageProduct:imageProduct,
                 isPaymentCompleted: true,
+                
             }
             let orderResponse = await fetch(
                 `http://localhost:5000/orders/${orderId}`,{

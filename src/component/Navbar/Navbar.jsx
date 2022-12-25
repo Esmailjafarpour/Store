@@ -1,6 +1,6 @@
 import React ,{useState,useContext} from 'react';
 import {NavLink,useNavigate} from 'react-router-dom';
-import {UserContext} from '../UserContext';
+import {UserContext} from '../../UserContext';
 
 
 const Navbar = () => {
@@ -103,7 +103,7 @@ const Navbar = () => {
                                         <span className="text-yellow-500 m-1">Hello</span>
                                         {<span className="text-green-300">{userContext.user.currentUserName}</span>}
                                     </div>
-                                    <img class="object-cover w-8 h-8 rounded-full border-[2px] border-stone-500 p-1" src={require(`../images/${userContext.user.imageUser}`)}/>
+                                    <img class="object-cover w-8 h-8 rounded-full border-[2px] border-stone-500 p-1" src={require(`../../images/${userContext.user.imageUser}`)}/>
                                 </NavLink>
                                 <NavLink className=" selected w-24 h-10 p-2 rounded-lg no-underline" to="#" onClick={onLogOutClick}>
                                         <i className="fa fa-sign-out" aria-hidden="true"></i>

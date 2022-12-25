@@ -1,9 +1,9 @@
 import React,{useState,useEffect,useContext} from 'react';
-import {UserContext} from '../UserContext.js';
-import {BrandsService,CategoriesService,ProductService} from '../Service.js';
-import Product from './Product';
-import ModalComponents from './ModalComponents';
-import Slider from './Slider';
+import {UserContext} from '../../UserContext.js';
+import {BrandsService,CategoriesService,ProductService} from '../../Service.js';
+import Product from '../Product/Product';
+import ModalComponents from '../ModalComponents/ModalComponents';
+import Slider from '../Slider/Slider';
 
 const Store = () => {
     const userContext = useContext(UserContext);
@@ -93,8 +93,10 @@ const Store = () => {
                 totalOrders += element
             }
         });
+        
 
-        userContext.dispatch({
+        if(userContext.user.currentUserId){
+            userContext.dispatch({
                 type:"login",
                 payload:{
                     currentUserId : userContext.user.currentUserId,
@@ -103,8 +105,9 @@ const Store = () => {
                     orderNumber : totalOrders,
                     imageUser :userContext.user.imageUser
                 },
-            })  
-            
+                })  
+        }
+    
     }
 
     const onAddToCartClick = (product) => {

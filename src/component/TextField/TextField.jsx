@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import {BrandsService,CategoriesService}from '../Service.js';
+import {BrandsService,CategoriesService}from '../../Service.js';
 import {NavLink,useNavigate} from 'react-router-dom';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';

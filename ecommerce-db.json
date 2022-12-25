@@ -1,4 +1,54 @@
 {
+  "users": [
+    {
+      "email": "naderjafarpour@gmail.com",
+      "password": "ASDzxc12",
+      "fullName": "Nader",
+      "dateOfBrith": "2022-12-13",
+      "gender": "male",
+      "country": "3",
+      "recieveNewsLetters": true,
+      "role": "user",
+      "imageUser": "user4.png",
+      "id": 1
+    },
+    {
+      "email": "esmailjafarpour29@gmail.com",
+      "password": "123ASDzxc",
+      "fullName": "Esmail",
+      "dateOfBrith": "2022-12-13",
+      "gender": "male",
+      "country": "8",
+      "recieveNewsLetters": true,
+      "role": "user",
+      "imageUser": "user4.png",
+      "id": 2
+    },
+    {
+      "email": "farzadyazdanpanah@gmail.com",
+      "password": "123zxcASD",
+      "fullName": "Farzad",
+      "dateOfBrith": "2022-12-13",
+      "gender": "male",
+      "country": "8",
+      "recieveNewsLetters": false,
+      "role": "user",
+      "imageUser": "user2.png",
+      "id": 3
+    },
+    {
+      "email": "mohammadSadat@gmail.com",
+      "password": "123ASDzxc",
+      "fullName": "Mohammad",
+      "dateOfBrith": "2022-12-13",
+      "gender": "male",
+      "country": "6",
+      "recieveNewsLetters": "",
+      "role": "user",
+      "imageUser": "user3.png",
+      "id": 4
+    }
+  ],
   "brands": [
     {
       "id": 1,

@@ -1,13 +1,14 @@
 import React ,{useState,useEffect,useContext,useRef} from 'react';
 import { useNavigate } from "react-router-dom";
-import {UserContext} from '../UserContext';
+import {UserContext} from '../../../UserContext';
 
 const Login = (props) => {
 
     const userContext = useContext(UserContext);
 
     const [email, setEmail] = useState('naderjafarpour@gmail.com');
-    const [password, setPassword] = useState('AS2300592045gf');
+    const [password, setPassword] = useState('ASDzxc12');
+    const [showBtnRegister, setShowBtnRegister] = useState('hidden');
 
     const [dirty, setDirty] = useState({
         email:false,
@@ -84,13 +85,14 @@ const Login = (props) => {
             if (response.ok) {
                 let responseBody = await response.json();
                 if (responseBody.length>0) {
+                    console.log(responseBody[0])
                     userContext.dispatch({
                         type:"login",
                         payload:{
                             currentUserId : responseBody[0].id,
                             currentUserName : responseBody[0].fullName,
                             currentUserRole : responseBody[0].role,
-                            imageUser: responseBody[0].image,
+                            imageUser: responseBody[0].imageUser,
                             orderNumber:0,
                         },
                     })
@@ -107,9 +109,14 @@ const Login = (props) => {
                 }
                 
             }else{
-                setLoginMessage(<span className="text-danger">Unable to connect to server</span>)
+                setLoginMessage(<span className="text-danger">Username or password is not correct or you have not registered before</span>)
+                setShowBtnRegister("black")
             }
         }
+    }
+
+    const onRegisterClick = () => {
+        navigate("/register")
     }
 
     const isValid = () => {
@@ -173,13 +180,22 @@ const Login = (props) => {
                         </div>
                     </div>
                     <div className="card-footer text-center mt-3">
-                        <div className="m-1">{loginMessage}</div>
-                        <button className="w-50 text-teal-600 border-2 border-stone-500
+                        <div className="m-1 w-60 mx-auto">{loginMessage}</div>
+                        <div className="flex justify-center">
+                            <button className="w-40 text-teal-600 border-2 border-stone-500
                                 focus:outline-none rounded-lg text-sm px-3 py-2 text-center 
                                 mr-2 mb-1 dark:hover:text-green-600 dark:hover:bg-green-100"
                                 onClick={onLoginClick}>
                             Login
                         </button>
+                        <button className={`${showBtnRegister} w-40 text-teal-600 border-2 border-stone-500
+                                focus:outline-none rounded-lg text-sm px-3 py-2 text-center 
+                                mr-2 mb-1 dark:hover:text-green-600 dark:hover:bg-green-100`}
+                                onClick={onRegisterClick}>
+                            Register
+                        </button>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

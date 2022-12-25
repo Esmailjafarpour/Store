@@ -1,14 +1,14 @@
 import './App.css';
 import React,{useState,useReducer} from 'react';
-import Login from './component/Login';
-import Register from './component/Register';
-import NoMatchPage from './component/NoMatchPage';
-import Dashboard from './component/Dashboard';
-import Navbar from './component/Navbar.jsx';
-import Footer from './component/Footer.jsx';
-import Store from './component/Store.jsx';
-import Productlist from './component/Productlist.jsx';
-import NewProduct from './component/NewProduct.jsx';
+import Login from './component/Atentication/Login/Login';
+import Register from './component/Atentication/Register/Register';
+import NoMatchPage from './component/NoMatchPage/NoMatchPage';
+import Dashboard from './component/Dashboard/Dashboard';
+import Navbar from './component/Navbar/Navbar.jsx';
+import Footer from './component/Footer/Footer.jsx';
+import Store from './component/Store/Store.jsx';
+import Productlist from './component/Productlist/Productlist.jsx';
+import NewProduct from './component/NewProduct/NewProduct.jsx';
 import {UserContext} from './UserContext';
 import {Route,Routes,BrowserRouter} from 'react-router-dom';
 
@@ -19,6 +19,7 @@ let initialUser = {
   currentUserName:null,
   currentUserRole:null,
   orderNumber:null,
+  imageUser:null
 }
 
 let reducer = (state,action)=>{
@@ -29,8 +30,8 @@ let reducer = (state,action)=>{
         currentUserId:action.payload.currentUserId,
         currentUserName:action.payload.currentUserName,
         currentUserRole:action.payload.currentUserRole,
-        orderNumber : action.payload.orderNumber,
-        imageUser : action.payload.imageUser,
+        orderNumber:action.payload.orderNumber,
+        imageUser:action.payload.imageUser,
       }
 
     case "logout":

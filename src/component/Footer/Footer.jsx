@@ -1,5 +1,5 @@
 import React,{useState,useEffect,useContext} from 'react';
-import {UserContext} from '../UserContext.js';
+import {UserContext} from '../../UserContext.js';
 const Footer = () => {
 
     const userContext = useContext(UserContext);
@@ -13,7 +13,7 @@ const Footer = () => {
                 {userContext.brands.brands && userContext.brands.brands.map((brand)=>(
                     <div key={brand.id} className="lg:mb-0 mb-8 cursor-pointer">
                         <img
-                        src={require(`../images/${brand.brandImage}`)}
+                        src={require(`../../images/${brand.brandImage}`)}
                         className="w-full rounded-md shadow-lg w-36 h-32 transition ease-in-out hover:-translate-y-1 hover:scale-10 hover:bg-indigo-500 duration-700"
                         />
                     </div>

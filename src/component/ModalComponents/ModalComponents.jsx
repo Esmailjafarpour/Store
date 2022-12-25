@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import Login from './Login';
+import Login from '../Atentication/Login/Login';
 import {NavLink,useNavigate} from 'react-router-dom';
 
 

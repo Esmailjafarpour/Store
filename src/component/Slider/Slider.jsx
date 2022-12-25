@@ -8,10 +8,10 @@ const Slider = () => (
         </div>
         <div className="carousel-inner  d-inline-block">
             <div className="carousel-item active h-15" data-bs-interval="10000">
-                <img src={require("../images/ipad-pro-11.png")} className="d-block w-100 h-15" alt="..."/>
+                <img src={require("../../images/ipad-pro-11.png")} className="d-block w-100 h-15" alt="..."/>
             </div>
             <div className="carousel-item h-15" data-bs-interval="2000">
-                <img src={require("../images/Apple-iphone12pro.png")} className="d-block w-100 h-15" alt="..."/>
+                <img src={require("../../images/Apple-iphone12pro.png")} className="d-block w-100 h-15" alt="..."/>
             </div>
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
