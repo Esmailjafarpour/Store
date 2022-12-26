@@ -12,19 +12,31 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import "./store.css";
+
 
 const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 900,
-    bgcolor: '#201f1f',
-    border: '2px solid #808080',
-    borderRadius: '16px',
-    color :"#ffffff",
-    boxShadow: 24,
-    p: 2,
+
+    styleBox :{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 900,
+        bgcolor: '#201f1f',
+        border: '2px solid #808080',
+        borderRadius: '16px',
+        color :"#ffffff",
+        boxShadow: 24,
+        p: 2,
+    },
+    
+    media: {
+        height: 200,
+      }
   };
 
 const Store = () => {
@@ -267,46 +279,86 @@ const Store = () => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                    <Box sx={style} className="content-box2">
-                        <div className="w-100 flex flex-col justify-center">
-                            <div className="flex justify-center">
-                                
-                                <div className="w-50 flex justify-center">
-                                    <Typography id="modal-modal-title" variant="h6" component="h6">
+                    <Box sx={style.styleBox} className="content-box2">
+
+                        <div className="w-100 flex flex-col justify-center ">
+
+                            <Box sx={{display: 'flex' , justifyContent: 'space-evenly' , margin : '20px'}}>
+
+                                <Box sx={{ bgcolor: 'text.disabled', color: 'background.paper', p: 2 , borderRadius : "8px" }}>
+
+                                    <Typography 
+                                        id="modal-modal-title" variant="h6" component="h6"
+                                        sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
+                                    >
                                         productName : {showDetail.productName}
                                     </Typography>
-                                    <Typography id="modal-modal-title" variant="h6" component="h6">
-                                        brand:{showDetail.brandId}
+
+                                    <Typography 
+                                        id="modal-modal-title" variant="h6" component="h6"
+                                        sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
+                                    >
+                                        brand : {brands.map((brand)=>(
+                                            brand.id === showDetail.brandId?brand.brandName:""
+                                            
+                                        ))}
                                     </Typography>
-                                    <Typography id="modal-modal-title" variant="h6" component="h6">
-                                      category:{showDetail.categoryId}
+
+                                    <Typography 
+                                        id="modal-modal-title" variant="h6" component="h6"
+                                        sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
+                                    >
+                                        category : {categories.map((category)=>(
+                                            category.id === showDetail.categoryId?category.categoryName:"" 
+                                        ))}
                                     </Typography>
-                                    <Typography id="modal-modal-title" variant="h6" component="h6">
-                                      Rating:{showDetail.rating}
+
+                                    <Typography 
+                                        id="modal-modal-title" variant="h6" component="h6"
+                                        sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
+                                    >
+                                        <div className="flex">
+                                            <span>Rating :</span>
+                                            {"    "}
+                                            <Stack spacing={1} className="flex justify-center">
+                                                <Rating name="half-rating-read" defaultValue={showDetail.rating} precision={showDetail.rating} size="small"/>
+                                            </Stack>
+                                        </div>
+                                       
+                                        
                                     </Typography>
-                                    <Typography id="modal-modal-title" variant="h6" component="h6">
-                                        price:{showDetail.price}
+
+                                    <Typography 
+                                        id="modal-modal-title" variant="h6" component="h6"
+                                        sx={{ fontSize : "18px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
+                                    >
+                                        price : {showDetail.price}
                                     </Typography>
-                                </div>
-                                <div className="w-50">
+
+                                </Box>
+
+                                <Box sx={{ bgcolor: 'text.disabled', color: 'background.paper', p: 2 , width : 350 , borderRadius : "8px"}}>
                                     <Card sx={{ maxWidth: 900 }}>
                                         <CardMedia
-                                            sx={{ height: 250 }}
-                                            image={`../../images/${showDetail.image}`}
+                                            component="img"
+                                            alt={`${showDetail.image}`}
+                                            height={200}
+                                            src={require(`../../images/${showDetail.image}`)}
                                             title={showDetail.productName}
                                         />
                                     </Card>
-                                </div>
-                            </div>
-                            <button type="button" className="numberShoppingCart text-green-300 border-2 border-neutral-600
-                                        focus:outline-none rounded-lg text-sm px-1 text-center bg-gradient
-                                        mr-2 my-2 mx-auto w-50 dark:hover:text-green-900 dark:hover:bg-green-200 rounded-full px-2 py-2"
-                                        onClick={()=> handleClose()}
-                                        >
-                                <NavLink className="nav-link text-green-600 p-2" activeclassname="active" aria-current="page" to="/">
-                                     Back
-                                </NavLink>
-                            </button>
+                                </Box>
+
+                            </Box>
+
+                            <Button type="button" className="text-red-600 border-2 border-neutral-600
+                                focus:outline-none rounded-lg text-center bg-gradient
+                                mx-auto w-40 dark:hover:text-red-900 dark:hover:bg-green-100"
+                                onClick={()=> handleClose()}
+                            >
+                              Back
+                            </Button>
+
                         </div>
                     </Box>
             </Modal> 
