@@ -62,7 +62,17 @@ const Store = () => {
     });
        
     const handleClose = () => (
-        setOpen(false)
+        setOpen(false),
+        setShowDetail({
+            id: "",
+            productName: "",
+            price: "",
+            brandId: "",
+            categoryId: "",
+            rating: "",
+            image: "",
+            quantityInStock: "" 
+        })
     );
 
     useEffect(() => {
@@ -271,97 +281,98 @@ const Store = () => {
     }
   
     return(
-        <>
-             <Modal
-                open={open}
-                onClose={handleClose}
-                style={{backdropFilter: "blur(3px)"}}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                    <Box sx={style.styleBox} className="content-box2">
+        <>   {showDetail.id !== "" ?
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+                    style={{backdropFilter: "blur(3px)"}}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                        <Box sx={style.styleBox} className="content-box2">
 
-                        <div className="w-100 flex flex-col justify-center ">
+                            <div className="w-100 flex flex-col justify-center ">
 
-                            <Box sx={{display: 'flex' , justifyContent: 'space-evenly' , margin : '20px'}}>
+                                <Box sx={{display: 'flex' , justifyContent: 'space-evenly' , margin : '20px'}}>
 
-                                <Box sx={{ bgcolor: 'text.disabled', color: 'background.paper', p: 2 , borderRadius : "8px" }}>
+                                    <Box sx={{ bgcolor: 'text.disabled', color: 'background.paper', p: 2 , borderRadius : "8px" }}>
 
-                                    <Typography 
-                                        id="modal-modal-title" variant="h6" component="h6"
-                                        sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
-                                    >
-                                        productName : {showDetail.productName}
-                                    </Typography>
+                                        <Typography 
+                                            id="modal-modal-title" variant="h6" component="h6"
+                                            sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
+                                        >
+                                            productName : {showDetail.productName}
+                                        </Typography>
 
-                                    <Typography 
-                                        id="modal-modal-title" variant="h6" component="h6"
-                                        sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
-                                    >
-                                        brand : {brands.map((brand)=>(
-                                            brand.id === showDetail.brandId?brand.brandName:""
-                                            
-                                        ))}
-                                    </Typography>
+                                        <Typography 
+                                            id="modal-modal-title" variant="h6" component="h6"
+                                            sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
+                                        >
+                                            brand : {brands.map((brand)=>(
+                                                brand.id === showDetail.brandId?brand.brandName:""
+                                                
+                                            ))}
+                                        </Typography>
 
-                                    <Typography 
-                                        id="modal-modal-title" variant="h6" component="h6"
-                                        sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
-                                    >
-                                        category : {categories.map((category)=>(
-                                            category.id === showDetail.categoryId?category.categoryName:"" 
-                                        ))}
-                                    </Typography>
+                                        <Typography 
+                                            id="modal-modal-title" variant="h6" component="h6"
+                                            sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
+                                        >
+                                            category : {categories.map((category)=>(
+                                                category.id === showDetail.categoryId?category.categoryName:"" 
+                                            ))}
+                                        </Typography>
 
-                                    <Typography 
-                                        id="modal-modal-title" variant="h6" component="h6"
-                                        sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
-                                    >
-                                        <div className="flex">
-                                            <span>Rating :</span>
-                                            {"    "}
-                                            <Stack spacing={1} className="flex justify-center">
-                                                <Rating name="half-rating-read" defaultValue={showDetail.rating} precision={showDetail.rating} size="small"/>
-                                            </Stack>
-                                        </div>
-                                       
+                                        <Typography 
+                                            id="modal-modal-title" variant="h6" component="h6"
+                                            sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
+                                        >
+                                            <div className="flex">
+                                                <span>Rating :</span>
+                                                {"    "}
+                                                <Stack spacing={1} className="flex justify-center">
+                                                    <Rating name="half-rating-read" defaultValue={showDetail.rating} precision={showDetail.rating} size="small"/>
+                                                </Stack>
+                                            </div>
                                         
-                                    </Typography>
+                                            
+                                        </Typography>
 
-                                    <Typography 
-                                        id="modal-modal-title" variant="h6" component="h6"
-                                        sx={{ fontSize : "18px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
-                                    >
-                                        price : {showDetail.price}
-                                    </Typography>
+                                        <Typography 
+                                            id="modal-modal-title" variant="h6" component="h6"
+                                            sx={{ fontSize : "18px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
+                                        >
+                                            price : {showDetail.price}
+                                        </Typography>
+
+                                    </Box>
+
+                                    <Box sx={{ bgcolor: 'text.disabled', color: 'background.paper', p: 2 , width : 350 , borderRadius : "8px"}}>
+                                        <Card sx={{ maxWidth: 900 }}>
+                                            <CardMedia
+                                                component="img"
+                                                alt={`${showDetail.image}`}
+                                                height={200}
+                                                src={require(`../../images/${showDetail.image}`)}
+                                                title={showDetail.productName}
+                                            />
+                                        </Card>
+                                    </Box>
 
                                 </Box>
 
-                                <Box sx={{ bgcolor: 'text.disabled', color: 'background.paper', p: 2 , width : 350 , borderRadius : "8px"}}>
-                                    <Card sx={{ maxWidth: 900 }}>
-                                        <CardMedia
-                                            component="img"
-                                            alt={`${showDetail.image}`}
-                                            height={200}
-                                            src={require(`../../images/${showDetail.image}`)}
-                                            title={showDetail.productName}
-                                        />
-                                    </Card>
-                                </Box>
+                                <Button type="button" className="text-red-600 border-2 border-neutral-600
+                                    focus:outline-none rounded-lg text-center bg-gradient
+                                    mx-auto w-40 dark:hover:text-red-900 dark:hover:bg-green-100"
+                                    onClick={()=> handleClose()}
+                                >
+                                Back
+                                </Button>
 
-                            </Box>
-
-                            <Button type="button" className="text-red-600 border-2 border-neutral-600
-                                focus:outline-none rounded-lg text-center bg-gradient
-                                mx-auto w-40 dark:hover:text-red-900 dark:hover:bg-green-100"
-                                onClick={()=> handleClose()}
-                            >
-                              Back
-                            </Button>
-
-                        </div>
-                    </Box>
-            </Modal> 
+                            </div>
+                        </Box>
+                </Modal> 
+            :""}
             <ModalComponents showLoginMessage={showLoginMessage} hiddenLoginMessage={()=>(setShowLoginMessage())}>login</ModalComponents>
             <div className="main">
                 <div className="header grid grid-cols-12 gap-2 z-[1000] px-1 py-2 bg-stone-900 rounded-lg border-[1px] border-stone-700 sticky top-[63px]">
