@@ -65,7 +65,7 @@ const Store = () => {
         setOpen(false),
         setShowDetail({
             id: "",
-            productName: "",
+            productName: "" ,
             price: "",
             brandId: "",
             categoryId: "",
