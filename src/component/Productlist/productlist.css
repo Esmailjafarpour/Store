@@ -1,0 +1,139 @@
+@media (max-width: 320px) {
+
+    .numberProduct_search{
+        grid-column: span 12 / span 12;
+    }
+
+    .numberProduct_search h4{
+        grid-column: span 12 / span 12;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .numberProduct_search input{
+        grid-column: span 12 / span 12;
+    }
+
+    .createNewProduct{
+        grid-column: span 12 / span 12;
+        padding: 8px 0;
+        margin-top: 10px;
+    }
+
+    .SortByCategory{
+        grid-column: span 12 / span 12;
+    }
+
+    .rating_star{
+        font-size: 8px;
+    }
+
+} 
+
+@media (min-width: 321px) and (max-width: 480px) {
+   
+    .numberProduct_search{
+        grid-column: span 12 / span 12;
+    }
+
+    .numberProduct_search h4{
+        grid-column: span 12 / span 12;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .numberProduct_search input{
+        grid-column: span 12 / span 12;
+    }
+
+    .createNewProduct{
+        grid-column: span 12 / span 12;
+        padding: 8px 0;
+        margin-top: 10px;
+    }
+
+    .SortByCategory{
+        grid-column: span 12 / span 12;
+    }
+
+    .rating_star{
+        font-size: 10px;
+    }
+
+
+}
+
+@media (min-width: 481px) and (max-width: 767px){
+
+    .numberProduct_search{
+        grid-column: span 12 / span 12 !important;
+    }
+
+    .numberProduct_search h4{
+        grid-column: span 12 / span 12;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .numberProduct_search input{
+        grid-column: span 12 / span 12;
+    }
+
+    .createNewProduct{
+        grid-column: span 12 / span 12;
+        padding: 8px 0;
+        margin-top: 10px;
+    }
+
+    .SortByCategory{
+        grid-column: span 12 / span 12;
+    }
+
+    .rating_star{
+        font-size: 12px;
+    }
+    
+
+}
+
+@media (min-width: 768px) and (max-width: 900px){
+
+    .numberProduct_search{
+        grid-column: span 12 / span 12;
+    }
+
+    .SortByCategory{
+        grid-column: span 12 / span 12;
+    }
+
+    .rating_star{
+        font-size: 15px;
+    }
+
+}
+
+@media (min-width: 901px) and (max-width: 1200px){
+
+    .numberProduct_search{
+        grid-column: span 12 / span 12;
+    }
+
+    .SortByCategory{
+        grid-column: span 12 / span 12;
+    }
+
+
+    
+} 
+
+@media (min-width: 1200px){
+
+    
+
+}
+
+@media (min-width: 2560px){
+
+  
+     
+}

@@ -1,6 +1,7 @@
 import React ,{useState,useEffect,useContext,useRef} from 'react';
 import { useNavigate } from "react-router-dom";
 import {UserContext} from '../../../UserContext';
+import "./login.css";
 
 const Login = (props) => {
 
@@ -130,7 +131,7 @@ const Login = (props) => {
     
     return(
         <div className="row row-login">
-            <div className="col-md-4 border-2 border-stone-800 mx-auto rounded-3 mt-5 p-3 bg-zinc-900">
+            <div className="col-md-6 border-2 border-stone-800 mx-auto rounded-3 mt-5 p-3 bg-zinc-900">
                 <div className="shadow-lg my-2 rounded-3 overflow-hidden p-2 bg-zinc-800 border-2 border-stone-900">
                     <div className="card-header bg-dark">
                         <h4 style={{fontSize:'40px'}}className="title-login text-center">

@@ -231,51 +231,7 @@ i{
 
 @media (max-width: 320px) {
 
-    .navbar-collapse{
-        margin: 20px 0;
-        display: flex;
-        flex-direction: column-reverse;
-        align-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-
-    .navbar-collapse ul{
-        margin-top: 15px;
-    }
-
-    .navbar-brand{
-        font-size: 14px !important;
-        color: #e9af2c !important;
-    }
-
-    .numberShoppingCart{
-        margin: 16px 0;
-    }
-
-    .MuiModal-root .MuiBox-root{
-        width: 90%;
-    }
-
-    .header{
-        display: grid;
-        grid-template-columns: repeat(12, minmax(0, 1fr));
-        position: relative !important;
-        top: 5px;
-    }
-
-    .title-login{
-        font-size: 22px !important;
-    }
-
-    .title_store{
-        grid-column: span 12 / span 12;
-    }
-    
-    .header-search{
-        width: 100%;
-        grid-column: span 12 / span 12;
-    }
+   
 
     .main{
         z-index: 0 !important;
@@ -287,29 +243,7 @@ i{
         top: 0px;
     }
 
-    .content{
-        display: grid;
-        grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
-        grid-column: span 1 / span 1;
-    }
-
-    .content_filter{
-        grid-column: span 8 / span 8 !important;
-        position: relative;
-        top: 0px;
-    }
-
-    .content_filter div ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-
-   .content_filter div h5 {
-        font-size: 13px;
-        text-align: center;
-    }
+   
 
     .content-table{
         width: 80vw;
@@ -325,23 +259,9 @@ i{
         padding: 3px 5px!important;
    }
 
-
    label{
     font-size: 10px;
    }
-
-    .footer_brands{
-        grid-template-columns: 3fr 3fr 3fr;
-        gap: 0 5px; 
-    }
-
-    .footer_brands div{
-        margin-bottom: 15px; 
-    }
-
-    .footer_brands div img{
-        height: 56px; 
-    }
 
     .previous_order .card div{
         display: flex;
@@ -355,8 +275,7 @@ i{
     }
 
     .Unconfirmed_Orders .order-card{
-        grid-column: span 1 / span 1;
-        
+        grid-column: span 1 / span 1;  
     }
 
     .Unconfirmed_Orders .quantity_price{
@@ -387,119 +306,25 @@ i{
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
-    .header-dashboard h4{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100px;
-    }
-
     .card_order{
         grid-column: span 2 / span 2;
     }
 
-    .numberProduct_search{
-        grid-column: span 12 / span 12;
-    }
-
-    .numberProduct_search h4{
-        grid-column: span 12 / span 12;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .numberProduct_search input{
-        grid-column: span 12 / span 12;
-    }
-
-    .createNewProduct{
-        grid-column: span 12 / span 12;
-        padding: 8px 0;
-        margin-top: 10px;
-    }
-
-    .SortByCategory{
-        grid-column: span 12 / span 12;
-    }
 
     table{
         font-size: 10px;
         overflow-x: auto;
     }
 
-    .rating_star{
-        font-size: 6px;
-    }
-
-    .productName{
+    /* .productName{
         font-size: 10px;
-    }
+    } */
 
-    .row-login {
-        width: 95% !important;
-        margin: 0 auto !important;
-    }
-
-    .row-register{
-        width: 100%;
-    }
-
-    .title-register{
-        font-size: 20px !important;
-    }
-
-
+    
 } 
 
 @media (min-width: 321px) and (max-width: 480px) {
-    .navbar-collapse{
-        margin: 20px 0;
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    .navbar-collapse div{
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .navbar-collapse ul{
-        margin-top: 10px;
-        padding: 0;
-    }
-
-    .navbar-brand{
-        font-size: 16px !important;
-        color: #e9af2c !important;
-    }
-
-    .navbar-collapse ul li {
-        text-align: center;
-    }
-
-    .MuiModal-root .MuiBox-root{
-        width: 90%;
-    }
-
-    .header{
-        display: grid;
-        grid-template-columns: repeat(12, minmax(0, 1fr));
-        position: relative !important;
-        top: 5px;
-    }
-
-    .title_store{
-        grid-column: span 12 / span 12;
-    }
-
-    .title-login{
-        font-size: 25px !important;
-    }
-    
-    .header-search{
-        width: 100%;
-        grid-column: span 12 / span 12;
-    }
+ 
 
     .main{
         z-index: 0 !important;
@@ -511,37 +336,7 @@ i{
         top: 0px;
     }
 
-    .content{
-        display: grid;
-        grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
-        grid-column: span 1 / span 1;
-    }
-
-    .content_filter{
-        grid-column: span 8 / span 8 !important;
-        /* position: sticky;
-        top: 70px; */
-        position: relative;
-        top: 0px;
-    }
-
-    .content_filter div ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
     
-    .content_filter div h5 {
-        font-size: 13px;
-        text-align: center;
-    }
-
-    .content_filter div ul li{
-        width: 32%;
-        padding: 3px 5px!important;
-    }
-
     .content-table{
         width: 85vw;
         overflow-x: scroll;
@@ -559,26 +354,6 @@ i{
         display: flex;
         justify-content: center;
    }
-
-   .footer_brands{
-        grid-template-columns: 3fr 3fr 3fr;
-        gap: 0 5px; 
-    }
-
-    .footer_brands div{
-        margin-bottom: 15px; 
-    }
-
-    .footer_brands div img{
-        height: 56px; 
-    }
-
-    .header-dashboard h4{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100px;
-    }
 
     .Unconfirmed_Orders {
         display: grid;
@@ -628,100 +403,17 @@ i{
         grid-column: span 2 / span 2;
     }
 
-    .numberProduct_search{
-        grid-column: span 12 / span 12;
-    }
 
-    .numberProduct_search h4{
-        grid-column: span 12 / span 12;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .numberProduct_search input{
-        grid-column: span 12 / span 12;
-    }
-
-    .createNewProduct{
-        grid-column: span 12 / span 12;
-        padding: 8px 0;
-        margin-top: 10px;
-    }
-
-    .SortByCategory{
-        grid-column: span 12 / span 12;
-    }
 
     table{
         font-size: 10px;
         overflow-x: auto;
     }
 
-    .rating_star{
-        font-size: 8px;
-    }
-
     
-
-
-    .row-login {
-        width: 95% !important;
-        margin: 0 auto !important;
-    }
-
-    .title-register{
-        font-size: 20px !important;
-    }
-
-
 }
 
 @media (min-width: 481px) and (max-width: 767px){
-
-    .navbar-brand{
-        margin: 0 auto !important;
-    }
-
-    .navbar-collapse{
-        margin: 15px 0;
-        display: flex;
-        flex-direction: column-reverse;
-        position: relative;
-        padding: 0 3px;
-    }
-
-    .navbar-collapse div{
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .navbar-collapse ul{
-        margin: 10px 4px;
-        padding: 0;
-    }
-
-    .navbar-collapse button{
-        position: absolute;
-        right: 20px;
-    }
-
-    .header{
-        display: flex;
-    }
-
-    .title_store{
-        grid-column: span 4 / span 4 !important;
-        width: 30%;
-    }
-
-    .title_store h5 span{
-        font-size: 16px;
-        padding: 2px ;
-    }
-
-    .header-search{
-        grid-column: span 8 / span 8 !important;
-    }
 
     .main{
         z-index: 0 !important;
@@ -733,36 +425,10 @@ i{
         top: 80px; */
     }
 
-    .content{
-        grid-template-columns: 1fr 4fr;
-        gap: 0 5px;
-    }
-
-    .content_filter{
-        background-color: #282930 !important;
-        border-radius: 6px;
-        box-shadow: 0px 0px 8px #4f4f54;
-        display: grid;
-        grid-column: 1;
-    }
-
     .form-check label{
         font-size: 14px;
     }
 
-    
-    .footer_brands{
-        grid-template-columns: 3fr 3fr 3fr;
-        gap: 0 5px; 
-    }
-
-    .footer_brands div{
-        margin-bottom: 15px; 
-    }
-
-    .footer_brands div img{
-        height: 90px; 
-    }
 
     .Unconfirmed_Orders {
         display: grid;
@@ -807,118 +473,24 @@ i{
         grid-column: span 2 / span 2;
     }
 
-    .numberProduct_search{
-        grid-column: span 12 / span 12 !important;
-    }
+    
 
-    .numberProduct_search h4{
-        grid-column: span 12 / span 12;
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
-    .numberProduct_search input{
-        grid-column: span 12 / span 12;
-    }
-
-    .createNewProduct{
-        grid-column: span 12 / span 12;
-        padding: 8px 0;
-        margin-top: 10px;
-    }
-
-    .SortByCategory{
-        grid-column: span 12 / span 12;
-    }
+    
 
     table{
         font-size: 10px;
     }
 
-    .rating_star{
-        font-size: 10px;
-    }
+    
 
     .productName{
         width: 30%;
     }
 
-    .title-login{
-        font-size: 28px !important;
-    }
-
-    .row-login {
-        width: 80% !important;
-        margin: 0 auto !important;
-    }
-
-    .row-register{
-        /* width: 80%; */
-    }
-
-    .row-register div{
-        /* margin: 0 auto; */
-    }
-
-    .title-register{
-        font-size: 20px !important;
-    }
-
+    
 }
 
 @media (min-width: 768px) and (max-width: 900px){
-
-    .navbar-brand{
-        margin: 0 auto !important;
-    }
-
-    .navbar-collapse{
-        margin: 20px 0;
-    }
-
-    .header-dashboard{
-        background-color: #282930;
-        color: wheat;
-        padding: 0 15px;
-    }
-
-    .title_store{
-        grid-column: span 3 / span 3;
-    }
-    
-    .header-search{
-        grid-column: span 9 / span 9;
-    }
-
-    .content{
-        grid-template-columns: 1fr 4fr;
-        gap: 0 5px;
-    }
-
-    .main_product{
-        /* position: relative;
-        top: 80px; */
-    }
-
-    .content_filter{
-        background-color: #282930 !important;
-        border-radius: 6px;
-        box-shadow: 0px 0px 8px #4f4f54;
-        display: grid;
-        grid-column: 1;
-    }
-
-    
-
-    .title-login{
-        font-size: 28px !important;
-    }
-
-
-    .footer_brands{
-        grid-template-columns: 3fr 3fr;
-        gap: 0 5px; 
-    }
 
     .quantity_price{
         width: 100% !important;
@@ -933,96 +505,4 @@ i{
         font-size: 13px;
     }
 
-    .numberProduct_search{
-        grid-column: span 12 / span 12;
-    }
-
-    .SortByCategory{
-        grid-column: span 12 / span 12;
-    }
-
-    .title-login{
-        font-size: 28px !important;
-    }
-
-    .row-login {
-        width: 100% !important;
-        margin: 0 auto !important;
-    }
-
-    .row-register{
-        width: 80% !important;
-    }
-
-    .row-register div{
-       width: 100% !important;
-    }
-
-    .title-register{
-        font-size: 20px !important;
-    }
-
-
-}
-
-@media (min-width: 901px) and (max-width: 1200px){
-
-    .navbar-brand{
-        margin: 0 auto !important;
-    }
-
-    .navbar-collapse{
-        margin: 20px 0;
-    }
-
-    .title_store{
-        grid-column: span 3 / span 3;
-    }
-    
-    .header-search{
-        grid-column: span 9 / span 9;
-    }
-
-    .main_product{
-        /* position: relative;
-        top: 80px; */
-    }
-
-    .row-login {
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .row-register{
-        width: 60% !important;
-    }
-
-    .row-register div{
-       width: 100% !important;
-    }
-
-    .title-register{
-        font-size: 20px !important;
-    }
-    
-} 
-
-@media (min-width: 1200px){
-
-    .row-login {
-        width: 100% !important;
-        margin: 0 auto;
-    }
-
-    .row-register{
-        width: 60% !important;
-    }
-
-    .row-register div{
-       width: 100% !important;
-    }
-
-    .title-register{
-        font-size: 20px !important;
-    }
 }

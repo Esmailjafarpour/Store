@@ -1,0 +1,88 @@
+@media (max-width: 320px) {
+
+    .title-login{
+        font-size: 22px !important;
+    }
+
+    .row-login {
+        width: 95% !important;
+        margin: 0 auto !important;
+    }
+
+} 
+
+@media (min-width: 321px) and (max-width: 480px) {
+   
+    .title-login{
+        font-size: 25px !important;
+    }
+
+    .row-login {
+        width: 95% !important;
+        margin: 0 auto !important;
+    }
+
+}
+
+@media (min-width: 481px) and (max-width: 767px){
+
+    .title-login{
+        font-size: 28px !important;
+    }
+
+    .row-login {
+        width: 80% !important;
+        margin: 0 auto !important;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 900px){
+
+    .title-login{
+        font-size: 28px !important;
+    }
+
+    .row-login {
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    .row-login div{
+        
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+
+}
+
+@media (min-width: 901px) and (max-width: 1200px){
+
+    .title-login{
+        font-size: 30px !important;
+    }
+
+    .row-login {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+} 
+
+@media (min-width: 1200px){
+
+    .title-login{
+        font-size: 33px !important;
+    }
+
+    .row-login {
+        width: 100% !important;
+        margin: 0 auto;
+    }
+
+}
+
+@media (min-width: 2560px){
+
+  
+     
+}

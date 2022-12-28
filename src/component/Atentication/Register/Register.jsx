@@ -2,6 +2,7 @@ import React , {useState,useEffect,useContext,useRef} from 'react';
 import { useNavigate } from "react-router-dom";
 import {UserContext} from '../../../UserContext';
 import Button from '@mui/material/Button';
+import "./register.css";
 // import CloseIcon from '@mui/icons-material/Close';
 
 const Register = (props) => {
