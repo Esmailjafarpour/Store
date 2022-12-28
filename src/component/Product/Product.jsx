@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import "./product.css";
 // import Grid3x3Icon from '@mui/icons-material/Grid3x3';
 
 const Product = ({product,onAddToCartClick,onDeletedToCartClick,onShowDetailsProduct}) => {
@@ -22,9 +23,9 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick,onShowDetailsPro
                     }
                     <div className="brand mt-2 text-orange-300">
                         {/* <Grid3x3Icon/> */}
-                        <i class="fa fa-hashtag" aria-hidden="true">{" "}</i>{product.brand.brandName} 
+                        <i className="fa fa-hashtag hashtag" aria-hidden="true">{" "}</i>{product.brand.brandName} 
                         {"   "}
-                        <i class="fa fa-hashtag" aria-hidden="true">{" "}</i>{product.category.categoryName}
+                        <i className="fa fa-hashtag hashtag" aria-hidden="true">{" "}</i>{product.category.categoryName}
                     </div>
                     <div className="rating_number flex justify-between items-center">
                         <div>
@@ -72,7 +73,7 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick,onShowDetailsPro
                             ):( 
                                 <button 
                                     className="text-green-200 border-2 border-neutral-600
-                                    focus:outline-none rounded-lg text-sm px-3 py-2 text-center 
+                                    focus:outline-none rounded-lg text-sm text-center 
                                     mr-2 mb-1 dark:hover:text-green-600 dark:hover:bg-green-100 btn_Buy" 
                                     onClick={()=>onAddToCartClick(product)}
                                 >

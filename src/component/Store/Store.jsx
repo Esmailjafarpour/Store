@@ -293,6 +293,12 @@ const Store = () => {
 
                             <div className="w-100 flex flex-col justify-center ">
 
+                                <Box sx={{margin:"0 auto",color:"#ba68c8"}}>
+                                    <Typography>
+                                        {showDetail.productName}
+                                    </Typography>
+                                </Box>
+
                                 <Box sx={{display: 'flex' , justifyContent: 'space-evenly' , margin : '20px'}}>
 
                                     <Box sx={{ bgcolor: 'text.disabled', color: 'background.paper', p: 2 , borderRadius : "8px" }}>
@@ -361,12 +367,10 @@ const Store = () => {
 
                                 </Box>
 
-                                <Button type="button" className="text-red-600 border-2 border-neutral-600
-                                    focus:outline-none rounded-lg text-center bg-gradient
-                                    mx-auto w-40 dark:hover:text-red-900 dark:hover:bg-green-100"
+                                <Button type="button" variant="contained"  sx={{width:"15%",margin:"0 auto",color:"#ffab00",background:"#424242"}}
                                     onClick={()=> handleClose()}
                                 >
-                                Back
+                                    Close
                                 </Button>
 
                             </div>
