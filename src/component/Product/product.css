@@ -1,3 +1,18 @@
+.product{
+    display: flex;
+    justify-content: center;
+    /* border-radius: 20px ; */
+    overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+    
+}
+
+.product img{
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
 @media (max-width: 320px) {
 
     .content_products {
@@ -82,6 +97,7 @@
         justify-content: center;
         font-size: 14px;
     }
+
 
     .hashtag {
         font-size: 8px !important;

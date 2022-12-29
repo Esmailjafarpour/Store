@@ -1,3 +1,15 @@
+.header-dashboard{
+    background-color: #282930;
+    color: wheat;
+    padding: 0 15px;
+}
+
+.title{
+    border: 2px solid #5a4600;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
 @media (max-width: 320px) {
 
     .header-dashboard{
@@ -11,6 +23,14 @@
         flex-direction: column;
         align-items: center;
         height: 100px;
+    }
+
+    .card_order{
+        grid-column: span 2 / span 2;
+    }
+
+    .grid-cols-3 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
 } 
@@ -30,6 +50,14 @@
         height: 100px;
     }
 
+    .card_order{
+        grid-column: span 2 / span 2;
+    }
+
+    .grid-cols-3 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
 }
 
 @media (min-width: 481px) and (max-width: 767px){
@@ -38,6 +66,14 @@
         background-color: #282930;
         color: rgb(227 208 153);
         padding: 0 15px;
+    }
+
+    .card_order{
+        grid-column: span 2 / span 2;
+    }
+
+    .grid-cols-3 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
 }

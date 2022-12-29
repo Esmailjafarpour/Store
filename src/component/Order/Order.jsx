@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react';
+import './order.css';
 
 const Order = (props) => {
     return(

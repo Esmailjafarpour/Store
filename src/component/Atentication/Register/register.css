@@ -1,3 +1,26 @@
+.title-register{
+    color:wheat;  
+}
+
+.form-register{
+    border: 2px solid #5a4600 !important;
+    background-color: black;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.input-register{
+    background-color: #414246 !important;
+    color: #ddbe85 !important;
+    border: 2px solid #605f5f !important;
+}
+
+.selected{
+    background-color: #414246 !important;
+    color: #ddbe85 !important;
+    border: 2px solid #605f5f !important;
+}
+
 @media (max-width: 320px) {
 
     .row-register{

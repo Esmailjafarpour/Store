@@ -1,3 +1,22 @@
+.input-search{
+    background-color: #414246 !important;
+    color: #ddbe85 !important;
+    border: 2px solid #605f5f !important;
+}
+
+.input-search:focus{
+    border: 2px solid #c4830c !important;
+}
+
+.bage-header{
+    color: wheat !important;
+}
+
+.link-table{
+    color: wheat;
+    text-decoration: none;
+}
+
 @media (max-width: 320px) {
 
     .numberProduct_search{
@@ -22,6 +41,20 @@
 
     .SortByCategory{
         grid-column: span 12 / span 12;
+    }
+
+    .content-table{
+        width: 80vw;
+        overflow-x: scroll;
+    }
+
+    .table-product{
+        width: 200vw;
+    }
+
+    table{
+        font-size: 10px;
+        overflow-x: auto;
     }
 
     .rating_star{
@@ -56,10 +89,23 @@
         grid-column: span 12 / span 12;
     }
 
+    .content-table{
+        width: 85vw;
+        overflow-x: scroll;
+    }
+
+    .table-product{
+        width: 160vw;
+    }
+
+    table{
+        font-size: 10px;
+        overflow-x: auto;
+    }
+
     .rating_star{
         font-size: 10px;
     }
-
 
 }
 
@@ -91,6 +137,10 @@
 
     .rating_star{
         font-size: 12px;
+    }
+
+    table{
+        font-size: 10px;
     }
     
 

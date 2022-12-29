@@ -1,3 +1,20 @@
+.title-login{
+    color:wheat;  
+}
+
+.form-login{
+    border: 2px solid #5a4600 !important;
+    background-color: black;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.input-login{
+    background-color: #414246 !important;
+    color: #ddbe85 !important;
+    border: 2px solid #605f5f !important;
+}
+
 @media (max-width: 320px) {
 
     .title-login{

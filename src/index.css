@@ -49,19 +49,10 @@ body{
     grid-column: span 12 / span 12;
 }
 
-nav{
-    position: fixed;
-}
-
 .title{
     border: 2px solid #5a4600;
     border-radius: 8px;
     overflow: hidden;
-}
-
-.title-login,.title-register,.title-order{
-    color:wheat;
-    
 }
 
 li{
@@ -72,12 +63,6 @@ i{
     margin-right: 0.3rem;
 }
 
-.navbar-header{
-    color: wheat;
-    position: sticky !important;
-    top: 0px;
-    z-index: 1000 !important;
-}
 
 .main{
     position: relative;
@@ -91,40 +76,6 @@ i{
     z-index: 999 !important;
     width: 100%;
     margin: 0 auto;
-}
-
-.title_store{
-    grid-column: span 2 / span 2;
-}
-
-.header-search{
-    grid-column: span 10 / span 10;
-}
-
-.header-dashboard{
-    background-color: #282930;
-    color: wheat;
-    padding: 0 15px;
-}
-
-.bage-header{
-    color: wheat !important;
-}
-
-.input-search,.input-login,.input-register,.order-card{
-    background-color: #414246 !important;
-    color: #ddbe85 !important;
-    border: 2px solid #605f5f !important;
-}
-
-.input-search:focus{
-    border: 2px solid #ddbe85 !important;
-}
-
-.selected{
-    background-color: #414246 !important;
-    color: #ddbe85 !important;
-    border: 2px solid #605f5f !important;
 }
 
 .btn-card{
@@ -153,356 +104,25 @@ i{
     margin: 5px 0;
 }
 
-.card-body,.form-login,.form-register{
+.card-body{
     border: 2px solid #5a4600 !important;
     background-color: black;
     overflow: hidden;
     border-radius: 8px;
 }
 
-.link-table{
-    color: wheat;
-    text-decoration: none;
-}
-
-.not-found{
-    background-image: url("../public/preview.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    width: 100%;
-    height: 84vh;
-    display: block;
-    border-radius: 8px;
-    
-}
-
-.content_filter{
-    position: sticky;
-    top:70px;
-}
-
-.product{
-    display: flex;
-    justify-content: center;
-    /* border-radius: 20px ; */
-    overflow: hidden;
-    background-position: center center;
-    background-size: cover;
-    
-}
-
-.product img{
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-
-/* .content-box{
-    transition: all ease-in-out 1000ms;
-    
-}
-
-.hiddenContentBox{
-    transform: translatex(90px) !important;
-    top: 2% !important;
-    left: 25% !important;
-    
-} */
-
-.content-newProduct{
-    height: 580px;
-    overflow-y: auto;   
-}
-
-.content-newProduct-Message{
-    height: 100px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#demo-simple-select-label{
-    color: #f8f9fa !important;
-    font-size: small;
-}
-
-
-
 @media (max-width: 320px) {
 
-   
-
-    .main{
-        z-index: 0 !important;
-        position: relative;
-    }
-
-    .main_product{
-        position: relative;
-        top: 0px;
-    }
-
-   
-
-    .content-table{
-        width: 80vw;
-        overflow-x: scroll;
-    }
-
-    .table-product{
-        width: 200vw;
-    }
-
-   .content_filter div ul li{
-        width: 32%;
-        padding: 3px 5px!important;
-   }
-
-   label{
-    font-size: 10px;
-   }
-
-    .previous_order .card div{
-        display: flex;
-        flex-direction: column-reverse !important;
-    }
-
-    .Unconfirmed_Orders {
-        display: grid;
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        gap: 6px;
-    }
-
-    .Unconfirmed_Orders .order-card{
-        grid-column: span 1 / span 1;  
-    }
-
-    .Unconfirmed_Orders .quantity_price{
-        width: 70% !important;
-    }
-
-    .Unconfirmed_Orders .quantity_price ul{
-        padding: 0;
-    }
-
-    .quantity_price span{
-        font-size: 13px;
-    }
-
-    .buttons{
-        display: grid;
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        gap: 6px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .buttons button{
-        font-size: 13px;
-    }
-
-    .grid-cols-3 {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-
-    .card_order{
-        grid-column: span 2 / span 2;
-    }
-
-
-    table{
-        font-size: 10px;
-        overflow-x: auto;
-    }
-
-    /* .productName{
-        font-size: 10px;
-    } */
-
-    
 } 
 
 @media (min-width: 321px) and (max-width: 480px) {
  
-
-    .main{
-        z-index: 0 !important;
-        position: relative;
-    }
-
-    .main_product{
-        position: relative;
-        top: 0px;
-    }
-
-    
-    .content-table{
-        width: 85vw;
-        overflow-x: scroll;
-    }
-
-    .table-product{
-        width: 160vw;
-    }
-
-    label{
-        font-size: 10px;
-    }
-
-   .brand{
-        display: flex;
-        justify-content: center;
-   }
-
-    .Unconfirmed_Orders {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 6px;
-    }
-
-    .Unconfirmed_Orders .order-card{
-        grid-column: span 1 / span 1;
-        
-    }
-
-    .Unconfirmed_Orders .quantity_price{
-        width: 70% !important;
-    }
-
-    .Unconfirmed_Orders .quantity_price ul{
-        padding: 0;
-    }
-
-    .quantity_price span{
-        font-size: 13px;
-    }
-
-    .buttons{
-        display: grid;
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        gap: 6px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .buttons button{
-        font-size: 13px;
-    }
-
-    .grid-cols-3 {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-
-    .previous_order .card div {
-        display: flex;
-        flex-direction: column-reverse !important;
-    }
-
-    .card_order{
-        grid-column: span 2 / span 2;
-    }
-
-
-
-    table{
-        font-size: 10px;
-        overflow-x: auto;
-    }
-
-    
 }
 
 @media (min-width: 481px) and (max-width: 767px){
 
-    .main{
-        z-index: 0 !important;
-        position: relative;
-    }
-
-    .main_product{
-        /* position: relative;
-        top: 80px; */
-    }
-
-    .form-check label{
-        font-size: 14px;
-    }
-
-
-    .Unconfirmed_Orders {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 6px;
-    }
-
-    .Unconfirmed_Orders .order-card{
-        grid-column: span 1 / span 1;
-        
-    }
-
-    .Unconfirmed_Orders .quantity_price{
-        width: 70% !important;
-    }
-
-    .Unconfirmed_Orders .quantity_price ul{
-        padding: 0;
-    }
-
-    .quantity_price span{
-        font-size: 13px;
-    }
-
-    .buttons{
-        display: grid;
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        gap: 6px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .buttons button{
-        font-size: 13px;
-    }
-
-    .grid-cols-3 {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-
-    .card_order{
-        grid-column: span 2 / span 2;
-    }
-
-    
-
-    
-
-    table{
-        font-size: 10px;
-    }
-
-    
-
-    .productName{
-        width: 30%;
-    }
-
-    
 }
 
 @media (min-width: 768px) and (max-width: 900px){
-
-    .quantity_price{
-        width: 100% !important;
-    }
-
-    .quantity_price span{
-        font-size: 13px;
-    }
-
-    .buttons button{
-        padding: 0 5px;
-        font-size: 13px;
-    }
 
 }

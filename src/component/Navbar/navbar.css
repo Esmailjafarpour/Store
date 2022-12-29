@@ -1,3 +1,25 @@
+nav{
+    position: fixed;
+}
+
+.navbar-header{
+    color: wheat;
+    position: sticky !important;
+    top: 0px;
+    z-index: 1000 !important;
+}
+
+.selected{
+    background-color: #414246 !important;
+    color: #ddbe85 !important;
+    border: 2px solid #605f5f !important;
+}
+
+.container-fluid{
+    display: grid;
+    grid-column: span 12 / span 12;
+}
+
 @media (max-width: 320px) {
 
      .navbar-collapse{
