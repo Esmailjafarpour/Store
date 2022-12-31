@@ -2,13 +2,13 @@
     color: rgb(70, 38, 38) !important;
 }
 
-.title_store{
+/* .title_store{
     grid-column: span 2 / span 2;
-}
+} */
 
-.header-search{
+/* .header-search{
     grid-column: span 10 / span 10;
-}
+} */
 
 .content_filter{
     position: sticky;
