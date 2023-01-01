@@ -10,6 +10,26 @@
     overflow: hidden;
 }
 
+.orders{
+    display: block;
+}
+
+.Accordion{
+    display: none;
+}
+
+#panel1a-header{
+    background-color: "#1c1917" !important;
+}
+
+.MuiTypography-root{
+    color: #e3c98df7;
+}
+
+.MuiSvgIcon-root{
+    color:#e3c98df7;
+}
+
 @media (max-width: 320px) {
 
     .header-dashboard{
@@ -31,6 +51,14 @@
 
     .grid-cols-3 {
         grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .orders{
+        display: none !important;
+    }
+    
+    .Accordion{
+        display: block !important;
     }
 
 } 
@@ -56,6 +84,14 @@
 
     .grid-cols-3 {
         grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .orders{
+        display: none !important;
+    }
+    
+    .Accordion{
+        display: block !important;
     }
 
 }

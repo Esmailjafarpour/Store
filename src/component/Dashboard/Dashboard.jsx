@@ -2,6 +2,11 @@ import React , {useState,useEffect,useContext,useCallback} from 'react';
 import {UserContext} from '../../UserContext.js';
 import Order from '../../component/Order/Order';
 import {OrdersService,ProductService} from '../../Service.js';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -105,95 +110,157 @@ const Dashboard = () => {
             </div>
 
             {/* View previous orders and new orders */}
-            <div className="grid grid-cols my-3">
-                <div className="grid grid-cols-3 gap-8">
-                    {/* Column of confirmed products that have been paid */}
-                    <div className="previous_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-2">
-                        <h4 className="py-2 my-2 text-center text-emerald-500">
-                            <i className="fa fa-history"></i>Previous Orders{"  "}
+            <div className="orders">
+                <div className="grid grid-cols my-3">
+                    <div className="grid grid-cols-3 gap-8">
+                        
+                            {/* Column of confirmed products that have been paid */}
+                            <div className="previous_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-2">
+                                <h4 className="py-2 my-2 text-center text-emerald-500">
+                                    <i className="fa fa-history"></i>Previous Orders{"  "}
 
-                            {/* Number of confirmed and paid orders */}
-                            <span className="badge bg-success">
-                                {OrdersService.getPreviousOrders(orders).length}
-                            </span>
+                                    {/* Number of confirmed and paid orders */}
+                                    <span className="badge bg-success">
+                                        {OrdersService.getPreviousOrders(orders).length}
+                                    </span>
 
-                        </h4>
+                                </h4>
 
-                        {/* There are no confirmed and paid orders */}
-                        {OrdersService.getPreviousOrders(orders).length === 0 ?
-                            (<div className="text-yellow-700"> No Orders</div>)
-                            :
-                            ("")
-                        }
+                                {/* There are no confirmed and paid orders */}
+                                {OrdersService.getPreviousOrders(orders).length === 0 ?
+                                    (<div className="text-yellow-700"> No Orders</div>)
+                                    :
+                                    ("")
+                                }
 
-                        {/* Show confirmed and paid orders */}
-                        {OrdersService.getPreviousOrders(orders).map((order)=> {
-                            return (<Order 
-                                    key={order.id} 
-                                    orderId={order.id}
-                                    productId={order.productId}
-                                    userId={order.userId}
-                                    quantity={order.quantity}
-                                    imageProduct={order.imageProduct}
-                                    isPaymentCompleted={order.isPaymentCompleted}
-                                    productName={order.product.productName}
-                                    price={order.product.price}
-                                    onBuyNowClick={onBuyNowClick}
-                                    onDeleteClick={onDeleteClick}
-                                />)
-                        })}
+                                {/* Show confirmed and paid orders */}
+                                {OrdersService.getPreviousOrders(orders).map((order)=> {
+                                    return (<Order 
+                                            key={order.id} 
+                                            orderId={order.id}
+                                            productId={order.productId}
+                                            userId={order.userId}
+                                            quantity={order.quantity}
+                                            imageProduct={order.imageProduct}
+                                            isPaymentCompleted={order.isPaymentCompleted}
+                                            productName={order.product.productName}
+                                            price={order.product.price}
+                                            onBuyNowClick={onBuyNowClick}
+                                            onDeleteClick={onDeleteClick}
+                                        />)
+                                })}
+                            </div>
+
+                            {/* Column of unconfirmed products that have not been paid for */}
+                            <div className="card_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-1">
+                                {/* The number of unconfirmed and unpaid orders */}
+                                <h4 className="py-2 my-2 text-center text-yellow-500">
+                                    <div className="fa fa-shopping-cart px-1"></div>card{" "}
+                                    <span className="badge bg-warning">
+                                        {OrdersService.getCart(orders).length}
+                                    </span>
+                                </h4>
+
+                                {/* Display message Your order has been registered */}
+                                {showOrderUpdateAlert?(
+                                    <div className="col-span-12">
+                                        <div className="alert alert-success alert-dismissible fade show mt-1" role="alert">
+                                            Your Order Has Been Placed.
+                                            <button 
+                                                className="btn-close" 
+                                                type="button" 
+                                                data-dismissible="alert"
+                                                onClick={()=>setShowOrderUpdateAlert(false)}
+                                            ></button>
+                                        </div>
+                                    </div>
+                                ):("")}
+
+                                {/* Show message Your item has been removed from the shopping cart */}
+                                {showOrderDeleteAlert?(
+                                    <div className="col-12">
+                                        <div className="alert alert-warning alert-dismissible fade show mt-1" role="alert">
+                                            Your Item Has Been Removed From The Cart.
+                                            <button 
+                                                className="btn-close" 
+                                                type="button" 
+                                                data-dismissible="alert"
+                                                onClick={()=>setShowOrderDeleteAlert(false)}
+                                            ></button>
+                                        </div>
+                                    </div>
+                                ):("")}
+
+                                {/* There are no products displayed in your card */}
+                                {OrdersService.getCart(orders).length === 0 ? 
+                                    (<div className="text-yellow-700 text-center">No Products In Your Cards</div>):("")
+                                }
+
+                                {/* Displaying unconfirmed and unpaid orders */}
+                                <div className="Unconfirmed_Orders">
+                                        {OrdersService.getCart(orders).map((order)=>{
+                                        return (
+                                            <Order 
+                                                key={order.id} 
+                                                orderId={order.id}
+                                                productId={order.productId}
+                                                userId={order.userId}
+                                                quantity={order.quantity}
+                                                imageProduct={order.imageProduct}
+                                                isPaymentCompleted={order.isPaymentCompleted}
+                                                productName={order.product.productName}
+                                                price={order.product.price}
+                                                onBuyNowClick={onBuyNowClick}
+                                                onDeleteClick={onDeleteClick}
+                                            />
+                                        )
+                                    }
+                                    )}
+                                </div>
+                            </div>
+
                     </div>
+                </div>
+            </div>
+            
+            <div className="Accordion my-3">
+                <Accordion className="my-2 border-[2px] border-stone-700 rounded-sm">
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                    sx={{
+                        backgroundColor: "#1c1917"
+                        
+                      }}
+                    >
+                    <Typography>Previous Order</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>
+                            In this section, you can see your previous orders
+                        </Typography>
+                        <div className="previous_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-2">
+                            <h4 className="py-2 my-2 text-center text-emerald-500">
+                                <i className="fa fa-history"></i>Previous Orders{"  "}
 
-                    {/* Column of unconfirmed products that have not been paid for */}
-                    <div className="card_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-1">
-                        {/* The number of unconfirmed and unpaid orders */}
-                        <h4 className="py-2 my-2 text-center text-yellow-500">
-                            <div className="fa fa-shopping-cart px-1"></div>card{" "}
-                            <span className="badge bg-warning">
-                                {OrdersService.getCart(orders).length}
-                            </span>
-                        </h4>
+                                {/* Number of confirmed and paid orders */}
+                                <span className="badge bg-success">
+                                    {OrdersService.getPreviousOrders(orders).length}
+                                </span>
 
-                        {/* Display message Your order has been registered */}
-                        {showOrderUpdateAlert?(
-                            <div className="col-span-12">
-                                <div className="alert alert-success alert-dismissible fade show mt-1" role="alert">
-                                    Your Order Has Been Placed.
-                                    <button 
-                                        className="btn-close" 
-                                        type="button" 
-                                        data-dismissible="alert"
-                                        onClick={()=>setShowOrderUpdateAlert(false)}
-                                    ></button>
-                                </div>
-                            </div>
-                        ):("")}
+                            </h4>
 
-                        {/* Show message Your item has been removed from the shopping cart */}
-                        {showOrderDeleteAlert?(
-                            <div className="col-12">
-                                <div className="alert alert-warning alert-dismissible fade show mt-1" role="alert">
-                                    Your Item Has Been Removed From The Cart.
-                                    <button 
-                                        className="btn-close" 
-                                        type="button" 
-                                        data-dismissible="alert"
-                                        onClick={()=>setShowOrderDeleteAlert(false)}
-                                    ></button>
-                                </div>
-                            </div>
-                        ):("")}
+                            {/* There are no confirmed and paid orders */}
+                            {OrdersService.getPreviousOrders(orders).length === 0 ?
+                                (<div className="text-yellow-700"> No Orders</div>)
+                                :
+                                ("")
+                            }
 
-                        {/* There are no products displayed in your card */}
-                        {OrdersService.getCart(orders).length === 0 ? 
-                            (<div className="text-yellow-700 text-center">No Products In Your Cards</div>):("")
-                        }
-
-                        {/* Displaying unconfirmed and unpaid orders */}
-                        <div className="Unconfirmed_Orders">
-                                {OrdersService.getCart(orders).map((order)=>{
-                                return (
-                                    <Order 
+                            {/* Show confirmed and paid orders */}
+                            {OrdersService.getPreviousOrders(orders).map((order)=> {
+                                return (<Order 
                                         key={order.id} 
                                         orderId={order.id}
                                         productId={order.productId}
@@ -205,13 +272,94 @@ const Dashboard = () => {
                                         price={order.product.price}
                                         onBuyNowClick={onBuyNowClick}
                                         onDeleteClick={onDeleteClick}
-                                    />
-                                )
-                            }
-                            )}
+                                    />)
+                            })}
                         </div>
-                    </div>
-                </div>
+                    </AccordionDetails>
+                </Accordion>
+                <Accordion className="my-2 border-[2px] border-stone-700 rounded-sm">
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel2a-content"
+                    id="panel2a-header"
+                    sx={{
+                        backgroundColor: "#1c1917"
+                      }}
+                    >
+                    <Typography>card Order</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>
+                            In this section, you can see Rami's unconfirmed orders
+                        </Typography>
+                        <div className="card_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-1">
+                            {/* The number of unconfirmed and unpaid orders */}
+                            <h4 className="py-2 my-2 text-center text-yellow-500">
+                                <div className="fa fa-shopping-cart px-1"></div>card{" "}
+                                <span className="badge bg-warning">
+                                    {OrdersService.getCart(orders).length}
+                                </span>
+                            </h4>
+
+                            {/* Display message Your order has been registered */}
+                            {showOrderUpdateAlert?(
+                                <div className="col-span-12">
+                                    <div className="alert alert-success alert-dismissible fade show mt-1" role="alert">
+                                        Your Order Has Been Placed.
+                                        <button 
+                                            className="btn-close" 
+                                            type="button" 
+                                            data-dismissible="alert"
+                                            onClick={()=>setShowOrderUpdateAlert(false)}
+                                        ></button>
+                                    </div>
+                                </div>
+                            ):("")}
+
+                            {/* Show message Your item has been removed from the shopping cart */}
+                            {showOrderDeleteAlert?(
+                                <div className="col-12">
+                                    <div className="alert alert-warning alert-dismissible fade show mt-1" role="alert">
+                                        Your Item Has Been Removed From The Cart.
+                                        <button 
+                                            className="btn-close" 
+                                            type="button" 
+                                            data-dismissible="alert"
+                                            onClick={()=>setShowOrderDeleteAlert(false)}
+                                        ></button>
+                                    </div>
+                                </div>
+                            ):("")}
+
+                            {/* There are no products displayed in your card */}
+                            {OrdersService.getCart(orders).length === 0 ? 
+                                (<div className="text-yellow-700 text-center">No Products In Your Cards</div>):("")
+                            }
+
+                            {/* Displaying unconfirmed and unpaid orders */}
+                            <div className="Unconfirmed_Orders">
+                                    {OrdersService.getCart(orders).map((order)=>{
+                                    return (
+                                        <Order 
+                                            key={order.id} 
+                                            orderId={order.id}
+                                            productId={order.productId}
+                                            userId={order.userId}
+                                            quantity={order.quantity}
+                                            imageProduct={order.imageProduct}
+                                            isPaymentCompleted={order.isPaymentCompleted}
+                                            productName={order.product.productName}
+                                            price={order.product.price}
+                                            onBuyNowClick={onBuyNowClick}
+                                            onDeleteClick={onDeleteClick}
+                                        />
+                                    )
+                                }
+                                )}
+                            </div>
+                        </div>
+                    </AccordionDetails>
+                </Accordion>
             </div>
             
         </div>
