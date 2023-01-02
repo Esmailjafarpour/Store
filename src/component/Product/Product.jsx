@@ -3,10 +3,47 @@ import "./product.css";
 // import Grid3x3Icon from '@mui/icons-material/Grid3x3';
 
 const Product = ({product,onAddToCartClick,onDeletedToCartClick,onShowDetailsProduct}) => {
+    const [state, setstate] = useState("");
+    const num = product.discount
+    switch (true) {
+        case num < 10 :
+            setstate("#00ffff")
+            break;
+        case num < 25 :
+            setstate("#1d9797")
+            break;
+        case num < 40 :
+            setstate("#0c5294")
+            break;
+        case num < 50 :
+            setstate("#15af1d")
+            break;
+        case num < 70 :
+            setstate("#e47433")
+            break;
+        case num < 80 :
+            setstate("#d85c3d")
+            break;
+        case num < 90 :
+            setstate("#e4461e")
+            break;
+    
+        case num < 100 :
+            setstate("fd3706")
+            break;
+    
+        default:
+            break;
+    }
     return (
         // <div className="mb-1">
             <div className="product card m-1 bg-transparent border-0 overflow-hidden col-span-4">
-                <div className="bg-gradient border-2 shadow-2xl bg-zinc-900 border-stone-600 rounded-sm p-2 ">
+                <div className="box-product bg-gradient border-2 shadow-2xl bg-zinc-900 border-stone-600 rounded-sm p-2 ">
+                    <div className="discount">
+                        <div className="discount_product">
+                            <span style={{color:state}}>{product.discount} %</span>
+                        </div>
+                    </div>
                     <div className="product bg-indigo-300 rounded-lg h-60 mb-1 shadow-2xl cursor-pointer">
                         <img className="object-cover w-100 h-30 transition ease-in-out delay-170 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-700" 
                         src={require(`../../images/${product.image}`)} alt={product.image}
@@ -16,10 +53,17 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick,onShowDetailsPro
                     <h6 className="productName text-orange-400 text-center mb-1">
                         {product.productName}<i className="fa fa-arrow-right ml-1"></i>
                     </h6>
+
                     {product.quantity && product.quantity>0?
-                        <div className="product_price text-lime-200 flex justify-center items-center">${(product.price.toFixed())*(product.quantity)}</div>
+                        <div className="product_price text-lime-200 flex justify-center items-center" style={{textDecoration: 'line-through'}}>$ {(product.price.toFixed())*(product.quantity)}</div>
                         :
-                        <div className="product_price text-lime-200 flex justify-center items-center">${product.price.toFixed()}</div>
+                        <div className="product_price text-lime-200 flex justify-center items-center" style={{textDecoration: 'line-through'}}>$ {product.price.toFixed()}</div>
+                    }
+
+                    {product.quantity && product.quantity>0?
+                        <div className="product_price text-lime-200 flex justify-center items-center">$ {(product.price.toFixed())*(product.quantity)*((product.discount)/100)}</div>
+                        :
+                        <div className="product_price text-lime-200 flex justify-center items-center">$ {product.price.toFixed()*((product.discount)/100)}</div>
                     }
                     <div className="brand mt-2 text-orange-300">
                         {/* <Grid3x3Icon/> */}

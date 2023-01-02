@@ -9,6 +9,7 @@ import { BoxProps } from '@mui/material/Box';
 import TextField from './TextField/TextField';
 import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
+import './newProduct.css';
 
 const style = {
   position: 'absolute',

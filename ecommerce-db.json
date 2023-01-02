@@ -104,7 +104,8 @@
       "categoryId": 1,
       "rating": 5,
       "image": "Apple-iphone12pro.png",
-      "quantityInStock": 8
+      "quantityInStock": 8,
+      "discount": 50
     },
     {
       "id": 2,
@@ -114,7 +115,8 @@
       "categoryId": 1,
       "rating": 5,
       "image": "ipad-pro-11.png",
-      "quantityInStock": 15
+      "quantityInStock": 15,
+      "discount": 35
     },
     {
       "id": 3,
@@ -124,7 +126,8 @@
       "categoryId": 2,
       "rating": 4,
       "image": "camera.png",
-      "quantityInStock": 12
+      "quantityInStock": 12,
+      "discount": 42
     },
     {
       "id": 4,
@@ -134,7 +137,8 @@
       "categoryId": 2,
       "rating": 4,
       "image": "Sony 5.1 Home Theatre.png",
-      "quantityInStock": 10
+      "quantityInStock": 10,
+      "discount": 16
     },
     {
       "id": 5,
@@ -144,7 +148,8 @@
       "categoryId": 3,
       "rating": 3,
       "image": "Carrier-Flair.png",
-      "quantityInStock": 5
+      "quantityInStock": 5,
+      "discount": 22
     },
     {
       "id": 6,
@@ -154,7 +159,8 @@
       "categoryId": 2,
       "rating": 4,
       "image": "Dell-Monitor.png",
-      "quantityInStock": 2
+      "quantityInStock": 2,
+      "discount": 23
     },
     {
       "id": 7,
@@ -164,7 +170,8 @@
       "categoryId": 1,
       "rating": 2,
       "image": "Sony-Xperia-Pro-I.png",
-      "quantityInStock": 7
+      "quantityInStock": 7,
+      "discount": 33
     },
     {
       "id": 8,
@@ -174,7 +181,8 @@
       "categoryId": 1,
       "rating": 2,
       "image": "samsung-galaxy-A10.png",
-      "quantityInStock": 9
+      "quantityInStock": 9,
+      "discount": 5
     },
     {
       "id": 9,
@@ -184,7 +192,8 @@
       "categoryId": 1,
       "rating": 4,
       "image": "iphone.png",
-      "quantityInStock": 3
+      "quantityInStock": 3,
+      "discount": 8
     },
     {
       "id": 10,
@@ -194,7 +203,8 @@
       "categoryId": 1,
       "rating": 2,
       "image": "iPhone-13-ProMax.png",
-      "quantityInStock": 10
+      "quantityInStock": 10,
+      "discount": 95
     },
     {
       "id": 11,
@@ -204,7 +214,8 @@
       "categoryId": 1,
       "rating": 3,
       "image": "lg-Redmi-Note-11-Pro-2.png",
-      "quantityInStock": 12
+      "quantityInStock": 12,
+      "discount": 83
     },
     {
       "id": 12,
@@ -214,7 +225,19 @@
       "categoryId": 1,
       "rating": 5,
       "image": "Xiaomi-Mi-11-Ultra.png",
-      "quantityInStock": 14
+      "quantityInStock": 14,
+      "discount": 74
+    },
+    {
+      "productName": "xxxx",
+      "price": 1005,
+      "brandId": 1,
+      "categoryId": 2,
+      "rating": 5,
+      "quantityInStock": 5,
+      "discount": 6,
+      "image": "Apple-iphone12pro.png",
+      "id": 13
     }
   ],
   "orders": [
@@ -227,12 +250,36 @@
       "isPaymentCompleted": true
     },
     {
+      "id": 2,
+      "userId": 1,
+      "productId": 1,
+      "quantity": 2,
+      "imageProduct": "Apple-iphone12pro.png",
+      "isPaymentCompleted": true
+    },
+    {
       "userId": 1,
       "productId": 1,
       "quantity": 2,
       "isPaymentCompleted": false,
       "imageProduct": "Apple-iphone12pro.png",
-      "id": 2
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "productId": 5,
+      "quantity": 2,
+      "isPaymentCompleted": false,
+      "imageProduct": "Carrier-Flair.png",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "productId": 1,
+      "quantity": 2,
+      "isPaymentCompleted": false,
+      "imageProduct": "Apple-iphone12pro.png",
+      "id": 5
     }
   ]
 }

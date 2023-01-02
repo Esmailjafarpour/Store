@@ -15,6 +15,10 @@ nav{
     background-color: #414246 !important;
     color: #ddbe85 !important;
     border: 2px solid #605f5f !important;
+    width: 40%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 }
 
 .container-fluid{

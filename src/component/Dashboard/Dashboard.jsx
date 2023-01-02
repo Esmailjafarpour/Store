@@ -241,7 +241,7 @@ const Dashboard = () => {
                             backgroundColor: "#1c1917"
                         }}
                     >
-                        <Typography className="w-100"> 
+                        <Typography className="w-100 Previous_Orders"> 
                             <h4 className="py-2 my-2 text-center text-emerald-500 flex justify-evenly">
                                 <i className="fa fa-history"></i>Previous Orders{"  "}
                                 {/* Number of confirmed and paid orders */}
@@ -308,11 +308,11 @@ const Dashboard = () => {
                             backgroundColor: "#1c1917"
                         }}
                     >
-                        <Typography className="w-100">
+                        <Typography className="w-100 Card_Orders">
                             {/* The number of unconfirmed and unpaid orders */}
                             <h4 className="py-2 my-2 text-center text-yellow-500 flex justify-evenly">
                                 <div className="fa fa-shopping-cart px-1"></div>card{" "}
-                                <span className="badge bg-warning">
+                                <span className="badge bg-warning text-red-400">
                                     {OrdersService.getCart(orders).length}
                                 </span>
                             </h4>

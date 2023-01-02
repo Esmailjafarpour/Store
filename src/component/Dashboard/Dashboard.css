@@ -18,6 +18,13 @@
     display: none;
 }
 
+.MuiPaper-root{
+   border-radius: 8px !important;
+   overflow: hidden; 
+}
+
+
+
 #panel1a-header{
     background-color: "#1c1917" !important;
 }
@@ -59,6 +66,11 @@
     
     .Accordion{
         display: block !important;
+        width: 98%;
+    }
+
+    .Card_Orders,.Previous_Orders{
+        font-size: 10px !important;
     }
 
 } 
@@ -92,6 +104,7 @@
     
     .Accordion{
         display: block !important;
+        width: 98%;
     }
 
 }
