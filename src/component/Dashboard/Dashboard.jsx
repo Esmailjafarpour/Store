@@ -15,6 +15,7 @@ const Dashboard = () => {
     const userContext = useContext(UserContext);
     const [showOrderDeleteAlert, setShowOrderDeleteAlert] = useState(false);
     const [showOrderUpdateAlert, setShowOrderUpdateAlert] = useState(false);
+    const [expanded, setExpanded] = React.useState('panel1');
 
     // const getPreviousOrders = (orders) => {
     //     return orders.filter((order)=>order.isPaymentCompleted === true)  
@@ -51,7 +52,6 @@ const Dashboard = () => {
     
 
     useEffect(() => {
-        console.log('Dashboard')
         document.title = 'Dashboard';
         loadDataFromDataBase();
     },[userContext.user.currentUserId,loadDataFromDataBase]);
@@ -96,6 +96,11 @@ const Dashboard = () => {
             }
         }
     },[loadDataFromDataBase])
+
+
+    const handleChange = (panel) => (event, newExpanded) => {
+        setExpanded(newExpanded ? panel : false);
+      };
 
     return(
         
@@ -224,33 +229,43 @@ const Dashboard = () => {
             </div>
             
             <div className="Accordion my-3">
-                <Accordion className="my-2 border-[2px] border-stone-700 rounded-sm">
-                    <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel1a-content"
-                    id="panel1a-header"
-                    sx={{
-                        backgroundColor: "#1c1917"
-                        
-                      }}
-                    >
-                    <Typography>Previous Order</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Typography>
-                            In this section, you can see your previous orders
-                        </Typography>
-                        <div className="previous_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-2">
-                            <h4 className="py-2 my-2 text-center text-emerald-500">
-                                <i className="fa fa-history"></i>Previous Orders{"  "}
 
+                <Accordion className="my-2 border-[2px] border-stone-700 rounded-sm">
+
+                    <AccordionSummary
+                        className=""
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                        sx={{
+                            backgroundColor: "#1c1917"
+                        }}
+                    >
+                        <Typography className="w-100"> 
+                            <h4 className="py-2 my-2 text-center text-emerald-500 flex justify-evenly">
+                                <i className="fa fa-history"></i>Previous Orders{"  "}
                                 {/* Number of confirmed and paid orders */}
                                 <span className="badge bg-success">
                                     {OrdersService.getPreviousOrders(orders).length}
                                 </span>
 
                             </h4>
+                        </Typography>
 
+                    </AccordionSummary>
+
+                    <AccordionDetails
+                        sx={{
+                        backgroundColor: "#1c1917"
+                        
+                      }}
+                    >
+                        <Typography className="my-3 border-[2px] border-stone-500 rounded-lg py-2 px-2">
+                            In this section, you can see your previous orders
+                        </Typography>
+
+                        <div className="previous_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-2">
+        
                             {/* There are no confirmed and paid orders */}
                             {OrdersService.getPreviousOrders(orders).length === 0 ?
                                 (<div className="text-yellow-700"> No Orders</div>)
@@ -275,32 +290,45 @@ const Dashboard = () => {
                                     />)
                             })}
                         </div>
+
                     </AccordionDetails>
+
                 </Accordion>
-                <Accordion className="my-2 border-[2px] border-stone-700 rounded-sm">
+
+                <Accordion 
+                    className="my-2 border-[2px] border-stone-700 rounded-sm"
+                    expanded={expanded === 'panel1'} onChange={handleChange('panel1')}
+                >
+
                     <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel2a-content"
-                    id="panel2a-header"
-                    sx={{
-                        backgroundColor: "#1c1917"
-                      }}
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel2a-content"
+                        id="panel2a-header"
+                        sx={{
+                            backgroundColor: "#1c1917"
+                        }}
                     >
-                    <Typography>card Order</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Typography>
-                            In this section, you can see Rami's unconfirmed orders
-                        </Typography>
-                        <div className="card_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-1">
+                        <Typography className="w-100">
                             {/* The number of unconfirmed and unpaid orders */}
-                            <h4 className="py-2 my-2 text-center text-yellow-500">
+                            <h4 className="py-2 my-2 text-center text-yellow-500 flex justify-evenly">
                                 <div className="fa fa-shopping-cart px-1"></div>card{" "}
                                 <span className="badge bg-warning">
                                     {OrdersService.getCart(orders).length}
                                 </span>
                             </h4>
+                        </Typography>
 
+                    </AccordionSummary>
+
+                    <AccordionDetails
+                        sx={{
+                            backgroundColor: "#1c1917"
+                          }}
+                    >
+                        <Typography className="my-3 border-[2px] border-stone-500 rounded-lg py-2 px-2">
+                            In this section, you can see Rami's unconfirmed orders
+                        </Typography>
+                        <div className="card_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-1">
                             {/* Display message Your order has been registered */}
                             {showOrderUpdateAlert?(
                                 <div className="col-span-12">
