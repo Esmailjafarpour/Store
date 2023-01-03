@@ -272,7 +272,8 @@ const Store = () => {
                 categoryId: productResponseBody.categoryId,
                 rating: productResponseBody.rating,
                 image: productResponseBody.image,
-                quantityInStock: productResponseBody.quantityInStock  
+                quantityInStock: productResponseBody.quantityInStock, 
+                discount: productResponseBody.discount
             }
             setShowDetail(productsDetail)
          }
@@ -301,18 +302,37 @@ const Store = () => {
 
                                 <Box sx={{display: 'flex' , justifyContent: 'space-evenly' , margin : '20px'}}>
 
-                                    <Box sx={{ bgcolor: 'text.disabled', color: 'background.paper', p: 2 , borderRadius : "8px" }}>
+                                    <Box sx={{ 
+                                            bgcolor: 'text.disabled', 
+                                            color: 'background.paper', 
+                                            p: 2 , 
+                                            borderRadius : "8px" 
+                                        }}>
 
                                         <Typography 
                                             id="modal-modal-title" variant="h6" component="h6"
-                                            sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
+                                            sx={{ 
+                                                fontSize : "15px" , 
+                                                color :"#fbc44a",
+                                                border :"2px solid #383224fa", 
+                                                padding : "5px", 
+                                                borderRadius : "6px" , 
+                                                margin : "5px"
+                                            }}
                                         >
                                             productName : {showDetail.productName}
                                         </Typography>
 
                                         <Typography 
                                             id="modal-modal-title" variant="h6" component="h6"
-                                            sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
+                                            sx={{ 
+                                                fontSize : "15px" , 
+                                                color :"#fbc44a",
+                                                border :"2px solid #383224fa", 
+                                                padding : "5px", 
+                                                borderRadius : "6px" , 
+                                                margin : "5px"
+                                            }}
                                         >
                                             brand : {brands.map((brand)=>(
                                                 brand.id === showDetail.brandId?brand.brandName:""
@@ -322,7 +342,14 @@ const Store = () => {
 
                                         <Typography 
                                             id="modal-modal-title" variant="h6" component="h6"
-                                            sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
+                                            sx={{ 
+                                                fontSize : "15px" , 
+                                                color :"#fbc44a",
+                                                border :"2px solid #383224fa", 
+                                                padding : "5px", 
+                                                borderRadius : "6px" , 
+                                                margin : "5px"
+                                            }}
                                         >
                                             category : {categories.map((category)=>(
                                                 category.id === showDetail.categoryId?category.categoryName:"" 
@@ -330,8 +357,17 @@ const Store = () => {
                                         </Typography>
 
                                         <Typography 
-                                            id="modal-modal-title" variant="h6" component="h6"
-                                            sx={{ fontSize : "15px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
+                                            id="modal-modal-title" 
+                                            variant="h6" 
+                                            component="h6"
+                                            sx={{ 
+                                                fontSize : "15px" , 
+                                                color :"#fbc44a",
+                                                border :"2px solid #383224fa", 
+                                                padding : "5px", 
+                                                borderRadius : "6px" , 
+                                                margin : "5px"
+                                            }}
                                         >
                                             <div className="flex">
                                                 <span>Rating :</span>
@@ -344,16 +380,55 @@ const Store = () => {
                                             
                                         </Typography>
 
-                                        <Typography 
-                                            id="modal-modal-title" variant="h6" component="h6"
-                                            sx={{ fontSize : "18px" , color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
-                                        >
-                                            price : {showDetail.price}
-                                        </Typography>
+                                        {showDetail.discount>0 ?
+                                            <>
+                                                <Typography 
+                                                    id="modal-modal-title" variant="h6" component="h6"
+                                                    sx={{ fontSize : "18px" ,textDecoration: 'line-through', color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
+                                                >
+                                                    price : {showDetail.price} 
+                                                    {showDetail.discount>0?
+                                                        <span className="w-10 mx-4 bg-amber-500 p-1 rounded no-underline text-white text-[11px]">
+                                                            {showDetail.discount} %
+                                                        </span>:null
+                                                    }
+                                                </Typography>
+                                                <Typography 
+                                                    id="modal-modal-title" variant="h6" component="h6"
+                                                    sx={{ 
+                                                        fontSize : "18px" , 
+                                                        color :"#fbc44a",
+                                                        border :"2px solid #383224fa", 
+                                                        padding : "5px", 
+                                                        borderRadius : "6px" , 
+                                                        margin : "5px"
+                                                    }}
+                                                >
+                                                    Discounted price : {showDetail.price-((showDetail.price)*(showDetail.discount/100))}
+                                                </Typography>
+                                            </>
+                                        :
+
+                                            <Typography 
+                                                    id="modal-modal-title" variant="h6" component="h6"
+                                                    sx={{ 
+                                                        fontSize : "18px" , 
+                                                        color :"#fbc44a",
+                                                        border :"2px solid #383224fa",
+                                                        padding : "5px", 
+                                                        borderRadius : "6px" ,
+                                                        margin : "5px"
+                                                    }}
+                                                >
+                                                    price : {(showDetail.price)}
+                                            </Typography>
+                                        
+                                        }
 
                                     </Box>
 
-                                    <Box sx={{ bgcolor: 'text.disabled', color: 'background.paper', p: 2 , width : 350 , borderRadius : "8px"}}>
+                                    <Box className="boxImage" sx={{ bgcolor: 'text.disabled', color: 'background.paper', p: 2 , width : 350 , borderRadius : "8px"}}>
+                                        
                                         <Card sx={{ maxWidth: 900 }}>
                                             <CardMedia
                                                 component="img"
@@ -363,6 +438,17 @@ const Store = () => {
                                                 title={showDetail.productName}
                                             />
                                         </Card>
+
+                                        {showDetail.discount>0 ?
+                                            <div className="boxDiscount">
+                                                <div className="productDiscount">
+                                                <div className="discount">
+                                                    <span >{showDetail.discount} %</span>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        :null}
+                                        
                                     </Box>
 
                                 </Box>

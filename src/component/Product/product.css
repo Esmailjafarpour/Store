@@ -16,6 +16,7 @@
     position: relative;
 }
 
+
 .discount{
     position: absolute;
     top: 8px;
@@ -25,8 +26,7 @@
     height: 45px;
     z-index: 100;
     border-radius: 10px;
-    border: 1px solid rgb(238, 174, 54);
-   
+    border: 2px solid rgb(235, 203, 145);
 }
 
 .discount_product{
@@ -40,12 +40,12 @@
     border-bottom-left-radius: 50%;
 }
 
-.discount_product span{
+.discount_product > span{
     display: block;
     transform: rotate(-45deg);
     margin:5px;
     width: 100%;
-    /* color: blueviolet; */
+    color: blueviolet;
 }
 
 @media (max-width: 320px) {

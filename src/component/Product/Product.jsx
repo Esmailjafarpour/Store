@@ -5,31 +5,39 @@ import "./product.css";
 const Product = ({product,onAddToCartClick,onDeletedToCartClick,onShowDetailsProduct}) => {
     const [state, setstate] = useState("");
     const num = product.discount
-    switch (true) {
-        case num < 10 :
+    switch (product.discount) {
+        case (num < 10) :
+            console.log(num)
             setstate("#00ffff")
             break;
-        case num < 25 :
+        case (num < 25) :
             setstate("#1d9797")
+            console.log(num)
             break;
         case num < 40 :
             setstate("#0c5294")
+            console.log(num)
             break;
         case num < 50 :
             setstate("#15af1d")
+            console.log(num)
             break;
         case num < 70 :
             setstate("#e47433")
+            console.log(num)
             break;
         case num < 80 :
             setstate("#d85c3d")
+            console.log(num)
             break;
         case num < 90 :
             setstate("#e4461e")
+            console.log(num)
             break;
     
         case num < 100 :
             setstate("fd3706")
+            console.log(num)
             break;
     
         default:
@@ -39,31 +47,59 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick,onShowDetailsPro
         // <div className="mb-1">
             <div className="product card m-1 bg-transparent border-0 overflow-hidden col-span-4">
                 <div className="box-product bg-gradient border-2 shadow-2xl bg-zinc-900 border-stone-600 rounded-sm p-2 ">
-                    <div className="discount">
-                        <div className="discount_product">
-                            <span style={{color:state}}>{product.discount} %</span>
+                    {product.discount>0?
+                        <div className="discount">
+                            <div className="discount_product">
+                                <span style={{color:state}}>{product.discount} %</span>
+                            </div>
                         </div>
-                    </div>
+                    :null}
                     <div className="product bg-indigo-300 rounded-lg h-60 mb-1 shadow-2xl cursor-pointer">
                         <img className="object-cover w-100 h-30 transition ease-in-out delay-170 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-700" 
-                        src={require(`../../images/${product.image}`)} alt={product.image}
-                        onClick={()=>{onShowDetailsProduct(product.id)}}
+                            src={require(`../../images/${product.image}`)} alt={product.image}
+                            onClick={()=>{onShowDetailsProduct(product.id)}}
                         />
                     </div>
                     <h6 className="productName text-orange-400 text-center mb-1">
                         {product.productName}<i className="fa fa-arrow-right ml-1"></i>
                     </h6>
+                    {product.discount>0?
+                        <div className="flex justify-center">
+                            {product.quantity && product.quantity>0?
+                                <div className="product_price text-lime-200 flex justify-center items-center" style={{textDecoration: 'line-through'}}>
+                                    $ {(product.price.toFixed())*(product.quantity)}
+                                </div>
+                                :
+                                <div className="product_price text-lime-200 flex justify-center items-center" style={{textDecoration: 'line-through'}}>
+                                    $ {product.price.toFixed()}
+                                </div>
+                            }
+                            <span className="w-10 mx-4 bg-amber-500 p-1 rounded no-underline text-white text-[11px] text-center">
+                                {product.discount} %
+                            </span>
+                            {product.quantity && product.quantity>0?
+                                <div className="product_price text-lime-200 flex justify-center items-center">
+                                    $ {(((product.price.toFixed(0))-(product.price.toFixed(0)*((product.discount)/100)))*(product.quantity))}
+                                </div>
+                                :
+                                <div className="product_price text-lime-200 flex justify-center items-center">
+                                    $ {(product.price.toFixed(0))-(product.price.toFixed(0)*((product.discount)/100))}
+                                </div>
+                            }
+                        </div>
 
-                    {product.quantity && product.quantity>0?
-                        <div className="product_price text-lime-200 flex justify-center items-center" style={{textDecoration: 'line-through'}}>$ {(product.price.toFixed())*(product.quantity)}</div>
-                        :
-                        <div className="product_price text-lime-200 flex justify-center items-center" style={{textDecoration: 'line-through'}}>$ {product.price.toFixed()}</div>
-                    }
-
-                    {product.quantity && product.quantity>0?
-                        <div className="product_price text-lime-200 flex justify-center items-center">$ {(product.price.toFixed())*(product.quantity)*((product.discount)/100)}</div>
-                        :
-                        <div className="product_price text-lime-200 flex justify-center items-center">$ {product.price.toFixed()*((product.discount)/100)}</div>
+                    :
+                        <>
+                            {product.quantity && product.quantity>0?
+                                <div className="product_price text-lime-200 flex justify-center items-center">
+                                    $ {(product.price.toFixed())*(product.quantity)}
+                                </div>
+                                :
+                                <div className="product_price text-lime-200 flex justify-center items-center">
+                                    $ {product.price.toFixed()}
+                                </div>
+                            }
+                        </>
                     }
                     <div className="brand mt-2 text-orange-300">
                         {/* <Grid3x3Icon/> */}

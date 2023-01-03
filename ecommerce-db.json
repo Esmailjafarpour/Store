@@ -105,7 +105,7 @@
       "rating": 5,
       "image": "Apple-iphone12pro.png",
       "quantityInStock": 8,
-      "discount": 50
+      "discount": 0
     },
     {
       "id": 2,
@@ -138,7 +138,7 @@
       "rating": 4,
       "image": "Sony 5.1 Home Theatre.png",
       "quantityInStock": 10,
-      "discount": 16
+      "discount": 0
     },
     {
       "id": 5,
@@ -182,7 +182,7 @@
       "rating": 2,
       "image": "samsung-galaxy-A10.png",
       "quantityInStock": 9,
-      "discount": 5
+      "discount": 0
     },
     {
       "id": 9,
@@ -280,6 +280,62 @@
       "isPaymentCompleted": false,
       "imageProduct": "Apple-iphone12pro.png",
       "id": 5
+    },
+    {
+      "userId": 1,
+      "productId": 7,
+      "quantity": 2,
+      "isPaymentCompleted": false,
+      "imageProduct": "Sony-Xperia-Pro-I.png",
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "productId": 1,
+      "quantity": 2,
+      "isPaymentCompleted": false,
+      "imageProduct": "Apple-iphone12pro.png",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "productId": 2,
+      "quantity": 2,
+      "isPaymentCompleted": false,
+      "imageProduct": "ipad-pro-11.png",
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "productId": 2,
+      "quantity": 2,
+      "isPaymentCompleted": false,
+      "imageProduct": "ipad-pro-11.png",
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "productId": 2,
+      "quantity": 2,
+      "isPaymentCompleted": false,
+      "imageProduct": "ipad-pro-11.png",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "productId": 3,
+      "quantity": 2,
+      "isPaymentCompleted": false,
+      "imageProduct": "camera.png",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "productId": 2,
+      "quantity": 2,
+      "isPaymentCompleted": false,
+      "imageProduct": "ipad-pro-11.png",
+      "id": 12
     }
   ]
 }
