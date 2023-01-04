@@ -48,6 +48,20 @@
     color: blueviolet;
 }
 
+.product_quantityInStock{
+    width: 50%;
+    display: flex;
+    /* flex-wrap: nowrap; */
+    justify-content: space-around;
+    align-items: center;
+}
+
+.quantityInStock_number{
+    width: 20%;
+    text-align: center;
+    
+}
+
 @media (max-width: 320px) {
 
     .content_products {
@@ -292,7 +306,7 @@
     }
 
     .product_price{
-        font-size: 18px;
+        /* font-size: 14px; */
     }
 
     .brand{

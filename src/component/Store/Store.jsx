@@ -15,6 +15,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import Pagination from '@mui/material/Pagination';
 import "./store.css";
 
 
@@ -561,11 +562,20 @@ const Store = () => {
                                     />
                                 ))}
                             </div>
-                            
-                        </div>
 
+                            <Box className="w-1/2 h-10 m-auto border-[2px] border-stone-700 rounded-lg mt-4">
+                                 <Stack spacing={2} className="relative mx-auto h-10 ">
+                                    <Pagination count={10} variant="outlined" color="secondary" className="absolute m-auto w-full" />
+                                </Stack>
+                            </Box>
+
+                           
+                        </div>
                     </div>
+
+                 
                 </div>
+
             </div>  
         </>
     )

@@ -32,10 +32,10 @@
     }
 
     .form-group-email{
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: center; */
     }
 
     .form-group-email label{
@@ -44,10 +44,10 @@
     }
 
     .form-group-password{
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: center; */
     }
 
     .form-group-password label{
@@ -69,10 +69,10 @@
     }
 
     .form-group-email{
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: center; */
     }
 
     .form-group-email label{
@@ -81,10 +81,10 @@
     }
 
     .form-group-password{
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: center; */
     }
 
     .form-group-password label{
@@ -106,10 +106,10 @@
     }
 
     .form-group-email{
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: center; */
     }
 
     .form-group-email label{
@@ -118,10 +118,10 @@
     }
 
     .form-group-password{
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: center; */
     }
 
     .form-group-password label{
@@ -148,10 +148,10 @@
     }
 
     .form-group-email{
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: center; */
     }
 
     .form-group-email label{
@@ -160,10 +160,10 @@
     }
 
     .form-group-password{
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: center; */
     }
 
     .form-group-password label{

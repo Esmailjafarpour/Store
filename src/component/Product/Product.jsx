@@ -66,23 +66,23 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick,onShowDetailsPro
                     {product.discount>0?
                         <div className="flex justify-center">
                             {product.quantity && product.quantity>0?
-                                <div className="product_price text-lime-200 flex justify-center items-center" style={{textDecoration: 'line-through'}}>
+                                <div className="product_price text-lime-200 flex justify-center items-center bg-stone-700 rounded p-0.5 rounded text-indigo-200 text-[12px]" style={{textDecoration: 'line-through'}}>
                                     $ {(product.price.toFixed())*(product.quantity)}
                                 </div>
                                 :
-                                <div className="product_price text-lime-200 flex justify-center items-center" style={{textDecoration: 'line-through'}}>
+                                <div className="product_price text-lime-200 flex justify-center items-center bg-stone-700 rounded p-0.5 rounded text-indigo-200 text-[12px]" style={{textDecoration: 'line-through'}}>
                                     $ {product.price.toFixed()}
                                 </div>
                             }
-                            <span className="w-10 mx-4 bg-amber-500 p-1 rounded no-underline text-white text-[11px] text-center">
+                            <span className="w-10 mx-4 bg-amber-500 p-0.5 rounded text no-underline text-white text-[15px] text-center">
                                 {product.discount} %
                             </span>
                             {product.quantity && product.quantity>0?
-                                <div className="product_price text-lime-200 flex justify-center items-center">
+                                <div className="product_price flex justify-center items-center bg-green-600 p-0.5 rounded text-slate-50 text-[14px]">
                                     $ {(((product.price.toFixed(0))-(product.price.toFixed(0)*((product.discount)/100)))*(product.quantity))}
                                 </div>
                                 :
-                                <div className="product_price text-lime-200 flex justify-center items-center">
+                                <div className="product_price flex justify-center items-center bg-green-600 p-0.5 rounded text-slate-50 text-[14px]">
                                     $ {(product.price.toFixed(0))-(product.price.toFixed(0)*((product.discount)/100))}
                                 </div>
                             }
@@ -116,11 +116,17 @@ const Product = ({product,onAddToCartClick,onDeletedToCartClick,onShowDetailsPro
                                 return <i className="fa fa-star-o text-yellow-200" key={n}></i>
                             })} 
                         </div>
-                        <div>
+                        <div className="product_quantityInStock">
                             {product.quantityInStock > 0 ?
-                                <span className="product_quantity text-violet-300">Quantity in stock {product.quantityInStock}</span>
+                                <>
+                                    <span className="product_quantity text-violet-300">Quantity in stock</span>
+                                    <span className="text-indigo-50 mx-1 bg-neutral-700 p-0.5 border-[2px] border-purple-300 rounded-full quantityInStock_number">{product.quantityInStock}</span>
+                                </>
                                 :
-                                <span className="product_quantity text-red-900">warehouse stock {product.quantityInStock}</span>
+                                <>
+                                    <span className="product_quantity text-red-900">warehouse stock</span>
+                                    <span className="text-indigo-50 mx-1 bg-neutral-700 p-0.5 border-[2px] border-purple-300 rounded-full quantityInStock_number">{product.quantityInStock}</span>
+                                </>
                             }
                         </div>
                         
