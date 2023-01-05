@@ -1,5 +1,6 @@
 .title-register{
-    color:wheat;  
+    color:wheat; 
+    letter-spacing: 3px; 
 }
 
 .form-register{
@@ -35,9 +36,16 @@
         font-size: 12px;
     }
 
+    .email_register label,.password_register label,.fullName_register label,.dateOfBrith_register label,.gender_register label,.country_register label,.recive_register label{
+        font-size: 10px;
+        color: #e3b155 !important;
+        margin-bottom: 5px;
+    }
+
+
 } 
 
-@media (min-width: 321px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 480px) {
    
     .title-register{
         font-size: 20px !important;
@@ -47,9 +55,15 @@
         font-size: 14px;
     }
 
+    .email_register label,.password_register label,.fullName_register label,.dateOfBrith_register label,.gender_register label,.country_register label,.recive_register label{
+        font-size: 12px;
+        color: #e3b155 !important;
+        margin-bottom: 5px;
+    }
+
 }
 
-@media (min-width: 481px) and (max-width: 767px){
+@media (min-width: 480px) and (max-width: 768px){
 
     .row-register{
         /* width: 80%; */
@@ -65,6 +79,12 @@
 
     .title-register{
         font-size: 20px !important;
+    }
+
+    .email_register label,.password_register label,.fullName_register label,.dateOfBrith_register label,.gender_register label,.country_register label,.recive_register label{
+        font-size: 14px;
+        color: #e3b155 !important;
+        margin-bottom: 5px;
     }
 
 }
@@ -83,10 +103,16 @@
         font-size: 20px !important;
     }
 
+    .email_register label,.password_register label,.fullName_register label,.dateOfBrith_register label,.gender_register label,.country_register label,.recive_register label{
+        font-size: 13px;
+        color: #e3b155 !important;
+        margin-bottom: 5px;
+    }
+
 
 }
 
-@media (min-width: 901px) and (max-width: 1200px){
+@media (min-width: 900px) and (max-width: 1200px){
 
     .row-register{
         width: 60% !important;
@@ -98,6 +124,13 @@
 
     .title-register{
         font-size: 20px !important;
+    }
+
+    .email_register label,.password_register label,.fullName_register label,.dateOfBrith_register label,.gender_register label,.country_register label,.recive_register label{
+        font-size: 14px;
+        color: #e3b155 !important;
+        margin-bottom: 5px;
+        width: 100%;
     }
     
 } 
@@ -114,6 +147,13 @@
 
     .title-register{
         font-size: 20px !important;
+    }
+
+    .email_register label,.password_register label,.fullName_register label,.dateOfBrith_register label,.gender_register label,.country_register label,.recive_register label{
+        font-size: 18px;
+        color: #e3b155 !important;
+        margin-bottom: 5px;
+       
     }
 
 }

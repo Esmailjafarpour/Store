@@ -7,12 +7,18 @@ nav{
     position: sticky !important;
     top: 0px;
     z-index: 1000 !important;
+    word-spacing: 5px;
+    letter-spacing: 2px; 
 }
 
 .selected{
     background-color: #414246 !important;
     color: #ddbe85 !important;
     border: 2px solid #605f5f !important;
+    width: 40%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 }
 
 .container-fluid{
@@ -56,12 +62,12 @@ nav{
     }
 
     .title_store{
-        grid-column: span 12 / span 12;
+        grid-column: span 12 / span 12 !important;
     }
     
     .header-search{
         width: 100%;
-        grid-column: span 12 / span 12;
+        grid-column: span 12 / span 12 !important;
     }
 } 
 
@@ -104,18 +110,18 @@ nav{
     }
 
     .title_store{
-        grid-column: span 12 / span 12;
+        grid-column: span 12 / span 12 !important;
     }
 
     
     .header-search{
         width: 100%;
-        grid-column: span 12 / span 12;
+        grid-column: span 12 / span 12 !important;
     }
 
 }
 
-@media (min-width: 481px) and (max-width: 767px){
+@media (min-width: 480px) and (max-width: 768px){
 
     .navbar-brand{
         margin: 0 auto !important;
@@ -144,23 +150,17 @@ nav{
         right: 20px;
     }
 
-    .header{
-        display: flex;
-    }
-
     .title_store{
-        grid-column: span 4 / span 4 !important;
-        width: 30%;
+        grid-column: span 3 / span 3 !important;
     }
-
-    .title_store h5 span{
-        font-size: 16px;
-        padding: 2px ;
-    }
-
+    
     .header-search{
-        grid-column: span 8 / span 8 !important;
+        width: 90%;
+        grid-column: span 9 / span 9 !important;
+        margin: 0 auto !important;
     }
+
+    
 }
 
 @media (min-width: 768px) and (max-width: 900px){
@@ -174,16 +174,17 @@ nav{
     }
 
     .title_store{
-        grid-column: span 3 / span 3;
+        grid-column: span 3 / span 3 !important;
     }
     
     .header-search{
-        grid-column: span 9 / span 9;
+        width: 100%;
+        grid-column: span 9 / span 9 !important;
     }
 
 }
 
-@media (min-width: 901px) and (max-width: 1200px){
+@media (min-width: 900px) and (max-width: 1200px){
 
     .navbar-brand{
         margin: 0 auto !important;
@@ -194,18 +195,26 @@ nav{
     }
 
     .title_store{
-        grid-column: span 3 / span 3;
+        grid-column: span 3 / span 3 !important;
     }
     
     .header-search{
-        grid-column: span 9 / span 9;
+        width: 90% !important;
+        grid-column: span 9 / span 9 !important;
     }
     
 } 
 
 @media (min-width: 1200px){
 
-   
+    .title_store{
+        grid-column: span 3 / span 3 !important;
+    }
+    
+    .header-search{
+        width: 90% !important;
+        grid-column: span 9 / span 9 !important;
+    }
 
 }
 

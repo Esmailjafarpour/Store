@@ -107,8 +107,8 @@ const Navbar = () => {
                                     <img class="object-cover w-8 h-8 rounded-full border-[2px] border-stone-500 p-1" src={require(`../../images/${userContext.user.imageUser}`)}/>
                                 </NavLink>
                                 <NavLink className=" selected w-24 h-10 p-2 rounded-lg no-underline" to="#" onClick={onLogOutClick}>
-                                        <i className="fa fa-sign-out" aria-hidden="true"></i>
                                             LogOut
+                                        <i className="fa fa-sign-out mx-1" aria-hidden="true"></i>
                                 </NavLink>
                             </div>
                         :''}

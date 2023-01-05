@@ -231,8 +231,8 @@ const Register = (props) => {
                 </div>
                 <div className=" p-3 bg-zinc-900 border-2 border-stone-700 rounded-3">
                     {/* Email */}
-                    <div className="row mb-3">
-                        <label htmlFor="Email" className="col-lg-2 text-light py-1">Email</label>
+                    <div className="row mb-3 email_register">
+                        <label htmlFor="Email" className="col-lg-2 text-light py-1 ">Email</label>
                         <div className="col-lg-10">
                              <input  
                                 type="text"
@@ -255,7 +255,7 @@ const Register = (props) => {
                        
                     </div>
                     {/* Password */}
-                    <div className="row mb-3">
+                    <div className="row mb-3 password_register">
                         <label htmlFor="Password" className="col-lg-2 text-light py-1">Password</label>
                         <div className="col-lg-10">
                             <input  
@@ -277,7 +277,7 @@ const Register = (props) => {
                         </div>    
                     </div>
                     {/* FullName */}
-                    <div className="row mb-3">
+                    <div className="row mb-3 fullName_register">
                         <label htmlFor="FullName" className="col-lg-2 text-light py-1">FullName</label>
                         <div className="col-lg-10">
                             <input  
@@ -299,7 +299,7 @@ const Register = (props) => {
                         </div> 
                     </div>
                     {/* DateOfBrith */}
-                    <div className="row mb-3">
+                    <div className="row mb-3 dateOfBrith_register">
                         <label htmlFor="DateOfBrith" className="col-lg-3 text-light py-1">Date Of Brith</label>
                         <div className="col-lg-9">
                             <input  
@@ -321,7 +321,7 @@ const Register = (props) => {
                         </div>    
                     </div>
                     {/* Gender */}
-                    <div className="row mb-3">
+                    <div className="row mb-3 gender_register">
                         <label htmlFor="" className="col-lg-2 text-light py-1">Gender</label>
                         <div className="col-lg-8 d-flex justify-content-around ">
                             <div className="form-check">
@@ -349,13 +349,13 @@ const Register = (props) => {
                                 <label htmlFor="female" className="form-check-inline mb-1 text-light">Female</label>
                             </div>
                         </div>
-                        <div className="text-warning">
+                        <div className="text-warning ">
                             {dirty["gender"]&&errors['gender'][0] ? errors['gender'] : ""}
                         </div>
                     </div>
 
                     {/* country */}
-                    <div className="row mb-3">
+                    <div className="row mb-3 country_register">
                         <label htmlFor="Country" className="col-lg-2 text-light py-1">Country</label>
                         <div className="col-lg-10">
                             <select 
@@ -384,7 +384,7 @@ const Register = (props) => {
                     {/* End Of Country */}
 
                     {/* Recive News Letters */}
-                    <div className="row mb-3 text-center">
+                    <div className="row mb-3 text-center recive_register">
                         <label htmlFor="" className="col-lg-4 text-light py-1">Recieve News Letters</label>
                         <div className="col-lg-8 d-flex">
                             <div className="form-check  mx-auto">
@@ -407,7 +407,7 @@ const Register = (props) => {
                         <Button
                             variant="contained"
                             component="label"
-                            sx={{backgroundColor: "green"}}
+                            sx={{backgroundColor: "#604d2a"}}
                             // onClick={()=>errors.image && errors.image.length ===0 ? isValid():""}
                             >
                             Upload File

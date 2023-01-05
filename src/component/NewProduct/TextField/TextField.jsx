@@ -61,7 +61,8 @@ function BasicTextFields({hiddenNewProduct}) {
     categoryId:0,
     rating:0,
     quantityInStock:0,
-    image:""
+    image:"",
+    discount:0
 });
 
 const [errors, setErrors] = React.useState({
@@ -71,7 +72,8 @@ const [errors, setErrors] = React.useState({
     categoryId:[],
     rating:[],
     quantityInStock:[],
-    image:[]
+    image:[],
+    discount:[]
 });
 
 const [dirty, setDirty] = React.useState({
@@ -81,7 +83,8 @@ const [dirty, setDirty] = React.useState({
   dateOfBrith:false,
   gender:false,
   country:false,
-  recieveNewsLetters:false
+  recieveNewsLetters:false,
+  discount:false
 });
 
   React.useEffect(() => {
@@ -212,6 +215,7 @@ const [dirty, setDirty] = React.useState({
             categoryId : newProduct.categoryId,
             rating : newProduct.rating,
             quantityInStock : newProduct.quantityInStock,
+            discount : newProduct.discount,
             image : newProduct.image,
           }),
           headers : {
@@ -337,6 +341,21 @@ const [dirty, setDirty] = React.useState({
               />
               {errors.quantityInStock && errors.quantityInStock.length>=0 ? <p className="text-amber-300 text-[12px] mt-1">{errors.quantityInStock}</p>:""}
          
+              <TextField
+                id="outlined-number"
+                name="discount"
+                label="discount"
+                type="number"
+                InputProps={{ inputProps: { min: 0, max: 100 } }}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                // helperText={errors.quantityInStock?errors.quantityInStock:""}
+                onChange={(e)=> (setNewProduct({...newProduct,[e.target.name]:Number(e.target.value)}),isValid())}
+                onBlur={()=>isValid()}
+                value={newProduct.discount}
+                sx={styleTextField}
+              />
               <Button
                   variant="contained"
                   component="label"

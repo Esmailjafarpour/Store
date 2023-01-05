@@ -139,7 +139,7 @@ const Login = (props) => {
                         </h4>
                     </div>
                     <div className="border-2 border-stone-700 p-2 rounded mx-2 my-2">
-                        <div className="form-group">
+                        <div className="form-group form-group-email">
                             <label htmlFor="email"className="mb-3 text-light">Email</label>
                             <input 
                                  autoComplete="new-password"
@@ -160,8 +160,8 @@ const Login = (props) => {
                                 {dirty["email"]&&errors['email'][0] ? errors['email'] : ""}
                             </div>
                         </div>
-                        <div className="form-group mt-3" >
-                            <label htmlFor="password"className="mb-3 text-light">password</label>
+                        <div className="form-group form-group-password mt-3" >
+                            <label htmlFor="password"className="mb-3 text-light">Password</label>
                             <input 
                                     autoComplete="new-password"
                                     type="password" 
@@ -183,7 +183,7 @@ const Login = (props) => {
                     <div className="card-footer text-center mt-3">
                         <div className="m-1 w-60 mx-auto">{loginMessage}</div>
                         <div className="flex justify-center">
-                            <button className="w-40 text-teal-600 border-2 border-stone-500
+                            <button className="w-40 text-amber-600 border-2 border-stone-500
                                 focus:outline-none rounded-lg text-sm px-3 py-2 text-center 
                                 mr-2 mb-1 dark:hover:text-green-600 dark:hover:bg-green-100"
                                 onClick={onLoginClick}>
