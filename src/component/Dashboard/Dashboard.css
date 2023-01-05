@@ -37,6 +37,11 @@
     color:#e3c98df7;
 }
 
+.card_order{
+    height: 470px !important;
+    overflow-y: scroll !important;
+}
+
 @media (max-width: 320px) {
 
     .header-dashboard{

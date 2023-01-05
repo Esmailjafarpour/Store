@@ -6,6 +6,12 @@
     background-color: #414246 !important;
     color: #ddbe85 !important;
     border: 2px solid #605f5f !important;
+   
+}
+
+.previous_order{
+    height: 470px;
+    overflow-y: scroll;
 }
 
 @media (max-width: 320px) {

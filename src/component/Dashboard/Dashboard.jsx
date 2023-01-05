@@ -120,7 +120,7 @@ const Dashboard = () => {
                     <div className="grid grid-cols-3 gap-8">
                         
                             {/* Column of confirmed products that have been paid */}
-                            <div className="previous_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-2">
+                            <div className="previous_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-1">
                                 <h4 className="py-2 my-2 text-center text-emerald-500">
                                     <i className="fa fa-history"></i>Previous Orders{"  "}
 
@@ -157,7 +157,7 @@ const Dashboard = () => {
                             </div>
 
                             {/* Column of unconfirmed products that have not been paid for */}
-                            <div className="card_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-1">
+                            <div className="card_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-2">
                                 {/* The number of unconfirmed and unpaid orders */}
                                 <h4 className="py-2 my-2 text-center text-yellow-500">
                                     <div className="fa fa-shopping-cart px-1"></div>card{" "}
@@ -202,7 +202,7 @@ const Dashboard = () => {
                                 }
 
                                 {/* Displaying unconfirmed and unpaid orders */}
-                                <div className="Unconfirmed_Orders">
+                                <div className="Unconfirmed_Orders grid grid-cols-12 gap-4">
                                         {OrdersService.getCart(orders).map((order)=>{
                                         return (
                                             <Order 
