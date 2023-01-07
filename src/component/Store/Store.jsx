@@ -395,7 +395,7 @@ const Store = () => {
                                                 >
                                                     price : {showDetail.price} 
                                                     {showDetail.discount>0?
-                                                        <span className="w-10 mx-4 bg-amber-500 p-1 rounded no-underline text-white text-[11px]">
+                                                        <span className="w-10 mx-3 bg-amber-500 p-1 rounded no-underline text-white text-[11px]">
                                                             {showDetail.discount} %
                                                         </span>:null
                                                     }
