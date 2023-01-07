@@ -341,13 +341,10 @@ const Store = () => {
                                                 margin : "5px"
                                             }}
                                         >
-                                                <span>brand :</span>
-                                                <span>
-                                                    {brands.map((brand)=>(
-                                                        brand.id === showDetail.brandId?brand.brandName:""
-                                                        
-                                                    ))}
-                                                </span>
+                                            brand : {brands.map((brand)=>(
+                                                brand.id === showDetail.brandId?brand.brandName:""
+                                                
+                                            ))}
                                         </Typography>
 
                                         <Typography 
@@ -361,12 +358,9 @@ const Store = () => {
                                                 margin : "5px"
                                             }}
                                         >
-                                            <span>category : </span>
-                                            <span>
-                                                {categories.map((category)=>(
-                                                    category.id === showDetail.categoryId?category.categoryName:"" 
-                                                ))}
-                                            </span>
+                                            category : {categories.map((category)=>(
+                                                category.id === showDetail.categoryId?category.categoryName:"" 
+                                            ))}
                                         </Typography>
 
                                         <Typography 
@@ -398,16 +392,13 @@ const Store = () => {
                                                 <Typography 
                                                     id="modal-modal-title" variant="h6" component="h6"
                                                     sx={{ fontSize : "18px" ,textDecoration: 'line-through', color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
-                                                >   
-                                                    <span> price : </span>
-                                                    <span>
-                                                        {showDetail.price} 
-                                                            {showDetail.discount>0?
-                                                                <span className="w-10 mx-4 bg-amber-500 p-1 rounded no-underline text-white text-[11px]">
-                                                                    {showDetail.discount} %
-                                                                </span>:null
-                                                            }
-                                                    </span>
+                                                >
+                                                    price : {showDetail.price} 
+                                                    {showDetail.discount>0?
+                                                        <span className="w-10 mx-4 bg-amber-500 p-1 rounded no-underline text-white text-[11px]">
+                                                            {showDetail.discount} %
+                                                        </span>:null
+                                                    }
                                                 </Typography>
                                                 <Typography 
                                                     id="modal-modal-title" variant="h6" component="h6"
@@ -420,10 +411,7 @@ const Store = () => {
                                                         margin : "5px"
                                                     }}
                                                 >
-                                                    <span>Discounted price : </span>
-                                                    <span>
-                                                        {showDetail.price-((showDetail.price)*(showDetail.discount/100))}
-                                                    </span>
+                                                    Discounted price : {showDetail.price-((showDetail.price)*(showDetail.discount/100))}
                                                 </Typography>
                                             </>
                                         :
@@ -439,10 +427,7 @@ const Store = () => {
                                                         margin : "5px"
                                                     }}
                                                 >
-                                                    <span>price : </span>
-                                                    <span>
-                                                        {(showDetail.price)}
-                                                    </span>
+                                                    price : {(showDetail.price)}
                                             </Typography>
                                         
                                         }
