@@ -128,6 +128,20 @@
         font-size: 11px;
     }
 
+    .box-detail-product{
+        display: flex !important;
+        flex-direction: column-reverse !important;
+    }
+
+    .content-box2{
+        height: 420px;
+        overflow-y: scroll;
+    }
+
+    .boxImage{
+        margin-bottom: 5px;
+    }
+
 
 } 
 
@@ -184,6 +198,14 @@
 
     .form-check label{
         font-size: 11px;
+    }
+    .box-detail-product{
+        display: flex !important;
+        flex-direction: column-reverse !important;
+    }
+
+    .boxImage{
+        margin-bottom: 5px;
     }
 
 }

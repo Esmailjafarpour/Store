@@ -283,7 +283,9 @@ const Store = () => {
     }
   
     return(
-        <>   {showDetail.id !== "" ?
+        <>   
+
+        {showDetail.id !== "" ?
                 <Modal
                     open={open}
                     onClose={handleClose}
@@ -301,13 +303,15 @@ const Store = () => {
                                     </Typography>
                                 </Box>
 
-                                <Box sx={{display: 'flex' , justifyContent: 'space-evenly' , margin : '20px'}}>
+                                <Box className="box-detail-product" sx={{display: 'flex' , justifyContent: 'space-evenly' , margin : '20px'}}>
 
-                                    <Box sx={{ 
+                                    <Box 
+                                    
+                                        sx={{ 
                                             bgcolor: 'text.disabled', 
                                             color: 'background.paper', 
                                             p: 2 , 
-                                            borderRadius : "8px" 
+                                            borderRadius : "8px",
                                         }}>
 
                                         <Typography 
@@ -321,7 +325,9 @@ const Store = () => {
                                                 margin : "5px"
                                             }}
                                         >
-                                            productName : {showDetail.productName}
+                                            <span>productName :</span>
+                                            <span>{showDetail.productName}</span>
+                                             
                                         </Typography>
 
                                         <Typography 
@@ -335,10 +341,13 @@ const Store = () => {
                                                 margin : "5px"
                                             }}
                                         >
-                                            brand : {brands.map((brand)=>(
-                                                brand.id === showDetail.brandId?brand.brandName:""
-                                                
-                                            ))}
+                                                <span>brand :</span>
+                                                <span>
+                                                    {brands.map((brand)=>(
+                                                        brand.id === showDetail.brandId?brand.brandName:""
+                                                        
+                                                    ))}
+                                                </span>
                                         </Typography>
 
                                         <Typography 
@@ -352,9 +361,12 @@ const Store = () => {
                                                 margin : "5px"
                                             }}
                                         >
-                                            category : {categories.map((category)=>(
-                                                category.id === showDetail.categoryId?category.categoryName:"" 
-                                            ))}
+                                            <span>category : </span>
+                                            <span>
+                                                {categories.map((category)=>(
+                                                    category.id === showDetail.categoryId?category.categoryName:"" 
+                                                ))}
+                                            </span>
                                         </Typography>
 
                                         <Typography 
@@ -386,13 +398,16 @@ const Store = () => {
                                                 <Typography 
                                                     id="modal-modal-title" variant="h6" component="h6"
                                                     sx={{ fontSize : "18px" ,textDecoration: 'line-through', color :"#fbc44a",border :"2px solid #383224fa", padding : "5px", borderRadius : "6px" , margin : "5px"}}
-                                                >
-                                                    price : {showDetail.price} 
-                                                    {showDetail.discount>0?
-                                                        <span className="w-10 mx-4 bg-amber-500 p-1 rounded no-underline text-white text-[11px]">
-                                                            {showDetail.discount} %
-                                                        </span>:null
-                                                    }
+                                                >   
+                                                    <span> price : </span>
+                                                    <span>
+                                                        {showDetail.price} 
+                                                            {showDetail.discount>0?
+                                                                <span className="w-10 mx-4 bg-amber-500 p-1 rounded no-underline text-white text-[11px]">
+                                                                    {showDetail.discount} %
+                                                                </span>:null
+                                                            }
+                                                    </span>
                                                 </Typography>
                                                 <Typography 
                                                     id="modal-modal-title" variant="h6" component="h6"
@@ -405,7 +420,10 @@ const Store = () => {
                                                         margin : "5px"
                                                     }}
                                                 >
-                                                    Discounted price : {showDetail.price-((showDetail.price)*(showDetail.discount/100))}
+                                                    <span>Discounted price : </span>
+                                                    <span>
+                                                        {showDetail.price-((showDetail.price)*(showDetail.discount/100))}
+                                                    </span>
                                                 </Typography>
                                             </>
                                         :
@@ -421,7 +439,10 @@ const Store = () => {
                                                         margin : "5px"
                                                     }}
                                                 >
-                                                    price : {(showDetail.price)}
+                                                    <span>price : </span>
+                                                    <span>
+                                                        {(showDetail.price)}
+                                                    </span>
                                             </Typography>
                                         
                                         }
