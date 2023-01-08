@@ -1,5 +1,6 @@
 import React,{useState,useEffect,useContext} from 'react';
 import {UserContext} from '../../UserContext.js';
+import Box from '@mui/material/Box';
 import "./footer.css";
 const Footer = () => {
 
@@ -9,20 +10,20 @@ const Footer = () => {
     return(
 
     <footer className="text-center text-white bg-stone-900 rounded-lg border-[1px] border-stone-700 my-2">
-        <div className="container p-6">
-            <div className="footer_brands grid lg:grid-cols-6 md:grid-cols-3 gap-4">
+        <Box className="container p-6">
+            <Box className="footer_brands grid lg:grid-cols-6 md:grid-cols-3 gap-4">
                 {userContext.brands.brands && userContext.brands.brands.map((brand)=>(
-                    <div key={brand.id} className="lg:mb-0 mb-8 cursor-pointer">
+                    <Box key={brand.id} className="lg:mb-0 mb-8 cursor-pointer">
                         <img
                         src={require(`../../images/${brand.brandImage}`)}
                         className="w-full rounded-md shadow-lg w-36 h-32 transition ease-in-out hover:-translate-y-1 hover:scale-10 hover:bg-indigo-500 duration-700"
                         />
-                    </div>
+                    </Box>
                 ))}
-            </div>
-        </div>
+            </Box>
+        </Box>
 
-        <div className="flex justify-center mb-3">
+        <Box className="flex justify-center mb-3">
             <a href="#!" className="mr-9 text-gray-400">
                 <svg
                 aria-hidden="true"
@@ -125,12 +126,12 @@ const Footer = () => {
                 ></path>
                 </svg>
             </a>
-        </div>
+        </Box>
 
-        <div className="text-center text-orange-300 p-2">
+        <Box className="text-center text-orange-300 p-2">
             Jafarpour Store
             <a className="text-orange-200 ml-2 no-underline" href="https://tailwind-elements.com/">2022</a>
-        </div>
+        </Box>
     </footer>
 
     )

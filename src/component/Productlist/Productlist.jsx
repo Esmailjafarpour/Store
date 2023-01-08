@@ -139,7 +139,7 @@ const Productlist = () => {
     }
 
     return(
-        <div className="grid grid-rows-12">
+        <Box className="grid grid-rows-12">
             <Modal
                 open={open}
                 style={{backdropFilter: "blur(30px)"}}
@@ -147,7 +147,7 @@ const Productlist = () => {
                 aria-describedby="modal-modal-description"
             >
                     <Box sx={style} className="content-box2">
-                        <div className="w-100 flex flex-col justify-center">
+                        <Box className="w-100 flex flex-col justify-center">
                             <Typography id="modal-modal-title" variant="h6" component="h2">
                                 This page is related to the admin. If you are an admin, please login
                             </Typography>
@@ -159,12 +159,12 @@ const Productlist = () => {
                                      Login
                                 </NavLink>
                             </button>
-                        </div>
+                        </Box>
                     </Box>
             </Modal> 
-            <div className="grid grid-cols-12 p-3 gap-3 border-amber-500 rounded-lg mt-2">
-                <div className="numberProduct_search col-span-8">
-                    <div className="grid grid-cols-12">
+            <Box className="grid grid-cols-12 p-3 gap-3 border-amber-500 rounded-lg mt-2">
+                <Box className="numberProduct_search col-span-8">
+                    <Box className="grid grid-cols-12">
                             <h4 className="col-span-3 text-orange-300 mb-3">
                                 <i className="fa fa-suitcase"></i>Products{"  "}
                                 <span className="badge bg-secondary bage-header">{products.length}</span>
@@ -186,11 +186,11 @@ const Productlist = () => {
                                     Create New Product
                                 </NavLink>
                             </button>
-                    </div>
-                </div>
-                <div className="SortByCategory col-span-4">
-                    <div className="grid grid-cols-12 gap-2">
-                        <div className="col-span-6">
+                    </Box>
+                </Box>
+                <Box className="SortByCategory col-span-4">
+                    <Box className="grid grid-cols-12 gap-2">
+                        <Box className="col-span-6">
                             <select 
                                 value={selectedBrand}
                                 onChange={(e)=>{
@@ -203,8 +203,8 @@ const Productlist = () => {
                                     return <option value={brand.brandName} key={brand.id}>{brand.brandName}</option>
                                 })}
                             </select>
-                        </div>
-                        <div className="col-span-6">
+                        </Box>
+                        <Box className="col-span-6">
                             <select 
                                 value={selectedCategory}
                                 onChange={(e)=>{
@@ -217,15 +217,15 @@ const Productlist = () => {
                                     return <option value={category.categoryName} key={category.id}>{category.categoryName}</option>
                                 })}
                             </select>
-                        </div>
-                    </div>
-                </div>
+                        </Box>
+                    </Box>
+                </Box>
                 
-            </div>
-            <div className="grid-cols-12 m-3 p-2">
+            </Box>
+            <Box className="grid-cols-12 m-3 p-2 tableProductStore">
                 <NewProduct showNewProduct={showNewProduct} hiddenNewProduct={()=> setShowNewProduct(false)}/>
-                <div className="content-table border-[2px] border-yellow-700 rounded-xl bg-gradient-to-r from-neutral-900 to-neutral-700  my-1 shadow">
-                    <div className="table-product p-2 rounded-xl">
+                <Box className="content-table border-[2px] border-yellow-700 rounded-xl bg-gradient-to-r from-neutral-900 to-neutral-700  my-1 shadow">
+                    <Box className="table-product p-2 rounded-xl">
                         <table className="table table-dark table-striped">
                             <thead>
                                 <tr>
@@ -257,10 +257,10 @@ const Productlist = () => {
                                 })}
                             </tbody>
                         </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
     )
 }
 

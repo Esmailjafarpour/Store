@@ -17,6 +17,17 @@
     text-decoration: none;
 }
 
+.tableProductStore{
+    border: 2px solid rgb(143, 88, 17);
+    border-radius: 8px;
+}
+
+.table-product{
+    margin: 10px 0;
+    height: 400px;
+    overflow-y: scroll;
+}
+
 @media (max-width: 320px) {
 
     .numberProduct_search{

@@ -2,6 +2,8 @@ import React , {useState,useEffect,useContext,useRef} from 'react';
 import { useNavigate } from "react-router-dom";
 import {UserContext} from '../../../UserContext';
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import "./register.css";
 // import CloseIcon from '@mui/icons-material/Close';
 
@@ -211,12 +213,12 @@ const Register = (props) => {
     }
 
     return(
-       <div className="row row-register mx-auto">
+       <Box className="row row-register mx-auto">
 
-         <div className="col-md-6 border-2 border-stone-800  rounded-3 mt-5 p-3 bg-zinc-900">
-            <div className="shadow-lg my-2 rounded-3 overflow-hidden p-3 bg-zinc-800 border-2 border-stone-900">
-                <div className="card-header">
-                    <h4 style={{fontSize:'40px'}} className="title-register text-center">Register</h4>
+         <Box className="col-md-6 border-2 border-stone-800  rounded-3 mt-5 p-3 bg-zinc-900">
+            <Box className="shadow-lg my-2 rounded-3 overflow-hidden p-3 bg-zinc-800 border-2 border-stone-900">
+                <Box className="card-header">
+                    <Typography style={{fontSize:'40px'}} className="title-register text-center">Register</Typography>
                     <ul className="text-warning text-center p-0">
                         {Object.keys(errors).map((control)=>{
                             if(dirty[control]) {
@@ -228,12 +230,12 @@ const Register = (props) => {
                             }
                         })}
                     </ul>
-                </div>
-                <div className=" p-3 bg-zinc-900 border-2 border-stone-700 rounded-3">
+                </Box>
+                <Box className=" p-3 bg-zinc-900 border-2 border-stone-700 rounded-3">
                     {/* Email */}
-                    <div className="row mb-3 email_register">
+                    <Box className="row mb-3 email_register">
                         <label htmlFor="Email" className="col-lg-2 text-light py-1 ">Email</label>
-                        <div className="col-lg-10">
+                        <Box className="col-lg-10">
                              <input  
                                 type="text"
                                 id="Email" 
@@ -248,16 +250,16 @@ const Register = (props) => {
                                     validate();
                                 }}
                             />
-                            <div className="text-warning">
+                            <Box className="text-warning">
                                 {dirty["email"]&&errors['email'][0] ? errors['email'] : ""}
-                            </div>
-                        </div>
+                            </Box>
+                        </Box>
                        
-                    </div>
+                    </Box>
                     {/* Password */}
-                    <div className="row mb-3 password_register">
+                    <Box className="row mb-3 password_register">
                         <label htmlFor="Password" className="col-lg-2 text-light py-1">Password</label>
-                        <div className="col-lg-10">
+                        <Box className="col-lg-10">
                             <input  
                                 type="password" 
                                 id="Password"
@@ -271,15 +273,15 @@ const Register = (props) => {
                                     validate();
                                 }}
                             />
-                            <div className="text-warning">
+                            <Box className="text-warning">
                                 {dirty["password"]&&errors['password'][0] ? errors['password'] : ""}
-                            </div>
-                        </div>    
-                    </div>
+                            </Box>
+                        </Box>    
+                    </Box>
                     {/* FullName */}
-                    <div className="row mb-3 fullName_register">
+                    <Box className="row mb-3 fullName_register">
                         <label htmlFor="FullName" className="col-lg-2 text-light py-1">FullName</label>
-                        <div className="col-lg-10">
+                        <Box className="col-lg-10">
                             <input  
                                 type="text" 
                                 id="FullName"
@@ -293,15 +295,15 @@ const Register = (props) => {
                                     validate();
                                 }}
                             />
-                            <div className="text-warning">
+                            <Box className="text-warning">
                                 {dirty["fullName"]&&errors['fullName'][0] ? errors['fullName'] : ""}
-                            </div>
-                        </div> 
-                    </div>
+                            </Box>
+                        </Box> 
+                    </Box>
                     {/* DateOfBrith */}
-                    <div className="row mb-3 dateOfBrith_register">
+                    <Box className="row mb-3 dateOfBrith_register">
                         <label htmlFor="DateOfBrith" className="col-lg-3 text-light py-1">Date Of Brith</label>
-                        <div className="col-lg-9">
+                        <Box className="col-lg-9">
                             <input  
                                 type="date" 
                                 id="DateOfBrith"
@@ -315,16 +317,16 @@ const Register = (props) => {
                                     validate();
                                 }}
                             />
-                            <div className="text-warning">
+                            <Box className="text-warning">
                                 {dirty["dateOfBrith"]&&errors['dateOfBrith'][0] ? errors['dateOfBrith'] : ""}
-                            </div>
-                        </div>    
-                    </div>
+                            </Box>
+                        </Box>    
+                    </Box>
                     {/* Gender */}
-                    <div className="row mb-3 gender_register">
+                    <Box className="row mb-3 gender_register">
                         <label htmlFor="" className="col-lg-2 text-light py-1">Gender</label>
-                        <div className="col-lg-8 d-flex justify-content-around ">
-                            <div className="form-check">
+                        <Box className="col-lg-8 d-flex justify-content-around ">
+                            <Box className="form-check">
                                 <input  
                                     type="radio" 
                                     id="male"
@@ -335,8 +337,8 @@ const Register = (props) => {
                                     checked={state.gender === "male" ? true : false}
                                 />
                                 <label htmlFor="male" className="form-check-inline mb-1 text-light">Male</label>
-                            </div>
-                            <div className="form-check">
+                            </Box>
+                            <Box className="form-check">
                                 <input  
                                     type="radio" 
                                     id="female"
@@ -347,17 +349,17 @@ const Register = (props) => {
                                     checked={state.gender === "female" ? true : false}
                                 />
                                 <label htmlFor="female" className="form-check-inline mb-1 text-light">Female</label>
-                            </div>
-                        </div>
-                        <div className="text-warning ">
+                            </Box>
+                        </Box>
+                        <Box className="text-warning ">
                             {dirty["gender"]&&errors['gender'][0] ? errors['gender'] : ""}
-                        </div>
-                    </div>
+                        </Box>
+                    </Box>
 
                     {/* country */}
-                    <div className="row mb-3 country_register">
+                    <Box className="row mb-3 country_register">
                         <label htmlFor="Country" className="col-lg-2 text-light py-1">Country</label>
-                        <div className="col-lg-10">
+                        <Box className="col-lg-10">
                             <select 
                                 multiple={false}  
                                 id="Country"
@@ -376,18 +378,18 @@ const Register = (props) => {
                                 ))}
 
                             </select>
-                        </div>
-                        <div className="text-warning">
+                        </Box>
+                        <Box className="text-warning">
                             {dirty["country"]&&errors['country'][0] ? errors['country'] : ""}
-                        </div>
-                    </div>
+                        </Box>
+                    </Box>
                     {/* End Of Country */}
 
                     {/* Recive News Letters */}
-                    <div className="row mb-3 text-center recive_register">
+                    <Box className="row mb-3 text-center recive_register">
                         <label htmlFor="" className="col-lg-4 text-light py-1">Recieve News Letters</label>
-                        <div className="col-lg-8 d-flex">
-                            <div className="form-check  mx-auto">
+                        <Box className="col-lg-8 d-flex">
+                            <Box className="form-check  mx-auto">
                                 <input  
                                     type="checkbox" 
                                     id="recieveNewsLetters"
@@ -398,12 +400,12 @@ const Register = (props) => {
                                     checked={state.recieveNewsLetters === true ? true : false}
                                 />
                                 <label htmlFor="recieveNewsLetters" className="form-check-inline mb-1 text-light">RecieveNewsLetters</label>
-                            </div>
-                        </div>
+                            </Box>
+                        </Box>
                         
-                    </div>
+                    </Box>
 
-                    <div className="row mb-3">
+                    <Box className="row mb-3">
                         <Button
                             variant="contained"
                             component="label"
@@ -420,17 +422,17 @@ const Register = (props) => {
                             />
                         </Button>
 
-                         <div className="text-warning">
+                         <Box className="text-warning">
                             {dirty["imageUser"]&&errors['imageUser'][0] ? errors['imageUser'] : ""}
-                        </div>
+                        </Box>
 
-                     </div> 
+                     </Box> 
 
-                </div>
+                </Box>
 
                 {/* footer */}
-                <div className="card-footer text-center text-warning mt-3">
-                    <div className="m-1 text-warning">{message}</div>
+                <Box className="card-footer text-center text-warning mt-3">
+                    <Box className="m-1 text-warning">{message}</Box>
                     <button 
                         className="w-50 text-teal-600 border-2 border-stone-600
                         focus:outline-none rounded-lg text-sm px-3 py-2 text-center 
@@ -439,11 +441,11 @@ const Register = (props) => {
                     >
                         Register
                     </button>
-                </div>
+                </Box>
                 {/* end of footer */}
-            </div>
-         </div>
-       </div>
+            </Box>
+         </Box>
+       </Box>
     )
 }
 

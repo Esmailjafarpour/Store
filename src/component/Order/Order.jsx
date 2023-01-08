@@ -1,19 +1,22 @@
 import React,{useState,useEffect} from 'react';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+
 import './order.css';
 
 const Order = (props) => {
     return(
-        <div className="card my-2 shadow p-3 order-card col-span-4"> 
+        <Box className="card my-2 shadow p-3 order-card col-span-4"> 
         
         {props.isPaymentCompleted === false ?
             <>
-                <div class="product bg-indigo-300 rounded-sm h-40 mb-3 rounded">
+                <Box class="product bg-indigo-300 rounded-sm h-40 mb-3 rounded">
                     <img class="object-cover w-100  ..." src={require(`../../images/${props.imageProduct}`)} alt={props.productName}/>
-                </div>
-                <h6 className='text-center'>
+                </Box>
+                <Typography className='text-center'>
                  {props.productName}<i className="fa fa-arrow-right ml-1"></i>
-                </h6>  
-                <div className="quantity_price mt-1 w-56 mx-auto">
+                </Typography>  
+                <Box className="quantity_price mt-1 w-56 mx-auto">
                     <ul className=" text-teal-100 p-0">
                         <li className="flex justify-around items-center bg-gradient-to-r from-zinc-700 to-zinc-600 rounded-lg h-10 border-stone-700 border-[1px] p-2 my-1 shadow-inner">
                             <span className="p-2">Quantity </span>{"    "}
@@ -24,8 +27,8 @@ const Order = (props) => {
                             <span className="text-green-200 p-2">${props.price}</span>
                         </li>
                     </ul>
-                </div>  
-                <div className="buttons flex justify-center flex-d ">
+                </Box>  
+                <Box className="buttons flex justify-center flex-d ">
                     <>
                         <button 
                             className="rounded-lg me-2 w-36 bg-gradient-to-r from-emerald-600 to-emerald-500 text-teal-50 h-9"
@@ -51,18 +54,17 @@ const Order = (props) => {
                         </button>
                     </>
                         
-                </div>
+                </Box>
             </>
-            
                 :
-            <div className="flex justify-around items-center flex-col-reverse">
-                <div className="flex flex-col ">
-                    <h6 className="text-center">
+            <Box className="flex justify-around items-center flex-row-reverse">
+                <Box className="flex flex-col ">
+                    <Typography className="text-center">
                         {props.productName}<i className="fa fa-arrow-right ml-2"></i>
-                    </h6>
+                    </Typography>
                     
-                    <div className="quantity_price mt-1 w-64 mx-auto ">
-                        <ul className=" text-teal-100 ">
+                    <Box className="quantity_price mt-1 w-64 mx-auto ">
+                        <ul className=" text-teal-100">
                             <li className="flex justify-around items-center bg-gradient-to-l from-zinc-700 to-zinc-600 rounded-lg h-10 border-stone-700 border-[1px] p-2 my-1 shadow-inner">
                                 <span className="p-2">Quantity </span>{"    "}
                                 <span className="text-green-200 p-2">{props.quantity}</span>
@@ -72,16 +74,16 @@ const Order = (props) => {
                                 <span className="text-green-200 p-2">${props.price}</span>
                             </li>
                         </ul>
-                    </div> 
-                </div>
+                    </Box> 
+                </Box>
 
-                 <div class="product bg-indigo-300 rounded-[16px] h-50 mb-3">
-                    <img class="object-cover ..." src={require(`../../images/${props.imageProduct}`)} alt={props.productName}/>
-                </div> 
-            </div>                
+                 <Box className="product bg-indigo-300 rounded-[16px] h-50">
+                    <img className="object-cover ..." src={require(`../../images/${props.imageProduct}`)} alt={props.productName}/>
+                </Box> 
+            </Box>                
            
-            }
-        </div>
+        }
+        </Box>
     )
 }
 

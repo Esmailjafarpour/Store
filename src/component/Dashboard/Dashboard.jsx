@@ -7,6 +7,8 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Box from '@mui/material/Box';
+
 import "./Dashboard.css";
 
 const Dashboard = () => {
@@ -104,24 +106,23 @@ const Dashboard = () => {
 
     return(
         
-        <div className="">
-            <div className="grid grid-cols py-1 border-stone-700 title-order header-dashboard title ">
-                <h4 className="flex justify-between py-2 m-0">
+        <Box className="">
+            <Box className="grid grid-cols py-1 border-stone-700 title-order header-dashboard title ">
+                <Typography className="flex justify-between py-2 m-0">
                     <span className="d-flex "><i className="fa fa-dashboard"></i>Dashboard{" "}</span>
                     <button className="btn btn-outline-warning w-36 " onClick={loadDataFromDataBase}>
                         <i className="fa fa-refresh"></i>Refresh
                     </button>
-                </h4>
-            </div>
+                </Typography>
+            </Box>
 
             {/* View previous orders and new orders */}
-            <div className="orders">
-                <div className="grid grid-cols my-3">
-                    <div className="grid grid-cols-3 gap-8">
-                        
+            <Box className="orders">
+                <Box className="grid grid-cols my-3">
+                    <Box className="grid grid-cols-3 gap-8">
                             {/* Column of confirmed products that have been paid */}
-                            <div className="previous_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-1">
-                                <h4 className="py-2 my-2 text-center text-emerald-500">
+                            <Box className="previous_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-1">
+                                <Typography className="py-2 my-2 text-center text-emerald-500">
                                     <i className="fa fa-history"></i>Previous Orders{"  "}
 
                                     {/* Number of confirmed and paid orders */}
@@ -129,11 +130,11 @@ const Dashboard = () => {
                                         {OrdersService.getPreviousOrders(orders).length}
                                     </span>
 
-                                </h4>
+                                </Typography>
 
                                 {/* There are no confirmed and paid orders */}
                                 {OrdersService.getPreviousOrders(orders).length === 0 ?
-                                    (<div className="text-yellow-700"> No Orders</div>)
+                                    (<Box className="text-yellow-700"> No Orders</Box>)
                                     :
                                     ("")
                                 }
@@ -154,22 +155,22 @@ const Dashboard = () => {
                                             onDeleteClick={onDeleteClick}
                                         />)
                                 })}
-                            </div>
+                            </Box>
 
                             {/* Column of unconfirmed products that have not been paid for */}
-                            <div className="card_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-2">
+                            <Box className="card_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-2">
                                 {/* The number of unconfirmed and unpaid orders */}
-                                <h4 className="py-2 my-2 text-center text-yellow-500">
-                                    <div className="fa fa-shopping-cart px-1"></div>card{" "}
+                                <Typography className="py-2 my-2 text-center text-yellow-500">
+                                    <Box className="fa fa-shopping-cart px-1"></Box>Current Orders{" "}
                                     <span className="badge bg-warning">
                                         {OrdersService.getCart(orders).length}
                                     </span>
-                                </h4>
+                                </Typography>
 
                                 {/* Display message Your order has been registered */}
                                 {showOrderUpdateAlert?(
-                                    <div className="col-span-12">
-                                        <div className="alert alert-success alert-dismissible fade show mt-1" role="alert">
+                                    <Box className="col-span-12">
+                                        <Box className="alert alert-success alert-dismissible fade show mt-1" role="alert">
                                             Your Order Has Been Placed.
                                             <button 
                                                 className="btn-close" 
@@ -177,14 +178,14 @@ const Dashboard = () => {
                                                 data-dismissible="alert"
                                                 onClick={()=>setShowOrderUpdateAlert(false)}
                                             ></button>
-                                        </div>
-                                    </div>
+                                        </Box>
+                                    </Box>
                                 ):("")}
 
                                 {/* Show message Your item has been removed from the shopping cart */}
                                 {showOrderDeleteAlert?(
-                                    <div className="col-12">
-                                        <div className="alert alert-warning alert-dismissible fade show mt-1" role="alert">
+                                    <Box className="col-12">
+                                        <Box className="alert alert-warning alert-dismissible fade show mt-1" role="alert">
                                             Your Item Has Been Removed From The Cart.
                                             <button 
                                                 className="btn-close" 
@@ -192,17 +193,17 @@ const Dashboard = () => {
                                                 data-dismissible="alert"
                                                 onClick={()=>setShowOrderDeleteAlert(false)}
                                             ></button>
-                                        </div>
-                                    </div>
+                                        </Box>
+                                    </Box>
                                 ):("")}
 
                                 {/* There are no products displayed in your card */}
                                 {OrdersService.getCart(orders).length === 0 ? 
-                                    (<div className="text-yellow-700 text-center">No Products In Your Cards</div>):("")
+                                    (<Box className="text-yellow-700 text-center">No Products In Your Cards</Box>):("")
                                 }
 
                                 {/* Displaying unconfirmed and unpaid orders */}
-                                <div className="Unconfirmed_Orders grid grid-cols-12 gap-4">
+                                <Box className="Unconfirmed_Orders grid grid-cols-12 gap-4">
                                         {OrdersService.getCart(orders).map((order)=>{
                                         return (
                                             <Order 
@@ -221,14 +222,13 @@ const Dashboard = () => {
                                         )
                                     }
                                     )}
-                                </div>
-                            </div>
-
-                    </div>
-                </div>
-            </div>
+                                </Box>
+                            </Box>
+                    </Box>
+                </Box>
+            </Box>
             
-            <div className="Accordion my-3">
+            <Box className="Accordion my-3">
 
                 <Accordion className="my-2 border-[2px] border-stone-700 rounded-sm">
 
@@ -242,14 +242,14 @@ const Dashboard = () => {
                         }}
                     >
                         <Typography className="w-100 Previous_Orders"> 
-                            <h4 className="py-2 my-2 text-center text-emerald-500 flex justify-evenly">
+                            <Typography className="py-2 my-2 text-center text-emerald-500 flex justify-evenly">
                                 <i className="fa fa-history"></i>Previous Orders{"  "}
                                 {/* Number of confirmed and paid orders */}
                                 <span className="badge bg-success">
                                     {OrdersService.getPreviousOrders(orders).length}
                                 </span>
 
-                            </h4>
+                            </Typography>
                         </Typography>
 
                     </AccordionSummary>
@@ -264,11 +264,11 @@ const Dashboard = () => {
                             In this section, you can see your previous orders
                         </Typography>
 
-                        <div className="previous_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-2">
+                        <Box className="previous_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-2">
         
                             {/* There are no confirmed and paid orders */}
                             {OrdersService.getPreviousOrders(orders).length === 0 ?
-                                (<div className="text-yellow-700"> No Orders</div>)
+                                (<Box className="text-yellow-700"> No Orders</Box>)
                                 :
                                 ("")
                             }
@@ -289,7 +289,7 @@ const Dashboard = () => {
                                         onDeleteClick={onDeleteClick}
                                     />)
                             })}
-                        </div>
+                        </Box>
 
                     </AccordionDetails>
 
@@ -310,12 +310,12 @@ const Dashboard = () => {
                     >
                         <Typography className="w-100 Card_Orders">
                             {/* The number of unconfirmed and unpaid orders */}
-                            <h4 className="py-2 my-2 text-center text-yellow-500 flex justify-evenly">
-                                <div className="fa fa-shopping-cart px-1"></div>card{" "}
+                            <Typography className="py-2 my-2 text-center text-yellow-500 flex justify-evenly">
+                                <Box className="fa fa-shopping-cart px-1"></Box>card{" "}
                                 <span className="badge bg-warning text-red-400">
                                     {OrdersService.getCart(orders).length}
                                 </span>
-                            </h4>
+                            </Typography>
                         </Typography>
 
                     </AccordionSummary>
@@ -328,11 +328,11 @@ const Dashboard = () => {
                         <Typography className="my-3 border-[2px] border-stone-500 rounded-lg py-2 px-2">
                             In this section, you can see Rami's unconfirmed orders
                         </Typography>
-                        <div className="card_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-1">
+                        <Box className="card_order border-[2px] border-stone-700 rounded-lg h-fit p-1 col-span-1">
                             {/* Display message Your order has been registered */}
                             {showOrderUpdateAlert?(
-                                <div className="col-span-12">
-                                    <div className="alert alert-success alert-dismissible fade show mt-1" role="alert">
+                                <Box className="col-span-12">
+                                    <Box className="alert alert-success alert-dismissible fade show mt-1" role="alert">
                                         Your Order Has Been Placed.
                                         <button 
                                             className="btn-close" 
@@ -340,14 +340,14 @@ const Dashboard = () => {
                                             data-dismissible="alert"
                                             onClick={()=>setShowOrderUpdateAlert(false)}
                                         ></button>
-                                    </div>
-                                </div>
+                                    </Box>
+                                </Box>
                             ):("")}
 
                             {/* Show message Your item has been removed from the shopping cart */}
                             {showOrderDeleteAlert?(
-                                <div className="col-12">
-                                    <div className="alert alert-warning alert-dismissible fade show mt-1" role="alert">
+                                <Box className="col-12">
+                                    <Box className="alert alert-warning alert-dismissible fade show mt-1" role="alert">
                                         Your Item Has Been Removed From The Cart.
                                         <button 
                                             className="btn-close" 
@@ -355,17 +355,17 @@ const Dashboard = () => {
                                             data-dismissible="alert"
                                             onClick={()=>setShowOrderDeleteAlert(false)}
                                         ></button>
-                                    </div>
-                                </div>
+                                    </Box>
+                                </Box>
                             ):("")}
 
                             {/* There are no products displayed in your card */}
                             {OrdersService.getCart(orders).length === 0 ? 
-                                (<div className="text-yellow-700 text-center">No Products In Your Cards</div>):("")
+                                (<Box className="text-yellow-700 text-center">No Products In Your Cards</Box>):("")
                             }
 
                             {/* Displaying unconfirmed and unpaid orders */}
-                            <div className="Unconfirmed_Orders">
+                            <Box className="Unconfirmed_Orders">
                                     {OrdersService.getCart(orders).map((order)=>{
                                     return (
                                         <Order 
@@ -384,13 +384,12 @@ const Dashboard = () => {
                                     )
                                 }
                                 )}
-                            </div>
-                        </div>
+                            </Box>
+                        </Box>
                     </AccordionDetails>
                 </Accordion>
-            </div>
-            
-        </div>
+            </Box>
+        </Box>
     )
 }
 

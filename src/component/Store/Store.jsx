@@ -285,7 +285,7 @@ const Store = () => {
     return(
         <>   
 
-        {showDetail.id !== "" ?
+            {showDetail.id !== "" ?
                 <Modal
                     open={open}
                     onClose={handleClose}
@@ -294,26 +294,20 @@ const Store = () => {
                     aria-describedby="modal-modal-description"
                 >
                         <Box sx={style.styleBox} className="content-box2">
-
-                            <div className="w-100 flex flex-col justify-center ">
-
+                            <Box className="w-100 flex flex-col justify-center ">
                                 <Box sx={{margin:"0 auto",color:"#ba68c8"}}>
                                     <Typography>
                                         {showDetail.productName}
                                     </Typography>
                                 </Box>
-
                                 <Box className="box-detail-product" sx={{display: 'flex' , justifyContent: 'space-evenly' , margin : '20px'}}>
-
                                     <Box 
-                                    
                                         sx={{ 
                                             bgcolor: 'text.disabled', 
                                             color: 'background.paper', 
                                             p: 2 , 
                                             borderRadius : "8px",
                                         }}>
-
                                         <Typography 
                                             id="modal-modal-title" variant="h6" component="h6"
                                             sx={{ 
@@ -329,7 +323,6 @@ const Store = () => {
                                             <span>{showDetail.productName}</span>
                                              
                                         </Typography>
-
                                         <Typography 
                                             id="modal-modal-title" variant="h6" component="h6"
                                             sx={{ 
@@ -346,7 +339,6 @@ const Store = () => {
                                                 
                                             ))}
                                         </Typography>
-
                                         <Typography 
                                             id="modal-modal-title" variant="h6" component="h6"
                                             sx={{ 
@@ -362,7 +354,6 @@ const Store = () => {
                                                 category.id === showDetail.categoryId?category.categoryName:"" 
                                             ))}
                                         </Typography>
-
                                         <Typography 
                                             id="modal-modal-title" 
                                             variant="h6" 
@@ -376,17 +367,14 @@ const Store = () => {
                                                 margin : "5px"
                                             }}
                                         >
-                                            <div className="flex">
+                                            <Box className="flex">
                                                 <span>Rating :</span>
                                                 {"    "}
                                                 <Stack spacing={1} className="flex justify-center">
                                                     <Rating name="half-rating-read" defaultValue={showDetail.rating} precision={showDetail.rating} size="small"/>
                                                 </Stack>
-                                            </div>
-                                        
-                                            
+                                            </Box>
                                         </Typography>
-
                                         {showDetail.discount>0 ?
                                             <>
                                                 <Typography 
@@ -415,7 +403,6 @@ const Store = () => {
                                                 </Typography>
                                             </>
                                         :
-
                                             <Typography 
                                                     id="modal-modal-title" variant="h6" component="h6"
                                                     sx={{ 
@@ -429,13 +416,9 @@ const Store = () => {
                                                 >
                                                     price : {(showDetail.price)}
                                             </Typography>
-                                        
                                         }
-
                                     </Box>
-
                                     <Box className="boxImage" sx={{ bgcolor: 'text.disabled', color: 'background.paper', p: 2 , width : 350 , borderRadius : "8px"}}>
-                                        
                                         <Card sx={{ maxWidth: 900 }}>
                                             <CardMedia
                                                 component="img"
@@ -445,45 +428,40 @@ const Store = () => {
                                                 title={showDetail.productName}
                                             />
                                         </Card>
-
                                         {showDetail.discount>0 ?
-                                            <div className="boxDiscount">
-                                                <div className="productDiscount">
-                                                <div className="discount">
+                                            <Box className="boxDiscount">
+                                                <Box className="productDiscount">
+                                                <Box className="discount">
                                                     <span >{showDetail.discount} %</span>
-                                                </div>
-                                            </div>
-                                            </div>
+                                                </Box>
+                                            </Box>
+                                            </Box>
                                         :null}
-                                        
                                     </Box>
-
                                 </Box>
-
                                 <Button type="button" variant="contained"  sx={{width:"15%",margin:"0 auto",color:"#ffab00",background:"#424242"}}
                                     onClick={()=> handleClose()}
                                 >
                                     Close
                                 </Button>
-
-                            </div>
+                            </Box>
                         </Box>
                 </Modal> 
             :""}
             <ModalComponents showLoginMessage={showLoginMessage} hiddenLoginMessage={()=>(setShowLoginMessage())}>login</ModalComponents>
-            <div className="main">
-                <div className="header grid grid-cols-12 gap-2 z-[1000] px-1 py-2 bg-stone-900 rounded-lg border-[1px] border-stone-700 sticky top-[63px]">
-                    <div className="title_store border-[2px] border-stone-700 rounded-lg col-span-2 ">
-                        <h5 className="px-2 py-0.5 my-1 d-flex justify-between items-center text-orange-300">
+            <Box className="main">
+                <Box className="header grid grid-cols-12 gap-2 z-[1000] px-1 py-2 bg-stone-900 rounded-lg border-[1px] border-stone-700 sticky top-[63px]">
+                    <Box className="title_store border-[2px] border-stone-700 rounded-lg col-span-2 ">
+                        <Typography className="px-2 py-0.5 my-1 d-flex justify-between items-center text-orange-300">
                             <span>
                                 Store{" "}<i className="fa fa-shopping-bag"></i> 
                             </span>
                             <span className="px-3 py-1 my-1 rounded-lg bg-neutral-700 text-orange-100 bg-gradient">
                                 {productToShow.length}
                             </span>
-                        </h5>
-                    </div>
-                    <div className="header-search col-span-10 w-6/12 py-2 mx-auto">
+                        </Typography>
+                    </Box>
+                    <Box className="header-search col-span-10 w-6/12 py-2 mx-auto">
                         <input  
                             type="search"
                             value={search}
@@ -494,23 +472,20 @@ const Store = () => {
                             autoFocus="autofocus"
                             onChange={(e)=>{setSearch(e.target.value)}}
                         />
-                    </div>
-                </div>
-        
-                <div className="main_product mx-auto sticky rounded-lg border-[2px] border-stone-800 mt-3 px-2">
-                    
-                    <div className="grid col-span-12 rounded-lg border-[2px] border-stone-800 mt-3 p-2">
+                    </Box>
+                </Box>
+                <Box className="main_product mx-auto sticky rounded-lg border-[2px] border-stone-800 mt-3 px-2">
+                    <Box className="grid col-span-12 rounded-lg border-[2px] border-stone-800 mt-3 p-2">
                         <Slider productToShow={productToShow}/>
-                    </div>
-
-                    <div className="grid grid-cols-12 gap-4 py-2 content">
-                        <div className="content_filter col-span-2 px-2 py-2 mt-3 h-fit bg-stone-800 rounded-lg ">
-                            <div className="my-1">
-                                <h5 className="text-amber-100 px-2">Brands</h5>
+                    </Box>
+                    <Box className="grid grid-cols-12 gap-4 py-2 content">
+                        <Box className="content_filter col-span-2 px-2 py-2 mt-3 h-fit bg-stone-800 rounded-lg ">
+                            <Box className="my-1">
+                                <Typography className="text-amber-100 px-2">Brands</Typography>
                                 <ul className="list-group list-group-flush">
                                     {brands.map((brand)=>(
                                         <li className="px-2 py-2 my-1 bg-neutral-700 text-emerald-100 rounded-lg shadow-3xl border-yellow-900" key={brand.id}>
-                                            <div className="form-check">
+                                            <Box className="form-check">
                                                 <input 
                                                     type="checkBox" 
                                                     className="form-check-input bg-secondary"
@@ -524,18 +499,17 @@ const Store = () => {
                                                 <label htmlFor={`brand${brand.id}`} className="form-check-label">
                                                     {brand.brandName}
                                                 </label>
-                                            </div>
+                                            </Box>
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
-
-                            <div className="my-2">
-                                <h5 className="text-amber-100 px-2">Categories</h5>
+                            </Box>
+                            <Box className="my-2">
+                                <Typography className="text-amber-100 px-2">Categories</Typography>
                                 <ul className="list-group list-group-flush">
                                     {categories.map((category)=>(
                                         <li className="px-2 py-2 my-1 bg-neutral-700 text-emerald-100 rounded-lg shadow-3xl border-yellow-900" key={category.id}>
-                                            <div className="form-check">
+                                            <Box className="form-check">
                                                 <input 
                                                     type="checkBox" 
                                                     className="form-check-input bg-secondary"
@@ -549,15 +523,14 @@ const Store = () => {
                                                 <label htmlFor={`category${category.id}`} className="form-check-label">
                                                     {category.categoryName}
                                                 </label>
-                                            </div>
+                                            </Box>
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
-                        </div>
-                        
-                        <div className="content_products col-span-10 border-[1px] border-stone-900 rounded-lg p-2 m-2">
-                            <div className="grid grid-cols-12 gap-1">
+                            </Box>
+                        </Box>
+                        <Box className="content_products col-span-10 border-[1px] border-stone-900 rounded-lg p-2 m-2">
+                            <Box className="grid grid-cols-12 gap-1">
                                 {productToShow.map((product) => (
                                     <Product
                                         key={product.id} 
@@ -567,22 +540,16 @@ const Store = () => {
                                         onShowDetailsProduct={showDetailsProduct}
                                     />
                                 ))}
-                            </div>
-
+                            </Box>
                             <Box className="w-1/2 h-10 m-auto border-[2px] border-stone-700 rounded-lg mt-4">
                                  <Stack spacing={2} className="relative mx-auto h-10 ">
                                     <Pagination count={10} variant="outlined" color="secondary" className="absolute m-auto w-full" />
                                 </Stack>
                             </Box>
-
-                           
-                        </div>
-                    </div>
-
-                 
-                </div>
-
-            </div>  
+                        </Box>
+                    </Box>
+                </Box>
+            </Box>  
         </>
     )
 }

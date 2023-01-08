@@ -1,6 +1,8 @@
 import React ,{useState,useEffect,useContext,useRef} from 'react';
 import { useNavigate } from "react-router-dom";
 import {UserContext} from '../../../UserContext';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import "./login.css";
 
 const Login = (props) => {
@@ -128,18 +130,17 @@ const Login = (props) => {
         return valid
     }
        
-    
     return(
-        <div className="row row-login">
-            <div className="col-md-6 border-2 border-stone-800 mx-auto rounded-3 mt-5 p-3 bg-zinc-900">
-                <div className="shadow-lg my-2 rounded-3 overflow-hidden p-2 bg-zinc-800 border-2 border-stone-900">
-                    <div className="card-header bg-dark">
-                        <h4 style={{fontSize:'40px'}}className="title-login text-center">
+        <Box className="row row-login">
+            <Box className="col-md-6 border-2 border-stone-800 mx-auto rounded-3 mt-5 p-3 bg-zinc-900">
+                <Box className="shadow-lg my-2 rounded-3 overflow-hidden p-2 bg-zinc-800 border-2 border-stone-900">
+                    <Box className="card-header bg-dark">
+                        <Typography style={{fontSize:'40px'}}className="title-login text-center">
                             Login
-                        </h4>
-                    </div>
-                    <div className="border-2 border-stone-700 p-2 rounded mx-2 my-2">
-                        <div className="form-group form-group-email">
+                        </Typography>
+                    </Box>
+                    <Box className="border-2 border-stone-700 p-2 rounded mx-2 my-2">
+                        <Box className="form-group form-group-email">
                             <label htmlFor="email"className="mb-3 text-light">Email</label>
                             <input 
                                  autoComplete="new-password"
@@ -156,11 +157,11 @@ const Login = (props) => {
                                         validate();
                                 }}
                             />
-                            <div className="text-danger">
+                            <Box className="text-danger">
                                 {dirty["email"]&&errors['email'][0] ? errors['email'] : ""}
-                            </div>
-                        </div>
-                        <div className="form-group form-group-password mt-3" >
+                            </Box>
+                        </Box>
+                        <Box className="form-group form-group-password mt-3" >
                             <label htmlFor="password"className="mb-3 text-light">Password</label>
                             <input 
                                     autoComplete="new-password"
@@ -175,14 +176,14 @@ const Login = (props) => {
                                         validate();
                                 }}
                             />
-                             <div className="text-danger">
+                             <Box className="text-danger">
                                 {dirty["password"]&&errors['password'][0] ? errors['password'] : ""}
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card-footer text-center mt-3">
-                        <div className="m-1 w-60 mx-auto">{loginMessage}</div>
-                        <div className="flex justify-center">
+                            </Box>
+                        </Box>
+                    </Box>
+                    <Box className="card-footer text-center mt-3">
+                        <Box className="m-1 w-60 mx-auto">{loginMessage}</Box>
+                        <Box className="flex justify-center">
                             <button className="w-40 text-amber-600 border-2 border-stone-500
                                 focus:outline-none rounded-lg text-sm px-3 py-2 text-center 
                                 mr-2 mb-1 dark:hover:text-green-600 dark:hover:bg-green-100"
@@ -195,12 +196,11 @@ const Login = (props) => {
                                 onClick={onRegisterClick}>
                             Register
                         </button>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+                        </Box>    
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
     )
 }
 

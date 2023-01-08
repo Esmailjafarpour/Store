@@ -96,13 +96,13 @@ const NewProduct  = ({showNewProduct,hiddenNewProduct}) => {
           <>
             {newProductModalChanges.hiddenModal ?
               <Box sx={style} className="content-box">
-                <div className="content-newProduct">
+                <Box className="content-newProduct">
                   <Typography id="modal-modal-title" className="text-center" variant="h6" component="h2">
                     Create your new product
                   </Typography>
 
                   <TextField hiddenNewProduct={closeContentBox}/>
-                </div>
+                </Box>
               </Box>
             :''}  
 
@@ -116,11 +116,11 @@ const NewProduct  = ({showNewProduct,hiddenNewProduct}) => {
 
           {newProductModalChanges.showMessageCreateProduct ? 
             <Box sx={style} className="content-box2">
-              <div className="content-newProduct-Message">
+              <Box className="content-newProduct-Message">
                 <Typography id="modal-modal-title" variant="h6" component="h2">
                     Your product has been added
                 </Typography>
-              </div>
+              </Box>
             </Box>
           : ''}
           </>
