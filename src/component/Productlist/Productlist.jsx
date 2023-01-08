@@ -102,7 +102,6 @@ const Productlist = () => {
 
 
     const filterProductsByCategory = useMemo(() => {
-    
         return originalProducts.filter(
             (prod) => prod.category.categoryName.indexOf(selectedCategory) >= 0
         )
@@ -119,6 +118,8 @@ const Productlist = () => {
         // setBrands([]);
     }, [filterProductsByCategory,sortBy,sortOrder]);
 
+    let onDeletedProduct = (id)=>(console.log(id))
+    
 
     const getColumnHeader = (columnName,displayName) =>{
         return(
@@ -220,7 +221,6 @@ const Productlist = () => {
                         </Box>
                     </Box>
                 </Box>
-                
             </Box>
             <Box className="grid-cols-12 m-3 p-2 tableProductStore">
                 <NewProduct showNewProduct={showNewProduct} hiddenNewProduct={()=> setShowNewProduct(false)}/>
@@ -234,6 +234,8 @@ const Productlist = () => {
                                     <th>{getColumnHeader("brand.brandName","Brand")}</th>
                                     <th>{getColumnHeader("category.categoryName","Category")}</th>
                                     <th>{getColumnHeader("rating","Rating")}</th>
+                                    <td>Edit</td>
+                                    <td>Delete</td>
                                 </tr>
                             </thead>
                             <tbody className="tbody-product">
@@ -251,6 +253,18 @@ const Productlist = () => {
                                                 {[...Array(5-product.rating).keys()].map((n)=>{
                                                     return <i className="fa fa-star-o text-warning" key={n}></i>
                                                 })}
+                                            </td>
+                                            <td>
+                                                <Button color="success">Edit</Button>
+                                            </td>
+                                            <td>
+                                                <Button 
+                                                    onClick={()=>onDeletedProduct(product.id)}
+                                                    sx={{
+                                                        color:'warning',
+                                                    }}>
+                                                    Delete
+                                                </Button>
                                             </td>
                                         </tr>
                                     )
