@@ -1,13 +1,15 @@
-import React,{useState,useEffect,useContext,useMemo} from 'react';
+import React,{useState,useEffect,useContext,useMemo,useCallback} from 'react';
 import {UserContext} from '../../UserContext.js';
 import {BrandsService,CategoriesService,ProductService,SortService} from '../../Service.js';
 import {NavLink,useNavigate} from 'react-router-dom';
 import NewProduct from '../NewProduct/NewProduct';
+import EditProduct from '../EditProduct/EditProduct';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import "./productlist.css";
+// import { mdiTrashCanOutline } from '@mdi/js';
 
 const style = {
     position: 'absolute',
@@ -27,6 +29,7 @@ const style = {
 const Productlist = () => {
     const userContext = useContext(UserContext);
     const [products, setProducts] = useState([]);
+    const [editDataProduct, setEditDataProduct] = useState([]);
     const [search, setSearch] = useState('');
     const [sortBy, setSortBy] = useState('productName');
     const [sortOrder, setSortOrder] = useState('asc');
@@ -36,6 +39,7 @@ const Productlist = () => {
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("");
     const [showNewProduct, setShowNewProduct] = useState(false);
+    const [showEditProduct, setShowEditProduct] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [open, setOpen] = React.useState(false);
     const handleClose = () => (
@@ -86,6 +90,27 @@ const Productlist = () => {
         document.title = "Productlist"
     },[search]);
 
+    const onDeletedProduct = useCallback(async(product)=>{
+        if (window.confirm(`Are you sure to delete this ${product.productName} Basket of products?`)) {
+            let orderResponse = await fetch(`http://localhost:5000/products/${product.id}`,{method : "DELETE"})
+            if (orderResponse.ok) {
+                loadDataFromDataBase()
+            }
+        }
+    },[])
+
+    const loadDataFromDataBase = useCallback(async()=>{
+        let productResponsive = await ProductService.fetchProducts();
+        let productsResponseBody = await productResponsive.json();
+        setProducts(productsResponseBody);
+        setOriginalProducts(productsResponseBody);
+    },[])
+
+    const onEditProduct = (product) => {
+        setShowEditProduct(true)
+        setEditDataProduct(product)
+    }
+
     const onSortColumnNameClick = (e,columnName) =>{
         e.preventDefault()
         setSortBy(columnName)
@@ -98,7 +123,7 @@ const Productlist = () => {
         return originalProducts.filter(
             (prod) => prod.brand.brandName.indexOf(selectedBrand) >= 0
         )
-    },[originalProducts,selectedBrand,])
+    },[originalProducts,selectedBrand])
 
 
     const filterProductsByCategory = useMemo(() => {
@@ -118,8 +143,6 @@ const Productlist = () => {
         // setBrands([]);
     }, [filterProductsByCategory,sortBy,sortOrder]);
 
-    let onDeletedProduct = (id)=>(console.log(id))
-    
 
     const getColumnHeader = (columnName,displayName) =>{
         return(
@@ -138,6 +161,7 @@ const Productlist = () => {
             </>
         )
     }
+
 
     return(
         <Box className="grid grid-rows-12">
@@ -224,6 +248,7 @@ const Productlist = () => {
             </Box>
             <Box className="grid-cols-12 m-3 p-2 tableProductStore">
                 <NewProduct showNewProduct={showNewProduct} hiddenNewProduct={()=> setShowNewProduct(false)}/>
+                <EditProduct editDataProduct={editDataProduct} showEditProduct={showEditProduct} hiddenEditProduct={()=> setShowEditProduct(false)}/>
                 <Box className="content-table border-[2px] border-yellow-700 rounded-xl bg-gradient-to-r from-neutral-900 to-neutral-700  my-1 shadow">
                     <Box className="table-product p-2 rounded-xl">
                         <table className="table table-dark table-striped">
@@ -255,15 +280,19 @@ const Productlist = () => {
                                                 })}
                                             </td>
                                             <td>
-                                                <Button color="success">Edit</Button>
+                                                <Button 
+                                                    color="success"
+                                                    onClick={()=>{onEditProduct(product)}}
+                                                    >
+                                                    <i class="fa fa-edit fa-2xl"  aria-hidden="true"></i>
+                                                </Button>
                                             </td>
                                             <td>
                                                 <Button 
-                                                    onClick={()=>onDeletedProduct(product.id)}
-                                                    sx={{
-                                                        color:'warning',
-                                                    }}>
-                                                    Delete
+                                                    color='warning'
+                                                    onClick={()=>{onDeletedProduct(product)}}
+                                                    >
+                                                   <i class="fa fa-trash fa-2xl"  aria-hidden="true"></i>
                                                 </Button>
                                             </td>
                                         </tr>

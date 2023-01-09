@@ -1,0 +1,50 @@
+#demo-simple-select-label{
+    color: #f8f9fa !important;
+    font-size: small;
+}
+
+
+
+@media (max-width: 320px) {
+
+  
+
+} 
+
+@media (min-width: 321px) and (max-width: 480px) {
+   
+  
+
+}
+
+@media (min-width: 481px) and (max-width: 767px){
+
+
+    
+
+}
+
+@media (min-width: 768px) and (max-width: 900px){
+
+   
+
+
+}
+
+@media (min-width: 901px) and (max-width: 1200px){
+
+   
+    
+} 
+
+@media (min-width: 1200px){
+
+    
+
+}
+
+@media (min-width: 2560px){
+
+  
+     
+}

@@ -296,7 +296,9 @@ const Store = () => {
                         <Box sx={style.styleBox} className="content-box2">
                             <Box className="w-100 flex flex-col justify-center ">
                                 <Box sx={{margin:"0 auto",color:"#ba68c8"}}>
-                                    <Typography>
+                                    <Typography
+                                        variant="h6" component="h6"
+                                    >
                                         {showDetail.productName}
                                     </Typography>
                                 </Box>
@@ -452,7 +454,9 @@ const Store = () => {
             <Box className="main">
                 <Box className="header grid grid-cols-12 gap-2 z-[1000] px-1 py-2 bg-stone-900 rounded-lg border-[1px] border-stone-700 sticky top-[63px]">
                     <Box className="title_store border-[2px] border-stone-700 rounded-lg col-span-2 ">
-                        <Typography className="px-2 py-0.5 my-1 d-flex justify-between items-center text-orange-300">
+                        <Typography 
+                            variant="h5" component="h5"
+                            className="px-2 py-0.5 my-1 d-flex justify-between items-center text-orange-300">
                             <span>
                                 Store{" "}<i className="fa fa-shopping-bag"></i> 
                             </span>

@@ -102,21 +102,15 @@
       "price": 8900,
       "brandId": 1,
       "categoryId": 1,
-      "rating": 5,
-      "image": "Apple-iphone12pro.png",
-      "quantityInStock": 8,
-      "discount": 0
+      "rating": 5
     },
     {
       "id": 2,
       "productName": "Apple iPad Pro",
       "price": 12400,
       "brandId": 1,
-      "categoryId": 1,
-      "rating": 5,
-      "image": "ipad-pro-11.png",
-      "quantityInStock": 15,
-      "discount": 35
+      "categoryId": 2,
+      "rating": 5
     },
     {
       "id": 3,
@@ -124,10 +118,7 @@
       "price": 4500,
       "brandId": 2,
       "categoryId": 2,
-      "rating": 4,
-      "image": "camera.png",
-      "quantityInStock": 12,
-      "discount": 42
+      "rating": 4
     },
     {
       "id": 4,
@@ -135,10 +126,7 @@
       "price": 4500,
       "brandId": 2,
       "categoryId": 2,
-      "rating": 4,
-      "image": "Sony 5.1 Home Theatre.png",
-      "quantityInStock": 10,
-      "discount": 0
+      "rating": 4
     },
     {
       "id": 5,
@@ -146,10 +134,7 @@
       "price": 7780,
       "brandId": 4,
       "categoryId": 3,
-      "rating": 3,
-      "image": "Carrier-Flair.png",
-      "quantityInStock": 5,
-      "discount": 22
+      "rating": 3
     },
     {
       "id": 6,
@@ -157,10 +142,7 @@
       "price": 880,
       "brandId": 5,
       "categoryId": 2,
-      "rating": 4,
-      "image": "Dell-Monitor.png",
-      "quantityInStock": 2,
-      "discount": 23
+      "rating": 4
     },
     {
       "id": 7,
@@ -168,10 +150,7 @@
       "price": 4848,
       "brandId": 2,
       "categoryId": 1,
-      "rating": 2,
-      "image": "Sony-Xperia-Pro-I.png",
-      "quantityInStock": 7,
-      "discount": 33
+      "rating": 2
     },
     {
       "id": 8,
@@ -179,299 +158,8 @@
       "price": 2540,
       "brandId": 3,
       "categoryId": 1,
-      "rating": 2,
-      "image": "samsung-galaxy-A10.png",
-      "quantityInStock": 9,
-      "discount": 0
-    },
-    {
-      "id": 9,
-      "productName": "iphone-11-promax-1",
-      "price": 9500,
-      "brandId": 1,
-      "categoryId": 1,
-      "rating": 4,
-      "image": "iphone.png",
-      "quantityInStock": 3,
-      "discount": 8
-    },
-    {
-      "id": 10,
-      "productName": "iPhone-13-ProMax",
-      "price": 72450,
-      "brandId": 1,
-      "categoryId": 1,
-      "rating": 2,
-      "image": "iPhone-13-ProMax.png",
-      "quantityInStock": 10,
-      "discount": 95
-    },
-    {
-      "id": 11,
-      "productName": "Redmi-Note-11",
-      "price": 87625,
-      "brandId": 1,
-      "categoryId": 1,
-      "rating": 3,
-      "image": "lg-Redmi-Note-11-Pro-2.png",
-      "quantityInStock": 12,
-      "discount": 83
-    },
-    {
-      "id": 12,
-      "productName": "Xiaomi",
-      "price": 3600,
-      "brandId": 1,
-      "categoryId": 1,
-      "rating": 5,
-      "image": "Xiaomi-Mi-11-Ultra.png",
-      "quantityInStock": 14,
-      "discount": 74
-    },
-    {
-      "productName": "xxxx",
-      "price": 1005,
-      "brandId": 1,
-      "categoryId": 2,
-      "rating": 5,
-      "quantityInStock": 5,
-      "discount": 6,
-      "image": "Apple-iphone12pro.png",
-      "id": 13
+      "rating": 2
     }
   ],
-  "orders": [
-    {
-      "id": 1,
-      "userId": 2,
-      "productId": 1,
-      "quantity": 0,
-      "imageProduct": "Apple-iphone12pro.png",
-      "isPaymentCompleted": true
-    },
-    {
-      "id": 2,
-      "userId": 1,
-      "productId": 1,
-      "quantity": 2,
-      "imageProduct": "Apple-iphone12pro.png",
-      "isPaymentCompleted": true
-    },
-    {
-      "userId": 1,
-      "productId": 1,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "Apple-iphone12pro.png",
-      "id": 3
-    },
-    {
-      "userId": 1,
-      "productId": 5,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "Carrier-Flair.png",
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "productId": 1,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "Apple-iphone12pro.png",
-      "id": 5
-    },
-    {
-      "userId": 1,
-      "productId": 7,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "Sony-Xperia-Pro-I.png",
-      "id": 6
-    },
-    {
-      "userId": 1,
-      "productId": 1,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "Apple-iphone12pro.png",
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "productId": 2,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "ipad-pro-11.png",
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "productId": 2,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "ipad-pro-11.png",
-      "id": 9
-    },
-    {
-      "userId": 1,
-      "productId": 2,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "ipad-pro-11.png",
-      "id": 10
-    },
-    {
-      "userId": 1,
-      "productId": 3,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "camera.png",
-      "id": 11
-    },
-    {
-      "userId": 1,
-      "productId": 2,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "ipad-pro-11.png",
-      "id": 12
-    },
-    {
-      "userId": 1,
-      "productId": 2,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "ipad-pro-11.png",
-      "id": 13
-    },
-    {
-      "userId": 1,
-      "productId": 8,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "samsung-galaxy-A10.png",
-      "id": 14
-    },
-    {
-      "userId": 1,
-      "productId": 1,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "Apple-iphone12pro.png",
-      "id": 15
-    },
-    {
-      "userId": 1,
-      "productId": 2,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "ipad-pro-11.png",
-      "id": 16
-    },
-    {
-      "userId": 1,
-      "productId": 1,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "Apple-iphone12pro.png",
-      "id": 17
-    },
-    {
-      "userId": 1,
-      "productId": 2,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "ipad-pro-11.png",
-      "id": 18
-    },
-    {
-      "userId": 1,
-      "productId": 1,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "Apple-iphone12pro.png",
-      "id": 19
-    },
-    {
-      "userId": 1,
-      "productId": 1,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "Apple-iphone12pro.png",
-      "id": 20
-    },
-    {
-      "userId": 1,
-      "productId": 2,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "ipad-pro-11.png",
-      "id": 21
-    },
-    {
-      "userId": 1,
-      "productId": 2,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "ipad-pro-11.png",
-      "id": 22
-    },
-    {
-      "userId": 1,
-      "productId": 2,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "ipad-pro-11.png",
-      "id": 23
-    },
-    {
-      "userId": 1,
-      "productId": 1,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "Apple-iphone12pro.png",
-      "id": 24
-    },
-    {
-      "userId": 1,
-      "productId": 2,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "ipad-pro-11.png",
-      "id": 25
-    },
-    {
-      "userId": 1,
-      "productId": 3,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "camera.png",
-      "id": 26
-    },
-    {
-      "userId": 1,
-      "productId": 2,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "ipad-pro-11.png",
-      "id": 27
-    },
-    {
-      "userId": 1,
-      "productId": 2,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "ipad-pro-11.png",
-      "id": 28
-    },
-    {
-      "userId": 1,
-      "productId": 1,
-      "quantity": 2,
-      "isPaymentCompleted": false,
-      "imageProduct": "Apple-iphone12pro.png",
-      "id": 29
-    }
-  ]
+  "orders": []
 }
