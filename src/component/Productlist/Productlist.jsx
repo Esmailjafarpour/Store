@@ -31,6 +31,7 @@ const Productlist = () => {
     const [products, setProducts] = useState([]);
     const [editDataProduct, setEditDataProduct] = useState([]);
     const [search, setSearch] = useState('');
+    // const [productId, setProductId] = useState('');
     const [sortBy, setSortBy] = useState('productName');
     const [sortOrder, setSortOrder] = useState('asc');
     const [originalProducts, setOriginalProducts] = useState([]);
@@ -46,11 +47,11 @@ const Productlist = () => {
         setOpen(false)
       );
 
-    useEffect(() => {
-        if(userContext.user.role === "user") {
-            setOpen(true)
-        }
-    }, []);
+    // useEffect(() => {
+    //     if(userContext.user.role === "user") {
+    //         setOpen(true)
+    //     }
+    // }, []);
 
     useEffect(() => {
         (async () => {
@@ -90,14 +91,15 @@ const Productlist = () => {
         document.title = "Productlist"
     },[search]);
 
-    const onDeletedProduct = useCallback(async(product)=>{
-        if (window.confirm(`Are you sure to delete this ${product.productName} Basket of products?`)) {
-            let orderResponse = await fetch(`http://localhost:5000/products/${product.id}`,{method : "DELETE"})
-            if (orderResponse.ok) {
-                loadDataFromDataBase()
-            }
-        }
-    },[])
+    // const onDeletedProduct = useCallback(async(product)=>{
+    //     setProductId(product.id)
+    //     if (window.confirm(`Are you sure to delete this ${product.productName} Basket of products?`)) {
+    //         let orderResponse = await fetch(`http://localhost:5000/products/${product.id}`,{method : "DELETE"})
+    //         if (orderResponse.ok) {
+    //             loadDataFromDataBase()
+    //         }
+    //     }
+    // },[])
 
     const loadDataFromDataBase = useCallback(async()=>{
         let productResponsive = await ProductService.fetchProducts();
@@ -106,10 +108,10 @@ const Productlist = () => {
         setOriginalProducts(productsResponseBody);
     },[])
 
-    const onEditProduct = (product) => {
-        setShowEditProduct(true)
-        setEditDataProduct(product)
-    }
+    // const onEditProduct = (product) => {
+    //     setShowEditProduct(true)
+    //     setEditDataProduct(product)
+    // }
 
     const onSortColumnNameClick = (e,columnName) =>{
         e.preventDefault()
@@ -248,7 +250,7 @@ const Productlist = () => {
             </Box>
             <Box className="grid-cols-12 m-3 p-2 tableProductStore">
                 <NewProduct showNewProduct={showNewProduct} hiddenNewProduct={()=> setShowNewProduct(false)}/>
-                <EditProduct editDataProduct={editDataProduct} showEditProduct={showEditProduct} hiddenEditProduct={()=> setShowEditProduct(false)}/>
+                {/* <EditProduct editDataProduct={editDataProduct} showEditProduct={showEditProduct} hiddenEditProduct={()=> setShowEditProduct(false)}/> */}
                 <Box className="content-table border-[2px] border-yellow-700 rounded-xl bg-gradient-to-r from-neutral-900 to-neutral-700  my-1 shadow">
                     <Box className="table-product p-2 rounded-xl">
                         <table className="table table-dark table-striped">
@@ -282,7 +284,7 @@ const Productlist = () => {
                                             <td>
                                                 <Button 
                                                     color="success"
-                                                    onClick={()=>{onEditProduct(product)}}
+                                                    // onClick={()=>{onEditProduct(product)}}
                                                     >
                                                     <i class="fa fa-edit fa-2xl"  aria-hidden="true"></i>
                                                 </Button>
@@ -290,7 +292,7 @@ const Productlist = () => {
                                             <td>
                                                 <Button 
                                                     color='warning'
-                                                    onClick={()=>{onDeletedProduct(product)}}
+                                                    // onClick={()=>{onDeletedProduct(product)}}
                                                     >
                                                    <i class="fa fa-trash fa-2xl"  aria-hidden="true"></i>
                                                 </Button>
