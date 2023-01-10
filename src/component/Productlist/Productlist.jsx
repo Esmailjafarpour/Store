@@ -29,7 +29,7 @@ const style = {
 const Productlist = () => {
     const userContext = useContext(UserContext);
     const [products, setProducts] = useState([]);
-    const [editDataProduct, setEditDataProduct] = useState([]);
+    // const [editDataProduct, setEditDataProduct] = useState([]);
     const [search, setSearch] = useState('');
     // const [productId, setProductId] = useState('');
     const [sortBy, setSortBy] = useState('productName');
