@@ -1,0 +1,244 @@
+{
+  "users": [
+    {
+      "email": "naderjafarpour@gmail.com",
+      "password": "ASDzxc12",
+      "fullName": "Nader",
+      "dateOfBrith": "2022-12-13",
+      "gender": "male",
+      "country": "3",
+      "recieveNewsLetters": true,
+      "role": "admin",
+      "imageUser": "user4.png",
+      "id": 1
+    },
+    {
+      "email": "esmailjafarpour29@gmail.com",
+      "password": "123ASDzxc",
+      "fullName": "Esmail",
+      "dateOfBrith": "2022-12-13",
+      "gender": "male",
+      "country": "8",
+      "recieveNewsLetters": true,
+      "role": "user",
+      "imageUser": "user4.png",
+      "id": 2,
+      "orders": [
+        {
+          "id": 1,
+          "productId": 1,
+          "productName": "Apple iPhone",
+          "quantity": 10,
+          "isPaymentCompleted": false,
+          "imageProduct": "Apple-iphone12pro.png"
+        },
+        {
+          "id": 6,
+          "productId": 6,
+          "productName": "Dell Monitor",
+          "quantity": 2,
+          "isPaymentCompleted": false,
+          "imageProduct": "Dell-Monitor.png"
+        },
+        {
+          "id": 3,
+          "productId": 3,
+          "productName": "Sony Camera",
+          "quantity": 8,
+          "isPaymentCompleted": false,
+          "imageProduct": "camera.png"
+        },
+        {
+          "id": 2,
+          "productId": 2,
+          "productName": "Apple iPad Pro",
+          "quantity": 6,
+          "isPaymentCompleted": false,
+          "imageProduct": "ipad-pro-11.png"
+        }
+      ]
+    },
+    {
+      "email": "farzadyazdanpanah@gmail.com",
+      "password": "123zxcASD",
+      "fullName": "Farzad",
+      "dateOfBrith": "2022-12-13",
+      "gender": "male",
+      "country": "8",
+      "recieveNewsLetters": false,
+      "role": "user",
+      "imageUser": "user2.png",
+      "id": 3
+    },
+    {
+      "email": "mohammadSadat@gmail.com",
+      "password": "123ASDzxc",
+      "fullName": "Mohammad",
+      "dateOfBrith": "2022-12-13",
+      "gender": "male",
+      "country": "6",
+      "recieveNewsLetters": "",
+      "role": "user",
+      "imageUser": "user3.png",
+      "id": 4
+    }
+  ],
+  "brands": [
+    {
+      "id": 1,
+      "brandName": "Apple",
+      "brandImage": "Apple.png"
+    },
+    {
+      "id": 2,
+      "brandName": "Sony",
+      "brandImage": "Sony.png"
+    },
+    {
+      "id": 3,
+      "brandName": "Samsung",
+      "brandImage": "Samsung-logo.png"
+    },
+    {
+      "id": 4,
+      "brandName": "Carrier",
+      "brandImage": "Carrier.png"
+    },
+    {
+      "id": 5,
+      "brandName": "Dell",
+      "brandImage": "Dell.png"
+    },
+    {
+      "id": 6,
+      "brandName": "Xiaomi",
+      "brandImage": "xiaomi.png"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "categoryName": "Mobile"
+    },
+    {
+      "id": 2,
+      "categoryName": "Electronics"
+    },
+    {
+      "id": 3,
+      "categoryName": "Appliances"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "productName": "Apple iPhone",
+      "price": 8900,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 5,
+      "image": "Apple-iphone12pro.png",
+      "quantityInStock": 8,
+      "discount": 0
+    },
+    {
+      "productName": "Apple iPad Pro",
+      "price": 12400,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 3,
+      "quantityInStock": 15,
+      "discount": 35,
+      "image": "ipad-pro-11.png",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "productName": "Sony Camera",
+      "price": 4500,
+      "brandId": 2,
+      "categoryId": 2,
+      "rating": 4,
+      "image": "camera.png",
+      "quantityInStock": 12,
+      "discount": 42
+    },
+    {
+      "id": 4,
+      "productName": "Sony 5.1 Home Theatre",
+      "price": 4500,
+      "brandId": 2,
+      "categoryId": 2,
+      "rating": 4,
+      "image": "Sony 5.1 Home Theatre.png",
+      "quantityInStock": 10,
+      "discount": 0
+    },
+    {
+      "id": 5,
+      "productName": "Carrier 2 Ton Air Conditioner",
+      "price": 7780,
+      "brandId": 4,
+      "categoryId": 3,
+      "rating": 3,
+      "image": "Carrier-Flair.png",
+      "quantityInStock": 5,
+      "discount": 22
+    },
+    {
+      "id": 6,
+      "productName": "Dell Monitor",
+      "price": 880,
+      "brandId": 4,
+      "categoryId": 2,
+      "rating": 4,
+      "image": "Dell-Monitor.png",
+      "quantityInStock": 2,
+      "discount": 23
+    },
+    {
+      "id": 7,
+      "productName": "Sony Mobile Phone",
+      "price": 4848,
+      "brandId": 2,
+      "categoryId": 1,
+      "rating": 2,
+      "image": "Sony-Xperia-Pro-I.png",
+      "quantityInStock": 7,
+      "discount": 33,
+      "brand": {
+        "id": 2,
+        "brandName": "Sony",
+        "brandImage": "Sony.png"
+      },
+      "category": {
+        "id": 1,
+        "categoryName": "Mobile"
+      },
+      "isOrdered": false
+    },
+    {
+      "id": 8,
+      "productName": "Samsung Mobile Phone",
+      "price": 2540,
+      "brandId": 3,
+      "categoryId": 1,
+      "rating": 2,
+      "image": "samsung-galaxy-A10.png",
+      "quantityInStock": 9,
+      "discount": 0
+    },
+    {
+      "id": 9,
+      "productName": "Redmi-Note-11",
+      "price": 87625,
+      "brandId": 1,
+      "categoryId": 1,
+      "rating": 5,
+      "image": "lg-Redmi-Note-11-Pro-2.png",
+      "quantityInStock": 12,
+      "discount": 83
+    }
+  ],
+  "orders": []
+}

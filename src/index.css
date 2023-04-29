@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{ 
+    box-sizing: border-box !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    cursor: pointer;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(148, 147, 147); 
+    border-radius: 8px;
+    cursor: pointer;
+    
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    margin: 2px 0;
+    background: rgb(180, 180, 180); 
+    border-radius: 8px;
+    border: 1px solid rgb(44, 44, 44); 
+    cursor: pointer;
+    
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    margin: 2px 0;
+    background: rgb(44, 44, 44); 
+    border-radius: 8px;
+    border: 1px solid rgb(121, 119, 119);
+    cursor: pointer;
+  }
+
+body{
+    background-color: #000000 !important;
+    padding: 0 8px;
+}
+
+.container-fluid{
+    display: grid;
+    grid-column: span 12 / span 12;
+}
+
+.title{
+    border: 2px solid #5a4600;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+li{
+    list-style-type: none;
+}
+
+i{
+    margin-right: 0.3rem;
+}
+
+
+.main{
+    position: relative;
+}
+
+.header{
+    background-color: #282930;
+    color: wheat;
+    position: relative;
+    top: 1px;
+    z-index: 999 !important;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.btn-card{
+    background-color: #f8f9fa !important;
+    color: #7c3811 !important;
+    border: 2px solid #c5c4c0 !important;
+    font-weight: 600 !important;
+    transition: all .6s ease-in-out;
+}
+
+.btn-card:hover{
+    background-color: #d1a05b !important;
+    color: #ffffff !important;
+    border: 2px solid #c5c4c0 !important;
+   
+}
+
+.card-product{
+    color: #ddbe85 !important;
+    border: 2px solid #605f5f !important;
+}
+
+.title-filter{
+    color: aliceblue;
+    padding: 5px 0;
+    margin: 5px 0;
+}
+
+.card-body{
+    border: 2px solid #5a4600 !important;
+    background-color: black;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+@media (max-width: 320px) {
+
+} 
+
+@media (min-width: 321px) and (max-width: 480px) {
+ 
+}
+
+@media (min-width: 481px) and (max-width: 767px){
+
+}
+
+@media (min-width: 768px) and (max-width: 900px){
+
+}

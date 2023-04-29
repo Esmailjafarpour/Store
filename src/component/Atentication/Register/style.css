@@ -1,0 +1,165 @@
+.title-register{
+    color:wheat; 
+    letter-spacing: 3px; 
+}
+
+.form-register{
+    border: 2px solid #5a4600 !important;
+    background-color: black;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.input-register{
+    background-color: #414246 !important;
+    color: #ddbe85 !important;
+    border: 2px solid #605f5f !important;
+}
+
+.selected{
+    background-color: #414246 !important;
+    color: #ddbe85 !important;
+    border: 2px solid #605f5f !important;
+}
+
+@media (max-width: 320px) {
+
+    .row-register{
+        width: 100%;
+    }
+
+    .title-register{
+        font-size: 20px !important;
+    }
+
+    label{
+        font-size: 12px;
+    }
+
+    .email_register label,.password_register label,.fullName_register label,.dateOfBrith_register label,.gender_register label,.country_register label,.recive_register label{
+        font-size: 10px;
+        color: #e3b155 !important;
+        margin-bottom: 5px;
+    }
+
+
+} 
+
+@media (min-width: 320px) and (max-width: 480px) {
+   
+    .title-register{
+        font-size: 20px !important;
+    }
+
+    label{
+        font-size: 14px;
+    }
+
+    .email_register label,.password_register label,.fullName_register label,.dateOfBrith_register label,.gender_register label,.country_register label,.recive_register label{
+        font-size: 12px;
+        color: #e3b155 !important;
+        margin-bottom: 5px;
+    }
+
+}
+
+@media (min-width: 480px) and (max-width: 768px){
+
+    .row-register{
+        /* width: 80%; */
+    }
+
+    .row-register div{
+        /* margin: 0 auto; */
+    }
+
+    label{
+        font-size: 14px;
+    }
+
+    .title-register{
+        font-size: 20px !important;
+    }
+
+    .email_register label,.password_register label,.fullName_register label,.dateOfBrith_register label,.gender_register label,.country_register label,.recive_register label{
+        font-size: 14px;
+        color: #e3b155 !important;
+        margin-bottom: 5px;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 900px){
+
+    .row-register{
+        width: 80% !important;
+    }
+
+    .row-register div{
+       width: 100% !important;
+    }
+
+    .title-register{
+        font-size: 20px !important;
+    }
+
+    .email_register label,.password_register label,.fullName_register label,.dateOfBrith_register label,.gender_register label,.country_register label,.recive_register label{
+        font-size: 13px;
+        color: #e3b155 !important;
+        margin-bottom: 5px;
+    }
+
+
+}
+
+@media (min-width: 900px) and (max-width: 1200px){
+
+    .row-register{
+        width: 60% !important;
+    }
+
+    .row-register div{
+       width: 100% !important;
+    }
+
+    .title-register{
+        font-size: 20px !important;
+    }
+
+    .email_register label,.password_register label,.fullName_register label,.dateOfBrith_register label,.gender_register label,.country_register label,.recive_register label{
+        font-size: 14px;
+        color: #e3b155 !important;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+    
+} 
+
+@media (min-width: 1200px){
+
+    .row-register{
+        width: 60% !important;
+    }
+
+    .row-register div{
+       width: 100% !important;
+    }
+
+    .title-register{
+        font-size: 20px !important;
+    }
+
+    .email_register label,.password_register label,.fullName_register label,.dateOfBrith_register label,.gender_register label,.country_register label,.recive_register label{
+        font-size: 18px;
+        color: #e3b155 !important;
+        margin-bottom: 5px;
+       
+    }
+
+}
+
+@media (min-width: 2560px){
+
+  
+     
+}

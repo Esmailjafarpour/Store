@@ -1,0 +1,236 @@
+nav{
+    position: fixed;
+}
+
+.navbar-header{
+    color: wheat;
+    position: sticky !important;
+    top: 0px;
+    z-index: 1000 !important;
+    word-spacing: 5px;
+    letter-spacing: 2px; 
+}
+
+.selected{
+    background-color: #414246 !important;
+    color: #ddbe85 !important;
+    border: 2px solid #605f5f !important;
+    width: 40%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-fluid{
+    display: grid;
+    grid-column: span 12 / span 12;
+}
+
+.shoppingCard{
+    height: 115px;
+    overflow-y: scroll;
+}
+
+/* .shoppingCard:hover{
+    display: block;
+    transition: all ease-in-out 1s;
+
+} */
+
+@media (max-width: 320px) {
+
+     .navbar-collapse{
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column-reverse;
+        align-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .navbar-collapse ul{
+        margin-top: 15px;
+    }
+
+    .navbar-brand{
+        font-size: 14px !important;
+        color: #e9af2c !important;
+    }
+
+    .numberShoppingCart{
+        margin: 16px 0;
+    }
+
+    .MuiModal-root .MuiBox-root{
+        width: 90%;
+    }
+
+    .header{
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        position: relative !important;
+        top: 5px;
+    }
+
+    .title_store{
+        grid-column: span 12 / span 12 !important;
+    }
+    
+    .header-search{
+        width: 100%;
+        grid-column: span 12 / span 12 !important;
+    }
+} 
+
+@media (min-width: 321px) and (max-width: 480px) {
+   
+    .navbar-collapse{
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .navbar-collapse div{
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .navbar-collapse ul{
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    .navbar-brand{
+        font-size: 16px !important;
+        color: #e9af2c !important;
+    }
+
+    .navbar-collapse ul li {
+        text-align: center;
+    }
+
+    .MuiModal-root .MuiBox-root{
+        width: 90%;
+    }
+
+    .header{
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        position: relative !important;
+        top: 5px;
+    }
+
+    .title_store{
+        grid-column: span 12 / span 12 !important;
+    }
+
+    
+    .header-search{
+        width: 100%;
+        grid-column: span 12 / span 12 !important;
+    }
+
+}
+
+@media (min-width: 480px) and (max-width: 768px){
+
+    .navbar-brand{
+        margin: 0 auto !important;
+    }
+
+    .navbar-collapse{
+        margin: 15px 0;
+        display: flex;
+        flex-direction: column-reverse;
+        position: relative;
+        padding: 0 3px;
+    }
+
+    .navbar-collapse div{
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .navbar-collapse ul{
+        margin: 10px 4px;
+        padding: 0;
+    }
+
+    .navbar-collapse button{
+        position: absolute;
+        right: 20px;
+    }
+
+    .title_store{
+        grid-column: span 3 / span 3 !important;
+    }
+    
+    .header-search{
+        width: 90%;
+        grid-column: span 9 / span 9 !important;
+        margin: 0 auto !important;
+    }
+
+    
+}
+
+@media (min-width: 768px) and (max-width: 900px){
+
+    .navbar-brand{
+        margin: 0 auto !important;
+    }
+
+    .navbar-collapse{
+        margin: 20px 0;
+    }
+
+    .title_store{
+        grid-column: span 3 / span 3 !important;
+    }
+    
+    .header-search{
+        width: 100%;
+        grid-column: span 9 / span 9 !important;
+    }
+
+}
+
+@media (min-width: 900px) and (max-width: 1200px){
+
+    .navbar-brand{
+        margin: 0 auto !important;
+    }
+
+    .navbar-collapse{
+        margin: 20px 0;
+    }
+
+    .title_store{
+        grid-column: span 3 / span 3 !important;
+    }
+    
+    .header-search{
+        width: 90% !important;
+        grid-column: span 9 / span 9 !important;
+    }
+    
+} 
+
+@media (min-width: 1200px){
+
+    .title_store{
+        grid-column: span 3 / span 3 !important;
+    }
+    
+    .header-search{
+        width: 90% !important;
+        grid-column: span 9 / span 9 !important;
+    }
+
+}
+
+@media (min-width: 2560px){
+
+  
+     
+}

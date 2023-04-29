@@ -1,0 +1,11 @@
+.not-found{
+    background-image: url("../../../public/preview.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 84vh;
+    display: block;
+    border-radius: 8px;
+    
+}
